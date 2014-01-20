@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */; };
 		31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */; };
+		31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* FirstViewController.m */; };
+		31EAFB8B188D570E0052CC79 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EAFB89188D570E0052CC79 /* FirstViewController.xib */; };
 		31FCA207188CFD17005494AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA206188CFD17005494AE /* Foundation.framework */; };
 		31FCA209188CFD17005494AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA208188CFD17005494AE /* CoreGraphics.framework */; };
 		31FCA20B188CFD17005494AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA20A188CFD17005494AE /* UIKit.framework */; };
@@ -46,6 +48,9 @@
 		3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameAdjust.m"; sourceTree = "<group>"; };
 		3199622E188D3B5400D2C46D /* UINavigationItem+CustomeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomeItem.h"; sourceTree = "<group>"; };
 		3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomeItem.m"; sourceTree = "<group>"; };
+		31EAFB87188D570E0052CC79 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		31EAFB88188D570E0052CC79 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		31EAFB89188D570E0052CC79 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		31FCA203188CFD17005494AE /* CandyShine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandyShine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FCA206188CFD17005494AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31FCA208188CFD17005494AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -206,6 +211,9 @@
 		31FCA238188D06A2005494AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31EAFB87188D570E0052CC79 /* FirstViewController.h */,
+				31EAFB88188D570E0052CC79 /* FirstViewController.m */,
+				31EAFB89188D570E0052CC79 /* FirstViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -323,6 +331,7 @@
 				31FCA23F188D09C5005494AE /* TabBarView.xib in Resources */,
 				31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */,
 				31FCA219188CFD17005494AE /* Images.xcassets in Resources */,
+				31EAFB8B188D570E0052CC79 /* FirstViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +357,7 @@
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
 				31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */,
 				31FCA213188CFD17005494AE /* main.m in Sources */,
+				31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
 				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
 			);
