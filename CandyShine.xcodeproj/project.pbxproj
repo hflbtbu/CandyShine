@@ -77,6 +77,7 @@
 		31FCA1FA188CFD17005494AE = {
 			isa = PBXGroup;
 			children = (
+				31FCA235188D05E3005494AE /* Lib */,
 				31FCA20C188CFD17005494AE /* CandyShine */,
 				31FCA225188CFD17005494AE /* CandyShineTests */,
 				31FCA205188CFD17005494AE /* Frameworks */,
@@ -107,9 +108,8 @@
 		31FCA20C188CFD17005494AE /* CandyShine */ = {
 			isa = PBXGroup;
 			children = (
-				31FCA215188CFD17005494AE /* AppDelegate.h */,
-				31FCA216188CFD17005494AE /* AppDelegate.m */,
-				31FCA218188CFD17005494AE /* Images.xcassets */,
+				31FCA238188D06A2005494AE /* AppController */,
+				31FCA237188D0670005494AE /* AppGeneral */,
 				31FCA20D188CFD17005494AE /* Supporting Files */,
 			);
 			path = CandyShine;
@@ -142,6 +142,54 @@
 				31FCA228188CFD17005494AE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		31FCA235188D05E3005494AE /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				31FCA236188D05FB005494AE /* Category */,
+			);
+			name = Lib;
+			sourceTree = "<group>";
+		};
+		31FCA236188D05FB005494AE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		31FCA237188D0670005494AE /* AppGeneral */ = {
+			isa = PBXGroup;
+			children = (
+				31FCA23A188D084E005494AE /* BaseClass */,
+				31FCA215188CFD17005494AE /* AppDelegate.h */,
+				31FCA216188CFD17005494AE /* AppDelegate.m */,
+				31FCA239188D0709005494AE /* AppDefine */,
+				31FCA218188CFD17005494AE /* Images.xcassets */,
+			);
+			name = AppGeneral;
+			sourceTree = "<group>";
+		};
+		31FCA238188D06A2005494AE /* AppController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AppController;
+			sourceTree = "<group>";
+		};
+		31FCA239188D0709005494AE /* AppDefine */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AppDefine;
+			sourceTree = "<group>";
+		};
+		31FCA23A188D084E005494AE /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = BaseClass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,7 +363,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -348,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -363,6 +411,7 @@
 				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
 				INFOPLIST_FILE = "CandyShine/CandyShine-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -376,6 +425,7 @@
 				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
 				INFOPLIST_FILE = "CandyShine/CandyShine-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -441,6 +491,7 @@
 				31FCA231188CFD17005494AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31FCA232188CFD17005494AE /* Build configuration list for PBXNativeTarget "CandyShineTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +500,7 @@
 				31FCA234188CFD17005494AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
