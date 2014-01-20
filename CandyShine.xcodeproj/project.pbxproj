@@ -1,0 +1,456 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		31FCA207188CFD17005494AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA206188CFD17005494AE /* Foundation.framework */; };
+		31FCA209188CFD17005494AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA208188CFD17005494AE /* CoreGraphics.framework */; };
+		31FCA20B188CFD17005494AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA20A188CFD17005494AE /* UIKit.framework */; };
+		31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31FCA20F188CFD17005494AE /* InfoPlist.strings */; };
+		31FCA213188CFD17005494AE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA212188CFD17005494AE /* main.m */; };
+		31FCA217188CFD17005494AE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA216188CFD17005494AE /* AppDelegate.m */; };
+		31FCA219188CFD17005494AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31FCA218188CFD17005494AE /* Images.xcassets */; };
+		31FCA220188CFD17005494AE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA21F188CFD17005494AE /* XCTest.framework */; };
+		31FCA221188CFD17005494AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA206188CFD17005494AE /* Foundation.framework */; };
+		31FCA222188CFD17005494AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA20A188CFD17005494AE /* UIKit.framework */; };
+		31FCA22A188CFD17005494AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31FCA228188CFD17005494AE /* InfoPlist.strings */; };
+		31FCA22C188CFD17005494AE /* CandyShineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA22B188CFD17005494AE /* CandyShineTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		31FCA223188CFD17005494AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 31FCA1FB188CFD17005494AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 31FCA202188CFD17005494AE;
+			remoteInfo = CandyShine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		31FCA203188CFD17005494AE /* CandyShine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandyShine.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		31FCA206188CFD17005494AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		31FCA208188CFD17005494AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		31FCA20A188CFD17005494AE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		31FCA20E188CFD17005494AE /* CandyShine-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CandyShine-Info.plist"; sourceTree = "<group>"; };
+		31FCA210188CFD17005494AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		31FCA212188CFD17005494AE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		31FCA214188CFD17005494AE /* CandyShine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CandyShine-Prefix.pch"; sourceTree = "<group>"; };
+		31FCA215188CFD17005494AE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		31FCA216188CFD17005494AE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		31FCA218188CFD17005494AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		31FCA21E188CFD17005494AE /* CandyShineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CandyShineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		31FCA21F188CFD17005494AE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		31FCA227188CFD17005494AE /* CandyShineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CandyShineTests-Info.plist"; sourceTree = "<group>"; };
+		31FCA229188CFD17005494AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		31FCA22B188CFD17005494AE /* CandyShineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CandyShineTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		31FCA200188CFD17005494AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FCA209188CFD17005494AE /* CoreGraphics.framework in Frameworks */,
+				31FCA20B188CFD17005494AE /* UIKit.framework in Frameworks */,
+				31FCA207188CFD17005494AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31FCA21B188CFD17005494AE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FCA220188CFD17005494AE /* XCTest.framework in Frameworks */,
+				31FCA222188CFD17005494AE /* UIKit.framework in Frameworks */,
+				31FCA221188CFD17005494AE /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31FCA1FA188CFD17005494AE = {
+			isa = PBXGroup;
+			children = (
+				31FCA20C188CFD17005494AE /* CandyShine */,
+				31FCA225188CFD17005494AE /* CandyShineTests */,
+				31FCA205188CFD17005494AE /* Frameworks */,
+				31FCA204188CFD17005494AE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		31FCA204188CFD17005494AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				31FCA203188CFD17005494AE /* CandyShine.app */,
+				31FCA21E188CFD17005494AE /* CandyShineTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		31FCA205188CFD17005494AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				31FCA206188CFD17005494AE /* Foundation.framework */,
+				31FCA208188CFD17005494AE /* CoreGraphics.framework */,
+				31FCA20A188CFD17005494AE /* UIKit.framework */,
+				31FCA21F188CFD17005494AE /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31FCA20C188CFD17005494AE /* CandyShine */ = {
+			isa = PBXGroup;
+			children = (
+				31FCA215188CFD17005494AE /* AppDelegate.h */,
+				31FCA216188CFD17005494AE /* AppDelegate.m */,
+				31FCA218188CFD17005494AE /* Images.xcassets */,
+				31FCA20D188CFD17005494AE /* Supporting Files */,
+			);
+			path = CandyShine;
+			sourceTree = "<group>";
+		};
+		31FCA20D188CFD17005494AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				31FCA20E188CFD17005494AE /* CandyShine-Info.plist */,
+				31FCA20F188CFD17005494AE /* InfoPlist.strings */,
+				31FCA212188CFD17005494AE /* main.m */,
+				31FCA214188CFD17005494AE /* CandyShine-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		31FCA225188CFD17005494AE /* CandyShineTests */ = {
+			isa = PBXGroup;
+			children = (
+				31FCA22B188CFD17005494AE /* CandyShineTests.m */,
+				31FCA226188CFD17005494AE /* Supporting Files */,
+			);
+			path = CandyShineTests;
+			sourceTree = "<group>";
+		};
+		31FCA226188CFD17005494AE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				31FCA227188CFD17005494AE /* CandyShineTests-Info.plist */,
+				31FCA228188CFD17005494AE /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		31FCA202188CFD17005494AE /* CandyShine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31FCA22F188CFD17005494AE /* Build configuration list for PBXNativeTarget "CandyShine" */;
+			buildPhases = (
+				31FCA1FF188CFD17005494AE /* Sources */,
+				31FCA200188CFD17005494AE /* Frameworks */,
+				31FCA201188CFD17005494AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CandyShine;
+			productName = CandyShine;
+			productReference = 31FCA203188CFD17005494AE /* CandyShine.app */;
+			productType = "com.apple.product-type.application";
+		};
+		31FCA21D188CFD17005494AE /* CandyShineTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 31FCA232188CFD17005494AE /* Build configuration list for PBXNativeTarget "CandyShineTests" */;
+			buildPhases = (
+				31FCA21A188CFD17005494AE /* Sources */,
+				31FCA21B188CFD17005494AE /* Frameworks */,
+				31FCA21C188CFD17005494AE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31FCA224188CFD17005494AE /* PBXTargetDependency */,
+			);
+			name = CandyShineTests;
+			productName = CandyShineTests;
+			productReference = 31FCA21E188CFD17005494AE /* CandyShineTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		31FCA1FB188CFD17005494AE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = CandyWearables;
+				TargetAttributes = {
+					31FCA21D188CFD17005494AE = {
+						TestTargetID = 31FCA202188CFD17005494AE;
+					};
+				};
+			};
+			buildConfigurationList = 31FCA1FE188CFD17005494AE /* Build configuration list for PBXProject "CandyShine" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 31FCA1FA188CFD17005494AE;
+			productRefGroup = 31FCA204188CFD17005494AE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				31FCA202188CFD17005494AE /* CandyShine */,
+				31FCA21D188CFD17005494AE /* CandyShineTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		31FCA201188CFD17005494AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */,
+				31FCA219188CFD17005494AE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31FCA21C188CFD17005494AE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FCA22A188CFD17005494AE /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		31FCA1FF188CFD17005494AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
+				31FCA213188CFD17005494AE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		31FCA21A188CFD17005494AE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				31FCA22C188CFD17005494AE /* CandyShineTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31FCA224188CFD17005494AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 31FCA202188CFD17005494AE /* CandyShine */;
+			targetProxy = 31FCA223188CFD17005494AE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		31FCA20F188CFD17005494AE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31FCA210188CFD17005494AE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		31FCA228188CFD17005494AE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				31FCA229188CFD17005494AE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		31FCA22D188CFD17005494AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		31FCA22E188CFD17005494AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		31FCA230188CFD17005494AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
+				INFOPLIST_FILE = "CandyShine/CandyShine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		31FCA231188CFD17005494AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
+				INFOPLIST_FILE = "CandyShine/CandyShine-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		31FCA233188CFD17005494AE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CandyShine.app/CandyShine";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CandyShineTests/CandyShineTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		31FCA234188CFD17005494AE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CandyShine.app/CandyShine";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
+				INFOPLIST_FILE = "CandyShineTests/CandyShineTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		31FCA1FE188CFD17005494AE /* Build configuration list for PBXProject "CandyShine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31FCA22D188CFD17005494AE /* Debug */,
+				31FCA22E188CFD17005494AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		31FCA22F188CFD17005494AE /* Build configuration list for PBXNativeTarget "CandyShine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31FCA230188CFD17005494AE /* Debug */,
+				31FCA231188CFD17005494AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		31FCA232188CFD17005494AE /* Build configuration list for PBXNativeTarget "CandyShineTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				31FCA233188CFD17005494AE /* Debug */,
+				31FCA234188CFD17005494AE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 31FCA1FB188CFD17005494AE /* Project object */;
+}
