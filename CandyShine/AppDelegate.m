@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TabBarView.h"
 
 @implementation AppDelegate
 
@@ -15,6 +16,20 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    NSMutableArray *vcArrays = [NSMutableArray arrayWithCapacity:4];
+    for (int i = 0; i < 4; i++) {
+        BaseViewController *base = [[BaseViewController alloc] init];
+        base.title = [NSString stringWithFormat:@"Page%d",i+1];
+        BaseNavigationController *baseVC = [[BaseNavigationController alloc] initWithRootViewController:base];
+        [vcArrays addObject:baseVC];
+    }
+    UITabBarController *tabBarVC = [[UITabBarController alloc] init];
+    tabBarVC.viewControllers = vcArrays;
+    TabBarView *tabBarView = [UIXib viewWithXib:@"TabBarView"];
+    [tabBarVC.tabBar addSubview:tabBarView];
+    
+    self.window.rootViewController = tabBarVC;
     [self.window makeKeyAndVisible];
     return YES;
 }

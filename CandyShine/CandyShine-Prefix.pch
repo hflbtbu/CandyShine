@@ -13,4 +13,15 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
+
+
+    #import "UIXib.h"
+
+
+    #import "UIButton+SetEdge.h"
+
+#import "BaseNavigationController.h"
+#import "BaseViewController.h"
+
+#import "MacroDefine.h"
 #endif

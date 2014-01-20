@@ -19,6 +19,12 @@
 		31FCA222188CFD17005494AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA20A188CFD17005494AE /* UIKit.framework */; };
 		31FCA22A188CFD17005494AE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31FCA228188CFD17005494AE /* InfoPlist.strings */; };
 		31FCA22C188CFD17005494AE /* CandyShineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA22B188CFD17005494AE /* CandyShineTests.m */; };
+		31FCA23D188D0954005494AE /* TabBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA23C188D0954005494AE /* TabBarView.m */; };
+		31FCA23F188D09C5005494AE /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31FCA23E188D09C5005494AE /* TabBarView.xib */; };
+		31FCA243188D0A68005494AE /* UIXib.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA242188D0A68005494AE /* UIXib.m */; };
+		31FCA246188D0E2A005494AE /* UIButton+SetEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA245188D0E2A005494AE /* UIButton+SetEdge.m */; };
+		31FCA249188D0F22005494AE /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA248188D0F22005494AE /* BaseNavigationController.m */; };
+		31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31FCA24B188D0FA9005494AE /* BaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +54,18 @@
 		31FCA227188CFD17005494AE /* CandyShineTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CandyShineTests-Info.plist"; sourceTree = "<group>"; };
 		31FCA229188CFD17005494AE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		31FCA22B188CFD17005494AE /* CandyShineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CandyShineTests.m; sourceTree = "<group>"; };
+		31FCA23B188D0954005494AE /* TabBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarView.h; sourceTree = "<group>"; };
+		31FCA23C188D0954005494AE /* TabBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarView.m; sourceTree = "<group>"; };
+		31FCA23E188D09C5005494AE /* TabBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
+		31FCA241188D0A68005494AE /* UIXib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIXib.h; sourceTree = "<group>"; };
+		31FCA242188D0A68005494AE /* UIXib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIXib.m; sourceTree = "<group>"; };
+		31FCA244188D0E2A005494AE /* UIButton+SetEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SetEdge.h"; sourceTree = "<group>"; };
+		31FCA245188D0E2A005494AE /* UIButton+SetEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SetEdge.m"; sourceTree = "<group>"; };
+		31FCA247188D0F22005494AE /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		31FCA248188D0F22005494AE /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
+		31FCA24A188D0FA9005494AE /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		31FCA24B188D0FA9005494AE /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		31FCA24D188D113C005494AE /* MacroDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MacroDefine.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +126,8 @@
 		31FCA20C188CFD17005494AE /* CandyShine */ = {
 			isa = PBXGroup;
 			children = (
-				31FCA238188D06A2005494AE /* AppController */,
-				31FCA237188D0670005494AE /* AppGeneral */,
+				31FCA238188D06A2005494AE /* Controller */,
+				31FCA237188D0670005494AE /* General */,
 				31FCA20D188CFD17005494AE /* Supporting Files */,
 			);
 			path = CandyShine;
@@ -155,41 +173,61 @@
 		31FCA236188D05FB005494AE /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				31FCA244188D0E2A005494AE /* UIButton+SetEdge.h */,
+				31FCA245188D0E2A005494AE /* UIButton+SetEdge.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
 		};
-		31FCA237188D0670005494AE /* AppGeneral */ = {
+		31FCA237188D0670005494AE /* General */ = {
 			isa = PBXGroup;
 			children = (
-				31FCA23A188D084E005494AE /* BaseClass */,
+				31FCA240188D0A33005494AE /* Tool */,
 				31FCA215188CFD17005494AE /* AppDelegate.h */,
 				31FCA216188CFD17005494AE /* AppDelegate.m */,
-				31FCA239188D0709005494AE /* AppDefine */,
+				31FCA23A188D084E005494AE /* BaseClass */,
+				31FCA239188D0709005494AE /* Define */,
 				31FCA218188CFD17005494AE /* Images.xcassets */,
 			);
-			name = AppGeneral;
+			name = General;
 			sourceTree = "<group>";
 		};
-		31FCA238188D06A2005494AE /* AppController */ = {
+		31FCA238188D06A2005494AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = AppController;
+			name = Controller;
 			sourceTree = "<group>";
 		};
-		31FCA239188D0709005494AE /* AppDefine */ = {
+		31FCA239188D0709005494AE /* Define */ = {
 			isa = PBXGroup;
 			children = (
+				31FCA24D188D113C005494AE /* MacroDefine.h */,
 			);
-			name = AppDefine;
+			name = Define;
 			sourceTree = "<group>";
 		};
 		31FCA23A188D084E005494AE /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
+				31FCA23B188D0954005494AE /* TabBarView.h */,
+				31FCA23C188D0954005494AE /* TabBarView.m */,
+				31FCA23E188D09C5005494AE /* TabBarView.xib */,
+				31FCA247188D0F22005494AE /* BaseNavigationController.h */,
+				31FCA248188D0F22005494AE /* BaseNavigationController.m */,
+				31FCA24A188D0FA9005494AE /* BaseViewController.h */,
+				31FCA24B188D0FA9005494AE /* BaseViewController.m */,
 			);
 			name = BaseClass;
+			sourceTree = "<group>";
+		};
+		31FCA240188D0A33005494AE /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				31FCA241188D0A68005494AE /* UIXib.h */,
+				31FCA242188D0A68005494AE /* UIXib.m */,
+			);
+			name = Tool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31FCA23F188D09C5005494AE /* TabBarView.xib in Resources */,
 				31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */,
 				31FCA219188CFD17005494AE /* Images.xcassets in Resources */,
 			);
@@ -287,8 +326,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31FCA23D188D0954005494AE /* TabBarView.m in Sources */,
+				31FCA246188D0E2A005494AE /* UIButton+SetEdge.m in Sources */,
+				31FCA249188D0F22005494AE /* BaseNavigationController.m in Sources */,
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
 				31FCA213188CFD17005494AE /* main.m in Sources */,
+				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
+				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
