@@ -11,5 +11,4 @@
 
 #define IsIOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)
 
-
 #endif
