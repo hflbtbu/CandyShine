@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		316C8C12188E624E00D31252 /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C11188E624E00D31252 /* DragView.m */; };
 		3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */; };
 		31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */; };
 		31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* FirstViewController.m */; };
@@ -42,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		316C8C10188E624E00D31252 /* DragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragView.h; sourceTree = "<group>"; };
+		316C8C11188E624E00D31252 /* DragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragView.m; sourceTree = "<group>"; };
 		31996229188D39F400D2C46D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		3199622A188D3A2500D2C46D /* MacroDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefine.h; sourceTree = "<group>"; };
 		3199622B188D3AB200D2C46D /* UIView+FrameAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameAdjust.h"; sourceTree = "<group>"; };
@@ -104,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		316C8C0F188E623A00D31252 /* CustomeView */ = {
+			isa = PBXGroup;
+			children = (
+				316C8C10188E624E00D31252 /* DragView.h */,
+				316C8C11188E624E00D31252 /* DragView.m */,
+			);
+			name = CustomeView;
+			sourceTree = "<group>";
+		};
 		31FCA1FA188CFD17005494AE = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +210,7 @@
 		31FCA237188D0670005494AE /* General */ = {
 			isa = PBXGroup;
 			children = (
+				316C8C0F188E623A00D31252 /* CustomeView */,
 				31FCA240188D0A33005494AE /* Tool */,
 				31FCA215188CFD17005494AE /* AppDelegate.h */,
 				31FCA216188CFD17005494AE /* AppDelegate.m */,
@@ -360,6 +373,7 @@
 				31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
 				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
+				316C8C12188E624E00D31252 /* DragView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

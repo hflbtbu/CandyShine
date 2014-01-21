@@ -13,9 +13,9 @@
 - (UIBarButtonItem *)customeBarButtonItemWithImageName:(NSString *)imageName target:(id)target action:(SEL)action {
     UIBarButtonItem *barButtonItem;
     UIImage *image = [UIImage imageNamed:imageName];
-    if (IsIOS7) {
-        barButtonItem = [[UIBarButtonItem alloc] initWithImage:image landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:target action:action];
-    } else {
+//    if (IsIOS7) {
+//        barButtonItem = [[UIBarButtonItem alloc] initWithImage:image landscapeImagePhone:nil style:UIBarButtonItemStylePlain target:target action:action];
+//    } else {
         CGRect frame = CGRectMake(0, 0, image.size.width, image.size.height);
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.frame = frame;
@@ -24,7 +24,7 @@
         
         barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
         
-    }
+    //}
     return barButtonItem;
 }
 

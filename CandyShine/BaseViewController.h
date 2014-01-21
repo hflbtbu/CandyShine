@@ -10,4 +10,10 @@
 
 @interface BaseViewController : UIViewController
 
+- (IBAction)back;
+- (IBAction)dismiss;
+- (IBAction)go;
+- (void)initNavigationItem;
+
+
 @end

@@ -10,11 +10,6 @@
 
 @interface BaseViewController ()
 
-- (IBAction)back;
-- (IBAction)dismiss;
-- (IBAction)go;
-- (IBAction)initNavigationItem;
-
 @end
 
 @implementation BaseViewController
@@ -35,18 +30,23 @@
     if (self.navigationController) {
         [self initNavigationItem];
     }
-
+    
+    self.navigationController.navigationBar.translucent = NO;
+    if (IsIOS7) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+        self.extendedLayoutIncludesOpaqueBars = YES;
+    }
 }
 
-- (void)back {
+- (IBAction)back {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)go {
+- (IBAction)go {
     
 }
 
-- (void)dismiss {
+- (IBAction)dismiss {
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define KEY_WINDOW  [[UIApplication sharedApplication]keyWindow]
 #define kkBackViewHeight [UIScreen mainScreen].bounds.size.height
 #define kkBackViewWidth [UIScreen mainScreen].bounds.size.width
 
