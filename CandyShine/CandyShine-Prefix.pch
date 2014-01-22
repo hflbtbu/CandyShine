@@ -24,6 +24,7 @@
     #import "UIButton+SetEdge.h"
     #import "UIView+FrameAdjust.h"
     #import "UINavigationItem+CustomeItem.h"
+    #import "UIBezierPath+Smoothing.h"
 
 
 //Base Class

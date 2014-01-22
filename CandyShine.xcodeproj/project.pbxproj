@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		316C8C12188E624E00D31252 /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C11188E624E00D31252 /* DragView.m */; };
+		316C8C15188E9E9900D31252 /* GridPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C14188E9E9900D31252 /* GridPathView.m */; };
+		316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C17188EA5B800D31252 /* UIBezierPath+Smoothing.m */; };
 		3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */; };
 		31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */; };
 		31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* FirstViewController.m */; };
@@ -45,6 +47,10 @@
 /* Begin PBXFileReference section */
 		316C8C10188E624E00D31252 /* DragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragView.h; sourceTree = "<group>"; };
 		316C8C11188E624E00D31252 /* DragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragView.m; sourceTree = "<group>"; };
+		316C8C13188E9E9900D31252 /* GridPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPathView.h; sourceTree = "<group>"; };
+		316C8C14188E9E9900D31252 /* GridPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPathView.m; sourceTree = "<group>"; };
+		316C8C16188EA5B800D31252 /* UIBezierPath+Smoothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Smoothing.h"; sourceTree = "<group>"; };
+		316C8C17188EA5B800D31252 /* UIBezierPath+Smoothing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Smoothing.m"; sourceTree = "<group>"; };
 		31996229188D39F400D2C46D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		3199622A188D3A2500D2C46D /* MacroDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefine.h; sourceTree = "<group>"; };
 		3199622B188D3AB200D2C46D /* UIView+FrameAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameAdjust.h"; sourceTree = "<group>"; };
@@ -112,6 +118,8 @@
 			children = (
 				316C8C10188E624E00D31252 /* DragView.h */,
 				316C8C11188E624E00D31252 /* DragView.m */,
+				316C8C13188E9E9900D31252 /* GridPathView.h */,
+				316C8C14188E9E9900D31252 /* GridPathView.m */,
 			);
 			name = CustomeView;
 			sourceTree = "<group>";
@@ -203,6 +211,8 @@
 				3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */,
 				3199622E188D3B5400D2C46D /* UINavigationItem+CustomeItem.h */,
 				3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */,
+				316C8C16188EA5B800D31252 /* UIBezierPath+Smoothing.h */,
+				316C8C17188EA5B800D31252 /* UIBezierPath+Smoothing.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -366,6 +376,7 @@
 				31FCA23D188D0954005494AE /* TabBarView.m in Sources */,
 				3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */,
 				31FCA246188D0E2A005494AE /* UIButton+SetEdge.m in Sources */,
+				316C8C15188E9E9900D31252 /* GridPathView.m in Sources */,
 				31FCA249188D0F22005494AE /* BaseNavigationController.m in Sources */,
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
 				31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */,
@@ -374,6 +385,7 @@
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
 				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
 				316C8C12188E624E00D31252 /* DragView.m in Sources */,
+				316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
