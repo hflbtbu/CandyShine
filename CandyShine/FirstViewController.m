@@ -9,6 +9,9 @@
 #import "FirstViewController.h"
 #import "DragView.h"
 #import "GridPathView.h"
+#import "CirclePathView.h"
+#import "CircleTableViewCell.h"
+#import "PathTableViewCell.h"
 
 #define GapCircleAndPath 300
 
@@ -23,7 +26,14 @@
     CGFloat _offset2;
     CGFloat _offset3;
     
+    DataPattern _currentPattern;
+    
     BOOL _isInPathTableView;
+    int _currentPage;
+    
+    
+    NSArray *_testArray;
+    NSArray *_pathTest;
 }
 @end
 
@@ -73,6 +83,16 @@
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(receivePanGestureRecognizer:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
     
+    
+    _testArray = @[[NSNumber numberWithInt:100],[NSNumber numberWithInt:400],[NSNumber numberWithInt:900]];
+    
+    NSArray *array1 = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:10],[NSNumber numberWithInt:20],[NSNumber numberWithInt:0],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
+    
+    NSArray *array2 = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:20],[NSNumber numberWithInt:10],[NSNumber numberWithInt:0]];
+    
+    NSArray *array3 = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
+    _pathTest = @[array1,array2,array3];
+    
 }
 
 - (void)receivePanGestureRecognizer:(UIPanGestureRecognizer *)recognizer {
@@ -96,13 +116,14 @@
                 [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     _pathTableView.y = 0;
                 } completion:^(BOOL finished) {
+                    //_pathTableView.scrollEnabled = NO;
                     
                 }];
             } else if ((_pathTableView.y >=GapCircleAndPath - 20) || ((_pathTableView.y > 0 +20 && _pathTableView.y < GapCircleAndPath - 20) && ((_offset1 + _offset2 + _offset3) >= 0))) {
                 [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     _pathTableView.y = GapCircleAndPath;
                 } completion:^(BOOL finished) {
-                    
+                   // _pathTableView.scrollEnabled = NO;
                 }];
             }
 
@@ -131,36 +152,67 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 20;
+    if (tableView == _circleTableView) {
+        return _testArray.count;
+    } else if (tableView == _pathTableView) {
+        return _pathTest.count;
+    } else {
+        return [[_pathTest objectAtIndex:0] count];
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifer = @"CellIdentifer";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
-        cell.transform = CGAffineTransformMakeRotation(M_PI_2);
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        
-        
-        GridPathView *pathView =[[GridPathView alloc] initWithFrame:CGRectMake(0, 0, 320, 150)];
-        
-        DragView *dragView = [[DragView alloc] initWithFrame:CGRectMake(0, 300, 320, 600) fromPointY:300 toPointY:0];
-        dragView.backgroundColor = [UIColor grayColor];
-        [dragView addSubview:pathView];
-        [cell.contentView addSubview:pathView];
-        if (_pathTableView == tableView) {
-            cell.contentView.backgroundColor = [UIColor orangeColor];
+    static NSString *circleCellIdentifer = @"CircleCellIdentifer";
+    static NSString *pathCellIdentifer = @"PathCellIdentifer";
+    static NSString *friendCellIdentifer = @"FriendCellIdentifer";
+    if (tableView == _circleTableView) {
+        CircleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:circleCellIdentifer];
+        if (cell == nil) {
+            cell = [[CircleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:circleCellIdentifer];
         }
+        
+        cell.runNumbers = [[_testArray objectAtIndex:indexPath.row] intValue];
+        [cell refresh];
+        
+        return cell;
+    } else if (tableView == _pathTableView) {
+        PathTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pathCellIdentifer];
+        if (cell == nil) {
+            cell = [[PathTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:pathCellIdentifer];
+            cell.friensTableView.delegate = self;
+            cell.friensTableView.dataSource = self;
+            cell.friensTableView.tag = 1000;
+        }
+        cell.valueArray = [_pathTest objectAtIndex:indexPath.row];
+        [cell refresh];
+        
+        return cell;
+    } else {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentifer];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentifer];
+        }
+        
+        cell.textLabel.text = [NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]];
+        
+        return cell;
     }
-    
-    return cell;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    _pathTableView.contentOffset = scrollView.contentOffset;
-    _circleTableView.contentOffset = scrollView.contentOffset;
+    if (scrollView == _pathTableView || scrollView == _circleTableView) {
+        _pathTableView.contentOffset = scrollView.contentOffset;
+        _circleTableView.contentOffset = scrollView.contentOffset;
+    } else {
+        //_pathTableView.scrollEnabled = NO;
+    }
+}
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    _currentPage = _testArray.count - scrollView.contentOffset.y/self.view.width - 1;
+    PathTableViewCell *pathCell = (PathTableViewCell *)[_pathTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:scrollView.contentOffset.y/self.view.width inSection:0]];
+    [pathCell.friensTableView reloadData];
 }
 
 - (void)initNavigationItem {

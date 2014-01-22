@@ -55,24 +55,22 @@
 
             
            NSArray *values = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
-            [self strokeLineWithValues:values style:0];
+            
         }
     }
     return self;
 }
 
-- (void)strokeLineWithValues:(NSArray *)values style:(int)style {
+- (void)strokeLine {
 
-    
-    
-    if ([values count] > 0) {
+    if ([_valueArray count] > 0) {
         _path.hidden = NO;
-        
+
         UIBezierPath *path = [UIBezierPath bezierPath];
-        int value = [[values objectAtIndex:0] intValue];
+        int value = [[_valueArray objectAtIndex:0] intValue];
         [path moveToPoint:CGPointMake(0, self.height - TextSpaceY - 2*PathBorderBap - value)];
-        for (int i = 1; i < [values count]; i++) {
-            int value = [[values objectAtIndex:i] intValue];
+        for (int i = 1; i < [_valueArray count]; i++) {
+            int value = [[_valueArray objectAtIndex:i] intValue];
             [path addLineToPoint:CGPointMake(BorderGap + LineWidth + 12*i, self.height - TextSpaceY - 2*PathBorderBap - value)];
         }
         UIBezierPath *smoothing = [path smoothedPathWithGranularity:40 minY:self.height - TextSpaceY - 2*PathBorderBap - 80 maxY:self.height - TextSpaceY - 2*PathBorderBap - 0];
@@ -89,6 +87,10 @@
     } else {
         _path.hidden = YES;
     }
+}
+
+- (void)refresh {
+    [self strokeLine];
 }
 
 /*

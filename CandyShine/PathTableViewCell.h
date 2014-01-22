@@ -1,17 +1,17 @@
 //
-//  GridPathView.h
+//  PathTableViewCell.h
 //  CandyShine
 //
-//  Created by huangfulei on 14-1-21.
+//  Created by huangfulei on 14-1-22.
 //  Copyright (c) 2014年 CandyWearables. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface GridPathView : UIView
+@interface PathTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) NSMutableArray *valueArray;
-@property (nonatomic, assign) DataPattern currentPattern;
+@property (nonatomic, strong) UITableView *friensTableView;
 
 - (void)refresh;
 

@@ -26,6 +26,9 @@
     #import "UINavigationItem+CustomeItem.h"
     #import "UIBezierPath+Smoothing.h"
 
+//enum
+#import "EnumDefine.h"
+
 
 //Base Class
     #import "BaseNavigationController.h"
