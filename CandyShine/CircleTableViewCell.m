@@ -8,9 +8,11 @@
 
 #import "CircleTableViewCell.h"
 
+#define CircleTableViewCellCircleRadius 200
+
 @interface CircleTableViewCell ()
 {
-    CirclePathView *_circlePathView;
+    MoveCircleView *_circlePathView;
 }
 @end
 
@@ -23,7 +25,7 @@
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.transform = CGAffineTransformMakeRotation(M_PI_2);
-        _circlePathView = [[CirclePathView alloc] initWithFrame:CGRectMake(0, 0, 320, 320)];
+        _circlePathView = [[MoveCircleView alloc] initWithFrame:CGRectMake((self.contentView.width - CircleTableViewCellCircleRadius)/2, 30, CircleTableViewCellCircleRadius, CircleTableViewCellCircleRadius)];
         _circlePathView.progress = 0.8f;
         _circlePathView.runNumbers = 300;
         [self.contentView addSubview:_circlePathView];

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "CirclePathView.h"
+#import "MoveCircleView.h"
 
 @interface CircleTableViewCell : UITableViewCell
 

@@ -12,14 +12,19 @@
 #import "CirclePathView.h"
 #import "CircleTableViewCell.h"
 #import "PathTableViewCell.h"
+#import "MenuView.h"
 
 #define GapCircleAndPath 300
 
-@interface FirstViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface FirstViewController () <UITableViewDelegate,UITableViewDataSource,MenuViewDelegate>
 {
     UITableView *_circleTableView;
     UITableView *_pathTableView;
     UITableView *_friendsTableView;
+    
+    UIButton *_titleButton;
+    MenuView *_menuView;
+    
     
     CGFloat _prePointY;
     CGFloat _offset1;
@@ -80,8 +85,16 @@
     [self.view addSubview:_pathTableView];
     _pathTableView.scrollEnabled = YES;
     
+    _menuView = [[MenuView alloc] initWithFrame:CGRectMake((self.view.width - 100)/2, 10, 100, 100)];
+    _menuView.delegate = self;
+    _menuView.hidden = YES;
+    [self.view addSubview:_menuView];
+    
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(receivePanGestureRecognizer:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(receiveTapGestureRecognizer:)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
     
     
     _testArray = @[[NSNumber numberWithInt:100],[NSNumber numberWithInt:400],[NSNumber numberWithInt:900]];
@@ -93,6 +106,7 @@
     NSArray *array3 = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
     _pathTest = @[array1,array2,array3];
     
+    
 }
 
 - (void)receivePanGestureRecognizer:(UIPanGestureRecognizer *)recognizer {
@@ -102,7 +116,7 @@
     _offset1 = _offset2;
     _offset2 = _offset3;
     _offset3 = offset;
-    
+    _menuView.hidden = YES;
     if (recognizer.state == UIGestureRecognizerStateBegan) {
         if (touchPoint.y < _pathTableView.y) {
             _isInPathTableView = NO;
@@ -145,6 +159,12 @@
     [super viewWillAppear:animated];
     CGPoint offset = CGPointMake(0, _circleTableView.contentSize.height - self.view.frame.size.width);
     _circleTableView.contentOffset = offset;
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    //self.navigationItem.titleView.x = (self.navigationController.navigationBar.width - self.navigationItem.titleView.width);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -157,7 +177,7 @@
     } else if (tableView == _pathTableView) {
         return _pathTest.count;
     } else {
-        return [[_pathTest objectAtIndex:0] count];
+        return [[_pathTest objectAtIndex:0] count] - 10;
     }
     return 0;
 }
@@ -201,6 +221,7 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    _menuView.hidden = YES;
     if (scrollView == _pathTableView || scrollView == _circleTableView) {
         _pathTableView.contentOffset = scrollView.contentOffset;
         _circleTableView.contentOffset = scrollView.contentOffset;
@@ -216,7 +237,30 @@
 }
 
 - (void)initNavigationItem {
-    [self.navigationItem setCustomeLeftBarButtonItem:@"TabMeSelected" target:self action:@selector(back)];
+    //[self.navigationItem setCustomeLeftBarButtonItem:@"TabMeSelected" target:self action:@selector(back)];
+    
+    _titleButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
+    //_titleButton.backgroundColor = [UIColor grayColor];
+    [_titleButton setTitle:@"今天eoirtut5etet545y4" forState:UIControlStateNormal];
+    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateNormal];
+    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateSelected];
+    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateHighlighted];
+    [_titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+   // [_titleButton setEdgeCenterWithSpace:2];
+    [_titleButton addTarget:self action:@selector(showMenuView) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = _titleButton;
+}
+
+- (void)showMenuView {
+    _menuView.hidden = _menuView.hidden ? NO : YES;
+}
+
+- (void)menuViewDidSelectedDataPattern:(DataPattern)dataPattern {
+    _menuView.hidden = YES;
+}
+
+- (void)receiveTapGestureRecognizer:(UIPanGestureRecognizer *)recognizer {
+    _menuView.hidden = YES;
 }
 
 - (IBAction)go {

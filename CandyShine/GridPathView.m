@@ -38,7 +38,7 @@
             timeLB.backgroundColor =[UIColor clearColor];
             timeLB.font = [UIFont systemFontOfSize:12];
             timeLB.textColor = [UIColor grayColor];
-            timeLB.textAlignment = UITextAlignmentCenter;
+            timeLB.textAlignment = NSTextAlignmentCenter;
             timeLB.text = [NSString stringWithFormat:@"%dh",i*3];
             timeLB.center =  CGPointMake(BorderGap + space*i, frame.size.height - TextSpaceY/2);
             [self addSubview:timeLB];
@@ -54,7 +54,7 @@
             [self.layer addSublayer:_path];
 
             
-           NSArray *values = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
+           //NSArray *values = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
             
         }
     }

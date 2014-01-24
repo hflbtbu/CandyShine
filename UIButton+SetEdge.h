@@ -11,6 +11,7 @@
 @interface UIButton (SetEdge)
 
 - (void)setEdgeWithTop:(int)top Bottom:(int)bottom;
--(void)setEdgeWithLeft:(int)left Space:(int)space;
+- (void)setEdgeWithLeft:(int)left Space:(int)space;
+- (void)setEdgeCenterWithSpace:(int)space;
 
 @end

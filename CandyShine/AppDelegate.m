@@ -21,7 +21,7 @@
     NSMutableArray *vcArrays = [NSMutableArray arrayWithCapacity:4];
     for (int i = 0; i < 4; i++) {
         FirstViewController *base = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-        base.title = [NSString stringWithFormat:@"Page%d",i+1];
+        //base.title = [NSString stringWithFormat:@"Page%d",i+1];
         BaseNavigationController *baseVC = [[BaseNavigationController alloc] initWithRootViewController:base];
         [vcArrays addObject:baseVC];
     }

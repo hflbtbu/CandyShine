@@ -86,19 +86,19 @@
 
 - (void)addTextLabel {
     _gogalLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CirclePathCircleRadius, 10)];
-    _gogalLB.textAlignment = UITextAlignmentCenter;
+    _gogalLB.textAlignment = NSTextAlignmentCenter;
     _gogalLB.center = CGPointMake(self.width/2, self.height/2);
     _gogalLB.font = [UIFont systemFontOfSize:10];
     [self addSubview:_gogalLB];
     
     _runNumberLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CirclePathCircleRadius, 10)];
-    _runNumberLB.textAlignment = UITextAlignmentCenter;
+    _runNumberLB.textAlignment = NSTextAlignmentCenter;
     _runNumberLB.center = CGPointMake(self.width/2, self.height/2 - CirclePathTextGap);
     _runNumberLB.font = [UIFont systemFontOfSize:10];
     [self addSubview:_runNumberLB];
     
     _calorieLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CirclePathCircleRadius, 10)];
-    _calorieLB.textAlignment = UITextAlignmentCenter;
+    _calorieLB.textAlignment = NSTextAlignmentCenter;
     _calorieLB.center = CGPointMake(self.width/2, self.height/2 + CirclePathTextGap);
     _calorieLB.font = [UIFont systemFontOfSize:10];
     [self addSubview:_calorieLB];

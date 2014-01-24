@@ -20,5 +20,11 @@
     [self setTitleEdgeInsets:UIEdgeInsetsMake(0, -(self.titleLabel.frame.origin.x - (self.imageView.frame.size.width + self.imageView.frame.origin.x) - space)*2, 0, 0)];
 }
 
+- (void)setEdgeCenterWithSpace:(int)space {
+    int gap = (self.width - self.imageView.width - self.titleLabel.width - space)/2;
+    [self setImageEdgeInsets:UIEdgeInsetsMake(0, (self.width - (gap + self.imageView.width + self.imageView.x))*2, 0, 0)];
+    [self setTitleEdgeInsets:UIEdgeInsetsMake(0, -(self.titleLabel.x - gap)*2, 0, 0)];
+}
+
 
 @end

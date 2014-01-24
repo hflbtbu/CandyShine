@@ -10,11 +10,13 @@
 		31146226188FEBA200702F29 /* CirclePathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31146225188FEBA200702F29 /* CirclePathView.m */; };
 		31146229189001AE00702F29 /* CircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31146228189001AE00702F29 /* CircleTableViewCell.m */; };
 		3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3114622B189006AC00702F29 /* PathTableViewCell.m */; };
+		3166DD9D1891784C00AB468F /* MoveCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3166DD9C1891784C00AB468F /* MoveCircleView.m */; };
 		316C8C12188E624E00D31252 /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C11188E624E00D31252 /* DragView.m */; };
 		316C8C15188E9E9900D31252 /* GridPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C14188E9E9900D31252 /* GridPathView.m */; };
 		316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C17188EA5B800D31252 /* UIBezierPath+Smoothing.m */; };
 		3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */; };
 		31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */; };
+		31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5CE7B1890B17000C79CD6 /* MenuView.m */; };
 		31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* FirstViewController.m */; };
 		31EAFB8B188D570E0052CC79 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EAFB89188D570E0052CC79 /* FirstViewController.xib */; };
 		31FCA207188CFD17005494AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA206188CFD17005494AE /* Foundation.framework */; };
@@ -55,6 +57,8 @@
 		31146228189001AE00702F29 /* CircleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleTableViewCell.m; sourceTree = "<group>"; };
 		3114622A189006AC00702F29 /* PathTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathTableViewCell.h; sourceTree = "<group>"; };
 		3114622B189006AC00702F29 /* PathTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathTableViewCell.m; sourceTree = "<group>"; };
+		3166DD9B1891784C00AB468F /* MoveCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveCircleView.h; sourceTree = "<group>"; };
+		3166DD9C1891784C00AB468F /* MoveCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveCircleView.m; sourceTree = "<group>"; };
 		316C8C10188E624E00D31252 /* DragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragView.h; sourceTree = "<group>"; };
 		316C8C11188E624E00D31252 /* DragView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragView.m; sourceTree = "<group>"; };
 		316C8C13188E9E9900D31252 /* GridPathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridPathView.h; sourceTree = "<group>"; };
@@ -67,6 +71,8 @@
 		3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameAdjust.m"; sourceTree = "<group>"; };
 		3199622E188D3B5400D2C46D /* UINavigationItem+CustomeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomeItem.h"; sourceTree = "<group>"; };
 		3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomeItem.m"; sourceTree = "<group>"; };
+		31B5CE7A1890B17000C79CD6 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		31B5CE7B1890B17000C79CD6 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		31EAFB87188D570E0052CC79 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		31EAFB88188D570E0052CC79 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
 		31EAFB89188D570E0052CC79 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
@@ -132,10 +138,14 @@
 				316C8C14188E9E9900D31252 /* GridPathView.m */,
 				31146224188FEBA200702F29 /* CirclePathView.h */,
 				31146225188FEBA200702F29 /* CirclePathView.m */,
+				3166DD9B1891784C00AB468F /* MoveCircleView.h */,
+				3166DD9C1891784C00AB468F /* MoveCircleView.m */,
 				31146227189001AE00702F29 /* CircleTableViewCell.h */,
 				31146228189001AE00702F29 /* CircleTableViewCell.m */,
 				3114622A189006AC00702F29 /* PathTableViewCell.h */,
 				3114622B189006AC00702F29 /* PathTableViewCell.m */,
+				31B5CE7A1890B17000C79CD6 /* MenuView.h */,
+				31B5CE7B1890B17000C79CD6 /* MenuView.m */,
 			);
 			name = CustomeView;
 			sourceTree = "<group>";
@@ -395,9 +405,11 @@
 				31146229189001AE00702F29 /* CircleTableViewCell.m in Sources */,
 				31FCA246188D0E2A005494AE /* UIButton+SetEdge.m in Sources */,
 				316C8C15188E9E9900D31252 /* GridPathView.m in Sources */,
+				31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */,
 				31FCA249188D0F22005494AE /* BaseNavigationController.m in Sources */,
 				31146226188FEBA200702F29 /* CirclePathView.m in Sources */,
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
+				3166DD9D1891784C00AB468F /* MoveCircleView.m in Sources */,
 				31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */,
 				31FCA213188CFD17005494AE /* main.m in Sources */,
 				31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */,
