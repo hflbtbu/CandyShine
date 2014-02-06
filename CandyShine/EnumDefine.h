@@ -15,4 +15,11 @@ typedef NS_ENUM(NSInteger, DataPattern) {
 };
 
 
+typedef NS_ENUM(NSInteger, CellPosition) {
+    CellPositionTop,
+    CellPositionMiddle,
+    CellPositionBottom,
+};
+
+
 #endif

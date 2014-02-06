@@ -12,6 +12,7 @@
 		3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3114622B189006AC00702F29 /* PathTableViewCell.m */; };
 		312C440118A3B9A4006CE7D1 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C440018A3B9A4006CE7D1 /* UIColor+Addition.m */; };
 		312C440718A3D0C9006CE7D1 /* DetailTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C440618A3D0C9006CE7D1 /* DetailTextView.m */; };
+		312C440A18A3F41E006CE7D1 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C440918A3F41E006CE7D1 /* FriendCell.m */; };
 		3166DD9D1891784C00AB468F /* MoveCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3166DD9C1891784C00AB468F /* MoveCircleView.m */; };
 		316C8C12188E624E00D31252 /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C11188E624E00D31252 /* DragView.m */; };
 		316C8C15188E9E9900D31252 /* GridPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C14188E9E9900D31252 /* GridPathView.m */; };
@@ -63,6 +64,8 @@
 		312C440018A3B9A4006CE7D1 /* UIColor+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Addition.m"; sourceTree = "<group>"; };
 		312C440518A3D0C9006CE7D1 /* DetailTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTextView.h; sourceTree = "<group>"; };
 		312C440618A3D0C9006CE7D1 /* DetailTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTextView.m; sourceTree = "<group>"; };
+		312C440818A3F41E006CE7D1 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
+		312C440918A3F41E006CE7D1 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
 		3166DD9B1891784C00AB468F /* MoveCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveCircleView.h; sourceTree = "<group>"; };
 		3166DD9C1891784C00AB468F /* MoveCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveCircleView.m; sourceTree = "<group>"; };
 		316C8C10188E624E00D31252 /* DragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragView.h; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 				31B5CE7B1890B17000C79CD6 /* MenuView.m */,
 				312C440518A3D0C9006CE7D1 /* DetailTextView.h */,
 				312C440618A3D0C9006CE7D1 /* DetailTextView.m */,
+				312C440818A3F41E006CE7D1 /* FriendCell.h */,
+				312C440918A3F41E006CE7D1 /* FriendCell.m */,
 			);
 			name = CustomeView;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
 				3166DD9D1891784C00AB468F /* MoveCircleView.m in Sources */,
 				31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */,
+				312C440A18A3F41E006CE7D1 /* FriendCell.m in Sources */,
 				31FCA213188CFD17005494AE /* main.m in Sources */,
 				31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
