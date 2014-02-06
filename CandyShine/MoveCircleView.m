@@ -7,8 +7,9 @@
 //
 
 #import "MoveCircleView.h"
+#import "DetailTextView.h"
 
-#define CirclePathTextGap 30
+#define CircleWidth 20
 #define CirclePathCircleRadius 100
 
 
@@ -19,7 +20,9 @@
     
     UILabel *_runNumberLB;
     UILabel *_gogalLB;
-    UILabel *_calorieLB;
+    UIView *_lineView;
+    DetailTextView *_calorieLB;
+    UILabel *_freshLB;
     
     BOOL _isSyn;
 }
@@ -47,23 +50,45 @@
 }
 
 - (void)addTextLabel {
-    _gogalLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CirclePathCircleRadius, 10)];
+    CGSize size;
+    
+    _gogalLB = [[UILabel alloc] init];
     _gogalLB.textAlignment = NSTextAlignmentCenter;
-    _gogalLB.center = CGPointMake(self.width/2, self.height/2);
-    _gogalLB.font = [UIFont systemFontOfSize:10];
+    _gogalLB.font = [UIFont systemFontOfSize:15];
+    _gogalLB.textColor = [UIColor convertHexColorToUIColor:0x333333];
+    _gogalLB.text = @"12";
+    size = [_gogalLB.text sizeWithFont:_gogalLB.font];
+    _gogalLB.frame = CGRectMake(0, self.height/2 - 10 - size.height, self.width, size.height);
     [self addSubview:_gogalLB];
     
-    _runNumberLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CirclePathCircleRadius, 10)];
+    _runNumberLB = [[UILabel alloc] init];
     _runNumberLB.textAlignment = NSTextAlignmentCenter;
-    _runNumberLB.center = CGPointMake(self.width/2, self.height/2 - CirclePathTextGap);
-    _runNumberLB.font = [UIFont systemFontOfSize:10];
+    _runNumberLB.text = @"12";
+    _runNumberLB.font = [UIFont systemFontOfSize:45];
+    _runNumberLB.textColor = [UIColor convertHexColorToUIColor:0xfeaa00];
+    size = [_runNumberLB.text sizeWithFont:_runNumberLB.font];
+    _runNumberLB.frame = CGRectMake(0, _gogalLB.y  - size.height, self.width, size.height);
     [self addSubview:_runNumberLB];
     
-    _calorieLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CirclePathCircleRadius, 10)];
-    _calorieLB.textAlignment = NSTextAlignmentCenter;
-    _calorieLB.center = CGPointMake(self.width/2, self.height/2 + CirclePathTextGap);
-    _calorieLB.font = [UIFont systemFontOfSize:10];
+    _lineView = [[UIView alloc] initWithFrame:CGRectMake((self.width - 160)/2, (self.height - 1)/2, 160, 1)];
+    _lineView.backgroundColor = [UIColor convertHexColorToUIColor:0xe5e1da];
+    [self addSubview:_lineView];
+    
+    _calorieLB = [[DetailTextView alloc] init];
+    [_calorieLB setText:@"已消耗 25克 脂肪" WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x333333]];
+    [_calorieLB setKeyWordTextArray:@[@"25克"] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xff7f00]];
+    size = [@"已消耗 25克 脂肪" sizeWithFont:[UIFont systemFontOfSize:15]];
+    _calorieLB.frame = CGRectMake((self.width - size.width)/2, self.height/2 + 10, self.width, size.height);
     [self addSubview:_calorieLB];
+    
+    _freshLB = [[UILabel alloc] init];
+    _freshLB.textAlignment = NSTextAlignmentCenter;
+    _freshLB.text = @"点击更新数据";
+    _freshLB.font = [UIFont systemFontOfSize:15];
+    _freshLB.textColor = [UIColor convertHexColorToUIColor:0xccc8c2];
+    size = [_freshLB.text sizeWithFont:_freshLB.font];
+    _freshLB.frame = CGRectMake(0, _calorieLB.y + _calorieLB.height + 20, self.width, size.height);
+    [self addSubview:_freshLB];
 }
 
 - (void)updateWithProgress:(CGFloat)progress {
@@ -97,7 +122,7 @@
         _isSyn = YES;
         _runNumberLB.hidden = NO;
         _calorieLB.hidden = NO;
-        _gogalLB.text = @"600步";
+        _gogalLB.text = @"目标 : 1200卡路里";
         
     }
 }
@@ -107,9 +132,9 @@
     
     
     if (_currentPattern == DataPatternDay) {
-        _runNumberLB.text = [NSString stringWithFormat:@"%d步",_runNumbers];
-        _gogalLB.text = [NSString stringWithFormat:@"%d步",600];
-        _calorieLB.text = [NSString stringWithFormat:@"%d卡路里",700];
+        _runNumberLB.text = [NSString stringWithFormat:@"%d",_runNumbers];
+        _gogalLB.text = [NSString stringWithFormat:@"目标 : 1200卡路里"];
+        _calorieLB.text = [NSString stringWithFormat:@"700卡路里"];
     } else {
         
     }
@@ -128,13 +153,13 @@
     /** Draw the Background **/
     
     //Create the path
-    CGContextAddArc(ctx, self.frame.size.width/2, self.frame.size.height/2, 80, 0, M_PI *2, 0);
+    CGContextAddArc(ctx, self.frame.size.width/2, self.frame.size.height/2, self.frame.size.width/2 - CircleWidth/2, 0, M_PI *2, 0);
     
     //Set the stroke color to black
-    [[UIColor grayColor]setStroke];
+    [[UIColor convertHexColorToUIColor:0xe5e1da]setStroke];
     
     //Define line width and cap
-    CGContextSetLineWidth(ctx, 17);
+    CGContextSetLineWidth(ctx, CircleWidth);
     CGContextSetLineCap(ctx, kCGLineCapButt);
     
     //draw it!
@@ -147,10 +172,10 @@
     /** Create THE MASK Image **/
     UIGraphicsBeginImageContext(self.size);
     CGContextRef imageCtx = UIGraphicsGetCurrentContext();
-    CGContextAddArc(imageCtx, self.frame.size.width/2  , self.frame.size.height/2, 80, M_PI_2,  M_PI_2 - M_PI*2*_currentProgress, 1);
+    CGContextAddArc(imageCtx, self.frame.size.width/2  , self.frame.size.height/2, self.frame.size.width/2 - CircleWidth/2, M_PI_2,  M_PI_2 - M_PI*2*_currentProgress, 1);
     [[UIColor blackColor]set];
     //define the path
-    CGContextSetLineWidth(imageCtx, 17);
+    CGContextSetLineWidth(imageCtx, CircleWidth);
     CGContextSetLineCap(imageCtx, kCGLineCapRound);
     CGContextDrawPath(imageCtx, kCGPathStroke);
     
@@ -166,9 +191,9 @@
     /** THE GRADIENT **/
     
     //list of components
-    CGFloat components[12] = {
-        1.0, 0.6, 1.0, 1.0,     // Start color - Blue
-        0.3, 1.0, 1.0, 0.4,1.0, 1.0, 1.0, 1.0 };   // End color - Violet
+    CGFloat components[8] = {
+        1.0, 0xaa/255.0, 0.0, 1.0,     // Start color - Blue
+        1.0, 0x6a/255.0, 0.0, 1.0};   // End color - Violet
     
     CGColorSpaceRef baseSpace = CGColorSpaceCreateDeviceRGB();
     CGGradientRef gradient = CGGradientCreateWithColorComponents(baseSpace, components, NULL, 2);

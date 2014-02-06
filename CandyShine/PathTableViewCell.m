@@ -26,10 +26,14 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.transform = CGAffineTransformMakeRotation(M_PI_2);
         
-        _gridPathView = [[GridPathView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.width, 150)];
+        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.width, 0.5)];
+        lineView.backgroundColor = [UIColor convertHexColorToUIColor:0xccc8c2];
+        [self.contentView addSubview:lineView];
+        
+        _gridPathView = [[GridPathView alloc] initWithFrame:CGRectMake(0, 8, self.contentView.width, 160)];
         [self.contentView addSubview:_gridPathView];
         
-        _friensTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 150, self.contentView.width, 455 - 150) style:UITableViewStylePlain];
+        _friensTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 150, self.contentView.width, 455 - 160) style:UITableViewStylePlain];
         [self.contentView addSubview:_friensTableView];
         
     }

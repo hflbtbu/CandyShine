@@ -9,13 +9,14 @@
 #import "GridPathView.h"
 
 #define BorderGap      30
-#define TextSpaceY     20
+#define TextSpaceY     8
 #define PathBorderBap  10
-#define LineWidth      1
+#define LineWidth      0.5
 
 @interface GridPathView ()
 {
     CAShapeLayer *_path;
+    CAShapeLayer *_gogalLine;
 }
 
 @end
@@ -27,36 +28,52 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        CGFloat space = (frame.size.width - 2*BorderGap)/8;
-        for (int i=0; i< 9; i++) {
-            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LineWidth, frame.size.height - TextSpaceY)];
-            line.backgroundColor = [UIColor grayColor];
-            line.center = CGPointMake(BorderGap + space*i, (frame.size.height - TextSpaceY)/2);
+        CGFloat space = (frame.size.width - 2*BorderGap)/4;
+        for (int i=0; i< 5; i++) {
+            CGSize size;
+            if (i != 2) {
+                UILabel *timeLB = [[UILabel alloc] init];
+                timeLB.font = [UIFont systemFontOfSize:13];
+                timeLB.textColor = [UIColor convertHexColorToUIColor:0xccc7c2];
+                timeLB.textAlignment = NSTextAlignmentCenter;
+                timeLB.text = [NSString stringWithFormat:@"%dh",i*6];
+                size =  [timeLB.text sizeWithFont:timeLB.font];
+                timeLB.frame = CGRectMake(0, 0, size.width, size.height);
+                timeLB.center =  CGPointMake(BorderGap + space*i, size.height/2);
+                [self addSubview:timeLB];
+            }
+            
+            UIView *line = [[UIView alloc] initWithFrame:CGRectMake(BorderGap +space*i, size.height + TextSpaceY, LineWidth, self.height - size.height - TextSpaceY)];
+            line.backgroundColor = [UIColor convertHexColorToUIColor:0xe6e1da];
             [self addSubview:line];
-            
-            UILabel *timeLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, space, TextSpaceY)];
-            timeLB.backgroundColor =[UIColor clearColor];
-            timeLB.font = [UIFont systemFontOfSize:12];
-            timeLB.textColor = [UIColor grayColor];
-            timeLB.textAlignment = NSTextAlignmentCenter;
-            timeLB.text = [NSString stringWithFormat:@"%dh",i*3];
-            timeLB.center =  CGPointMake(BorderGap + space*i, frame.size.height - TextSpaceY/2);
-            [self addSubview:timeLB];
-            
-            _path = [CAShapeLayer layer];
-            _path.contents = nil;
-            _path.frame = CGRectMake(BorderGap + LineWidth, PathBorderBap, self.width - 2*(BorderGap + LineWidth), self.height - TextSpaceY - 2*PathBorderBap);
-            _path.lineWidth = 2.0;
-            //_line.lineDashPattern = @[[NSNumber numberWithFloat:2.0],[NSNumber numberWithFloat:1.0]];
-            _path.lineCap = kCALineCapRound;
-            _path.fillColor = [[UIColor clearColor] CGColor];
-            _path.strokeColor = [[UIColor greenColor] CGColor];
-            [self.layer addSublayer:_path];
-
-            
-           //NSArray *values = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
-            
         }
+        
+        _gogalLine = [CAShapeLayer layer];
+        _gogalLine.frame = CGRectMake(0, 50, self.width, 0.5);
+        _gogalLine.lineWidth = 0.5;
+        _gogalLine.lineDashPattern =  @[[NSNumber numberWithFloat:4.0],[NSNumber numberWithFloat:4.0]];
+        _gogalLine.lineCap = kCALineCapButt;
+        _gogalLine.strokeColor = [[UIColor convertHexColorToUIColor:0xe6e1da] CGColor];
+        UIBezierPath *line = [UIBezierPath bezierPath];
+        [line moveToPoint:_gogalLine.frame.origin];
+        [line addLineToPoint:CGPointMake(_gogalLine.frame.size.width, _gogalLine.frame.origin.y)];
+        _gogalLine.path = line.CGPath;
+        [self.layer addSublayer:_gogalLine];
+        
+        _path = [CAShapeLayer layer];
+        _path.contents = nil;
+        _path.frame = CGRectMake(BorderGap + LineWidth, PathBorderBap, self.width - 2*(BorderGap + LineWidth), self.height - TextSpaceY - 2*PathBorderBap);
+        _path.lineWidth = 1.5;
+        //_line.lineDashPattern = @[[NSNumber numberWithFloat:2.0],[NSNumber numberWithFloat:1.0]];
+        _path.lineCap = kCALineCapRound;
+        _path.fillColor = [[UIColor clearColor] CGColor];
+        _path.strokeColor = [[UIColor convertHexColorToUIColor:0xffaa33] CGColor];
+        [self.layer addSublayer:_path];
+        
+        
+        
+        
+        //NSArray *values = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
     }
     return self;
 }

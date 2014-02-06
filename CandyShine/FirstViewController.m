@@ -24,6 +24,10 @@
     
     UIButton *_titleButton;
     MenuView *_menuView;
+    UILabel *_freshTimeLB;
+    
+    UIImageView *_leftImage;
+    UIImageView *_rightImage;
     
     
     CGFloat _prePointY;
@@ -71,6 +75,14 @@
     _circleTableView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_circleTableView];
     
+    _freshTimeLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, 0, 0)];
+    _freshTimeLB.font = [UIFont systemFontOfSize:12];
+    _freshTimeLB.text = @"2014.01.02 11:47";
+    _freshTimeLB.textColor = [UIColor convertHexColorToUIColor:0xccc8c2];
+    CGSize size = [_freshTimeLB.text sizeWithFont:_freshTimeLB.font];
+    _freshTimeLB.frame = CGRectMake((self.view.width - size.width)/2, 15, size.width, size.height);
+    [self.view addSubview:_freshTimeLB];
+    
     _pathTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,self.view.height, self.view.width) style:UITableViewStylePlain];
     _pathTableView.center = CGPointMake(self.view.width/2,self.view.height/2 + GapCircleAndPath);
     [_pathTableView.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
@@ -84,6 +96,16 @@
     _pathTableView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_pathTableView];
     _pathTableView.scrollEnabled = YES;
+    
+    _leftImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TabMeSelected"]];
+    _leftImage.origin = CGPointMake(10, 125);
+    _leftImage.hidden = YES;
+    [self.view addSubview:_leftImage];
+    _rightImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TabMeSelected"]];
+    _rightImage.origin = CGPointMake(self.view.width - 10 - _rightImage.width, 125);
+    _rightImage.hidden = YES;
+    [self.view addSubview:_rightImage];
+
     
     _menuView = [[MenuView alloc] initWithFrame:CGRectMake((self.view.width - 100)/2, 10, 100, 100)];
     _menuView.delegate = self;
@@ -228,6 +250,7 @@
     } else {
         //_pathTableView.scrollEnabled = NO;
     }
+    
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
@@ -236,17 +259,19 @@
     [pathCell.friensTableView reloadData];
 }
 
+
+
 - (void)initNavigationItem {
-    [self.navigationItem setCustomeLeftBarButtonItem:@"TabMeSelected" target:self action:@selector(go)];
+    //[self.navigationItem setCustomeLeftBarButtonItem:@"TabMeSelected" target:self action:@selector(go)];
     
     _titleButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
     //_titleButton.backgroundColor = [UIColor grayColor];
-    [_titleButton setTitle:@"今天eoirtut5etet545y4" forState:UIControlStateNormal];
+    [_titleButton setTitle:@"今天" forState:UIControlStateNormal];
     [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateNormal];
     [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateSelected];
     [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateHighlighted];
-    [_titleButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-   // [_titleButton setEdgeCenterWithSpace:2];
+    [_titleButton setTitleColor:[UIColor convertHexColorToUIColor:0x8c8377] forState:UIControlStateNormal];
+    [_titleButton setEdgeCenterWithSpace:5];
     [_titleButton addTarget:self action:@selector(showMenuView) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = _titleButton;
 }
