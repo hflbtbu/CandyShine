@@ -177,7 +177,7 @@
     } else if (tableView == _pathTableView) {
         return _pathTest.count;
     } else {
-        return [[_pathTest objectAtIndex:0] count] - 10;
+        return [[_pathTest objectAtIndex:0] count];
     }
     return 0;
 }
@@ -237,7 +237,7 @@
 }
 
 - (void)initNavigationItem {
-    //[self.navigationItem setCustomeLeftBarButtonItem:@"TabMeSelected" target:self action:@selector(back)];
+    [self.navigationItem setCustomeLeftBarButtonItem:@"TabMeSelected" target:self action:@selector(go)];
     
     _titleButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
     //_titleButton.backgroundColor = [UIColor grayColor];
@@ -264,7 +264,8 @@
 }
 
 - (IBAction)go {
-    UIViewController *vc = [[UIViewController alloc] init];
+    BaseViewController *vc = [[BaseViewController alloc] init];
+    vc.view.backgroundColor = [UIColor orangeColor];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

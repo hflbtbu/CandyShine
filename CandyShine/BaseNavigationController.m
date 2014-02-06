@@ -44,24 +44,26 @@
     if (IsIOS7) {
         self.interactivePopGestureRecognizer.delegate = self;
         self.delegate = self;
-    } else {
-        UIImageView *shadowImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"leftside_shadow_bg"]];
-        shadowImageView.frame = CGRectMake(-10, 0, 10, self.view.frame.size.height);
-        [self.view addSubview:shadowImageView];
-        
-        UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self
-                                                                                    action:@selector(paningGestureReceive:)];
-        [self.view addGestureRecognizer:recognizer];
-
     }
+//    else {
+//        UIImageView *shadowImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"leftside_shadow_bg"]];
+//        shadowImageView.frame = CGRectMake(-10, 0, 10, self.view.frame.size.height);
+//        [self.view addSubview:shadowImageView];
+//        
+//        UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self
+//                                                                                    action:@selector(paningGestureReceive:)];
+//        [self.view addGestureRecognizer:recognizer];
+//
+//    }
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if (IsIOS7) {
         self.interactivePopGestureRecognizer.enabled = NO;
-    } else {
-        [_screenShotsList addObject:[self capture]];
     }
+//    else {
+//        [_screenShotsList addObject:[self capture]];
+//    }
     [super pushViewController:viewController animated:animated];
 }
 
@@ -118,6 +120,11 @@
      }
      *
      */
+    
+    if (!iOS7) {
+        //lastScreenShotViewHeight = lastScreenShotViewHeight - 20;
+    }
+
     [_lastScreenShotView setFrame:CGRectMake(_startBackViewX+y,
                                             0,
                                             kkBackViewWidth,
