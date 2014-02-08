@@ -50,7 +50,7 @@
 
 - (void)setCellPosition:(CellPosition)cellPosition {
     if (cellPosition == CellPositionTop) {
-        _topLine.hidden = NO;
+        _topLine.hidden = YES;
         _middleLine.hidden = NO;
         _bottomLine.hidden = YES;
     } else if (cellPosition == CellPositionMiddle) {

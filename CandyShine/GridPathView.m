@@ -49,7 +49,7 @@
         }
         
         _gogalLine = [CAShapeLayer layer];
-        _gogalLine.frame = CGRectMake(0, 50, self.width, 0.5);
+        _gogalLine.frame = CGRectMake(0, 24, self.width, 0.5);
         _gogalLine.lineWidth = 0.5;
         _gogalLine.lineDashPattern =  @[[NSNumber numberWithFloat:4.0],[NSNumber numberWithFloat:4.0]];
         _gogalLine.lineCap = kCALineCapButt;
@@ -85,12 +85,12 @@
 
         UIBezierPath *path = [UIBezierPath bezierPath];
         int value = [[_valueArray objectAtIndex:0] intValue];
-        [path moveToPoint:CGPointMake(0, self.height - TextSpaceY - 2*PathBorderBap - value)];
+        [path moveToPoint:CGPointMake(0, self.height - TextSpaceY - 2*PathBorderBap - value - 30)];
         for (int i = 1; i < [_valueArray count]; i++) {
             int value = [[_valueArray objectAtIndex:i] intValue];
-            [path addLineToPoint:CGPointMake(BorderGap + LineWidth + 12*i, self.height - TextSpaceY - 2*PathBorderBap - value)];
+            [path addLineToPoint:CGPointMake(BorderGap + LineWidth + 12*i, self.height - TextSpaceY - 2*PathBorderBap - value -30)];
         }
-        UIBezierPath *smoothing = [path smoothedPathWithGranularity:40 minY:self.height - TextSpaceY - 2*PathBorderBap - 80 maxY:self.height - TextSpaceY - 2*PathBorderBap - 0];
+        UIBezierPath *smoothing = [path smoothedPathWithGranularity:40 minY:self.height - TextSpaceY - 2*PathBorderBap - 110 maxY:self.height - TextSpaceY - 2*PathBorderBap - 0];
         
             _path.path = smoothing.CGPath;
         

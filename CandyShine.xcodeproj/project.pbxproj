@@ -19,6 +19,9 @@
 		316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C17188EA5B800D31252 /* UIBezierPath+Smoothing.m */; };
 		3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */; };
 		31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */; };
+		31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B2D8E818A5CBD100F3A1F5 /* AddFriendViewController.m */; };
+		31B2D8EB18A5CBD100F3A1F5 /* AddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B2D8E918A5CBD100F3A1F5 /* AddFriendViewController.xib */; };
+		31B2D8EE18A5E21C00F3A1F5 /* AddFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B2D8ED18A5E21C00F3A1F5 /* AddFriendCell.m */; };
 		31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5CE7B1890B17000C79CD6 /* MenuView.m */; };
 		31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* FirstViewController.m */; };
 		31EAFB8B188D570E0052CC79 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EAFB89188D570E0052CC79 /* FirstViewController.xib */; };
@@ -80,6 +83,11 @@
 		3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameAdjust.m"; sourceTree = "<group>"; };
 		3199622E188D3B5400D2C46D /* UINavigationItem+CustomeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomeItem.h"; sourceTree = "<group>"; };
 		3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomeItem.m"; sourceTree = "<group>"; };
+		31B2D8E718A5CBD100F3A1F5 /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
+		31B2D8E818A5CBD100F3A1F5 /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
+		31B2D8E918A5CBD100F3A1F5 /* AddFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFriendViewController.xib; sourceTree = "<group>"; };
+		31B2D8EC18A5E21C00F3A1F5 /* AddFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendCell.h; sourceTree = "<group>"; };
+		31B2D8ED18A5E21C00F3A1F5 /* AddFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendCell.m; sourceTree = "<group>"; };
 		31B5CE7A1890B17000C79CD6 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		31B5CE7B1890B17000C79CD6 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		31EAFB87188D570E0052CC79 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
@@ -159,6 +167,8 @@
 				312C440618A3D0C9006CE7D1 /* DetailTextView.m */,
 				312C440818A3F41E006CE7D1 /* FriendCell.h */,
 				312C440918A3F41E006CE7D1 /* FriendCell.m */,
+				31B2D8EC18A5E21C00F3A1F5 /* AddFriendCell.h */,
+				31B2D8ED18A5E21C00F3A1F5 /* AddFriendCell.m */,
 			);
 			name = CustomeView;
 			sourceTree = "<group>";
@@ -278,6 +288,9 @@
 				31EAFB87188D570E0052CC79 /* FirstViewController.h */,
 				31EAFB88188D570E0052CC79 /* FirstViewController.m */,
 				31EAFB89188D570E0052CC79 /* FirstViewController.xib */,
+				31B2D8E718A5CBD100F3A1F5 /* AddFriendViewController.h */,
+				31B2D8E818A5CBD100F3A1F5 /* AddFriendViewController.m */,
+				31B2D8E918A5CBD100F3A1F5 /* AddFriendViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -397,6 +410,7 @@
 				31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */,
 				31FCA219188CFD17005494AE /* Images.xcassets in Resources */,
 				31EAFB8B188D570E0052CC79 /* FirstViewController.xib in Resources */,
+				31B2D8EB18A5CBD100F3A1F5 /* AddFriendViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31B2D8EE18A5E21C00F3A1F5 /* AddFriendCell.m in Sources */,
 				31FCA23D188D0954005494AE /* TabBarView.m in Sources */,
 				312C440118A3B9A4006CE7D1 /* UIColor+Addition.m in Sources */,
 				3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */,
@@ -431,6 +446,7 @@
 				31FCA213188CFD17005494AE /* main.m in Sources */,
 				31EAFB8A188D570E0052CC79 /* FirstViewController.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
+				31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */,
 				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
 				316C8C12188E624E00D31252 /* DragView.m in Sources */,
 				3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */,

@@ -15,6 +15,8 @@
 #import "FriendCell.h"
 #import "MenuView.h"
 
+#import "AddFriendViewController.h"
+
 #define GapCircleAndPath 300
 
 @interface FirstViewController () <UITableViewDelegate,UITableViewDataSource,MenuViewDelegate>
@@ -200,7 +202,7 @@
     } else if (tableView == _pathTableView) {
         return _pathTest.count;
     } else {
-        return [[_pathTest objectAtIndex:0] count];
+        return [[_pathTest objectAtIndex:0] count] +1;
     }
     return 0;
 }
@@ -209,6 +211,7 @@
     static NSString *circleCellIdentifer = @"CircleCellIdentifer";
     static NSString *pathCellIdentifer = @"PathCellIdentifer";
     static NSString *friendCellIdentifer = @"FriendCellIdentifer";
+    static NSString *friendCellIdentiferAddFriend = @"FriendCellIdentiferAddFriend";
     if (tableView == _circleTableView) {
         CircleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:circleCellIdentifer];
         if (cell == nil) {
@@ -232,6 +235,22 @@
         
         return cell;
     } else {
+        
+        if (indexPath.row == 16) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentiferAddFriend];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentiferAddFriend];
+            }
+            UIButton *addFriendButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            addFriendButton.backgroundColor = [UIColor orangeColor];
+            addFriendButton.frame = CGRectMake((cell.contentView.width - 100)/2, (cell.contentView.height - 40)/2, 100, 40);
+            [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
+            [addFriendButton addTarget:self action:@selector(go) forControlEvents:UIControlEventTouchUpInside];
+            [cell.contentView addSubview:addFriendButton];
+            return cell;
+        }
+        
+        
         FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentifer];
         if (cell == nil) {
             cell = [[FriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentifer];
@@ -252,23 +271,23 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (tableView != _circleTableView && tableView != _pathTableView) {
-        return 60;
-    }
-    return 0;
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    if (tableView != _circleTableView && tableView != _pathTableView) {
+//        return 60;
+//    }
+//    return 0;
+//
+//}
 
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (tableView != _circleTableView && tableView != _pathTableView) {
-        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
-        [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
-        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
-        return addFriendButton;
-    }
-    return nil;
-}
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+//    if (tableView != _circleTableView && tableView != _pathTableView) {
+//        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
+//        [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
+//        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
+//        return addFriendButton;
+//    }
+//    return nil;
+//}
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -318,8 +337,7 @@
 }
 
 - (IBAction)go {
-    BaseViewController *vc = [[BaseViewController alloc] init];
-    vc.view.backgroundColor = [UIColor orangeColor];
+    AddFriendViewController *vc = [[AddFriendViewController alloc] initWithNibName:@"AddFriendViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
