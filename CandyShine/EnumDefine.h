@@ -22,4 +22,10 @@ typedef NS_ENUM(NSInteger, CellPosition) {
 };
 
 
+typedef NS_ENUM(NSInteger, EditType) {
+    EditTypeModify,
+    EditTypeAdd,
+};
+
+
 #endif

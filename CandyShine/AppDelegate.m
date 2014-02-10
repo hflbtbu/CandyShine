@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TabBarView.h"
 #import "FirstViewController.h"
+#import "WaterWarmViewController.h"
 
 @implementation AppDelegate
 
@@ -17,22 +18,27 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+
     
-    NSMutableArray *vcArrays = [NSMutableArray arrayWithCapacity:4];
-    for (int i = 0; i < 4; i++) {
-        FirstViewController *base = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-        //base.title = [NSString stringWithFormat:@"Page%d",i+1];
-        BaseNavigationController *baseVC = [[BaseNavigationController alloc] initWithRootViewController:base];
-        [vcArrays addObject:baseVC];
-    }
+    FirstViewController *base = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
+    //base.title = [NSString stringWithFormat:@"Page%d",i+1];
+    BaseNavigationController *baseVC = [[BaseNavigationController alloc] initWithRootViewController:base];
+    
+    WaterWarmViewController *waterWarmViewController = [[WaterWarmViewController alloc ] initWithNibName:@"WaterWarmViewController" bundle:nil];
+    BaseNavigationController *second = [[BaseNavigationController alloc] initWithRootViewController:waterWarmViewController];
+    
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
-    tabBarVC.viewControllers = vcArrays;
+    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, second, [[UIViewController alloc] init] , [[UIViewController alloc] init],nil];
     TabBarView *tabBarView = [UIXib viewWithXib:@"TabBarView"];
     [tabBarVC.tabBar addSubview:tabBarView];
     
     self.window.rootViewController = tabBarVC;
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
