@@ -177,7 +177,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryView  = [[UISwitch alloc] init];
+        UISwitch *warmSwitch = [[UISwitch alloc] init];
+        warmSwitch.on = YES;
+        cell.accessoryView  = warmSwitch;
         cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         cell.textLabel.font = [UIFont systemFontOfSize:30];

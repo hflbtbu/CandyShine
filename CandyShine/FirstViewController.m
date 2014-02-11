@@ -295,6 +295,8 @@
     if (scrollView == _pathTableView || scrollView == _circleTableView) {
         _pathTableView.contentOffset = scrollView.contentOffset;
         _circleTableView.contentOffset = scrollView.contentOffset;
+        
+        
     } else {
         //_pathTableView.scrollEnabled = NO;
     }
@@ -303,6 +305,8 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _currentPage = _testArray.count - scrollView.contentOffset.y/self.view.width - 1;
+    [_titleButton setTitle:[DateHelper getDayStringWith:_currentPage] forState:UIControlStateNormal];
+    [_titleButton setEdgeCenterWithSpace:0];
     PathTableViewCell *pathCell = (PathTableViewCell *)[_pathTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:scrollView.contentOffset.y/self.view.width inSection:0]];
     [pathCell.friensTableView reloadData];
 }
@@ -314,12 +318,12 @@
     
     _titleButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
     //_titleButton.backgroundColor = [UIColor grayColor];
-    [_titleButton setTitle:@"今天" forState:UIControlStateNormal];
+    [_titleButton setTitle:[DateHelper getDayStringWith:0] forState:UIControlStateNormal];
     [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateNormal];
     [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateSelected];
     [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateHighlighted];
     [_titleButton setTitleColor:[UIColor convertHexColorToUIColor:0x8c8377] forState:UIControlStateNormal];
-    [_titleButton setEdgeCenterWithSpace:5];
+    [_titleButton setEdgeCenterWithSpace:0];
     [_titleButton addTarget:self action:@selector(showMenuView) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = _titleButton;
 }

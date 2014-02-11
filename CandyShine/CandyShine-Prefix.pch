@@ -16,6 +16,7 @@
 
 
     #import "UIXib.h"
+    #import "DateHelper.h"
 
 //MacroDefine
     #import "MacroDefine.h"

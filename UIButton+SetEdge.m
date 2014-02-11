@@ -21,9 +21,11 @@
 }
 
 - (void)setEdgeCenterWithSpace:(int)space {
+    [self setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [self setTitleEdgeInsets:UIEdgeInsetsMake(0,0, 0, 0)];
     int gap = (self.width - self.imageView.width - self.titleLabel.width - space)/2;
-    [self setImageEdgeInsets:UIEdgeInsetsMake(0, (self.width - (gap + self.imageView.width + self.imageView.x))*2, 0, 0)];
-    [self setTitleEdgeInsets:UIEdgeInsetsMake(0, -(self.titleLabel.x - gap)*2, 0, 0)];
+    [self setImageEdgeInsets:UIEdgeInsetsMake(0, (gap + self.titleLabel.width + space - self.imageView.x)*2, 0, 0)];
+    [self setTitleEdgeInsets:UIEdgeInsetsMake(0, (gap - self.titleLabel.x)*2, 0, 0)];
 }
 
 
