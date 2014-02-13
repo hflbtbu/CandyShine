@@ -11,5 +11,5 @@
 @interface AddFriendCell : UITableViewCell
 
 @property (nonatomic, retain) UIImageView *frinendThumberImage;
-
+@property (nonatomic, retain) UIButton *addButton;
 @end

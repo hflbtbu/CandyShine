@@ -8,8 +8,9 @@
 
 #import "AppDelegate.h"
 #import "TabBarView.h"
-#import "FirstViewController.h"
+#import "SportViewController.h"
 #import "WaterWarmViewController.h"
+#import "SleepViewController.h"
 
 @implementation AppDelegate
 
@@ -20,15 +21,18 @@
     self.window.backgroundColor = [UIColor whiteColor];
 
     
-    FirstViewController *base = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
+    SportViewController *base = [[SportViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
     //base.title = [NSString stringWithFormat:@"Page%d",i+1];
     BaseNavigationController *baseVC = [[BaseNavigationController alloc] initWithRootViewController:base];
     
     WaterWarmViewController *waterWarmViewController = [[WaterWarmViewController alloc ] initWithNibName:@"WaterWarmViewController" bundle:nil];
     BaseNavigationController *second = [[BaseNavigationController alloc] initWithRootViewController:waterWarmViewController];
     
+    SleepViewController *sleepViewController = [[SleepViewController alloc] initWithNibName:@"SleepViewController" bundle:nil];
+    BaseNavigationController *sleepNVC = [[BaseNavigationController alloc] initWithRootViewController:sleepViewController];
+    
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
-    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, second, [[UIViewController alloc] init] , [[UIViewController alloc] init],nil];
+    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, second,sleepNVC , [[UIViewController alloc] init],nil];
     TabBarView *tabBarView = [UIXib viewWithXib:@"TabBarView"];
     [tabBarVC.tabBar addSubview:tabBarView];
     

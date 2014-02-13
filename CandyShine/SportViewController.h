@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface FirstViewController : BaseViewController
+@interface SportViewController : BaseViewController
 
 @end

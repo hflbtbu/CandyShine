@@ -32,4 +32,7 @@
  */
 + (UIColor *)convertHexColorToUIColor:(NSInteger)hexColor;
 
+
++ (UIColor *)convertHexColorToUIColor:(NSInteger)hexColor alpha:(CGFloat)alpha;
+
 @end

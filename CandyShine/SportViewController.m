@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 CandyWearables. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "SportViewController.h"
 #import "DragView.h"
 #import "GridPathView.h"
 #import "CirclePathView.h"
@@ -19,7 +19,7 @@
 
 #define GapCircleAndPath 300
 
-@interface FirstViewController () <UITableViewDelegate,UITableViewDataSource,MenuViewDelegate>
+@interface SportViewController () <UITableViewDelegate,UITableViewDataSource,MenuViewDelegate>
 {
     UITableView *_circleTableView;
     UITableView *_pathTableView;
@@ -49,7 +49,7 @@
 }
 @end
 
-@implementation FirstViewController
+@implementation SportViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

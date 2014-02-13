@@ -39,7 +39,7 @@
     }
     unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
     NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:[DateHelper getDayBegainWith:day]];
-    return [NSString stringWithFormat:@"%d月%d日",components.month,components.day];
+    return [NSString stringWithFormat:@"%ld月%ld日",components.month,components.day];
 }
 
 

@@ -41,9 +41,9 @@
 - (void)initialSearchBar {
     _addFriendSearchbar.placeholder = @"输入用户名搜索";
     //_addFriendSearchbar.backgroundImage = [UIImage imageNamed:@""];
-   _addFriendSearchbar.backgroundColor = [UIColor grayColor];
+   //_addFriendSearchbar.backgroundColor = [UIColor grayColor];
     if (IsIOS7) {
-        [[[[_addFriendSearchbar.subviews objectAtIndex:0] subviews] objectAtIndex:0]removeFromSuperview];  //去掉搜索框背景
+        //[[[[_addFriendSearchbar.subviews objectAtIndex:0] subviews] objectAtIndex:0]removeFromSuperview];  //去掉搜索框背景
     } else {
         [[_addFriendSearchbar.subviews objectAtIndex:0]removeFromSuperview];  //去掉搜索框背景
     }
@@ -64,14 +64,7 @@
     AddFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
     if (cell == nil) {
         cell = [[AddFriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
-        UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        addButton.backgroundColor = [UIColor clearColor];
-        addButton.frame = CGRectMake(0, 0, 50, 20);
-        [addButton setTitle:@"添加" forState:UIControlStateNormal];
-        [addButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        [addButton setTitleColor:[UIColor grayColor ] forState:UIControlStateHighlighted];
-        //[addButton addTarget:self action:@selector(searchFriend) forControlEvents:UIControlEventTouchUpInside];
-        cell.accessoryView = addButton;
+        [cell.addButton addTarget:self action:@selector(addFriend) forControlEvents:UIControlEventTouchUpInside];
     }
     return cell;
 }
@@ -81,17 +74,21 @@
     
 }
 
+- (void)addFriend {
+    
+}
+
 #pragma mark UISearchBarDelegate
 
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar {
     [searchBar setShowsCancelButton:YES animated:YES];
     
     if (IsIOS7) {
-        UIButton *cancelButton = [[[_addFriendSearchbar.subviews objectAtIndex:0] subviews] objectAtIndex:1];
+        UIButton *cancelButton = [[[_addFriendSearchbar.subviews objectAtIndex:0] subviews] objectAtIndex:2];
         [cancelButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         cancelButton.backgroundColor = [UIColor clearColor];
     } else {
-        UIButton *cancelButton = [_addFriendSearchbar.subviews objectAtIndex:1];
+        UIButton *cancelButton = [_addFriendSearchbar.subviews objectAtIndex:2];
         [cancelButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         cancelButton.backgroundColor = [UIColor clearColor];
         [cancelButton setBackgroundImage:nil forState:UIControlStateSelected];

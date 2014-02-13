@@ -53,4 +53,11 @@ UIColor* UIColorFromHex(NSInteger colorInHex)
                            alpha:1.0];
 }
 
++ (UIColor *)convertHexColorToUIColor:(NSInteger)hexColor alpha:(CGFloat)alpha {
+    return [UIColor colorWithRed:((float) ((hexColor & 0xFF0000) >> 16)) / 0xFF
+                           green:((float) ((hexColor & 0xFF00)   >> 8))  / 0xFF
+                            blue:((float)  (hexColor & 0xFF))            / 0xFF
+                           alpha:alpha];
+}
+
 @end
