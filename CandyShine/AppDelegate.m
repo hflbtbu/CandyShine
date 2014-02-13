@@ -32,7 +32,7 @@
     BaseNavigationController *sleepNVC = [[BaseNavigationController alloc] initWithRootViewController:sleepViewController];
     
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
-    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, second,sleepNVC , [[UIViewController alloc] init],nil];
+    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, second,sleepNVC , [[UIViewController alloc] init],[[UIViewController alloc] init] ,nil];
     TabBarView *tabBarView = [UIXib viewWithXib:@"TabBarView"];
     [tabBarVC.tabBar addSubview:tabBarView];
     

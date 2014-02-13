@@ -14,7 +14,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        for (int i = 0; i<4; i++) {
+        for (int i = 0; i<5; i++) {
             UIButton *item = [[self subviews] objectAtIndex:i];
             [item setEdgeWithTop:4 Bottom:1];
         }
@@ -24,7 +24,7 @@
 
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event{
-    int selectedIndex = point.x/80;
+    int selectedIndex = point.x/64;
     UIButton *item = [[self subviews] objectAtIndex:selectedIndex];
     if (item != _selectedButton) {
         _selectedButton.selected = NO;

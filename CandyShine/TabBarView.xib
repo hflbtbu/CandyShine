@@ -12,51 +12,62 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="39Q-tr-cwR">
-                    <rect key="frame" x="0.0" y="0.0" width="80" height="49"/>
+                    <rect key="frame" x="0.0" y="0.0" width="64" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <state key="normal" title="美刊" image="TabMe">
+                    <state key="normal" title="运动" image="tabBarIcon_sport">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" image="TabMeSelected">
+                    <state key="selected" image="tabBarIcon_sport_selected">
                         <color key="titleColor" red="1" green="0.7008540338" blue="0.059244014380000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQd-xm-QEk">
-                    <rect key="frame" x="80" y="0.0" width="80" height="49"/>
+                    <rect key="frame" x="64" y="0.0" width="64" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <state key="normal" title="测试" image="TabMe">
+                    <state key="normal" title="睡眠" image="tabBarIcon_sleep">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" image="TabMeSelected">
+                    <state key="selected" image="tabBarIcon_sleep_selected">
                         <color key="titleColor" red="1" green="0.7008540338" blue="0.059244014380000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fp8-3d-Dqw">
-                    <rect key="frame" x="160" y="0.0" width="80" height="49"/>
+                    <rect key="frame" x="128" y="0.0" width="64" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <state key="normal" title="喝水" image="TabMe">
+                    <state key="normal" title="资讯" image="tabBarIcon_news">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" image="TabMeSelected">
+                    <state key="selected" image="tabBarIcon_news_selected">
                         <color key="titleColor" red="1" green="0.7008540338" blue="0.059244014380000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD6-Pq-z3P">
-                    <rect key="frame" x="240" y="0.0" width="80" height="49"/>
+                    <rect key="frame" x="192" y="0.0" width="64" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <state key="normal" title="我的" image="TabMe">
+                    <state key="normal" title="喝水" image="tabBarIcon_water">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <state key="selected" image="TabMeSelected">
+                    <state key="selected" image="tabBarIcon_water_selected">
+                        <color key="titleColor" red="1" green="0.7008540338" blue="0.059244014380000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6A7-ZQ-6X4">
+                    <rect key="frame" x="256" y="0.0" width="64" height="49"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <state key="normal" title="我" image="tabBarIcon_me">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="tabBarIcon_me_selected">
                         <color key="titleColor" red="1" green="0.7008540338" blue="0.059244014380000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" red="0.27907795880000003" green="0.72596807070000002" blue="0.2632331329" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.40000000000000002" green="0.30980392156862746" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="selectedButton" destination="39Q-tr-cwR" id="DqB-Ym-L3k"/>
@@ -64,7 +75,15 @@
         </view>
     </objects>
     <resources>
-        <image name="TabMe" width="30" height="30"/>
-        <image name="TabMeSelected" width="30" height="30"/>
+        <image name="tabBarIcon_me" width="25" height="25"/>
+        <image name="tabBarIcon_me_selected" width="25" height="25"/>
+        <image name="tabBarIcon_news" width="25" height="25"/>
+        <image name="tabBarIcon_news_selected" width="25" height="25"/>
+        <image name="tabBarIcon_sleep" width="25" height="25"/>
+        <image name="tabBarIcon_sleep_selected" width="25" height="25"/>
+        <image name="tabBarIcon_sport" width="25" height="24"/>
+        <image name="tabBarIcon_sport_selected" width="25" height="24"/>
+        <image name="tabBarIcon_water" width="25" height="25"/>
+        <image name="tabBarIcon_water_selected" width="25" height="25"/>
     </resources>
 </document>
