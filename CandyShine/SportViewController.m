@@ -39,6 +39,8 @@
     CGFloat _offset3;
     
     DataPattern _currentPattern;
+    PageMoveType _moveType;
+    
     
     BOOL _isInPathTableView;
     int _currentPage;
@@ -64,6 +66,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    _moveType = PageMoveDown;
     
     _circleTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width) style:UITableViewStylePlain];
     _circleTableView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
@@ -151,18 +155,37 @@
         
     } else if (recognizer.state == UIGestureRecognizerStateEnded){
         if (_isInPathTableView) {
+            
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 - _currentPage inSection:0];
+            PathTableViewCell *cell = (PathTableViewCell *)[_pathTableView cellForRowAtIndexPath:indexPath];
+            
+            CellPosition cellPosition;
+            if (indexPath.row == 2) {
+                cellPosition = CellPositionTop;
+            } else if (indexPath.row == 1) {
+                cellPosition = CellPositionMiddle;
+            } else {
+                cellPosition = CellPositionBottom;
+            }
+
+            
             if ((0<=_pathTableView.y && _pathTableView.y <=0 + 20) ||  ((_pathTableView.y > 0 +20 && _pathTableView.y < GapCircleAndPath - 20) && ((_offset1 + _offset2 + _offset3) < 0)) ) {
                 [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     _pathTableView.y = 0;
                 } completion:^(BOOL finished) {
                     //_pathTableView.scrollEnabled = NO;
-                    
+                    _moveType = PageMoveUp;
+                    cell.moveType = _moveType;
+                    cell.cellPosition = cellPosition;
                 }];
             } else if ((_pathTableView.y >=GapCircleAndPath - 20) || ((_pathTableView.y > 0 +20 && _pathTableView.y < GapCircleAndPath - 20) && ((_offset1 + _offset2 + _offset3) >= 0))) {
                 [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     _pathTableView.y = GapCircleAndPath;
                 } completion:^(BOOL finished) {
                    // _pathTableView.scrollEnabled = NO;
+                    _moveType = PageMoveDown;
+                    cell.moveType = _moveType;
+                    cell.cellPosition = cellPosition;
                 }];
             }
 
@@ -217,7 +240,15 @@
         if (cell == nil) {
             cell = [[CircleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:circleCellIdentifer];
         }
-        
+        CellPosition cellPosition;
+        if (indexPath.row == 2) {
+            cellPosition = CellPositionTop;
+        } else if (indexPath.row == 1) {
+            cellPosition = CellPositionMiddle;
+        } else {
+            cellPosition = CellPositionBottom;
+        }
+        cell.currentPage = cellPosition;
         cell.runNumbers = [[_testArray objectAtIndex:indexPath.row] intValue];
         [cell refresh];
         
@@ -230,6 +261,17 @@
             cell.friensTableView.dataSource = self;
             cell.friensTableView.tag = 1000;
         }
+        CellPosition cellPosition;
+        if (indexPath.row == 2) {
+            cellPosition = CellPositionTop;
+        } else if (indexPath.row == 1) {
+            cellPosition = CellPositionMiddle;
+        } else {
+            cellPosition = CellPositionBottom;
+        }
+        cell.moveType = _moveType;
+        cell.cellPosition = cellPosition;
+        
         cell.valueArray = [_pathTest objectAtIndex:indexPath.row];
         [cell refresh];
         
@@ -306,7 +348,7 @@
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _currentPage = _testArray.count - scrollView.contentOffset.y/self.view.width - 1;
     [_titleButton setTitle:[DateHelper getDayStringWith:_currentPage] forState:UIControlStateNormal];
-    [_titleButton setEdgeCenterWithSpace:0];
+    //[_titleButton setEdgeCenterWithSpace:0];
     PathTableViewCell *pathCell = (PathTableViewCell *)[_pathTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:scrollView.contentOffset.y/self.view.width inSection:0]];
     [pathCell.friensTableView reloadData];
 }
@@ -319,12 +361,12 @@
     _titleButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
     //_titleButton.backgroundColor = [UIColor grayColor];
     [_titleButton setTitle:[DateHelper getDayStringWith:0] forState:UIControlStateNormal];
-    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateNormal];
-    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateSelected];
-    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateHighlighted];
+//    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateNormal];
+//    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateSelected];
+//    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateHighlighted];
     [_titleButton setTitleColor:[UIColor convertHexColorToUIColor:0x8c8377] forState:UIControlStateNormal];
-    [_titleButton setEdgeCenterWithSpace:0];
-    [_titleButton addTarget:self action:@selector(showMenuView) forControlEvents:UIControlEventTouchUpInside];
+//    [_titleButton setEdgeCenterWithSpace:0];
+    //[_titleButton addTarget:self action:@selector(showMenuView) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = _titleButton;
 }
 

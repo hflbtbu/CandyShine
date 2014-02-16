@@ -28,4 +28,10 @@ typedef NS_ENUM(NSInteger, EditType) {
 };
 
 
+typedef NS_ENUM(NSInteger, PageMoveType) {
+    PageMoveDown,
+    PageMoveUp,
+};
+
+
 #endif

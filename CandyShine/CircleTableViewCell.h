@@ -15,6 +15,7 @@
 @property (nonatomic, assign) CGFloat progress;
 @property (nonatomic, assign) DataPattern currentPattern;
 @property (nonatomic, assign) int runNumbers;
+@property (nonatomic, assign) CellPosition currentPage;
 
 
 - (void)refresh;
