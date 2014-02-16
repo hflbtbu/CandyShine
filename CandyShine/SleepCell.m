@@ -30,4 +30,11 @@
     // Configure the view for the selected state
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGSize size = [_friendSleepPkLabel.text sizeWithFont:_friendSleepPkLabel.font];
+    _friendSleepPkLabel.size = size;
+    _friendSleepPkLabel.center = CGPointMake(self.height/2, size.height/2 + 5);
+}
+
 @end

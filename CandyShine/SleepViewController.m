@@ -59,8 +59,8 @@
         cell = [UIXib cellWithXib:@"SleepCell" style:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
     }
     
-    [cell.friendSleepPkLabel setText:[NSString stringWithFormat:@"今天超过的80%的用户"] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xccc8c2]];
-    [cell.friendSleepPkLabel setKeyWordTextArray:@[[NSString stringWithFormat:@"80%"]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xffc8c2]];
+    [cell.friendSleepPkLabel setText:[NSString stringWithFormat:@"今天超过的80%%的用户"] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x787878]];
+    [cell.friendSleepPkLabel setKeyWordTextArray:@[[NSString stringWithFormat:@"80%%"]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xffaa33]];
     
     return cell;
 }

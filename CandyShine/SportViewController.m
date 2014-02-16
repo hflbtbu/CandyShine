@@ -299,8 +299,8 @@
         }
         
         //cell.textLabel.text = [NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]];
-        [cell.friendRunLB setText:[NSString stringWithFormat:@"范冰冰今天运动 : %d 卡路里",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xccc8c2]];
-        [cell.friendRunLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xffc8c2]];
+        [cell.friendRunLB setText:[NSString stringWithFormat:@"范冰冰今天运动 : %d 卡路里",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x787878]];
+        [cell.friendRunLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xffaa33]];
         if (indexPath.row == 0) {
             [cell setCellPosition:CellPositionTop];
         } else if (indexPath.row == [[_pathTest objectAtIndex:_currentPage] count] - 1) {
