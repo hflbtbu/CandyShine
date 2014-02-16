@@ -12,5 +12,5 @@
 @interface SleepCell : UITableViewCell
 
 @property (nonatomic, retain) IBOutlet DetailTextView *friendSleepPkLabel;
-
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 @end

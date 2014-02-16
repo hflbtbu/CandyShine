@@ -17,6 +17,11 @@
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.transform = CGAffineTransformMakeRotation(M_PI_2);
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 255, self.width,568 - 255 - 49 - 60-1) style:UITableViewStyleGrouped];
+        _tableView.rowHeight = 60;
+        _tableView.backgroundColor = [UIColor clearColor];
+        _tableView.contentInset = UIEdgeInsetsMake(-27, 0, -35, 0);
+        [self.contentView addSubview:_tableView];
     }
     return self;
 }

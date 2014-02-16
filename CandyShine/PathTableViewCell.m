@@ -36,9 +36,11 @@
         _gridPathView = [[GridPathView alloc] initWithFrame:CGRectMake(0, 8, self.contentView.width, 160)];
         [self.contentView addSubview:_gridPathView];
         
-        _friensTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 160, self.contentView.width, 455 - 160) style:UITableViewStylePlain];
+        _friensTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 160, self.contentView.width, 455 - 160) style:UITableViewStyleGrouped];
         _friensTableView.rowHeight = 60;
-        _friensTableView.separatorStyle = UITableViewCellSelectionStyleNone;
+        _friensTableView.backgroundColor = [UIColor clearColor];
+        _friensTableView.contentInset = UIEdgeInsetsMake(-27, 0, 0, 0);
+        //_friensTableView.separatorStyle = UITableViewCellSelectionStyleNone;
         [self.contentView addSubview:_friensTableView];
         
         _upDownImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow_up"]];

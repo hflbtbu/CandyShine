@@ -25,6 +25,7 @@
     UILabel *_freshLB;
     
     BOOL _isSyn;
+    BOOL _isAdd;
 }
 
 @end
@@ -37,6 +38,7 @@
     if (self) {
         // Initialization code
         _isSyn = NO;
+        _isAdd = YES;
         _currentPattern = DataPatternDay;
         
         self.backgroundColor = [UIColor clearColor];
@@ -93,19 +95,22 @@
 
 - (void)updateWithProgress:(CGFloat)progress {
     _progress = progress;
+    _isAdd = _progress >= _currentProgress ? YES:NO;
     _timer = [NSTimer scheduledTimerWithTimeInterval:0.001 target:self selector:@selector(repeate) userInfo:nil repeats:YES];
 }
 
 - (void)setProgress:(CGFloat)progress {
-    _currentProgress = progress;
+    //_currentProgress = progress;
     _progress = progress;
     [self setNeedsDisplay];
 }
 
 - (void)repeate {
     [self setNeedsDisplay];
-    _currentProgress += 0.02;
-    if (_currentProgress > _progress) {
+    
+    _currentProgress += _isAdd ? 0.02 : -0.02;
+    
+    if ((_currentProgress >= _progress && _isAdd) || (_currentProgress < _progress && !_isAdd)) {
         [_timer invalidate];
         _timer = nil;
         _currentProgress = _progress;
@@ -133,6 +138,7 @@
     
     if (_currentPattern == DataPatternDay) {
         _runNumberLB.text = [NSString stringWithFormat:@"%d",_runNumbers];
+        [self updateWithProgress:_runNumbers/1200.0];
         _gogalLB.text = [NSString stringWithFormat:@"目标 : 1200卡路里"];
         _calorieLB.text = [NSString stringWithFormat:@"700卡路里"];
     } else {

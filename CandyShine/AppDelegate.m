@@ -11,6 +11,7 @@
 #import "SportViewController.h"
 #import "WaterWarmViewController.h"
 #import "SleepViewController.h"
+#import "MeViewController.h"
 
 @implementation AppDelegate
 
@@ -26,13 +27,16 @@
     BaseNavigationController *baseVC = [[BaseNavigationController alloc] initWithRootViewController:base];
     
     WaterWarmViewController *waterWarmViewController = [[WaterWarmViewController alloc ] initWithNibName:@"WaterWarmViewController" bundle:nil];
-    BaseNavigationController *second = [[BaseNavigationController alloc] initWithRootViewController:waterWarmViewController];
+    BaseNavigationController *water = [[BaseNavigationController alloc] initWithRootViewController:waterWarmViewController];
     
     SleepViewController *sleepViewController = [[SleepViewController alloc] initWithNibName:@"SleepViewController" bundle:nil];
     BaseNavigationController *sleepNVC = [[BaseNavigationController alloc] initWithRootViewController:sleepViewController];
     
+    MeViewController *meViewController = [[MeViewController alloc] initWithNibName:@"MeViewController" bundle:nil];
+    BaseNavigationController *me = [[BaseNavigationController alloc] initWithRootViewController:meViewController];
+    
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
-    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, second,sleepNVC , [[UIViewController alloc] init],[[UIViewController alloc] init] ,nil];
+    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, sleepNVC , [[UIViewController alloc] init],water ,me,nil];
     TabBarView *tabBarView = [UIXib viewWithXib:@"TabBarView"];
     [tabBarVC.tabBar addSubview:tabBarView];
     

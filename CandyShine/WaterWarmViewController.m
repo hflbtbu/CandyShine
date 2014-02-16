@@ -49,6 +49,7 @@
     _tableView.rowHeight = 80;
     _tableView.allowsSelectionDuringEditing = YES;
     _tableView.allowsSelection = NO;
+    _tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
 }
 
 - (void)initNavigationItem {
@@ -182,7 +183,7 @@
         cell.accessoryView  = warmSwitch;
         cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-        cell.textLabel.font = [UIFont systemFontOfSize:30];
+        cell.textLabel.font = [UIFont systemFontOfSize:50];
     }
     
     // Configure the cell...

@@ -216,6 +216,9 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (tableView == _circleTableView || tableView == _pathTableView) {
+        return 1;
+    }
     return 1;
 }
 
@@ -225,7 +228,10 @@
     } else if (tableView == _pathTableView) {
         return _pathTest.count;
     } else {
-        return [[_pathTest objectAtIndex:0] count] +1;
+        if (section == 0) {
+            return [[_pathTest objectAtIndex:0] count];
+        }
+        return 1;
     }
     return 0;
 }
@@ -278,19 +284,7 @@
         return cell;
     } else {
         
-        if (indexPath.row == 16) {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentiferAddFriend];
-            if (cell == nil) {
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentiferAddFriend];
-            }
-            UIButton *addFriendButton = [UIButton buttonWithType:UIButtonTypeCustom];
-            addFriendButton.backgroundColor = [UIColor orangeColor];
-            addFriendButton.frame = CGRectMake((cell.contentView.width - 100)/2, (cell.contentView.height - 40)/2, 100, 40);
-            [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
-            [addFriendButton addTarget:self action:@selector(go) forControlEvents:UIControlEventTouchUpInside];
-            [cell.contentView addSubview:addFriendButton];
-            return cell;
-        }
+        
         
         
         FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentifer];
@@ -299,8 +293,8 @@
         }
         
         //cell.textLabel.text = [NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]];
-        [cell.friendRunLB setText:[NSString stringWithFormat:@"范冰冰今天运动 : %d 卡路里",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x787878]];
-        [cell.friendRunLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xffaa33]];
+        [cell.friendRunLB setText:[NSString stringWithFormat:@"范冰冰今天运动 : %d 卡路里",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]] WithFont:[UIFont systemFontOfSize:17] AndColor:[UIColor convertHexColorToUIColor:0x787878]];
+        [cell.friendRunLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]]] WithFont:[UIFont systemFontOfSize:17] AndColor:[UIColor convertHexColorToUIColor:0xffaa33]];
         if (indexPath.row == 0) {
             [cell setCellPosition:CellPositionTop];
         } else if (indexPath.row == [[_pathTest objectAtIndex:_currentPage] count] - 1) {
@@ -313,23 +307,24 @@
     }
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    if (tableView != _circleTableView && tableView != _pathTableView) {
-//        return 60;
-//    }
-//    return 0;
-//
-//}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (tableView != _circleTableView && tableView != _pathTableView) {
+        return 60;
+    }
+    return 0;
 
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-//    if (tableView != _circleTableView && tableView != _pathTableView) {
-//        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
-//        [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
-//        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
-//        return addFriendButton;
-//    }
-//    return nil;
-//}
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (tableView != _circleTableView && tableView != _pathTableView) {
+        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
+        [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
+        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
+        [addFriendButton addTarget:self action:@selector(go) forControlEvents:UIControlEventTouchUpInside];
+        return addFriendButton;
+    }
+    return nil;
+}
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -352,7 +347,6 @@
     PathTableViewCell *pathCell = (PathTableViewCell *)[_pathTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:scrollView.contentOffset.y/self.view.width inSection:0]];
     [pathCell.friensTableView reloadData];
 }
-
 
 
 - (void)initNavigationItem {

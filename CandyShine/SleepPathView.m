@@ -12,7 +12,7 @@
 #define SleepPathViewRightCap 28
 #define SleepPathViewBottomCap 20
 #define PathHeight 45
-#define StateTextPathCap 10
+#define StateTextPathCap 5
 
 @interface SleepPathView ()
 {
@@ -61,7 +61,7 @@
     }
     CGContextAddLineToPoint(context, self.width - SleepPathViewRightCap, self.height - SleepPathViewBottomCap);
     CGContextClosePath(context);
-    CGContextSetFillColorWithColor(context, [[UIColor convertHexColorToUIColor:0x234571 alpha:0.1] CGColor]);
+    CGContextSetFillColorWithColor(context, [[UIColor convertHexColorToUIColor:0xe5e1da alpha:1.0] CGColor]);
     CGContextFillPath(context);
     
     CGPoint point1;
@@ -94,7 +94,7 @@
     
     
     CGContextSetLineCap(context, kCGLineCapButt);
-    CGFloat dash[2] = {4.0,4.0};
+    CGFloat dash[2] = {7.0,7.0};
     CGContextSetLineDash(context, 0, dash, 2);
     CGContextSetLineWidth(context, 0.5);
     CGContextSetStrokeColorWithColor(context, [[UIColor grayColor] CGColor]);

@@ -35,6 +35,10 @@
 		31F3795E18A8AB4A005DB08B /* WaterWarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F3795D18A8AB4A005DB08B /* WaterWarmViewController.xib */; };
 		31F3796218A8BEF6005DB08B /* EditWarmTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */; };
 		31F3796318A8BEF6005DB08B /* EditWarmTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */; };
+		31F642DE18B1017200D8A6EF /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F642DC18B1017200D8A6EF /* MeViewController.m */; };
+		31F642DF18B1017200D8A6EF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F642DD18B1017200D8A6EF /* MeViewController.xib */; };
+		31F642E118B1115000D8A6EF /* SexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F642E018B1115000D8A6EF /* SexView.xib */; };
+		31F642E318B1180B00D8A6EF /* IMG_0005.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 31F642E218B1180B00D8A6EF /* IMG_0005.JPG */; };
 		31FCA207188CFD17005494AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA206188CFD17005494AE /* Foundation.framework */; };
 		31FCA209188CFD17005494AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA208188CFD17005494AE /* CoreGraphics.framework */; };
 		31FCA20B188CFD17005494AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA20A188CFD17005494AE /* UIKit.framework */; };
@@ -120,6 +124,11 @@
 		31F3795F18A8BEF6005DB08B /* EditWarmTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWarmTimeViewController.h; sourceTree = "<group>"; };
 		31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWarmTimeViewController.m; sourceTree = "<group>"; };
 		31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditWarmTimeViewController.xib; sourceTree = "<group>"; };
+		31F642DB18B1017200D8A6EF /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		31F642DC18B1017200D8A6EF /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		31F642DD18B1017200D8A6EF /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
+		31F642E018B1115000D8A6EF /* SexView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexView.xib; sourceTree = "<group>"; };
+		31F642E218B1180B00D8A6EF /* IMG_0005.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0005.JPG; sourceTree = "<group>"; };
 		31FCA203188CFD17005494AE /* CandyShine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandyShine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FCA206188CFD17005494AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31FCA208188CFD17005494AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -322,6 +331,7 @@
 		31FCA238188D06A2005494AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31F642E218B1180B00D8A6EF /* IMG_0005.JPG */,
 				31EAFB87188D570E0052CC79 /* SportViewController.h */,
 				31EAFB88188D570E0052CC79 /* SportViewController.m */,
 				31EAFB89188D570E0052CC79 /* SportViewController.xib */,
@@ -337,6 +347,10 @@
 				31F3795F18A8BEF6005DB08B /* EditWarmTimeViewController.h */,
 				31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */,
 				31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */,
+				31F642DB18B1017200D8A6EF /* MeViewController.h */,
+				31F642DC18B1017200D8A6EF /* MeViewController.m */,
+				31F642DD18B1017200D8A6EF /* MeViewController.xib */,
+				31F642E018B1115000D8A6EF /* SexView.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -456,9 +470,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F642E318B1180B00D8A6EF /* IMG_0005.JPG in Resources */,
 				3124666618AC618C00315A06 /* SleepViewController.xib in Resources */,
 				31FCA23F188D09C5005494AE /* TabBarView.xib in Resources */,
+				31F642DF18B1017200D8A6EF /* MeViewController.xib in Resources */,
 				31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */,
+				31F642E118B1115000D8A6EF /* SexView.xib in Resources */,
 				31FCA219188CFD17005494AE /* Images.xcassets in Resources */,
 				3124666B18AC643B00315A06 /* SleepCell.xib in Resources */,
 				31F3795E18A8AB4A005DB08B /* WaterWarmViewController.xib in Resources */,
@@ -540,6 +557,7 @@
 				31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
 				31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */,
+				31F642DE18B1017200D8A6EF /* MeViewController.m in Sources */,
 				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
 				316C8C12188E624E00D31252 /* DragView.m in Sources */,
 				3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */,
