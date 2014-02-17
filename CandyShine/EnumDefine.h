@@ -33,5 +33,13 @@ typedef NS_ENUM(NSInteger, PageMoveType) {
     PageMoveUp,
 };
 
+typedef NS_ENUM(NSInteger, PickerViewType) {
+    PickerViewTime,
+    PickerViewHeight,
+    PickerViewBirthday,
+    PickerViewWeight,
+};
+
+
 
 #endif

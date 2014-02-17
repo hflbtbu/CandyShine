@@ -7,6 +7,7 @@
 //
 
 #import "LogInViewController.h"
+#import "PickerView.h"
 
 @interface LogInViewController () <UITableViewDataSource, UITableViewDelegate, UMSocialUIDelegate>
 {

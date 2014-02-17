@@ -42,6 +42,7 @@
 		316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C17188EA5B800D31252 /* UIBezierPath+Smoothing.m */; };
 		3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */; };
 		31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */; };
+		31B278B418B24BC800A01E51 /* PickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B278B318B24BC800A01E51 /* PickerView.m */; };
 		31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B2D8E818A5CBD100F3A1F5 /* AddFriendViewController.m */; };
 		31B2D8EB18A5CBD100F3A1F5 /* AddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B2D8E918A5CBD100F3A1F5 /* AddFriendViewController.xib */; };
 		31B2D8EE18A5E21C00F3A1F5 /* AddFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B2D8ED18A5E21C00F3A1F5 /* AddFriendCell.m */; };
@@ -52,8 +53,8 @@
 		31F3795E18A8AB4A005DB08B /* WaterWarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F3795D18A8AB4A005DB08B /* WaterWarmViewController.xib */; };
 		31F3796218A8BEF6005DB08B /* EditWarmTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */; };
 		31F3796318A8BEF6005DB08B /* EditWarmTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */; };
-		31F642DE18B1017200D8A6EF /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F642DC18B1017200D8A6EF /* MeViewController.m */; };
-		31F642DF18B1017200D8A6EF /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F642DD18B1017200D8A6EF /* MeViewController.xib */; };
+		31F642DE18B1017200D8A6EF /* MeSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F642DC18B1017200D8A6EF /* MeSetViewController.m */; };
+		31F642DF18B1017200D8A6EF /* MeSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F642DD18B1017200D8A6EF /* MeSetViewController.xib */; };
 		31F642E118B1115000D8A6EF /* SexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F642E018B1115000D8A6EF /* SexView.xib */; };
 		31F642E318B1180B00D8A6EF /* IMG_0005.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 31F642E218B1180B00D8A6EF /* IMG_0005.JPG */; };
 		31FCA207188CFD17005494AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA206188CFD17005494AE /* Foundation.framework */; };
@@ -158,6 +159,8 @@
 		3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameAdjust.m"; sourceTree = "<group>"; };
 		3199622E188D3B5400D2C46D /* UINavigationItem+CustomeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+CustomeItem.h"; sourceTree = "<group>"; };
 		3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+CustomeItem.m"; sourceTree = "<group>"; };
+		31B278B218B24BC800A01E51 /* PickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerView.h; sourceTree = "<group>"; };
+		31B278B318B24BC800A01E51 /* PickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerView.m; sourceTree = "<group>"; };
 		31B2D8E718A5CBD100F3A1F5 /* AddFriendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendViewController.h; sourceTree = "<group>"; };
 		31B2D8E818A5CBD100F3A1F5 /* AddFriendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendViewController.m; sourceTree = "<group>"; };
 		31B2D8E918A5CBD100F3A1F5 /* AddFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFriendViewController.xib; sourceTree = "<group>"; };
@@ -174,9 +177,9 @@
 		31F3795F18A8BEF6005DB08B /* EditWarmTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWarmTimeViewController.h; sourceTree = "<group>"; };
 		31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWarmTimeViewController.m; sourceTree = "<group>"; };
 		31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditWarmTimeViewController.xib; sourceTree = "<group>"; };
-		31F642DB18B1017200D8A6EF /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
-		31F642DC18B1017200D8A6EF /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
-		31F642DD18B1017200D8A6EF /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
+		31F642DB18B1017200D8A6EF /* MeSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeSetViewController.h; sourceTree = "<group>"; };
+		31F642DC18B1017200D8A6EF /* MeSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeSetViewController.m; sourceTree = "<group>"; };
+		31F642DD18B1017200D8A6EF /* MeSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeSetViewController.xib; sourceTree = "<group>"; };
 		31F642E018B1115000D8A6EF /* SexView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexView.xib; sourceTree = "<group>"; };
 		31F642E218B1180B00D8A6EF /* IMG_0005.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0005.JPG; sourceTree = "<group>"; };
 		31FCA203188CFD17005494AE /* CandyShine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandyShine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -339,6 +342,8 @@
 				3124666A18AC643B00315A06 /* SleepCell.xib */,
 				3124666C18AC6F8400315A06 /* SleepPathView.h */,
 				3124666D18AC6F8400315A06 /* SleepPathView.m */,
+				31B278B218B24BC800A01E51 /* PickerView.h */,
+				31B278B318B24BC800A01E51 /* PickerView.m */,
 			);
 			name = CustomeView;
 			sourceTree = "<group>";
@@ -477,9 +482,9 @@
 				31F3795F18A8BEF6005DB08B /* EditWarmTimeViewController.h */,
 				31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */,
 				31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */,
-				31F642DB18B1017200D8A6EF /* MeViewController.h */,
-				31F642DC18B1017200D8A6EF /* MeViewController.m */,
-				31F642DD18B1017200D8A6EF /* MeViewController.xib */,
+				31F642DB18B1017200D8A6EF /* MeSetViewController.h */,
+				31F642DC18B1017200D8A6EF /* MeSetViewController.m */,
+				31F642DD18B1017200D8A6EF /* MeSetViewController.xib */,
 				31F642E018B1115000D8A6EF /* SexView.xib */,
 				315D6A1418B1D302004B0ADB /* LogInViewController.h */,
 				315D6A1518B1D302004B0ADB /* LogInViewController.m */,
@@ -614,7 +619,7 @@
 				315D6A0D18B1C753004B0ADB /* UMSCommentInputControlleriPad.xib in Resources */,
 				31FCA23F188D09C5005494AE /* TabBarView.xib in Resources */,
 				315D6A1818B1D302004B0ADB /* LogInViewController.xib in Resources */,
-				31F642DF18B1017200D8A6EF /* MeViewController.xib in Resources */,
+				31F642DF18B1017200D8A6EF /* MeSetViewController.xib in Resources */,
 				315D6A1D18B1FD8A004B0ADB /* NewsViewController.xib in Resources */,
 				31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */,
 				31F642E118B1115000D8A6EF /* SexView.xib in Resources */,
@@ -689,6 +694,7 @@
 				316C8C15188E9E9900D31252 /* GridPathView.m in Sources */,
 				31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */,
 				31FCA249188D0F22005494AE /* BaseNavigationController.m in Sources */,
+				31B278B418B24BC800A01E51 /* PickerView.m in Sources */,
 				3124F65118A9CF0C00DAC360 /* DateHelper.m in Sources */,
 				315D6A1C18B1FD8A004B0ADB /* NewsViewController.m in Sources */,
 				31146226188FEBA200702F29 /* CirclePathView.m in Sources */,
@@ -705,7 +711,7 @@
 				315D6A1718B1D302004B0ADB /* LogInViewController.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
 				31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */,
-				31F642DE18B1017200D8A6EF /* MeViewController.m in Sources */,
+				31F642DE18B1017200D8A6EF /* MeSetViewController.m in Sources */,
 				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
 				316C8C12188E624E00D31252 /* DragView.m in Sources */,
 				3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */,

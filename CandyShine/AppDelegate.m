@@ -11,7 +11,7 @@
 #import "SportViewController.h"
 #import "WaterWarmViewController.h"
 #import "SleepViewController.h"
-#import "MeViewController.h"
+#import "MeSetViewController.h"
 #import "NewsViewController.h"
 
 @implementation AppDelegate
@@ -38,7 +38,7 @@
     SleepViewController *sleepViewController = [[SleepViewController alloc] initWithNibName:@"SleepViewController" bundle:nil];
     BaseNavigationController *sleepNVC = [[BaseNavigationController alloc] initWithRootViewController:sleepViewController];
     
-    MeViewController *meViewController = [[MeViewController alloc] initWithNibName:@"MeViewController" bundle:nil];
+    MeSetViewController *meViewController = [[MeSetViewController alloc] initWithNibName:@"MeViewController" bundle:nil];
     BaseNavigationController *me = [[BaseNavigationController alloc] initWithRootViewController:meViewController];
     
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];

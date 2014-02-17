@@ -6,10 +6,11 @@
 //  Copyright (c) 2014年 CandyWearables. All rights reserved.
 //
 
-#import "MeViewController.h"
+#import "MeSetViewController.h"
 #import "LogInViewController.h"
+#import "PickerView.h"
 
-@interface MeViewController () <UITableViewDataSource, UITableViewDelegate, UMSocialUIDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface MeSetViewController () <UITableViewDataSource, UITableViewDelegate, UMSocialUIDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate, PickerViewDelegate>
 {
     IBOutlet UITableView *_tableView;
     
@@ -18,10 +19,19 @@
     UIImageView *_thumberImage;
     
     UIImageView *_image;
+    
+    PickerView *_pickerView;
+    
+    UITableViewCell *_selectedCell;
+    PickerViewType _pickerType;
+    
 }
+
+@property (nonatomic, retain) PickerView *pickerView;
+
 @end
 
-@implementation MeViewController
+@implementation MeSetViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -154,9 +164,44 @@
             }];
 
         }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 1) {
+            _selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+            _pickerType =  PickerViewHeight;
+            _pickerView = [[PickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 260) :PickerViewHeight];
+            _pickerView.delegate = self;
+            [_pickerView show];
+        } else  if (indexPath.row == 2) {
+            _selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+            _pickerType =  PickerViewWeight;
+            _pickerView = [[PickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 260) :PickerViewWeight];
+            _pickerView.delegate = self;
+            [_pickerView show];
+        } else {
+            _selectedCell = [tableView cellForRowAtIndexPath:indexPath];
+            _pickerType =  PickerViewBirthday;
+            _pickerView = [[PickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 260) :PickerViewBirthday];
+            _pickerView.delegate = self;
+            [_pickerView show];
+        }
+        
     }
+
 }
 
+- (void)pickerViewDidSelectedWithVlaue:(NSDictionary *)dic {
+    NSLog(@"%@",_selectedCell.detailTextLabel.text);
+    NSString *str;
+    if (_pickerType == PickerViewHeight) {
+        str = [NSString stringWithFormat:@"%.1fm",[[dic objectForKey:kPickerHeight] floatValue]];
+    } else if (_pickerType == PickerViewWeight) {
+        str = [NSString stringWithFormat:@"%.1fkg",[[dic objectForKey:kPickerWeight] floatValue]];
+    } else {
+        str = [NSString stringWithFormat:@"%d年%d月%d日",[[dic objectForKey:kPickerYear] integerValue],[[dic objectForKey:kPickerMonth] integerValue],[[dic objectForKey:kPickerDay] integerValue]];
+    }
+    _selectedCell.detailTextLabel.text = str;
+    [_pickerView hide];
+}
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image= [info objectForKey:@"UIImagePickerControllerOriginalImage"];
@@ -185,6 +230,7 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
+
 
 - (void)didReceiveMemoryWarning
 {
