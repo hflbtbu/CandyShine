@@ -34,6 +34,8 @@
 		315D6A1318B1C753004B0ADB /* UMSocialSDKResourcesNew.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 315D6A0518B1C753004B0ADB /* UMSocialSDKResourcesNew.bundle */; };
 		315D6A1718B1D302004B0ADB /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 315D6A1518B1D302004B0ADB /* LogInViewController.m */; };
 		315D6A1818B1D302004B0ADB /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315D6A1618B1D302004B0ADB /* LogInViewController.xib */; };
+		315D6A1C18B1FD8A004B0ADB /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 315D6A1A18B1FD8A004B0ADB /* NewsViewController.m */; };
+		315D6A1D18B1FD8A004B0ADB /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315D6A1B18B1FD8A004B0ADB /* NewsViewController.xib */; };
 		3166DD9D1891784C00AB468F /* MoveCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3166DD9C1891784C00AB468F /* MoveCircleView.m */; };
 		316C8C12188E624E00D31252 /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C11188E624E00D31252 /* DragView.m */; };
 		316C8C15188E9E9900D31252 /* GridPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C14188E9E9900D31252 /* GridPathView.m */; };
@@ -139,6 +141,9 @@
 		315D6A1418B1D302004B0ADB /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		315D6A1518B1D302004B0ADB /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		315D6A1618B1D302004B0ADB /* LogInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogInViewController.xib; sourceTree = "<group>"; };
+		315D6A1918B1FD8A004B0ADB /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		315D6A1A18B1FD8A004B0ADB /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		315D6A1B18B1FD8A004B0ADB /* NewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
 		3166DD9B1891784C00AB468F /* MoveCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveCircleView.h; sourceTree = "<group>"; };
 		3166DD9C1891784C00AB468F /* MoveCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveCircleView.m; sourceTree = "<group>"; };
 		316C8C10188E624E00D31252 /* DragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragView.h; sourceTree = "<group>"; };
@@ -463,6 +468,9 @@
 				3124666218AC618C00315A06 /* SleepViewController.h */,
 				3124666318AC618C00315A06 /* SleepViewController.m */,
 				3124666418AC618C00315A06 /* SleepViewController.xib */,
+				315D6A1918B1FD8A004B0ADB /* NewsViewController.h */,
+				315D6A1A18B1FD8A004B0ADB /* NewsViewController.m */,
+				315D6A1B18B1FD8A004B0ADB /* NewsViewController.xib */,
 				31F3795818A8A429005DB08B /* WaterWarmViewController.h */,
 				31F3795918A8A429005DB08B /* WaterWarmViewController.m */,
 				31F3795D18A8AB4A005DB08B /* WaterWarmViewController.xib */,
@@ -607,6 +615,7 @@
 				31FCA23F188D09C5005494AE /* TabBarView.xib in Resources */,
 				315D6A1818B1D302004B0ADB /* LogInViewController.xib in Resources */,
 				31F642DF18B1017200D8A6EF /* MeViewController.xib in Resources */,
+				315D6A1D18B1FD8A004B0ADB /* NewsViewController.xib in Resources */,
 				31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */,
 				31F642E118B1115000D8A6EF /* SexView.xib in Resources */,
 				31FCA219188CFD17005494AE /* Images.xcassets in Resources */,
@@ -681,6 +690,7 @@
 				31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */,
 				31FCA249188D0F22005494AE /* BaseNavigationController.m in Sources */,
 				3124F65118A9CF0C00DAC360 /* DateHelper.m in Sources */,
+				315D6A1C18B1FD8A004B0ADB /* NewsViewController.m in Sources */,
 				31146226188FEBA200702F29 /* CirclePathView.m in Sources */,
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
 				31F3796218A8BEF6005DB08B /* EditWarmTimeViewController.m in Sources */,

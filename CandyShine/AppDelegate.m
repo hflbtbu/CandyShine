@@ -12,6 +12,7 @@
 #import "WaterWarmViewController.h"
 #import "SleepViewController.h"
 #import "MeViewController.h"
+#import "NewsViewController.h"
 
 @implementation AppDelegate
 
@@ -31,6 +32,9 @@
     WaterWarmViewController *waterWarmViewController = [[WaterWarmViewController alloc ] initWithNibName:@"WaterWarmViewController" bundle:nil];
     BaseNavigationController *water = [[BaseNavigationController alloc] initWithRootViewController:waterWarmViewController];
     
+    NewsViewController *newsVC = [[NewsViewController alloc] initWithNibName:@"NewsViewController" bundle:nil];
+    BaseNavigationController *news = [[BaseNavigationController alloc] initWithRootViewController:newsVC];
+    
     SleepViewController *sleepViewController = [[SleepViewController alloc] initWithNibName:@"SleepViewController" bundle:nil];
     BaseNavigationController *sleepNVC = [[BaseNavigationController alloc] initWithRootViewController:sleepViewController];
     
@@ -38,7 +42,7 @@
     BaseNavigationController *me = [[BaseNavigationController alloc] initWithRootViewController:meViewController];
     
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
-    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, sleepNVC , [[UIViewController alloc] init],water ,me,nil];
+    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, sleepNVC , news,water ,me,nil];
     TabBarView *tabBarView = [UIXib viewWithXib:@"TabBarView"];
     [tabBarVC.tabBar addSubview:tabBarView];
     

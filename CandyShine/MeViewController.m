@@ -9,11 +9,15 @@
 #import "MeViewController.h"
 #import "LogInViewController.h"
 
-@interface MeViewController () <UITableViewDataSource, UITableViewDelegate, UMSocialUIDelegate>
+@interface MeViewController () <UITableViewDataSource, UITableViewDelegate, UMSocialUIDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 {
     IBOutlet UITableView *_tableView;
     
     IBOutlet UISwitch *_sexSwitch;
+    
+    UIImageView *_thumberImage;
+    
+    UIImageView *_image;
 }
 @end
 
@@ -34,6 +38,9 @@
     // Do any additional setup after loading the view from its nib.
     
     _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    
+    _image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 200, 120, 120)];
+    [self.view addSubview:_image];
 }
 
 
@@ -78,12 +85,12 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:thumberCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            UIImageView *thumber = [[UIImageView alloc] initWithFrame:CGRectMake(cell.width - 100, 5, 60, 60)];
-            thumber.backgroundColor = [UIColor orangeColor];
-            thumber.layer.cornerRadius = 30;
-            thumber.layer.masksToBounds = YES;
-            thumber.image = [UIImage imageNamed:@"IMG_0005.JPG"];
-            [cell.contentView addSubview:thumber];
+            _thumberImage = [[UIImageView alloc] initWithFrame:CGRectMake(cell.width - 100, 5, 60, 60)];
+            _thumberImage.backgroundColor = [UIColor orangeColor];
+            _thumberImage.layer.cornerRadius = 30;
+            _thumberImage.layer.masksToBounds = YES;
+            _thumberImage.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+            [cell.contentView addSubview:_thumberImage];
         }
         cell.textLabel.text = @"头像";
         return cell;
@@ -132,22 +139,51 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-//            UIImagePickerController *image = [[UIImagePickerController alloc] init];
-//            image.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//            [self presentViewController:image animated:YES completion:^{
-//                
-//            }];
-            
-            
+            UIImagePickerController *image = [[UIImagePickerController alloc] init];
+            image.sourceType = UIImagePickerControllerSourceTypeCamera;
+            image.allowsEditing = YES;
+            image.delegate = self;
+            [self presentViewController:image animated:YES completion:^{
+                
+            }];
+        } else if (indexPath.row == 1) {
             LogInViewController *logInVC = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
             BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
             [self presentViewController:logIn animated:YES completion:^{
                 
             }];
-            
-            
+
         }
     }
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    UIImage *image= [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
+    {
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
+    
+    CGImageRef cr = CGImageCreateWithImageInRect([image CGImage], CGRectMake(0, 0, 120, 120));
+	
+	UIImage *cropped = [UIImage imageWithCGImage:cr];
+	
+	CGImageRelease(cr);
+    
+    UIImage *smallImage = [self imageWithImageSimple:image scaledToSize:CGSizeMake(120.0, 120.0)];
+    _image.image = cropped;
+    [self dismiss];
+}
+
+//压缩图片
+- (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize
+{
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
 }
 
 - (void)didReceiveMemoryWarning
