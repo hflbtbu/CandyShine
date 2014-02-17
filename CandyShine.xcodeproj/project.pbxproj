@@ -19,6 +19,10 @@
 		312C440118A3B9A4006CE7D1 /* UIColor+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C440018A3B9A4006CE7D1 /* UIColor+Addition.m */; };
 		312C440718A3D0C9006CE7D1 /* DetailTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C440618A3D0C9006CE7D1 /* DetailTextView.m */; };
 		312C440A18A3F41E006CE7D1 /* FriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C440918A3F41E006CE7D1 /* FriendCell.m */; };
+		312C954B18B284EB00A04594 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C954918B284EB00A04594 /* MeViewController.m */; };
+		312C954C18B284EB00A04594 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312C954A18B284EB00A04594 /* MeViewController.xib */; };
+		312C955018B28BAB00A04594 /* SportSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C954E18B28BAB00A04594 /* SportSetViewController.m */; };
+		312C955118B28BAB00A04594 /* SportSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312C954F18B28BAB00A04594 /* SportSetViewController.xib */; };
 		315D6A0718B1C753004B0ADB /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 315D69E718B1C753004B0ADB /* UMSocialLocalizable.strings */; };
 		315D6A0818B1C753004B0ADB /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315D69EB18B1C753004B0ADB /* libWeChatSDK.a */; };
 		315D6A0918B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315D69FA18B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a */; };
@@ -112,6 +116,12 @@
 		312C440618A3D0C9006CE7D1 /* DetailTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTextView.m; sourceTree = "<group>"; };
 		312C440818A3F41E006CE7D1 /* FriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCell.h; sourceTree = "<group>"; };
 		312C440918A3F41E006CE7D1 /* FriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCell.m; sourceTree = "<group>"; };
+		312C954818B284EB00A04594 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		312C954918B284EB00A04594 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		312C954A18B284EB00A04594 /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
+		312C954D18B28BAB00A04594 /* SportSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportSetViewController.h; sourceTree = "<group>"; };
+		312C954E18B28BAB00A04594 /* SportSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportSetViewController.m; sourceTree = "<group>"; };
+		312C954F18B28BAB00A04594 /* SportSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportSetViewController.xib; sourceTree = "<group>"; };
 		315D69E818B1C753004B0ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		315D69EB18B1C753004B0ADB /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		315D69EC18B1C753004B0ADB /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -482,9 +492,15 @@
 				31F3795F18A8BEF6005DB08B /* EditWarmTimeViewController.h */,
 				31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */,
 				31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */,
+				312C954818B284EB00A04594 /* MeViewController.h */,
+				312C954918B284EB00A04594 /* MeViewController.m */,
+				312C954A18B284EB00A04594 /* MeViewController.xib */,
 				31F642DB18B1017200D8A6EF /* MeSetViewController.h */,
 				31F642DC18B1017200D8A6EF /* MeSetViewController.m */,
 				31F642DD18B1017200D8A6EF /* MeSetViewController.xib */,
+				312C954D18B28BAB00A04594 /* SportSetViewController.h */,
+				312C954E18B28BAB00A04594 /* SportSetViewController.m */,
+				312C954F18B28BAB00A04594 /* SportSetViewController.xib */,
 				31F642E018B1115000D8A6EF /* SexView.xib */,
 				315D6A1418B1D302004B0ADB /* LogInViewController.h */,
 				315D6A1518B1D302004B0ADB /* LogInViewController.m */,
@@ -631,6 +647,8 @@
 				315D6A1218B1C753004B0ADB /* UMSShareListController.xib in Resources */,
 				315D6A1318B1C753004B0ADB /* UMSocialSDKResourcesNew.bundle in Resources */,
 				31F3796318A8BEF6005DB08B /* EditWarmTimeViewController.xib in Resources */,
+				312C955118B28BAB00A04594 /* SportSetViewController.xib in Resources */,
+				312C954C18B284EB00A04594 /* MeViewController.xib in Resources */,
 				31EAFB8B188D570E0052CC79 /* SportViewController.xib in Resources */,
 				31B2D8EB18A5CBD100F3A1F5 /* AddFriendViewController.xib in Resources */,
 			);
@@ -688,6 +706,7 @@
 				31FCA23D188D0954005494AE /* TabBarView.m in Sources */,
 				312C440118A3B9A4006CE7D1 /* UIColor+Addition.m in Sources */,
 				3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */,
+				312C955018B28BAB00A04594 /* SportSetViewController.m in Sources */,
 				31146229189001AE00702F29 /* CircleTableViewCell.m in Sources */,
 				31FCA246188D0E2A005494AE /* UIButton+SetEdge.m in Sources */,
 				3124666518AC618C00315A06 /* SleepViewController.m in Sources */,
@@ -700,6 +719,7 @@
 				31146226188FEBA200702F29 /* CirclePathView.m in Sources */,
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
 				31F3796218A8BEF6005DB08B /* EditWarmTimeViewController.m in Sources */,
+				312C954B18B284EB00A04594 /* MeViewController.m in Sources */,
 				3166DD9D1891784C00AB468F /* MoveCircleView.m in Sources */,
 				3124666E18AC6F8400315A06 /* SleepPathView.m in Sources */,
 				3124666918AC642200315A06 /* SleepCell.m in Sources */,

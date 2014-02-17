@@ -13,6 +13,7 @@
 #import "SleepViewController.h"
 #import "MeSetViewController.h"
 #import "NewsViewController.h"
+#import "MeViewController.h"
 
 @implementation AppDelegate
 
@@ -38,7 +39,7 @@
     SleepViewController *sleepViewController = [[SleepViewController alloc] initWithNibName:@"SleepViewController" bundle:nil];
     BaseNavigationController *sleepNVC = [[BaseNavigationController alloc] initWithRootViewController:sleepViewController];
     
-    MeSetViewController *meViewController = [[MeSetViewController alloc] initWithNibName:@"MeViewController" bundle:nil];
+    MeViewController *meViewController = [[MeViewController alloc] initWithNibName:@"MeViewController" bundle:nil];
     BaseNavigationController *me = [[BaseNavigationController alloc] initWithRootViewController:meViewController];
     
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
