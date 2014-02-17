@@ -37,4 +37,8 @@
     #import "BaseViewController.h"
 
 #import "MacroDefine.h"
+
+
+#import "UMSocial.h"
+
 #endif

@@ -17,6 +17,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self initialShareSDK];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
@@ -45,6 +47,18 @@
     return YES;
 }
 
+- (void)initialShareSDK {
+    [UMSocialData setAppKey:UmengAppkey];
+    //设置微信AppId
+    [UMSocialConfig setWXAppId:@"applwxd9a39c7122aa6516" url:nil];
+    //打开新浪微博的SSO开关
+    //[UMSocialConfig setSupportSinaSSO:YES];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
+}
+
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
     
 }
@@ -69,6 +83,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [UMSocialSnsService applicationDidBecomeActive];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

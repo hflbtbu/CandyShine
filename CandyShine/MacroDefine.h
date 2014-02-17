@@ -13,4 +13,9 @@
 
 #define KEY_WINDOW  [[UIApplication sharedApplication] keyWindow]
 
+
+//AppKey
+
+#define UmengAppkey @"5289a8fb56240be0de2a15d8"
+
 #endif

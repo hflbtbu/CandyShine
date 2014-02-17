@@ -7,8 +7,9 @@
 //
 
 #import "MeViewController.h"
+#import "LogInViewController.h"
 
-@interface MeViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MeViewController () <UITableViewDataSource, UITableViewDelegate, UMSocialUIDelegate>
 {
     IBOutlet UITableView *_tableView;
     
@@ -136,6 +137,15 @@
 //            [self presentViewController:image animated:YES completion:^{
 //                
 //            }];
+            
+            
+            LogInViewController *logInVC = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
+            BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
+            [self presentViewController:logIn animated:YES completion:^{
+                
+            }];
+            
+            
         }
     }
 }
