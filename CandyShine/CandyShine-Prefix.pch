@@ -27,6 +27,7 @@
     #import "UINavigationItem+CustomeItem.h"
     #import "UIBezierPath+Smoothing.h"
     #import "UIColor+Addition.h"
+    #import "UIActionSheet+Blocks.h"
 
 //enum
 #import "EnumDefine.h"

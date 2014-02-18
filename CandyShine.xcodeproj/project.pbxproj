@@ -50,6 +50,10 @@
 		31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B2D8E818A5CBD100F3A1F5 /* AddFriendViewController.m */; };
 		31B2D8EB18A5CBD100F3A1F5 /* AddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B2D8E918A5CBD100F3A1F5 /* AddFriendViewController.xib */; };
 		31B2D8EE18A5E21C00F3A1F5 /* AddFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B2D8ED18A5E21C00F3A1F5 /* AddFriendCell.m */; };
+		31B48BAB18B30B3200980F69 /* ModifyCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B48BA918B30B3200980F69 /* ModifyCodeViewController.m */; };
+		31B48BAC18B30B3200980F69 /* ModifyCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B48BAA18B30B3200980F69 /* ModifyCodeViewController.xib */; };
+		31B48BB118B3181E00980F69 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B48BAE18B3181E00980F69 /* libUMFeedback.a */; };
+		31B48BB218B3181E00980F69 /* umFeedback.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 31B48BAF18B3181E00980F69 /* umFeedback.bundle */; };
 		31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5CE7B1890B17000C79CD6 /* MenuView.m */; };
 		31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* SportViewController.m */; };
 		31EAFB8B188D570E0052CC79 /* SportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EAFB89188D570E0052CC79 /* SportViewController.xib */; };
@@ -176,6 +180,12 @@
 		31B2D8E918A5CBD100F3A1F5 /* AddFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFriendViewController.xib; sourceTree = "<group>"; };
 		31B2D8EC18A5E21C00F3A1F5 /* AddFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendCell.h; sourceTree = "<group>"; };
 		31B2D8ED18A5E21C00F3A1F5 /* AddFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendCell.m; sourceTree = "<group>"; };
+		31B48BA818B30B3200980F69 /* ModifyCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyCodeViewController.h; sourceTree = "<group>"; };
+		31B48BA918B30B3200980F69 /* ModifyCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyCodeViewController.m; sourceTree = "<group>"; };
+		31B48BAA18B30B3200980F69 /* ModifyCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyCodeViewController.xib; sourceTree = "<group>"; };
+		31B48BAE18B3181E00980F69 /* libUMFeedback.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMFeedback.a; sourceTree = "<group>"; };
+		31B48BAF18B3181E00980F69 /* umFeedback.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = umFeedback.bundle; sourceTree = "<group>"; };
+		31B48BB018B3181E00980F69 /* UMFeedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedback.h; sourceTree = "<group>"; };
 		31B5CE7A1890B17000C79CD6 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		31B5CE7B1890B17000C79CD6 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		31EAFB87188D570E0052CC79 /* SportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportViewController.h; sourceTree = "<group>"; };
@@ -232,6 +242,7 @@
 				31FCA20B188CFD17005494AE /* UIKit.framework in Frameworks */,
 				315D6A0918B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a in Frameworks */,
 				31FCA207188CFD17005494AE /* Foundation.framework in Frameworks */,
+				31B48BB118B3181E00980F69 /* libUMFeedback.a in Frameworks */,
 				315D6A0A18B1C753004B0ADB /* libUMSocial_Sdk_Comment_3.3.4.a in Frameworks */,
 				C63BC15357064534946A13DE /* libPods.a in Frameworks */,
 				315D6A0818B1C753004B0ADB /* libWeChatSDK.a in Frameworks */,
@@ -358,6 +369,16 @@
 			name = CustomeView;
 			sourceTree = "<group>";
 		};
+		31B48BAD18B3180400980F69 /* UMFeedback_iOS_1.41 */ = {
+			isa = PBXGroup;
+			children = (
+				31B48BAE18B3181E00980F69 /* libUMFeedback.a */,
+				31B48BAF18B3181E00980F69 /* umFeedback.bundle */,
+				31B48BB018B3181E00980F69 /* UMFeedback.h */,
+			);
+			name = UMFeedback_iOS_1.41;
+			sourceTree = "<group>";
+		};
 		31FCA1FA188CFD17005494AE = {
 			isa = PBXGroup;
 			children = (
@@ -433,6 +454,7 @@
 		31FCA235188D05E3005494AE /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				31B48BAD18B3180400980F69 /* UMFeedback_iOS_1.41 */,
 				315D69E518B1C710004B0ADB /* ThirdPart */,
 				31FCA236188D05FB005494AE /* Category */,
 			);
@@ -501,6 +523,9 @@
 				312C954D18B28BAB00A04594 /* SportSetViewController.h */,
 				312C954E18B28BAB00A04594 /* SportSetViewController.m */,
 				312C954F18B28BAB00A04594 /* SportSetViewController.xib */,
+				31B48BA818B30B3200980F69 /* ModifyCodeViewController.h */,
+				31B48BA918B30B3200980F69 /* ModifyCodeViewController.m */,
+				31B48BAA18B30B3200980F69 /* ModifyCodeViewController.xib */,
 				31F642E018B1115000D8A6EF /* SexView.xib */,
 				315D6A1418B1D302004B0ADB /* LogInViewController.h */,
 				315D6A1518B1D302004B0ADB /* LogInViewController.m */,
@@ -637,10 +662,12 @@
 				315D6A1818B1D302004B0ADB /* LogInViewController.xib in Resources */,
 				31F642DF18B1017200D8A6EF /* MeSetViewController.xib in Resources */,
 				315D6A1D18B1FD8A004B0ADB /* NewsViewController.xib in Resources */,
+				31B48BB218B3181E00980F69 /* umFeedback.bundle in Resources */,
 				31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */,
 				31F642E118B1115000D8A6EF /* SexView.xib in Resources */,
 				31FCA219188CFD17005494AE /* Images.xcassets in Resources */,
 				3124666B18AC643B00315A06 /* SleepCell.xib in Resources */,
+				31B48BAC18B30B3200980F69 /* ModifyCodeViewController.xib in Resources */,
 				31F3795E18A8AB4A005DB08B /* WaterWarmViewController.xib in Resources */,
 				315D6A0718B1C753004B0ADB /* UMSocialLocalizable.strings in Resources */,
 				315D6A0F18B1C753004B0ADB /* UMShareEditViewControlleriPad.xib in Resources */,
@@ -733,6 +760,7 @@
 				31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */,
 				31F642DE18B1017200D8A6EF /* MeSetViewController.m in Sources */,
 				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
+				31B48BAB18B30B3200980F69 /* ModifyCodeViewController.m in Sources */,
 				316C8C12188E624E00D31252 /* DragView.m in Sources */,
 				3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */,
 				312C440718A3D0C9006CE7D1 /* DetailTextView.m in Sources */,
@@ -874,6 +902,7 @@
 					"$(inherited)",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4/frameworks/Wechat",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4",
+					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -897,6 +926,7 @@
 					"$(inherited)",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4/frameworks/Wechat",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4",
+					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

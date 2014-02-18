@@ -18,16 +18,28 @@ PODS:
   - AFNetworking/UIKit (2.1.0):
     - AFNetworking/NSURLConnection
   - MBProgressHUD (0.8)
+  - REFormattedNumberField (1.1.2)
+  - RETableViewManager (1.5.9):
+    - REFormattedNumberField (~> 1.1.1)
+    - REValidation (~> 0.1.4)
+  - REValidation (0.1.4)
+  - UIActionSheet+Blocks (0.8)
   - UIAlertView+Blocks (0.8)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.1.0)
   - MBProgressHUD (~> 0.8)
+  - RETableViewManager (~> 1.5.9)
+  - UIActionSheet+Blocks (~> 0.8)
   - UIAlertView+Blocks (~> 0.8)
 
 SPEC CHECKSUMS:
   AFNetworking: c7d7901a83f631414c7eda1737261f696101a5cd
   MBProgressHUD: 2bbc6f470111daf7f3eaa4eb12b8cbf01c4c0622
+  REFormattedNumberField: 57016d59e96dbf5b6281fec4d08b401cb0a3c792
+  RETableViewManager: d737f2e49b7f10841e4d9ee17ea5c10a0ace1054
+  REValidation: 02160035110a63af1bf6ad1b8791837b3fa13584
+  UIActionSheet+Blocks: d3c7515281a4c5c5b9fbf127d8a9220982d4392c
   UIAlertView+Blocks: 39a1aee8ea75c4f9f877ff0b3734d84bf2009d1f
 
 COCOAPODS: 0.28.0
