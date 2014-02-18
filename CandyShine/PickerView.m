@@ -92,6 +92,7 @@
         
     }
     [_delegate pickerViewDidSelectedWithVlaue:dic];
+    [self hide];
 }
 
 // returns the number of 'columns' to display.
@@ -184,7 +185,7 @@
     [keyWindow addSubview:self];
     self.frame = CGRectMake(0, keyWindow.height, keyWindow.width, 304);
     [UIView animateWithDuration:0.4 animations:^{
-        shade.alpha =  0.7;
+        shade.alpha =  0.5;
         self.frame = CGRectMake(0, keyWindow.height - 260, keyWindow.width, 260);
     }];
 }

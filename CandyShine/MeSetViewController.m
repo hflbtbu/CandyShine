@@ -150,19 +150,30 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            UIImagePickerController *image = [[UIImagePickerController alloc] init];
-            image.sourceType = UIImagePickerControllerSourceTypeCamera;
-            image.allowsEditing = YES;
-            image.delegate = self;
-            [self presentViewController:image animated:YES completion:^{
-                
-            }];
+            UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从相册选择", nil];
+            as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+            as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+                UIImagePickerController *image = [[UIImagePickerController alloc] init];
+                if (buttonIndex == 0) {
+                    image.sourceType = UIImagePickerControllerSourceTypeCamera;
+                    image.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+                } else {
+                    image.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+                }
+                image.allowsEditing = YES;
+                image.delegate = self;
+                [self presentViewController:image animated:YES completion:^{
+                    
+                }];
+            };
+            [as showInView:[UIApplication sharedApplication].keyWindow];
         } else if (indexPath.row == 1) {
             LogInViewController *logInVC = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
             BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
-            [self presentViewController:logIn animated:YES completion:^{
-                
-            }];
+//            [self presentViewController:logIn animated:YES completion:^{
+//                
+//            }];
+            [self.navigationController pushViewController:logInVC animated:YES];
         } else {
             ModifyCodeViewController *modifyCode = [[ModifyCodeViewController alloc] initWithNibName:@"ModifyCodeViewController" bundle:nil];
             [self.navigationController pushViewController:modifyCode animated:YES];
@@ -203,32 +214,28 @@
         str = [NSString stringWithFormat:@"%d年%d月%d日",[[dic objectForKey:kPickerYear] integerValue],[[dic objectForKey:kPickerMonth] integerValue],[[dic objectForKey:kPickerDay] integerValue]];
     }
     _selectedCell.detailTextLabel.text = str;
-    [_pickerView hide];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image= [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    UIImage *erw = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    
+    CGRect fame  = [[info objectForKey:@"UIImagePickerControllerCropRect"] CGRectValue];
+    
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
     {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     }
-    
-    CGImageRef cr = CGImageCreateWithImageInRect([image CGImage], CGRectMake(0, 0, 120, 120));
-	
-	UIImage *cropped = [UIImage imageWithCGImage:cr];
-	
-	CGImageRelease(cr);
-    
-    UIImage *smallImage = [self imageWithImageSimple:image scaledToSize:CGSizeMake(120.0, 120.0)];
-    _image.image = cropped;
+
+    _thumberImage.image = erw;
     [self dismiss];
 }
 
 //压缩图片
-- (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize
+- (UIImage*)imageWithImageSimple:(UIImage*)image scaledToRect:(CGRect)rect
 {
-    UIGraphicsBeginImageContext(newSize);
-    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    UIGraphicsBeginImageContext(CGSizeMake(rect.size.width, rect.size.height));
+    [image drawInRect:rect];
     UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;

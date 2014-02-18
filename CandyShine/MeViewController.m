@@ -9,8 +9,10 @@
 #import "MeViewController.h"
 #import "MeSetViewController.h"
 #import "SportSetViewController.h"
+#import "UMFeedbackViewController.h"
+#import "PickerView.h"
 
-@interface MeViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface MeViewController () <UITableViewDataSource, UITableViewDelegate,PickerViewDelegate>
 {
     IBOutlet UITableView *_tableView;
     
@@ -137,7 +139,16 @@
 }
 
 - (void)logout {
-    
+    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"退出后不会删除你的任何数据", @"")
+                                                    delegate:nil
+                                           cancelButtonTitle:NSLocalizedString(@"取消", @"")
+                                      destructiveButtonTitle:NSLocalizedString(@"退出登陆", @"")
+                                           otherButtonTitles:nil];
+    as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+
+    };
+    [as showInView:[UIApplication sharedApplication].keyWindow];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -153,12 +164,29 @@
         if (indexPath.row == 0) {
             SportSetViewController *sportSet = [[SportSetViewController alloc] initWithNibName:@"SportSetViewController" bundle:nil];
             [self.navigationController pushViewController:sportSet animated:YES];
-        } else  if (indexPath.row == 2) {
+        } else  if (indexPath.row == 1) {
             
+            PickerView *pickerView = [[PickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 260) :PickerViewTime];
+            pickerView.delegate = self;
+            [pickerView show];
         } else {
         }
-        
+    } else {
+        [self showNativeFeedbackWithAppkey:UmengAppkey];
     }
+    
+}
+
+- (void)showNativeFeedbackWithAppkey:(NSString *)appkey {
+    UMFeedbackViewController *feedbackViewController = [[UMFeedbackViewController alloc] initWithNibName:@"UMFeedbackViewController" bundle:nil];
+    feedbackViewController.appkey = appkey;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:feedbackViewController];
+    navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    navigationController.navigationBar.translucent = NO;
+    [self presentViewController:navigationController animated:YES completion:NULL];
+}
+
+- (void)pickerViewDidSelectedWithVlaue:(NSDictionary *)dic {
     
 }
 
