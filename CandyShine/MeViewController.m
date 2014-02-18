@@ -8,6 +8,7 @@
 
 #import "MeViewController.h"
 #import "MeSetViewController.h"
+#import "SportSetViewController.h"
 
 @interface MeViewController () <UITableViewDataSource, UITableViewDelegate>
 {
@@ -132,8 +133,9 @@
             
         }
     } else if (indexPath.section == 1) {
-        if (indexPath.row == 1) {
-            
+        if (indexPath.row == 0) {
+            SportSetViewController *sportSet = [[SportSetViewController alloc] initWithNibName:@"SportSetViewController" bundle:nil];
+            [self.navigationController pushViewController:sportSet animated:YES];
         } else  if (indexPath.row == 2) {
             
         } else {
