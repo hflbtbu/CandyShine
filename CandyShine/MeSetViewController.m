@@ -8,6 +8,7 @@
 
 #import "MeSetViewController.h"
 #import "LogInViewController.h"
+#import "ModifyCodeViewController.h"
 #import "PickerView.h"
 
 @interface MeSetViewController () <UITableViewDataSource, UITableViewDelegate, UMSocialUIDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate, PickerViewDelegate>
@@ -162,7 +163,9 @@
             [self presentViewController:logIn animated:YES completion:^{
                 
             }];
-
+        } else {
+            ModifyCodeViewController *modifyCode = [[ModifyCodeViewController alloc] initWithNibName:@"ModifyCodeViewController" bundle:nil];
+            [self.navigationController pushViewController:modifyCode animated:YES];
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 1) {

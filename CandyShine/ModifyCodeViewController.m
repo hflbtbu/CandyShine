@@ -8,9 +8,13 @@
 
 #import "ModifyCodeViewController.h"
 
-@interface ModifyCodeViewController ()
+@interface ModifyCodeViewController () <RETableViewManagerDelegate>
 {
     IBOutlet UITableView *_tableView;
+    RETableViewManager *_tablerViewManager;
+    RETextItem *_oldCodeItem;
+    RETextItem *_newCodeItem;
+    RETextItem *_sureNewCodeItem;
 }
 @end
 
@@ -29,6 +33,36 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+
+    _tablerViewManager = [[RETableViewManager alloc] initWithTableView:_tableView delegate:self];
+    [self addLoginSection];
+}
+
+- (void)addLoginSection {
+    RETableViewSection *section = [RETableViewSection section];
+    [_tablerViewManager addSection:section];
+    
+    _oldCodeItem = [RETextItem itemWithTitle:NSLocalizedString(@"原始密码:", @"") value:@"" placeholder:nil];
+    _oldCodeItem.keyboardType = UIKeyboardTypeNumberPad;
+    _newCodeItem = [RETextItem itemWithTitle:NSLocalizedString(@"新密码:", @"") value:@"" placeholder:nil];
+    _newCodeItem.keyboardType = UIKeyboardTypeNumberPad;
+    RETableViewItem *buttonItem = [RETableViewItem itemWithTitle:NSLocalizedString(@"提交", @"") accessoryType:UITableViewCellAccessoryNone selectionHandler:^(RETableViewItem *item) {
+        [item deselectRowAnimated:YES];
+        [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
+        
+    }];
+    buttonItem.textAlignment = NSTextAlignmentCenter;
+    
+    [section addItem:_oldCodeItem];
+    [section addItem:_newCodeItem];
+    
+    
+    RETableViewSection *btnSection = [RETableViewSection section];
+    [_tablerViewManager addSection:btnSection];
+    [btnSection addItem:buttonItem];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
