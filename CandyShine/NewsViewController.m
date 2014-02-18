@@ -8,10 +8,13 @@
 
 #import "NewsViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "NewsCell.h"
 
-@interface NewsViewController ()
+@interface NewsViewController () <UITableViewDelegate,UITableViewDataSource>
 {
-    UIImageView *_image;
+    UITableView *_tableView;
+    
+    UIView *sf ;
 }
 @end
 
@@ -30,11 +33,69 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width) style:UITableViewStylePlain];
+    _tableView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
+    [_tableView.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
+    _tableView.transform = CGAffineTransformMakeRotation(-M_PI_2);
+    _tableView.rowHeight = self.view.frame.size.width;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.rowHeight = self.view.frame.size.width;
+    _tableView.showsVerticalScrollIndicator = NO;
+    _tableView.pagingEnabled = YES;
+    _tableView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:_tableView];
+    self.view.backgroundColor = [UIColor orangeColor];
     
-    _image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 180, 180)];
-    [_image setImageWithURL:[NSURL URLWithString:@"http://qzapp.qlogo.cn/qzapp/101008197/5341B5C7474D687ABDC55F58BCD70B7B/100"]];
-    [self.view addSubview:_image];
+    sf = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
+    sf.backgroundColor = [UIColor grayColor];
+    [sf.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
+    sf.transform = CGAffineTransformMakeRotation(-M_PI_2);
+    //[self.view addSubview:sf];
+    
+    
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifer = @"newCell";
+    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
+    if (cell == nil) {
+        cell = [UIXib cellWithXib:@"NewsCell" style:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
+    }
+    return cell;
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    _tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+    _tableView.width = self.view.width;
+    _tableView.height = self.view.height;
+    _tableView.center = CGPointMake(self.view.width/2, self.view.height/2);
+    
+    sf.width = 200;
+    sf.height = 260;
+    
+    sf.center = CGPointMake(160, 130);
+}
+
+- (void)viewDidAppear:(BOOL)animate {
+    
+}
+
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

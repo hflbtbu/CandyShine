@@ -86,6 +86,9 @@
 		31B48BFB18B3396000980F69 /* UMFeedbackTableViewCellRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B48BDC18B3396000980F69 /* UMFeedbackTableViewCellRight.m */; };
 		31B48BFC18B3396000980F69 /* UMFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B48BDE18B3396000980F69 /* UMFeedbackViewController.m */; };
 		31B48BFD18B3396000980F69 /* UMFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B48BDF18B3396000980F69 /* UMFeedbackViewController.xib */; };
+		31B48C0018B346EB00980F69 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B48BFF18B346EB00980F69 /* NewsCell.m */; };
+		31B48C0218B3470100980F69 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B48C0118B3470100980F69 /* NewsCell.xib */; };
+		31B48C0418B34CF800980F69 /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B48C0318B34CF800980F69 /* news.png */; };
 		31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5CE7B1890B17000C79CD6 /* MenuView.m */; };
 		31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* SportViewController.m */; };
 		31EAFB8B188D570E0052CC79 /* SportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EAFB89188D570E0052CC79 /* SportViewController.xib */; };
@@ -257,6 +260,10 @@
 		31B48BDD18B3396000980F69 /* UMFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMFeedbackViewController.h; sourceTree = "<group>"; };
 		31B48BDE18B3396000980F69 /* UMFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMFeedbackViewController.m; sourceTree = "<group>"; };
 		31B48BDF18B3396000980F69 /* UMFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMFeedbackViewController.xib; sourceTree = "<group>"; };
+		31B48BFE18B346EB00980F69 /* NewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
+		31B48BFF18B346EB00980F69 /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		31B48C0118B3470100980F69 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
+		31B48C0318B34CF800980F69 /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
 		31B5CE7A1890B17000C79CD6 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		31B5CE7B1890B17000C79CD6 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		31EAFB87188D570E0052CC79 /* SportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportViewController.h; sourceTree = "<group>"; };
@@ -421,6 +428,9 @@
 				31146228189001AE00702F29 /* CircleTableViewCell.m */,
 				3114622A189006AC00702F29 /* PathTableViewCell.h */,
 				3114622B189006AC00702F29 /* PathTableViewCell.m */,
+				31B48BFE18B346EB00980F69 /* NewsCell.h */,
+				31B48BFF18B346EB00980F69 /* NewsCell.m */,
+				31B48C0118B3470100980F69 /* NewsCell.xib */,
 				31B5CE7A1890B17000C79CD6 /* MenuView.h */,
 				31B5CE7B1890B17000C79CD6 /* MenuView.m */,
 				312C440518A3D0C9006CE7D1 /* DetailTextView.h */,
@@ -637,6 +647,7 @@
 		31FCA238188D06A2005494AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				31B48C0318B34CF800980F69 /* news.png */,
 				31F642E218B1180B00D8A6EF /* IMG_0005.JPG */,
 				31EAFB87188D570E0052CC79 /* SportViewController.h */,
 				31EAFB88188D570E0052CC79 /* SportViewController.m */,
@@ -793,11 +804,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				315D6A0E18B1C753004B0ADB /* UMShareEditViewController.xib in Resources */,
+				31B48C0418B34CF800980F69 /* news.png in Resources */,
 				31B48BF618B3396000980F69 /* send_selected@2x.png in Resources */,
 				31B48BEB18B3396000980F69 /* messages_right_bubble@2x.png in Resources */,
 				31F642E318B1180B00D8A6EF /* IMG_0005.JPG in Resources */,
 				315D6A1018B1C753004B0ADB /* UMSLoginViewController.xib in Resources */,
 				3124666618AC618C00315A06 /* SleepViewController.xib in Resources */,
+				31B48C0218B3470100980F69 /* NewsCell.xib in Resources */,
 				31B48BE718B3396000980F69 /* item_cancel_selected@2x.png in Resources */,
 				31B48BE418B3396000980F69 /* icon_rightArrow@2x.png in Resources */,
 				31B48BF518B3396000980F69 /* send@2x.png in Resources */,
@@ -934,6 +947,7 @@
 				31F642DE18B1017200D8A6EF /* MeSetViewController.m in Sources */,
 				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
 				31B48BAB18B30B3200980F69 /* ModifyCodeViewController.m in Sources */,
+				31B48C0018B346EB00980F69 /* NewsCell.m in Sources */,
 				316C8C12188E624E00D31252 /* DragView.m in Sources */,
 				3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */,
 				31B48BFB18B3396000980F69 /* UMFeedbackTableViewCellRight.m in Sources */,
