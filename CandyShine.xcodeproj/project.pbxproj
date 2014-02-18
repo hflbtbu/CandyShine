@@ -23,6 +23,10 @@
 		312C954C18B284EB00A04594 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312C954A18B284EB00A04594 /* MeViewController.xib */; };
 		312C955018B28BAB00A04594 /* SportSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C954E18B28BAB00A04594 /* SportSetViewController.m */; };
 		312C955118B28BAB00A04594 /* SportSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312C954F18B28BAB00A04594 /* SportSetViewController.xib */; };
+		313DF80E18B40A4400DF7898 /* VerticalLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 313DF80D18B40A4400DF7898 /* VerticalLabel.m */; };
+		31473DB418B3995B00DEDA12 /* WaterWarmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31473DB318B3995B00DEDA12 /* WaterWarmManager.m */; };
+		31473DB718B3A93B00DEDA12 /* SelectedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31473DB618B3A93B00DEDA12 /* SelectedCell.m */; };
+		31473DBA18B3AF2200DEDA12 /* IndexPathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31473DB918B3AF2200DEDA12 /* IndexPathCell.m */; };
 		315D6A0718B1C753004B0ADB /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 315D69E718B1C753004B0ADB /* UMSocialLocalizable.strings */; };
 		315D6A0818B1C753004B0ADB /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315D69EB18B1C753004B0ADB /* libWeChatSDK.a */; };
 		315D6A0918B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315D69FA18B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a */; };
@@ -161,6 +165,14 @@
 		312C954D18B28BAB00A04594 /* SportSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportSetViewController.h; sourceTree = "<group>"; };
 		312C954E18B28BAB00A04594 /* SportSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportSetViewController.m; sourceTree = "<group>"; };
 		312C954F18B28BAB00A04594 /* SportSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportSetViewController.xib; sourceTree = "<group>"; };
+		313DF80C18B40A4400DF7898 /* VerticalLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalLabel.h; sourceTree = "<group>"; };
+		313DF80D18B40A4400DF7898 /* VerticalLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalLabel.m; sourceTree = "<group>"; };
+		31473DB218B3995B00DEDA12 /* WaterWarmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterWarmManager.h; sourceTree = "<group>"; };
+		31473DB318B3995B00DEDA12 /* WaterWarmManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterWarmManager.m; sourceTree = "<group>"; };
+		31473DB518B3A93B00DEDA12 /* SelectedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCell.h; sourceTree = "<group>"; };
+		31473DB618B3A93B00DEDA12 /* SelectedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCell.m; sourceTree = "<group>"; };
+		31473DB818B3AF2200DEDA12 /* IndexPathCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexPathCell.h; sourceTree = "<group>"; };
+		31473DB918B3AF2200DEDA12 /* IndexPathCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexPathCell.m; sourceTree = "<group>"; };
 		315D69E818B1C753004B0ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		315D69EB18B1C753004B0ADB /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		315D69EC18B1C753004B0ADB /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -340,6 +352,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31473DB118B3992C00DEDA12 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				31473DB218B3995B00DEDA12 /* WaterWarmManager.h */,
+				31473DB318B3995B00DEDA12 /* WaterWarmManager.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
 		315D69E518B1C710004B0ADB /* ThirdPart */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +437,7 @@
 		316C8C0F188E623A00D31252 /* CustomeView */ = {
 			isa = PBXGroup;
 			children = (
+				31F642E018B1115000D8A6EF /* SexView.xib */,
 				316C8C10188E624E00D31252 /* DragView.h */,
 				316C8C11188E624E00D31252 /* DragView.m */,
 				316C8C13188E9E9900D31252 /* GridPathView.h */,
@@ -448,6 +470,12 @@
 				31B278B318B24BC800A01E51 /* PickerView.m */,
 				31B48BB718B32C8400980F69 /* RegistMHTextField.h */,
 				31B48BB818B32C8400980F69 /* RegistMHTextField.m */,
+				31473DB518B3A93B00DEDA12 /* SelectedCell.h */,
+				31473DB618B3A93B00DEDA12 /* SelectedCell.m */,
+				31473DB818B3AF2200DEDA12 /* IndexPathCell.h */,
+				31473DB918B3AF2200DEDA12 /* IndexPathCell.m */,
+				313DF80C18B40A4400DF7898 /* VerticalLabel.h */,
+				313DF80D18B40A4400DF7898 /* VerticalLabel.m */,
 			);
 			name = CustomeView;
 			sourceTree = "<group>";
@@ -566,6 +594,7 @@
 		31FCA20C188CFD17005494AE /* CandyShine */ = {
 			isa = PBXGroup;
 			children = (
+				31473DB118B3992C00DEDA12 /* Data */,
 				31FCA238188D06A2005494AE /* Controller */,
 				31FCA237188D0670005494AE /* General */,
 				31FCA20D188CFD17005494AE /* Supporting Files */,
@@ -679,7 +708,6 @@
 				31B48BA818B30B3200980F69 /* ModifyCodeViewController.h */,
 				31B48BA918B30B3200980F69 /* ModifyCodeViewController.m */,
 				31B48BAA18B30B3200980F69 /* ModifyCodeViewController.xib */,
-				31F642E018B1115000D8A6EF /* SexView.xib */,
 				315D6A1418B1D302004B0ADB /* LogInViewController.h */,
 				315D6A1518B1D302004B0ADB /* LogInViewController.m */,
 				315D6A1618B1D302004B0ADB /* LogInViewController.xib */,
@@ -929,18 +957,21 @@
 				31146226188FEBA200702F29 /* CirclePathView.m in Sources */,
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
 				31F3796218A8BEF6005DB08B /* EditWarmTimeViewController.m in Sources */,
+				313DF80E18B40A4400DF7898 /* VerticalLabel.m in Sources */,
 				312C954B18B284EB00A04594 /* MeViewController.m in Sources */,
 				31B48BFC18B3396000980F69 /* UMFeedbackViewController.m in Sources */,
 				3166DD9D1891784C00AB468F /* MoveCircleView.m in Sources */,
 				3124666E18AC6F8400315A06 /* SleepPathView.m in Sources */,
 				3124666918AC642200315A06 /* SleepCell.m in Sources */,
 				31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */,
+				31473DB718B3A93B00DEDA12 /* SelectedCell.m in Sources */,
 				31F3795B18A8A429005DB08B /* WaterWarmViewController.m in Sources */,
 				31B48BF818B3396000980F69 /* UMContactViewController.m in Sources */,
 				312C440A18A3F41E006CE7D1 /* FriendCell.m in Sources */,
 				31FCA213188CFD17005494AE /* main.m in Sources */,
 				31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */,
 				315D6A1718B1D302004B0ADB /* LogInViewController.m in Sources */,
+				31473DBA18B3AF2200DEDA12 /* IndexPathCell.m in Sources */,
 				31B48BB918B32C8400980F69 /* RegistMHTextField.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
 				31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */,
@@ -953,6 +984,7 @@
 				31B48BFB18B3396000980F69 /* UMFeedbackTableViewCellRight.m in Sources */,
 				312C440718A3D0C9006CE7D1 /* DetailTextView.m in Sources */,
 				316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */,
+				31473DB418B3995B00DEDA12 /* WaterWarmManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

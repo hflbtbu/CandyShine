@@ -1,4 +1,4 @@
-//
+
 //  WaterWarmViewController.m
 //  CandyShine
 //
@@ -8,10 +8,13 @@
 
 #import "WaterWarmViewController.h"
 #import "EditWarmTimeViewController.h"
+#import "WaterWarmManager.h"
+#import "SelectedCell.h"
+#import "IndexPathCell.h"
+#import "PickerView.h"
+#import "VerticalLabel.h"
 
-#define WaterWarmTime   @"WaterWarmTime"
-
-@interface WaterWarmViewController () <UITableViewDelegate,UITableViewDataSource,EditWarmTimeViewControllerDelegate>
+@interface WaterWarmViewController () <UITableViewDelegate,UITableViewDataSource, IndexPathCellDelegate, PickerViewDelegate>
 {
     NSMutableArray *_warmTimeArray;
     IBOutlet UITableView *_tableView;
@@ -20,6 +23,13 @@
     
     EditType _editType;
     int _selectedIndex;
+    
+    SelectedCell *_selectedCell;
+    
+    WaterWarmManager *_waterWarmManager;
+    BOOL _isReloadData;
+    BOOL _isAddWarm;
+    NSIndexPath *_selectedIndexPath;
 }
 @end
 
@@ -44,113 +54,24 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //[self deleteLocalNotificationWith:0];
-    [self initialWarmTime];
-    
-    _tableView.rowHeight = 80;
+
     _tableView.allowsSelectionDuringEditing = YES;
-    _tableView.allowsSelection = NO;
-    _tableView.contentInset = UIEdgeInsetsMake(-35, 0, 0, 0);
+    //_tableView.allowsSelection = NO;
+    _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    
+    _waterWarmManager = [WaterWarmManager shared];
+    
 }
 
 - (void)initNavigationItem {
-    UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTableView)];
-    self.navigationItem.leftBarButtonItem = edit;
-    
-    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addWarmTime)];
-    self.navigationItem.rightBarButtonItem = add;
-}
-
-- (void)editTableView {
-    [_tableView setEditing:!_tableView.editing animated:YES];
-}
-
-- (void)addWarmTime {
-    _editType = EditTypeAdd;
-    EditWarmTimeViewController *editVC = [[EditWarmTimeViewController alloc] initWithNibName:@"EditWarmTimeViewController" bundle:nil];
-    editVC.delegate = self;
-    BaseNavigationController *baseVC = [[BaseNavigationController alloc] initWithRootViewController:editVC];
-    [self presentViewController:baseVC animated:YES completion:^{
-        
-    }];
-   
-}
-
-- (void)initialWarmTime {
-    _warmTimeArray = (NSMutableArray *)[[NSUserDefaults standardUserDefaults] arrayForKey:WaterWarmTime];
-    if (_warmTimeArray == nil) {
-        _warmTimeArray = [NSMutableArray arrayWithCapacity:0];
-        for (int i = 0; i < 3; i++) {
-            NSTimeInterval timeInterval = i*30*60;
-            [_warmTimeArray addObject:[NSNumber numberWithDouble:timeInterval]];
-            [self addNewLocalNotificationWith:timeInterval];
-        }
-        
-        [[NSUserDefaults standardUserDefaults] setValue:_warmTimeArray forKey:WaterWarmTime];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
+//    UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTableView)];
+//    self.navigationItem.leftBarButtonItem = edit;
+//    
+//    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addWarmTime)];
+//    self.navigationItem.rightBarButtonItem = add;
 }
 
 
-- (void)cancleLocalNotificationWith:(int)timeInterval {
-    for (UILocalNotification *notification in [[UIApplication sharedApplication] scheduledLocalNotifications]) {
-        if ([[notification.userInfo objectForKey:WaterWarmTime] intValue] == timeInterval) {
-        [[UIApplication sharedApplication] cancelLocalNotification:notification];
-        }
-    }
-}
-
-- (void)addNewLocalNotificationWith:(int)timeInterval {
-    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:[NSDate date]];
-    [components setHour:0];
-    [components setMinute:0];
-    [components setSecond:0];
-    NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:components];
-    NSDate *fireDate = [NSDate dateWithTimeInterval:timeInterval sinceDate:date];
-    UILocalNotification *newNotification = [[UILocalNotification alloc] init];
-    if (newNotification) {
-        //时区
-        newNotification.timeZone=[NSTimeZone defaultTimeZone];
-        newNotification.fireDate= fireDate;
-        //推送内容
-        newNotification.alertBody = @"该喝水了";
-        //设置按钮
-        newNotification.alertAction = @"喝水";
-        //判断重复与否
-        newNotification.repeatInterval = NSDayCalendarUnit;
-        
-        //存入的字典，用于传入数据，区分多个通知
-        NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:timeInterval], WaterWarmTime, nil];
-        newNotification.userInfo = dic;
-        [[UIApplication sharedApplication] scheduleLocalNotification:newNotification];
-    }
-
-}
-
-- (void)didSelectedWarmTime:(int)timeInterval {
-    if (_editType == EditTypeAdd) {
-        [_warmTimeArray addObject:[NSNumber numberWithInt:timeInterval]];
-        [self addNewLocalNotificationWith:timeInterval];
-    } else {
-        [_warmTimeArray setObject:[NSNumber numberWithInt:timeInterval] atIndexedSubscript:_selectedIndex];
-        [self cancleLocalNotificationWith:timeInterval];
-        [self addNewLocalNotificationWith:timeInterval];
-    }
-    _warmTimeArray = [NSMutableArray arrayWithArray:[_warmTimeArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-        if ([obj1 intValue] > [obj2 intValue]) {
-            return NSOrderedDescending;
-        }
-        if ([obj1 intValue] < [obj2 intValue]) {
-            return NSOrderedAscending;
-        }
-        return NSOrderedSame;
-    }]];
-    
-    [[NSUserDefaults standardUserDefaults] setValue:_warmTimeArray forKey:WaterWarmTime];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [_tableView reloadData];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -163,45 +84,174 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    if (!_waterWarmManager.isOpenWarm) {
+        return 1;
+    }
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_warmTimeArray count];
+    if (section == 0) {
+        return _waterWarmManager.isOpenWarm ? 2 :1;
+    } else if (section == 1) {
+        return 3;
+    } else {
+        return _waterWarmManager.isCustome ? [_waterWarmManager warmTimeArray].count + 1 : 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        UISwitch *warmSwitch = [[UISwitch alloc] init];
-        warmSwitch.on = YES;
-        cell.accessoryView  = warmSwitch;
-        cell.editingAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
-        cell.textLabel.font = [UIFont systemFontOfSize:50];
+    //static NSString *cellIdentifier = @"CellIdentifier";
+    static NSString *selectedCellIdentifier = @"SelectedCellIdentifier";
+    static NSString *switchCellIdentifier = @"SwitchCellIdentifier";
+    static NSString *accessoryCellIdentifier = @"AccessoryCellIdentifier";
+    switch (indexPath.section) {
+            case 0: {
+                switch (indexPath.row) {
+                        case 0: {
+                            IndexPathCell *cell = [tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
+                            if (cell == nil) {
+                                cell = [[IndexPathCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:switchCellIdentifier];
+                                cell.timeSwitch.on = _waterWarmManager.isOpenWarm;
+                                cell.delegate = self;
+                                cell.textLabel.textColor = kContentNormalColor;
+                            }
+                            cell.indexPath = indexPath;
+                            cell.textLabel.text = @"喝水提醒";
+                            return cell;
+                            break;
+                        }
+                        case 1: {
+                            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:accessoryCellIdentifier];
+                            if (cell == nil) {
+                                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:accessoryCellIdentifier];
+                                cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                                cell.textLabel.textColor = kContentNormalColor;
+                            }
+                            cell.textLabel.text = @"起床时间";
+                            cell.detailTextLabel.text = [self getTimeStringWith:_waterWarmManager.getupTime];
+                            return cell;
+                            break;
+                        }
+                        
+                    default:
+                        break;
+                }
+            }
+            case 1: {
+                SelectedCell *cell = [tableView dequeueReusableCellWithIdentifier:selectedCellIdentifier];
+                if (cell == nil) {
+                    cell = [[SelectedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:selectedCellIdentifier];
+                }
+                switch (indexPath.row) {
+                        case 0:
+                        cell.textLabel.text = @"2小时";
+                        cell.isSelected = [_waterWarmManager.selectedIndexPath isEqual:indexPath];
+                        _selectedCell = cell;
+                        break;
+                        case 1:
+                        cell.textLabel.text = @"4小时";
+                        cell.isSelected = [_waterWarmManager.selectedIndexPath isEqual:indexPath];
+                        break;
+                        case 2:
+                        cell.textLabel.text = @"6小时";
+                        cell.isSelected = [_waterWarmManager.selectedIndexPath isEqual:indexPath];
+                        break;
+                    default:
+                        break;
+                }
+                return cell;
+                break;
+            }
+            case 2: {
+                switch (indexPath.row) {
+                        case 0: {
+                            SelectedCell *cell = [tableView dequeueReusableCellWithIdentifier:selectedCellIdentifier];
+                            if (cell == nil) {
+                                cell = [[SelectedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:selectedCellIdentifier];
+                                //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                            }
+                            cell.textLabel.text = @"自定义喝水提醒";
+                            cell.isSelected = [_waterWarmManager.selectedIndexPath isEqual:indexPath];
+                            return cell;
+                            break;
+                        }
+                    default:{
+                        IndexPathCell *cell = [tableView dequeueReusableCellWithIdentifier:switchCellIdentifier];
+                        if (cell == nil) {
+                            cell = [[IndexPathCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:switchCellIdentifier];
+                            cell.delegate = self;
+                            cell.textLabel.textColor = kContentNormalColor;
+                        }
+                        cell.indexPath = indexPath;
+                        NSDictionary *dic = [[[WaterWarmManager shared] warmTimeArray] objectAtIndex:indexPath.row - 1];
+                        cell.timeSwitch.on = [[dic objectForKey:kWarmTimeIsOn] boolValue];
+                        NSInteger timeInterval = [[dic objectForKey:kWarmTimeValue] integerValue];
+                        cell.textLabel.text = [self getTimeStringWith:timeInterval];
+                        return cell;
+                        break;
+                    }
+                }
+            }
     }
-    
-    // Configure the cell...
-    int timeInterval = [[_warmTimeArray objectAtIndex:indexPath.row] doubleValue];
-    int minute = timeInterval/60%60;
-    int hour = (timeInterval/60 - minute)/60;
-    cell.textLabel.text = [NSString stringWithFormat:@"%02d:%02d",hour,minute];
-    return cell;
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        VerticalLabel *label = [[VerticalLabel alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 0)];
+        label.text = @"   每隔以下时间提醒我喝水";
+        label.font = [UIFont systemFontOfSize:15];
+        label.contentMode = UIViewContentModeBottom;
+        label.textColor = kContentNormalColor;
+        
+        //label.backgroundColor = [UIColor grayColor];
+        return label;
+    }
+    return nil ;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        return 40;
+    }
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 2 && _waterWarmManager.isCustome) {
+        return 60;
+    }
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (section == 2 && _waterWarmManager.isCustome) {
+        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
+        [addFriendButton setTitle:@"添加时间" forState:UIControlStateNormal];
+        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
+        [addFriendButton addTarget:self action:@selector(addWarmTime) forControlEvents:UIControlEventTouchUpInside];
+        return addFriendButton;
+    }
+    return nil;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2 && indexPath.row >= 1) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self cancleLocalNotificationWith:[[_warmTimeArray objectAtIndex:indexPath.row] intValue]];
-    [_warmTimeArray removeObjectAtIndex:indexPath.row];
+    [[WaterWarmManager shared] cancelLocalNotificationWith:indexPath.row -1];
+    [[WaterWarmManager shared] removeWarmTimeWith:indexPath.row -1];
     NSArray *indexPaths = [NSArray arrayWithObject:indexPath];
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:WaterWarmTime];
-    [[NSUserDefaults standardUserDefaults] setValue:_warmTimeArray forKey:WaterWarmTime];
-    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 /*
@@ -249,20 +299,72 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _editType = EditTypeModify;
-    _selectedIndex = (int)indexPath.row;
-    EditWarmTimeViewController *editVC = [[EditWarmTimeViewController alloc] initWithNibName:@"EditWarmTimeViewController" bundle:nil];
-    editVC.delegate = self;
-    BaseNavigationController *baseVC = [[BaseNavigationController alloc] initWithRootViewController:editVC];
-    [self presentViewController:baseVC animated:YES completion:^{
-        
-    }];
+    if (indexPath.section == 2 && indexPath.row >= 1) {
+        [self showPickerView];
+    } else if (indexPath.section == 1) {
+        _waterWarmManager.isCustome = NO;
+        _waterWarmManager.timeInterval = (indexPath.row + 1)*2*3600;
+        [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+    } else if (indexPath.section == 2 && indexPath.row == 0) {
+        _waterWarmManager.isCustome = YES;
+        _waterWarmManager.timeInterval = 0;
+        [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
+    }
+    else if (indexPath.section == 0 && indexPath.row == 1) {
+        [self showPickerView];
+    }
+    _selectedIndexPath = indexPath;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [_tableView setEditing:NO animated:NO];
+- (void)reloadData {
+    [_tableView reloadData];
 }
 
+- (void)pickerViewDidSelectedWithVlaue:(NSDictionary *)dic {
+    NSInteger hour = [[dic objectForKey:kPickerHuor] integerValue];
+    NSInteger minute = [[dic objectForKey:kPickerMinute] integerValue];
+    NSInteger timeInterval = hour*3600 + minute*60;
+    if (_isAddWarm) {
+        _isAddWarm = NO;
+        [_waterWarmManager addWarmTimeWith:timeInterval];
+    } else {
+        if (_selectedIndexPath.section == 0) {
+            _waterWarmManager.getupTime =timeInterval;
+        } else {
+            [_waterWarmManager replaceWarmTimeWith:timeInterval atIndex:_selectedIndexPath.row - 1];
+        }
+    }
+    [_tableView reloadData];
+}
+
+- (void)switchValueDidChanged:(NSIndexPath *)indexPath :(BOOL)isOn {
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        _waterWarmManager.isOpenWarm = isOn;
+    } else if (indexPath.section == 2 && indexPath.row >= 1) {
+        [_waterWarmManager replaceWarmTimeOnWith:isOn atIndex:indexPath.row - 1];
+    }
+    [_tableView reloadData];
+}
+
+- (void)addWarmTime {
+    _isAddWarm = YES;
+    [self showPickerView];
+}
+
+- (void)showPickerView {
+    PickerView *pickerView = [[PickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 260) :PickerViewTime];
+    pickerView.delegate = self;
+    [pickerView show];
+}
+
+- (NSString *)getTimeStringWith:(NSInteger)timeInterval {
+    NSInteger minute = timeInterval/60%60;
+    NSInteger hour = (timeInterval/60 - minute)/60;
+    return  [NSString stringWithFormat:@"%02d:%02d",hour,minute];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [_waterWarmManager saveData];
+}
 @end

@@ -10,13 +10,17 @@
 #import "MeSetViewController.h"
 #import "SportSetViewController.h"
 #import "UMFeedbackViewController.h"
+#import "LogInViewController.h"
 #import "PickerView.h"
+#import "WaterWarmViewController.h"
 
 @interface MeViewController () <UITableViewDataSource, UITableViewDelegate,PickerViewDelegate>
 {
     IBOutlet UITableView *_tableView;
     
     UIImageView *_thumberImage;
+    
+    BOOL _isLogin;
 }
 @end
 
@@ -130,25 +134,40 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == 2) {
         UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
-        [addFriendButton setTitle:@"退出登录" forState:UIControlStateNormal];
+        [addFriendButton setTitle : _isLogin? @"退出登录": @"登录" forState:UIControlStateNormal];
         [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
-        [addFriendButton addTarget:self action:@selector(logout) forControlEvents:UIControlEventTouchUpInside];
+        [addFriendButton addTarget:self action:@selector(logoutButtonClickerHander) forControlEvents:UIControlEventTouchUpInside];
         return addFriendButton;
     }
     return nil;
 }
 
-- (void)logout {
-    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"退出后不会删除你的任何数据", @"")
-                                                    delegate:nil
-                                           cancelButtonTitle:NSLocalizedString(@"取消", @"")
-                                      destructiveButtonTitle:NSLocalizedString(@"退出登陆", @"")
-                                           otherButtonTitles:nil];
-    as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-    as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+- (void)logoutButtonClickerHander {
+    if (_isLogin) {
+        UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"退出后不会删除你的任何数据", @"")
+                                                        delegate:nil
+                                               cancelButtonTitle:NSLocalizedString(@"取消", @"")
+                                          destructiveButtonTitle:NSLocalizedString(@"退出登陆", @"")
+                                               otherButtonTitles:nil];
+        as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+            if (buttonIndex == 0) {
+                _isLogin = NO;
+                [_tableView reloadData];
+            }
+        };
+        [as showInView:[UIApplication sharedApplication].keyWindow];
 
-    };
-    [as showInView:[UIApplication sharedApplication].keyWindow];
+    } else {
+        _isLogin = YES;
+        LogInViewController *logInVC = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
+        //BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
+        //            [self presentViewController:logIn animated:YES completion:^{
+        //
+        //            }];
+        [self.navigationController pushViewController:logInVC animated:YES];
+        
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -169,7 +188,9 @@
             PickerView *pickerView = [[PickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 260) :PickerViewTime];
             pickerView.delegate = self;
             [pickerView show];
-        } else {
+        } else  if (indexPath.row == 2){
+            WaterWarmViewController *warm = [[WaterWarmViewController alloc] initWithNibName:@"WaterWarmViewController" bundle:nil];
+            [self.navigationController pushViewController:warm animated:YES];
         }
     } else {
         [self showNativeFeedbackWithAppkey:UmengAppkey];
@@ -188,6 +209,11 @@
 
 - (void)pickerViewDidSelectedWithVlaue:(NSDictionary *)dic {
     
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [_tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

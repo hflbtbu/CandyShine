@@ -168,12 +168,7 @@
             };
             [as showInView:[UIApplication sharedApplication].keyWindow];
         } else if (indexPath.row == 1) {
-            LogInViewController *logInVC = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
-            BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
-//            [self presentViewController:logIn animated:YES completion:^{
-//                
-//            }];
-            [self.navigationController pushViewController:logInVC animated:YES];
+            
         } else {
             ModifyCodeViewController *modifyCode = [[ModifyCodeViewController alloc] initWithNibName:@"ModifyCodeViewController" bundle:nil];
             [self.navigationController pushViewController:modifyCode animated:YES];

@@ -19,6 +19,7 @@
     #import "DateHelper.h"
 
 //MacroDefine
+    #import "Config.h"
     #import "MacroDefine.h"
 
 //Category
