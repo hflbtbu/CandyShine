@@ -12,7 +12,7 @@
 #import "UMFeedbackViewController.h"
 #import "LogInViewController.h"
 #import "PickerView.h"
-#import "WaterWarmViewController.h"
+#import "WaterWarmSetViewController.h"
 
 @interface MeViewController () <UITableViewDataSource, UITableViewDelegate,PickerViewDelegate>
 {
@@ -189,7 +189,7 @@
             pickerView.delegate = self;
             [pickerView show];
         } else  if (indexPath.row == 2){
-            WaterWarmViewController *warm = [[WaterWarmViewController alloc] initWithNibName:@"WaterWarmViewController" bundle:nil];
+            WaterWarmSetViewController *warm = [[WaterWarmSetViewController alloc] initWithNibName:@"WaterWarmSetViewController" bundle:nil];
             [self.navigationController pushViewController:warm animated:YES];
         }
     } else {

@@ -93,11 +93,19 @@
 		31B48C0018B346EB00980F69 /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B48BFF18B346EB00980F69 /* NewsCell.m */; };
 		31B48C0218B3470100980F69 /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B48C0118B3470100980F69 /* NewsCell.xib */; };
 		31B48C0418B34CF800980F69 /* news.png in Resources */ = {isa = PBXBuildFile; fileRef = 31B48C0318B34CF800980F69 /* news.png */; };
+		31B5119818B4803600FEA3E3 /* WaterWarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5119618B4803600FEA3E3 /* WaterWarmViewController.m */; };
+		31B5119918B4803600FEA3E3 /* WaterWarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B5119718B4803600FEA3E3 /* WaterWarmViewController.xib */; };
+		31B5119F18B4826500FEA3E3 /* OLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5119C18B4826500FEA3E3 /* OLImage.m */; };
+		31B511A018B4826500FEA3E3 /* OLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5119E18B4826500FEA3E3 /* OLImageView.m */; };
+		31B511A918B4868E00FEA3E3 /* WaterAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B511A818B4868E00FEA3E3 /* WaterAnimationView.m */; };
+		31B511B018B4CD3400FEA3E3 /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31B511AD18B4CD3400FEA3E3 /* 3.gif */; };
+		31B511B518B4CF3F00FEA3E3 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31B511B418B4CF3F00FEA3E3 /* 1.gif */; };
+		31B511B718B4D01100FEA3E3 /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31B511B618B4D01100FEA3E3 /* 2.gif */; };
 		31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5CE7B1890B17000C79CD6 /* MenuView.m */; };
 		31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* SportViewController.m */; };
 		31EAFB8B188D570E0052CC79 /* SportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EAFB89188D570E0052CC79 /* SportViewController.xib */; };
-		31F3795B18A8A429005DB08B /* WaterWarmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F3795918A8A429005DB08B /* WaterWarmViewController.m */; };
-		31F3795E18A8AB4A005DB08B /* WaterWarmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F3795D18A8AB4A005DB08B /* WaterWarmViewController.xib */; };
+		31F3795B18A8A429005DB08B /* WaterWarmSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F3795918A8A429005DB08B /* WaterWarmSetViewController.m */; };
+		31F3795E18A8AB4A005DB08B /* WaterWarmSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F3795D18A8AB4A005DB08B /* WaterWarmSetViewController.xib */; };
 		31F3796218A8BEF6005DB08B /* EditWarmTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */; };
 		31F3796318A8BEF6005DB08B /* EditWarmTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */; };
 		31F642DE18B1017200D8A6EF /* MeSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F642DC18B1017200D8A6EF /* MeSetViewController.m */; };
@@ -276,14 +284,26 @@
 		31B48BFF18B346EB00980F69 /* NewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
 		31B48C0118B3470100980F69 /* NewsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		31B48C0318B34CF800980F69 /* news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = news.png; sourceTree = "<group>"; };
+		31B5119518B4803600FEA3E3 /* WaterWarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterWarmViewController.h; sourceTree = "<group>"; };
+		31B5119618B4803600FEA3E3 /* WaterWarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterWarmViewController.m; sourceTree = "<group>"; };
+		31B5119718B4803600FEA3E3 /* WaterWarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaterWarmViewController.xib; sourceTree = "<group>"; };
+		31B5119B18B4826500FEA3E3 /* OLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLImage.h; sourceTree = "<group>"; };
+		31B5119C18B4826500FEA3E3 /* OLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLImage.m; sourceTree = "<group>"; };
+		31B5119D18B4826500FEA3E3 /* OLImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLImageView.h; sourceTree = "<group>"; };
+		31B5119E18B4826500FEA3E3 /* OLImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLImageView.m; sourceTree = "<group>"; };
+		31B511A718B4868E00FEA3E3 /* WaterAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterAnimationView.h; sourceTree = "<group>"; };
+		31B511A818B4868E00FEA3E3 /* WaterAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterAnimationView.m; sourceTree = "<group>"; };
+		31B511AD18B4CD3400FEA3E3 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
+		31B511B418B4CF3F00FEA3E3 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
+		31B511B618B4D01100FEA3E3 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
 		31B5CE7A1890B17000C79CD6 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		31B5CE7B1890B17000C79CD6 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		31EAFB87188D570E0052CC79 /* SportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportViewController.h; sourceTree = "<group>"; };
 		31EAFB88188D570E0052CC79 /* SportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportViewController.m; sourceTree = "<group>"; };
 		31EAFB89188D570E0052CC79 /* SportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportViewController.xib; sourceTree = "<group>"; };
-		31F3795818A8A429005DB08B /* WaterWarmViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterWarmViewController.h; sourceTree = "<group>"; };
-		31F3795918A8A429005DB08B /* WaterWarmViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterWarmViewController.m; sourceTree = "<group>"; };
-		31F3795D18A8AB4A005DB08B /* WaterWarmViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaterWarmViewController.xib; sourceTree = "<group>"; };
+		31F3795818A8A429005DB08B /* WaterWarmSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterWarmSetViewController.h; sourceTree = "<group>"; };
+		31F3795918A8A429005DB08B /* WaterWarmSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterWarmSetViewController.m; sourceTree = "<group>"; };
+		31F3795D18A8AB4A005DB08B /* WaterWarmSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaterWarmSetViewController.xib; sourceTree = "<group>"; };
 		31F3795F18A8BEF6005DB08B /* EditWarmTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditWarmTimeViewController.h; sourceTree = "<group>"; };
 		31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditWarmTimeViewController.m; sourceTree = "<group>"; };
 		31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditWarmTimeViewController.xib; sourceTree = "<group>"; };
@@ -476,6 +496,8 @@
 				31473DB918B3AF2200DEDA12 /* IndexPathCell.m */,
 				313DF80C18B40A4400DF7898 /* VerticalLabel.h */,
 				313DF80D18B40A4400DF7898 /* VerticalLabel.m */,
+				31B511A718B4868E00FEA3E3 /* WaterAnimationView.h */,
+				31B511A818B4868E00FEA3E3 /* WaterAnimationView.m */,
 			);
 			name = CustomeView;
 			sourceTree = "<group>";
@@ -558,6 +580,20 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
+		31B5119A18B4823000FEA3E3 /* OLImageView */ = {
+			isa = PBXGroup;
+			children = (
+				31B511B418B4CF3F00FEA3E3 /* 1.gif */,
+				31B511B618B4D01100FEA3E3 /* 2.gif */,
+				31B511AD18B4CD3400FEA3E3 /* 3.gif */,
+				31B5119B18B4826500FEA3E3 /* OLImage.h */,
+				31B5119C18B4826500FEA3E3 /* OLImage.m */,
+				31B5119D18B4826500FEA3E3 /* OLImageView.h */,
+				31B5119E18B4826500FEA3E3 /* OLImageView.m */,
+			);
+			name = OLImageView;
+			sourceTree = "<group>";
+		};
 		31FCA1FA188CFD17005494AE = {
 			isa = PBXGroup;
 			children = (
@@ -634,6 +670,7 @@
 		31FCA235188D05E3005494AE /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				31B5119A18B4823000FEA3E3 /* OLImageView */,
 				31B48BB318B32BE500980F69 /* MHTextField */,
 				31B48BAD18B3180400980F69 /* UMFeedback_iOS_1.41 */,
 				315D69E518B1C710004B0ADB /* ThirdPart */,
@@ -690,9 +727,12 @@
 				315D6A1918B1FD8A004B0ADB /* NewsViewController.h */,
 				315D6A1A18B1FD8A004B0ADB /* NewsViewController.m */,
 				315D6A1B18B1FD8A004B0ADB /* NewsViewController.xib */,
-				31F3795818A8A429005DB08B /* WaterWarmViewController.h */,
-				31F3795918A8A429005DB08B /* WaterWarmViewController.m */,
-				31F3795D18A8AB4A005DB08B /* WaterWarmViewController.xib */,
+				31B5119518B4803600FEA3E3 /* WaterWarmViewController.h */,
+				31B5119618B4803600FEA3E3 /* WaterWarmViewController.m */,
+				31B5119718B4803600FEA3E3 /* WaterWarmViewController.xib */,
+				31F3795818A8A429005DB08B /* WaterWarmSetViewController.h */,
+				31F3795918A8A429005DB08B /* WaterWarmSetViewController.m */,
+				31F3795D18A8AB4A005DB08B /* WaterWarmSetViewController.xib */,
 				31F3795F18A8BEF6005DB08B /* EditWarmTimeViewController.h */,
 				31F3796018A8BEF6005DB08B /* EditWarmTimeViewController.m */,
 				31F3796118A8BEF6005DB08B /* EditWarmTimeViewController.xib */,
@@ -838,6 +878,7 @@
 				31F642E318B1180B00D8A6EF /* IMG_0005.JPG in Resources */,
 				315D6A1018B1C753004B0ADB /* UMSLoginViewController.xib in Resources */,
 				3124666618AC618C00315A06 /* SleepViewController.xib in Resources */,
+				31B511B518B4CF3F00FEA3E3 /* 1.gif in Resources */,
 				31B48C0218B3470100980F69 /* NewsCell.xib in Resources */,
 				31B48BE718B3396000980F69 /* item_cancel_selected@2x.png in Resources */,
 				31B48BE418B3396000980F69 /* icon_rightArrow@2x.png in Resources */,
@@ -860,19 +901,21 @@
 				31B48BED18B3396000980F69 /* messages_tableview_background@2x.png in Resources */,
 				315D6A1818B1D302004B0ADB /* LogInViewController.xib in Resources */,
 				31B48BF418B3396000980F69 /* nav_btn_bg_lighted@2x.png in Resources */,
+				31B5119918B4803600FEA3E3 /* WaterWarmViewController.xib in Resources */,
 				31F642DF18B1017200D8A6EF /* MeSetViewController.xib in Resources */,
 				315D6A1D18B1FD8A004B0ADB /* NewsViewController.xib in Resources */,
 				31B48BB218B3181E00980F69 /* umFeedback.bundle in Resources */,
 				31B48BF718B3396000980F69 /* umeng_logo.png in Resources */,
 				31FCA211188CFD17005494AE /* InfoPlist.strings in Resources */,
 				31F642E118B1115000D8A6EF /* SexView.xib in Resources */,
+				31B511B718B4D01100FEA3E3 /* 2.gif in Resources */,
 				31B48BF218B3396000980F69 /* nav_btn_bg.png in Resources */,
 				31B48BE618B3396000980F69 /* item_cancel@2x.png in Resources */,
 				31FCA219188CFD17005494AE /* Images.xcassets in Resources */,
 				3124666B18AC643B00315A06 /* SleepCell.xib in Resources */,
 				31B48BE918B3396000980F69 /* item_ok_selected@2x.png in Resources */,
 				31B48BAC18B30B3200980F69 /* ModifyCodeViewController.xib in Resources */,
-				31F3795E18A8AB4A005DB08B /* WaterWarmViewController.xib in Resources */,
+				31F3795E18A8AB4A005DB08B /* WaterWarmSetViewController.xib in Resources */,
 				315D6A0718B1C753004B0ADB /* UMSocialLocalizable.strings in Resources */,
 				315D6A0F18B1C753004B0ADB /* UMShareEditViewControlleriPad.xib in Resources */,
 				315D6A1218B1C753004B0ADB /* UMSShareListController.xib in Resources */,
@@ -882,6 +925,7 @@
 				31F3796318A8BEF6005DB08B /* EditWarmTimeViewController.xib in Resources */,
 				312C955118B28BAB00A04594 /* SportSetViewController.xib in Resources */,
 				31B48BEA18B3396000980F69 /* messages_left_bubble@2x.png in Resources */,
+				31B511B018B4CD3400FEA3E3 /* 3.gif in Resources */,
 				312C954C18B284EB00A04594 /* MeViewController.xib in Resources */,
 				31B48BE218B3396000980F69 /* blueArrow.png in Resources */,
 				31EAFB8B188D570E0052CC79 /* SportViewController.xib in Resources */,
@@ -954,6 +998,7 @@
 				31B48BB618B32C1800980F69 /* MHTextField.m in Sources */,
 				3124F65118A9CF0C00DAC360 /* DateHelper.m in Sources */,
 				315D6A1C18B1FD8A004B0ADB /* NewsViewController.m in Sources */,
+				31B511A918B4868E00FEA3E3 /* WaterAnimationView.m in Sources */,
 				31146226188FEBA200702F29 /* CirclePathView.m in Sources */,
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
 				31F3796218A8BEF6005DB08B /* EditWarmTimeViewController.m in Sources */,
@@ -964,14 +1009,16 @@
 				3124666E18AC6F8400315A06 /* SleepPathView.m in Sources */,
 				3124666918AC642200315A06 /* SleepCell.m in Sources */,
 				31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */,
+				31B5119818B4803600FEA3E3 /* WaterWarmViewController.m in Sources */,
 				31473DB718B3A93B00DEDA12 /* SelectedCell.m in Sources */,
-				31F3795B18A8A429005DB08B /* WaterWarmViewController.m in Sources */,
+				31F3795B18A8A429005DB08B /* WaterWarmSetViewController.m in Sources */,
 				31B48BF818B3396000980F69 /* UMContactViewController.m in Sources */,
 				312C440A18A3F41E006CE7D1 /* FriendCell.m in Sources */,
 				31FCA213188CFD17005494AE /* main.m in Sources */,
 				31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */,
 				315D6A1718B1D302004B0ADB /* LogInViewController.m in Sources */,
 				31473DBA18B3AF2200DEDA12 /* IndexPathCell.m in Sources */,
+				31B5119F18B4826500FEA3E3 /* OLImage.m in Sources */,
 				31B48BB918B32C8400980F69 /* RegistMHTextField.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
 				31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */,
@@ -984,6 +1031,7 @@
 				31B48BFB18B3396000980F69 /* UMFeedbackTableViewCellRight.m in Sources */,
 				312C440718A3D0C9006CE7D1 /* DetailTextView.m in Sources */,
 				316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */,
+				31B511A018B4826500FEA3E3 /* OLImageView.m in Sources */,
 				31473DB418B3995B00DEDA12 /* WaterWarmManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1118,6 +1166,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
 				INFOPLIST_FILE = "CandyShine/CandyShine-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4/frameworks/Wechat",
@@ -1142,6 +1191,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
 				INFOPLIST_FILE = "CandyShine/CandyShine-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4/frameworks/Wechat",

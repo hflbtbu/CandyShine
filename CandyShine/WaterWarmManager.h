@@ -9,6 +9,7 @@
 #define kWaterWarmData      @"WaterWarmData"
 
 #define kWaterWarmTime      @"WaterWarmTime"
+#define kWarmTimeState      @"WarmTimeState"
 #define kWarmTimeValue      @"WarmTimeValue"
 #define kWarmTimeIsOn       @"WarmTimeIsOn"
 
@@ -30,6 +31,7 @@
 @property (nonatomic, assign) BOOL isCustome;
 @property (nonatomic, assign) BOOL isOpenWarm;
 @property (nonatomic, retain) NSMutableArray *warmTimeArray;
+@property (nonatomic, retain) NSMutableArray *warmTimeStateArray;
 
 @property (nonatomic, retain) NSIndexPath *selectedIndexPath;
 
@@ -49,8 +51,10 @@
 
 - (void)replaceWarmTimeOnWith:(BOOL)isOn atIndex:(NSInteger)index;
 
+- (void)replaceWarmTimeState:(WaterWarmState)state AtIndex:(NSInteger)index;
+
 - (void)addWarmTimeWith:(NSInteger)timeInterval;
 
-- (NSArray *)getWarmTime;
+- (NSArray *)getWarmTimes;
 
 @end

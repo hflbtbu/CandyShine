@@ -40,6 +40,12 @@ typedef NS_ENUM(NSInteger, PickerViewType) {
     PickerViewWeight,
 };
 
+typedef NS_ENUM(NSInteger, WaterWarmState) {
+    WaterWarmStateOff,
+    WaterWarmStateBefore,
+    WaterWarmStateDrink,
+    WaterWarmStateAfter,
+};
 
 
 #endif

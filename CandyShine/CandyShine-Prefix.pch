@@ -49,6 +49,7 @@
 
 
 #import "UMSocial.h"
+#import "UMSocialSnsService.h"
 #import "AFNetworking.h"
 
 #endif
