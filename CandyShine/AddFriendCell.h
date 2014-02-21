@@ -10,6 +10,7 @@
 
 @interface AddFriendCell : UITableViewCell
 
-@property (nonatomic, retain) UIImageView *frinendThumberImage;
+@property (nonatomic, retain) CircleImageView *frinendThumberImage;
+@property (nonatomic, assign) CellPosition cellPosition;
 @property (nonatomic, retain) UIButton *addButton;
 @end

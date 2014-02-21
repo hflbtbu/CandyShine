@@ -8,6 +8,7 @@
 
 #import "SleepViewController.h"
 #import "SleepCell.h"
+#import "FriendCell.h"
 
 @interface SleepViewController () <UITableViewDelegate,UITableViewDataSource>
 {
@@ -65,30 +66,39 @@
             cell.tableView.dataSource = self;
         }
         
+        if (indexPath.row == 9) {
+            [cell setCellPosition:CellPositionTop];
+        } else if (indexPath.row == 0) {
+            [cell setCellPosition:CellPositionBottom];
+        } else {
+            [cell setCellPosition:CellPositionMiddle];
+        }
+        
         [cell.friendSleepPkLabel setText:[NSString stringWithFormat:@"今天超过的80%%的用户"] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x787878]];
         [cell.friendSleepPkLabel setKeyWordTextArray:@[[NSString stringWithFormat:@"80%%"]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xffaa33]];
         
         return cell;
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentifer];
+        FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentifer];
         if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentifer] ;
-//            UIImageView *thumber = [[UIImageView alloc] initWithFrame:CGRectMake(cell.width - 100, 5, 50, 50)];
-//            thumber.backgroundColor = [UIColor orangeColor];
-//            thumber.layer.cornerRadius = 25;
-//            thumber.layer.masksToBounds = YES;
-//            thumber.image = [UIImage imageNamed:@"IMG_0005.JPG"];
-//            [cell.contentView addSubview:thumber];
-            cell.imageView.layer.cornerRadius = 25;
-            cell.imageView.layer.masksToBounds = YES;
-            cell.imageView.image =  [UIImage imageNamed:@"TabMeSelected"];
-            cell.textLabel.textColor = [UIColor convertHexColorToUIColor:0x787878];
-            cell.textLabel.text = @"范冰冰今天的睡眠质量80%";
+            cell = [[FriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentifer] ;
+        }
+        
+        NSString *str = @"范冰冰今天睡眠质量80%";
+        CGSize size =[str sizeWithFont:kTitleFont1];
+        cell.friendRunLB.frame = CGRectMake(cell.friendRunLB.x, cell.friendRunLB.y, cell.width, size.height);
+        [cell.friendRunLB setText:str WithFont:kContentFont1 AndColor:kContentNormalColor];
+        [cell.friendRunLB setKeyWordTextArray:@[@"80%"] WithFont:kContentFont1 AndColor:kContentHighlightColor];
+        if (indexPath.row == 0) {
+            [cell setCellPosition:CellPositionTop];
+        } else if (indexPath.row == 10-1) {
+            [cell setCellPosition:CellPositionBottom];
+        } else {
+            [cell setCellPosition:CellPositionMiddle];
         }
         return cell;
     }
 }
-
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -98,6 +108,7 @@
 }
 
 - (void)initNavigationItem {
+    [super initNavigationItem];
     _titleLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
     _titleLB.textColor = [UIColor convertHexColorToUIColor:0x8c8377];
     _titleLB.textAlignment = NSTextAlignmentCenter;
@@ -108,6 +119,15 @@
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _currentPage = 10 - scrollView.contentOffset.y/self.view.width - 1;
     _titleLB.text = [DateHelper getDayStringWith:_currentPage];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    _tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+    _tableView.width = self.view.width;
+    _tableView.height = self.view.height;
+    _tableView.center = CGPointMake(self.view.width/2, self.view.height/2);
+    
 }
 
 - (void)didReceiveMemoryWarning

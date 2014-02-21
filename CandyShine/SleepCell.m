@@ -8,6 +8,13 @@
 
 #import "SleepCell.h"
 
+@interface SleepCell ()
+{
+    UIImageView *_left;
+    UIImageView *_right;
+}
+@end
+
 @implementation SleepCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -17,15 +24,48 @@
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.transform = CGAffineTransformMakeRotation(M_PI_2);
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 255, self.width,568 - 255 - 49 - 60-1) style:UITableViewStyleGrouped];
-        _tableView.rowHeight = 60;
+        
+        UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        line.y = _sleepLB.y - 5;
+        [self.contentView addSubview:line];
+        line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        line.y = _depthSleepLB.y + _depthSleepLB.height + 5;
+        [self.contentView addSubview:line];
+
+        
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, line.y + line.height, self.width,(Is_4Inch?455:367) - line.y - line.height) style:UITableViewStylePlain];
+        _tableView.rowHeight = kTableViewRowHeith;
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor clearColor];
-        _tableView.contentInset = UIEdgeInsetsMake(-27, 0, -35, 0);
         [self.contentView addSubview:_tableView];
+        
+        
+        _left = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page_left"]];
+        _left.center = CGPointMake(7, _sleepPathView.height/2 + 20);
+        _left.hidden = YES;
+        [self.contentView addSubview:_left];
+        
+        _right = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page_right"]];
+        _right.center = CGPointMake(320 - 7, _sleepPathView.height/2 + 20);
+        _right.hidden = YES;
+        [self.contentView addSubview:_right];
     }
     return self;
 }
 
+
+- (void)setCellPosition:(CellPosition)cellPosition {
+    if (cellPosition == CellPositionTop) {
+        _left.hidden = NO;
+        _right.hidden = YES;
+    } else if (cellPosition == CellPositionMiddle) {
+        _left.hidden = NO;
+        _right.hidden = NO;
+    } else {
+        _left.hidden = YES;
+        _right.hidden = NO;
+    }
+}
 
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

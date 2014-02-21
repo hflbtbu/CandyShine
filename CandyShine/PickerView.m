@@ -63,6 +63,7 @@
         [items addObject:flexibleSpaceItem];
         [items addObject:confirmBtn];
         UIToolbar *toolVBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, self.width, 44)];
+        toolVBar.tintColor = kContentHighlightColor;
         toolVBar.items = items;
         [self addSubview:toolVBar];
         self.backgroundColor = [UIColor whiteColor];

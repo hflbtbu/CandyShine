@@ -53,7 +53,9 @@
 }
 
 - (void)initNavigationItem {
-    
+    if (self.navigationController.viewControllers.count >= 2) {
+        [self.navigationItem  setCustomeLeftBarButtonItem:@"navagation_back" target:self action:@selector(back)];
+    }
 }
 
 - (void)didReceiveMemoryWarning

@@ -14,7 +14,7 @@
 @interface FriendCell : UITableViewCell
 
 @property (nonatomic, retain) DetailTextView *friendRunLB;
-@property (nonatomic, retain) UIImageView *frinendThumberImage;
+@property (nonatomic, retain) CircleImageView *frinendThumberImage;
 @property (nonatomic, assign) CellPosition cellPosition;
 
 @end

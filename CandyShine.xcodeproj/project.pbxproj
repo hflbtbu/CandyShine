@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310C0D6C18B735A900826FE6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310C0D6B18B735A900826FE6 /* Social.framework */; };
 		31146226188FEBA200702F29 /* CirclePathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31146225188FEBA200702F29 /* CirclePathView.m */; };
 		31146229189001AE00702F29 /* CircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31146228189001AE00702F29 /* CircleTableViewCell.m */; };
 		3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3114622B189006AC00702F29 /* PathTableViewCell.m */; };
@@ -27,6 +28,8 @@
 		31473DB418B3995B00DEDA12 /* WaterWarmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31473DB318B3995B00DEDA12 /* WaterWarmManager.m */; };
 		31473DB718B3A93B00DEDA12 /* SelectedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31473DB618B3A93B00DEDA12 /* SelectedCell.m */; };
 		31473DBA18B3AF2200DEDA12 /* IndexPathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31473DB918B3AF2200DEDA12 /* IndexPathCell.m */; };
+		3150454318B64001004DF58F /* CircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150454218B64001004DF58F /* CircleImageView.m */; };
+		3151A74518B5149A00928C93 /* CandyShineAPIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151A74418B5149A00928C93 /* CandyShineAPIKit.m */; };
 		315D6A0718B1C753004B0ADB /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 315D69E718B1C753004B0ADB /* UMSocialLocalizable.strings */; };
 		315D6A0818B1C753004B0ADB /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315D69EB18B1C753004B0ADB /* libWeChatSDK.a */; };
 		315D6A0918B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315D69FA18B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a */; };
@@ -101,6 +104,9 @@
 		31B511B018B4CD3400FEA3E3 /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31B511AD18B4CD3400FEA3E3 /* 3.gif */; };
 		31B511B518B4CF3F00FEA3E3 /* 1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31B511B418B4CF3F00FEA3E3 /* 1.gif */; };
 		31B511B718B4D01100FEA3E3 /* 2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31B511B618B4D01100FEA3E3 /* 2.gif */; };
+		31B51E4518B710040049438E /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B51E4218B710040049438E /* UIDevice+DeviceInfo.m */; };
+		31B51E4618B710040049438E /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B51E4418B710040049438E /* UIDevice+IdentifierAddition.m */; };
+		31B51E4918B710380049438E /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B51E4818B710380049438E /* NSString+MD5Addition.m */; };
 		31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5CE7B1890B17000C79CD6 /* MenuView.m */; };
 		31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* SportViewController.m */; };
 		31EAFB8B188D570E0052CC79 /* SportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EAFB89188D570E0052CC79 /* SportViewController.xib */; };
@@ -144,6 +150,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		310C0D6B18B735A900826FE6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		31146223188FEB2200702F29 /* EnumDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnumDefine.h; sourceTree = "<group>"; };
 		31146224188FEBA200702F29 /* CirclePathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CirclePathView.h; sourceTree = "<group>"; };
 		31146225188FEBA200702F29 /* CirclePathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CirclePathView.m; sourceTree = "<group>"; };
@@ -181,6 +188,10 @@
 		31473DB618B3A93B00DEDA12 /* SelectedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCell.m; sourceTree = "<group>"; };
 		31473DB818B3AF2200DEDA12 /* IndexPathCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IndexPathCell.h; sourceTree = "<group>"; };
 		31473DB918B3AF2200DEDA12 /* IndexPathCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IndexPathCell.m; sourceTree = "<group>"; };
+		3150454118B64001004DF58F /* CircleImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleImageView.h; sourceTree = "<group>"; };
+		3150454218B64001004DF58F /* CircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageView.m; sourceTree = "<group>"; };
+		3151A74318B5149A00928C93 /* CandyShineAPIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyShineAPIKit.h; sourceTree = "<group>"; };
+		3151A74418B5149A00928C93 /* CandyShineAPIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyShineAPIKit.m; sourceTree = "<group>"; };
 		315D69E818B1C753004B0ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		315D69EB18B1C753004B0ADB /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		315D69EC18B1C753004B0ADB /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -296,6 +307,12 @@
 		31B511AD18B4CD3400FEA3E3 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
 		31B511B418B4CF3F00FEA3E3 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
 		31B511B618B4D01100FEA3E3 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
+		31B51E4118B710040049438E /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
+		31B51E4218B710040049438E /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
+		31B51E4318B710040049438E /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		31B51E4418B710040049438E /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		31B51E4718B710380049438E /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		31B51E4818B710380049438E /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
 		31B5CE7A1890B17000C79CD6 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		31B5CE7B1890B17000C79CD6 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		31EAFB87188D570E0052CC79 /* SportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportViewController.h; sourceTree = "<group>"; };
@@ -348,6 +365,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				310C0D6C18B735A900826FE6 /* Social.framework in Frameworks */,
 				31FCA209188CFD17005494AE /* CoreGraphics.framework in Frameworks */,
 				31FCA20B188CFD17005494AE /* UIKit.framework in Frameworks */,
 				315D6A0918B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a in Frameworks */,
@@ -377,6 +395,8 @@
 			children = (
 				31473DB218B3995B00DEDA12 /* WaterWarmManager.h */,
 				31473DB318B3995B00DEDA12 /* WaterWarmManager.m */,
+				3151A74318B5149A00928C93 /* CandyShineAPIKit.h */,
+				3151A74418B5149A00928C93 /* CandyShineAPIKit.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -498,6 +518,8 @@
 				313DF80D18B40A4400DF7898 /* VerticalLabel.m */,
 				31B511A718B4868E00FEA3E3 /* WaterAnimationView.h */,
 				31B511A818B4868E00FEA3E3 /* WaterAnimationView.m */,
+				3150454118B64001004DF58F /* CircleImageView.h */,
+				3150454218B64001004DF58F /* CircleImageView.m */,
 			);
 			name = CustomeView;
 			sourceTree = "<group>";
@@ -618,6 +640,7 @@
 		31FCA205188CFD17005494AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				310C0D6B18B735A900826FE6 /* Social.framework */,
 				31FCA206188CFD17005494AE /* Foundation.framework */,
 				31FCA208188CFD17005494AE /* CoreGraphics.framework */,
 				31FCA20A188CFD17005494AE /* UIKit.framework */,
@@ -692,6 +715,12 @@
 				316C8C17188EA5B800D31252 /* UIBezierPath+Smoothing.m */,
 				312C43FF18A3B9A4006CE7D1 /* UIColor+Addition.h */,
 				312C440018A3B9A4006CE7D1 /* UIColor+Addition.m */,
+				31B51E4118B710040049438E /* UIDevice+DeviceInfo.h */,
+				31B51E4218B710040049438E /* UIDevice+DeviceInfo.m */,
+				31B51E4318B710040049438E /* UIDevice+IdentifierAddition.h */,
+				31B51E4418B710040049438E /* UIDevice+IdentifierAddition.m */,
+				31B51E4718B710380049438E /* NSString+MD5Addition.h */,
+				31B51E4818B710380049438E /* NSString+MD5Addition.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -981,6 +1010,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3150454318B64001004DF58F /* CircleImageView.m in Sources */,
 				31B2D8EE18A5E21C00F3A1F5 /* AddFriendCell.m in Sources */,
 				31FCA23D188D0954005494AE /* TabBarView.m in Sources */,
 				31B48BE018B3396000980F69 /* UMEGORefreshTableHeaderView.m in Sources */,
@@ -989,6 +1019,7 @@
 				31B48BFA18B3396000980F69 /* UMFeedbackTableViewCellLeft.m in Sources */,
 				312C955018B28BAB00A04594 /* SportSetViewController.m in Sources */,
 				31146229189001AE00702F29 /* CircleTableViewCell.m in Sources */,
+				31B51E4518B710040049438E /* UIDevice+DeviceInfo.m in Sources */,
 				31FCA246188D0E2A005494AE /* UIButton+SetEdge.m in Sources */,
 				3124666518AC618C00315A06 /* SleepViewController.m in Sources */,
 				316C8C15188E9E9900D31252 /* GridPathView.m in Sources */,
@@ -1002,6 +1033,7 @@
 				31146226188FEBA200702F29 /* CirclePathView.m in Sources */,
 				31FCA217188CFD17005494AE /* AppDelegate.m in Sources */,
 				31F3796218A8BEF6005DB08B /* EditWarmTimeViewController.m in Sources */,
+				3151A74518B5149A00928C93 /* CandyShineAPIKit.m in Sources */,
 				313DF80E18B40A4400DF7898 /* VerticalLabel.m in Sources */,
 				312C954B18B284EB00A04594 /* MeViewController.m in Sources */,
 				31B48BFC18B3396000980F69 /* UMFeedbackViewController.m in Sources */,
@@ -1018,6 +1050,7 @@
 				31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */,
 				315D6A1718B1D302004B0ADB /* LogInViewController.m in Sources */,
 				31473DBA18B3AF2200DEDA12 /* IndexPathCell.m in Sources */,
+				31B51E4618B710040049438E /* UIDevice+IdentifierAddition.m in Sources */,
 				31B5119F18B4826500FEA3E3 /* OLImage.m in Sources */,
 				31B48BB918B32C8400980F69 /* RegistMHTextField.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
@@ -1032,6 +1065,7 @@
 				312C440718A3D0C9006CE7D1 /* DetailTextView.m in Sources */,
 				316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */,
 				31B511A018B4826500FEA3E3 /* OLImageView.m in Sources */,
+				31B51E4918B710380049438E /* NSString+MD5Addition.m in Sources */,
 				31473DB418B3995B00DEDA12 /* WaterWarmManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1116,7 +1150,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
@@ -1149,7 +1183,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1162,7 +1196,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
 				INFOPLIST_FILE = "CandyShine/CandyShine-Info.plist";

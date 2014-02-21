@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFriendViewController : UIViewController
+@interface AddFriendViewController : BaseViewController
 
 @end

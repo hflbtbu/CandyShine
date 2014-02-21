@@ -63,15 +63,6 @@
     
 }
 
-- (void)initNavigationItem {
-//    UIBarButtonItem *edit = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editTableView)];
-//    self.navigationItem.leftBarButtonItem = edit;
-//    
-//    UIBarButtonItem *add = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addWarmTime)];
-//    self.navigationItem.rightBarButtonItem = add;
-}
-
-
 
 - (void)didReceiveMemoryWarning
 {

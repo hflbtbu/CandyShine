@@ -28,19 +28,22 @@
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.transform = CGAffineTransformMakeRotation(M_PI_2);
+        self.contentView.clipsToBounds = YES;
         
-        UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.contentView.width, 0.5)];
-        lineView.backgroundColor = [UIColor convertHexColorToUIColor:0xccc8c2];
-        [self.contentView addSubview:lineView];
+        UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        line.y = 0;
+        [self.contentView addSubview:line];
         
         _gridPathView = [[GridPathView alloc] initWithFrame:CGRectMake(0, 8, self.contentView.width, 160)];
         [self.contentView addSubview:_gridPathView];
         
-        _friensTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 160, self.contentView.width, 455 - 160) style:UITableViewStyleGrouped];
+        line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        line.y = _gridPathView.y + _gridPathView.height;
+        [self.contentView addSubview:line];
+        _friensTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, line.y + line.height, self.contentView.width, (Is_4Inch?455:367) - line.y - line.height) style:UITableViewStylePlain];
         _friensTableView.rowHeight = 60;
         _friensTableView.backgroundColor = [UIColor clearColor];
-        _friensTableView.contentInset = UIEdgeInsetsMake(-27, 0, 0, 0);
-        //_friensTableView.separatorStyle = UITableViewCellSelectionStyleNone;
+        _friensTableView.separatorStyle = UITableViewCellSelectionStyleNone;
         [self.contentView addSubview:_friensTableView];
         
         _upDownImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow_up"]];

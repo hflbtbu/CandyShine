@@ -9,6 +9,7 @@
 #import "WaterWarmViewController.h"
 #import "WaterAnimationView.h"
 #import "WaterWarmManager.h"
+#import "WaterWarmSetViewController.h"
 
 @interface WaterWarmViewController ()
 {
@@ -31,7 +32,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _waterWarmManager = [WaterWarmManager shared];    
+    _waterWarmManager = [WaterWarmManager shared];
+    //[self initNavigationItem];
 }
 
 - (void)refresh {
@@ -44,7 +46,7 @@
         NSArray *times = [_waterWarmManager getWarmTimes];
         NSArray *states = [_waterWarmManager warmTimeStateArray];
         int count = 0;
-        for (int i = 0; i <times.count/3 + 1; i++) {
+        for (int i = 0; i <states.count/3 + 1; i++) {
             for (int j = 0; j < 3; j++) {
                 if (count < times.count) {
                     WaterAnimationView *animation = [[WaterAnimationView alloc] initWithFrame:CGRectMake(10 + j*90, 10 + i*90, 80, 80)];
@@ -61,6 +63,17 @@
     }
 }
 
+
+- (void)initNavigationItem {
+    [super initNavigationItem];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(go)];
+}
+
+- (void)go {
+    WaterWarmSetViewController *waterWarmSet =[[WaterWarmSetViewController alloc] initWithNibName:@"WaterWarmSetViewController" bundle:nil];
+    self.navigationController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:waterWarmSet animated:YES];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];

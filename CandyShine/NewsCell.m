@@ -23,7 +23,16 @@
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.transform = CGAffineTransformMakeRotation(M_PI_2);
+        
         UIView *view = [self viewWithTag:9999];
+        
+        UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        line.y = _pageLB.y - 5;
+        [view addSubview:line];
+        line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        line.y = _pageLB.y + _pageLB.height + 5;
+        [view addSubview:line];
+    
         [self.contentView addSubview:view];
         [self willRemoveSubview:view];
     }

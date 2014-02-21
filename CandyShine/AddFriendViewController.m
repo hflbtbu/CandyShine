@@ -33,7 +33,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initialSearchBar];
-    _searchResultTableView.rowHeight = 60;
+    _searchResultTableView.rowHeight = kTableViewRowHeith;
     
 }
 
@@ -66,6 +66,16 @@
         cell = [[AddFriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
         [cell.addButton addTarget:self action:@selector(addFriend) forControlEvents:UIControlEventTouchUpInside];
     }
+    
+    if (indexPath.row == 0) {
+        [cell setCellPosition:CellPositionTop];
+    } else if (indexPath.row == 5 - 1) {
+        [cell setCellPosition:CellPositionBottom];
+    } else {
+        [cell setCellPosition:CellPositionMiddle];
+    }
+
+    
     return cell;
 }
 
@@ -116,6 +126,7 @@
     [self searchFriendWithUserName:searchBar.text];
     return YES;
 }
+
 
 - (void)didReceiveMemoryWarning
 {

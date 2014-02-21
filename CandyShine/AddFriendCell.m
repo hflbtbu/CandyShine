@@ -8,6 +8,14 @@
 
 #import "AddFriendCell.h"
 
+@interface AddFriendCell ()
+{
+    UIImageView *_topLine;
+    UIImageView *_middleLine;
+    UIImageView *_bottomLine;
+}
+@end
+
 @implementation AddFriendCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -16,14 +24,23 @@
     if (self) {
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        _frinendThumberImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, 0, 50, 50)];
-        _frinendThumberImage.layer.cornerRadius = 25;
-        _frinendThumberImage.backgroundColor = [UIColor orangeColor];
+        _topLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        _topLine.y = 0;
+        [self.contentView addSubview:_topLine];
+        
+        _middleLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_gradual"]];
+        [self.contentView addSubview:_middleLine];
+        
+        _bottomLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        [self.contentView addSubview:_bottomLine];
+        
+        _frinendThumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 0, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth) image:@"IMG_0005.JPG"];
         [self.contentView addSubview:_frinendThumberImage];
+
         
         _addButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _addButton.backgroundColor = [UIColor clearColor];
-        _addButton.frame = CGRectMake(0, 0, 50, 20);
+        _addButton.frame = CGRectMake(self.width - 20 - 50, 0, 50, 40);
         [_addButton setTitle:@"添加" forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor grayColor ] forState:UIControlStateHighlighted];
@@ -32,10 +49,28 @@
     return self;
 }
 
+- (void)setCellPosition:(CellPosition)cellPosition {
+    if (cellPosition == CellPositionTop) {
+        _topLine.hidden = YES;
+        _middleLine.hidden = NO;
+        _bottomLine.hidden = YES;
+    } else if (cellPosition == CellPositionMiddle) {
+        _topLine.hidden = YES;
+        _middleLine.hidden = NO;
+        _bottomLine.hidden = YES;
+    }  else if (cellPosition == CellPositionBottom) {
+        _topLine.hidden = YES;
+        _middleLine.hidden = YES;
+        _bottomLine.hidden = NO;
+    }
+}
+
 - (void)layoutSubviews {
-    _frinendThumberImage.frame = CGRectMake(_frinendThumberImage.x, (self.height - _frinendThumberImage.height)/2, _frinendThumberImage.width, _frinendThumberImage.height);
-    _addButton.frame = CGRectMake(self.width - _addButton.width - 20, (self.height - _addButton.height)/2, _addButton.width, _addButton.height);
-    
+    [super layoutSubviews];
+    _frinendThumberImage.y = (self.contentView.height - _frinendThumberImage.height)/2;
+    _middleLine.y = self.contentView.height - _middleLine.height;
+    _bottomLine.y = self.contentView.height - _bottomLine.height;
+    _addButton.y = (self.contentView.height - _addButton.height)/2;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

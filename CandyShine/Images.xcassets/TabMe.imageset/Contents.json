@@ -6,9 +6,20 @@
       "filename" : "TabMe.png"
     },
     {
+      "resizing" : {
+        "mode" : "3-part-vertical",
+        "center" : {
+          "mode" : "fill",
+          "height" : 1
+        },
+        "capInsets" : {
+          "top" : 29,
+          "bottom" : 30
+        }
+      },
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "TabMe@2x.png"
+      "filename" : "TabMe@2x.png",
+      "scale" : "2x"
     }
   ],
   "info" : {

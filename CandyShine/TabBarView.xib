@@ -15,6 +15,8 @@
                     <rect key="frame" x="0.0" y="0.0" width="64" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-19" minY="34" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="20" minY="-16" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="运动" image="tabBarIcon_sport">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -26,6 +28,8 @@
                     <rect key="frame" x="64" y="0.0" width="64" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-19" minY="34" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="20" minY="-16" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="睡眠" image="tabBarIcon_sleep">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -37,6 +41,8 @@
                     <rect key="frame" x="128" y="0.0" width="64" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-15" minY="34" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="20" minY="-16" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="资讯" image="tabBarIcon_news">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -48,6 +54,8 @@
                     <rect key="frame" x="192" y="0.0" width="64" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-15" minY="34" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="20" minY="-16" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="喝水" image="tabBarIcon_water">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -59,6 +67,8 @@
                     <rect key="frame" x="256" y="0.0" width="64" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="-16" minY="34" maxX="0.0" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="18" minY="-16" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="我" image="tabBarIcon_me">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>

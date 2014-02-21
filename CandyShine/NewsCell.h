@@ -10,6 +10,6 @@
 
 @interface NewsCell : UITableViewCell
 
-
+@property (nonatomic, retain)IBOutlet UILabel *pageLB;
 
 @end

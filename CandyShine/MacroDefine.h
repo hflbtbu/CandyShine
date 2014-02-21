@@ -12,6 +12,7 @@
 #define IsIOS7 ([[[UIDevice currentDevice] systemVersion] floatValue] >=7.0 ? YES : NO)
 
 #define KEY_WINDOW  [[UIApplication sharedApplication] keyWindow]
+#define Is_4Inch    ([UIScreen mainScreen].bounds.size.height == 568 ? YES :NO)
 
 
 //AppKey

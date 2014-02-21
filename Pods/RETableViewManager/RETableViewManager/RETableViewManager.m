@@ -230,6 +230,9 @@
     if ([item isKindOfClass:[RETableViewItem class]])
         cell.detailTextLabel.text = ((RETableViewItem *)item).detailLabelText;
     
+    //add by huangfulei
+    cell.textLabel.textColor = [UIColor colorWithRed:140/255.0 green:131/255.0 blue:119/255.0 alpha:1.0];
+    
     [cell cellWillAppear];
     
     return cell;

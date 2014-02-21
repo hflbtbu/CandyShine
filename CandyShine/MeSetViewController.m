@@ -17,7 +17,7 @@
     
     IBOutlet UISwitch *_sexSwitch;
     
-    UIImageView *_thumberImage;
+    CircleImageView *_thumberImage;
     
     UIImageView *_image;
     
@@ -91,22 +91,18 @@
     static NSString *cellIdentifer = @"CellIdentifer";
     static NSString *thumberCellIdentifer = @"CellIdentifer";
     static NSString *sexCellIdentifer = @"CellIdentifer";
+    UITableViewCell *cell;
     if (indexPath.section == 0 && indexPath.row == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:thumberCellIdentifer];
+        cell = [tableView dequeueReusableCellWithIdentifier:thumberCellIdentifer];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:thumberCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            _thumberImage = [[UIImageView alloc] initWithFrame:CGRectMake(cell.width - 100, 5, 60, 60)];
-            _thumberImage.backgroundColor = [UIColor orangeColor];
-            _thumberImage.layer.cornerRadius = 30;
-            _thumberImage.layer.masksToBounds = YES;
-            _thumberImage.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+            _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(cell.width - 92, 5, 60, 60) image:@"IMG_0005.JPG"];
             [cell.contentView addSubview:_thumberImage];
         }
         cell.textLabel.text = @"头像";
-        return cell;
     } else if (indexPath.section == 1 && indexPath.row == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:sexCellIdentifer];
+        cell = [tableView dequeueReusableCellWithIdentifier:sexCellIdentifer];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:sexCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -115,9 +111,8 @@
             [cell.contentView addSubview:view];
         }
         cell.textLabel.text = @"性别";
-        return cell;
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -141,8 +136,9 @@
                 cell.detailTextLabel.text = @"1990年8月";
             }
         }
-        return cell;
     }
+    cell.textLabel.textColor = kContentNormalColor;
+    return cell;
 }
 
 
@@ -153,22 +149,27 @@
             UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从相册选择", nil];
             as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
             as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
-                UIImagePickerController *image = [[UIImagePickerController alloc] init];
-                if (buttonIndex == 0) {
-                    image.sourceType = UIImagePickerControllerSourceTypeCamera;
-                    image.cameraDevice = UIImagePickerControllerCameraDeviceFront;
-                } else {
-                    image.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+                if (buttonIndex < 2) {
+                    UIImagePickerController *image = [[UIImagePickerController alloc] init];
+                    if (buttonIndex == 0) {
+                        image.sourceType = UIImagePickerControllerSourceTypeCamera;
+                        image.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+                    } else if (buttonIndex == 1){
+                        image.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+                    }
+                    image.allowsEditing = YES;
+                    image.delegate = self;
+                    [self presentViewController:image animated:YES completion:^{
+                        
+                    }];
                 }
-                image.allowsEditing = YES;
-                image.delegate = self;
-                [self presentViewController:image animated:YES completion:^{
-                    
-                }];
             };
             [as showInView:[UIApplication sharedApplication].keyWindow];
         } else if (indexPath.row == 1) {
-            
+                [UIAlertView showWithTitle:@"输入用户名" message:nil style:UIAlertViewStylePlainTextInput cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                    UITextField *textField  = [alertView textFieldAtIndex:0];
+                    NSLog(@"%@",textField.text);
+                }];
         } else {
             ModifyCodeViewController *modifyCode = [[ModifyCodeViewController alloc] initWithNibName:@"ModifyCodeViewController" bundle:nil];
             [self.navigationController pushViewController:modifyCode animated:YES];
@@ -215,14 +216,12 @@
     UIImage *image= [info objectForKey:@"UIImagePickerControllerOriginalImage"];
     UIImage *erw = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     
-    CGRect fame  = [[info objectForKey:@"UIImagePickerControllerCropRect"] CGRectValue];
-    
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
     {
         UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
     }
 
-    _thumberImage.image = erw;
+    _thumberImage.imageView.image = erw;
     [self dismiss];
 }
 

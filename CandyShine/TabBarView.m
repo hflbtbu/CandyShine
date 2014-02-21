@@ -16,7 +16,11 @@
     if (self) {
         for (int i = 0; i<5; i++) {
             UIButton *item = [[self subviews] objectAtIndex:i];
-            [item setEdgeWithTop:4 Bottom:1];
+            //[item setEdgeWithTop:4 Bottom:1];
+            
+            
+            CGRect fame = item.imageView.frame;
+            fame = item.titleLabel.frame;
         }
     }
     return self;

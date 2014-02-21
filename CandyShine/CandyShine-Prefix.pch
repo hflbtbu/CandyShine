@@ -52,4 +52,7 @@
 #import "UMSocialSnsService.h"
 #import "AFNetworking.h"
 
+
+#import "CircleImageView.h"
+
 #endif

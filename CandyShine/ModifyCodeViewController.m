@@ -44,6 +44,7 @@
     [_tablerViewManager addSection:section];
     
     _oldCodeItem = [RETextItem itemWithTitle:NSLocalizedString(@"原始密码:", @"") value:@"" placeholder:nil];
+    //_oldCodeItem.detailLabelText
     _oldCodeItem.keyboardType = UIKeyboardTypeNumberPad;
     _newCodeItem = [RETextItem itemWithTitle:NSLocalizedString(@"新密码:", @"") value:@"" placeholder:nil];
     _newCodeItem.keyboardType = UIKeyboardTypeNumberPad;

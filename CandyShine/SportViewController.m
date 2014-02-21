@@ -229,7 +229,7 @@
         return _pathTest.count;
     } else {
         if (section == 0) {
-            return [[_pathTest objectAtIndex:0] count];
+            return [[_pathTest objectAtIndex:0] count] + 1;
         }
         return 1;
     }
@@ -284,17 +284,36 @@
         return cell;
     } else {
         
-        
+        if (indexPath.row == [[_pathTest objectAtIndex:0] count]) {
+            UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:friendCellIdentiferAddFriend];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentiferAddFriend];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake((cell.width - 120)/2, (kTableViewRowHeith - 44)/2, 120, 44)];
+                UIImage *image = [[UIImage imageNamed:@"button_bg_login"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];
+                [addFriendButton setBackgroundImage:image forState:UIControlStateNormal];
+                [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
+                [addFriendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [addFriendButton addTarget:self action:@selector(go) forControlEvents:UIControlEventTouchUpInside];
+                [cell.contentView addSubview:addFriendButton];
+                cell.selectionStyle = UITableViewCellEditingStyleNone;
+            }
+            return cell;
+        }
         
         
         FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentifer];
         if (cell == nil) {
             cell = [[FriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentifer];
+            cell.selectionStyle = UITableViewCellEditingStyleNone;
         }
         
         //cell.textLabel.text = [NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]];
-        [cell.friendRunLB setText:[NSString stringWithFormat:@"范冰冰今天运动 : %d 卡路里",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]] WithFont:[UIFont systemFontOfSize:17] AndColor:[UIColor convertHexColorToUIColor:0x787878]];
-        [cell.friendRunLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]]] WithFont:[UIFont systemFontOfSize:17] AndColor:[UIColor convertHexColorToUIColor:0xffaa33]];
+        NSString *str = @"范冰冰今天运动 : %d 卡路里";
+        CGSize size =[str sizeWithFont:kTitleFont1];
+        cell.friendRunLB.frame = CGRectMake(cell.friendRunLB.x, cell.friendRunLB.y, cell.width, size.height);
+        [cell.friendRunLB setText:[NSString stringWithFormat:@"范冰冰今天运动 : %d 卡路里",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]] WithFont:kContentFont1 AndColor:kContentNormalColor];
+        [cell.friendRunLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]]] WithFont:kContentFont1 AndColor:kContentHighlightColor];
         if (indexPath.row == 0) {
             [cell setCellPosition:CellPositionTop];
         } else if (indexPath.row == [[_pathTest objectAtIndex:_currentPage] count] - 1) {
@@ -307,24 +326,25 @@
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (tableView != _circleTableView && tableView != _pathTableView) {
-        return 60;
-    }
-    return 0;
-
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (tableView != _circleTableView && tableView != _pathTableView) {
-        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
-        [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
-        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
-        [addFriendButton addTarget:self action:@selector(go) forControlEvents:UIControlEventTouchUpInside];
-        return addFriendButton;
-    }
-    return nil;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    if (tableView != _circleTableView && tableView != _pathTableView) {
+//        return 60;
+//    }
+//    return 0;
+//
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+//    if (tableView != _circleTableView && tableView != _pathTableView) {
+//        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
+//        [addFriendButton setBackgroundImage:[UIImage imageNamed:@"button_bg_login"] forState:UIControlStateNormal];
+//        [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
+//        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
+//        [addFriendButton addTarget:self action:@selector(go) forControlEvents:UIControlEventTouchUpInside];
+//        return addFriendButton;
+//    }
+//    return nil;
+//}
 
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -379,6 +399,16 @@
 - (IBAction)go {
     AddFriendViewController *vc = [[AddFriendViewController alloc] initWithNibName:@"AddFriendViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    _circleTableView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+    _circleTableView.width = self.view.width;
+    _circleTableView.height = self.view.height;
+    _circleTableView.center = CGPointMake(self.view.width/2, self.view.height/2);
+    
 }
 
 - (void)didReceiveMemoryWarning

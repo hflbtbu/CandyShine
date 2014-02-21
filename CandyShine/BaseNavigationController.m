@@ -41,6 +41,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.navigationBar.translucent = NO;
     if (IsIOS7) {
         self.interactivePopGestureRecognizer.delegate = self;
         self.delegate = self;

@@ -13,12 +13,15 @@
 #import "LogInViewController.h"
 #import "PickerView.h"
 #import "WaterWarmSetViewController.h"
+#import "CircleImageView.h"
+
+#import "CandyShineAPIKit.h"
 
 @interface MeViewController () <UITableViewDataSource, UITableViewDelegate,PickerViewDelegate>
 {
     IBOutlet UITableView *_tableView;
     
-    UIImageView *_thumberImage;
+    CircleImageView *_thumberImage;
     
     BOOL _isLogin;
 }
@@ -81,22 +84,18 @@
     static NSString *cellIdentifer = @"CellIdentifer";
     static NSString *thumberCellIdentifer = @"CellIdentifer";
     static NSString *newsCellIdentifer = @"CellIdentifer";
+    UITableViewCell *cell;
     if (indexPath.section == 0 && indexPath.row == 0) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:thumberCellIdentifer];
+        cell = [tableView dequeueReusableCellWithIdentifier:thumberCellIdentifer];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:thumberCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            _thumberImage = [[UIImageView alloc] initWithFrame:CGRectMake(10, 5, 60, 60)];
-            _thumberImage.backgroundColor = [UIColor orangeColor];
-            _thumberImage.layer.cornerRadius = 30;
-            _thumberImage.layer.masksToBounds = YES;
-            _thumberImage.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+            _thumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 5, 60, 60) image:@"IMG_0005.JPG"];
             [cell.contentView addSubview:_thumberImage];
         }
-        cell.textLabel.text = @"             CandyWearables";
-        return cell;
+        cell.textLabel.text = @"              CandyWearables";
     } else if (indexPath.section == 1 && indexPath.row == 3) {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:newsCellIdentifer];
+        cell = [tableView dequeueReusableCellWithIdentifier:newsCellIdentifer];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:newsCellIdentifer];
             UISwitch *news = [[UISwitch alloc] init];
@@ -104,9 +103,8 @@
             cell.accessoryView = news;
         }
         cell.textLabel.text = @"资讯提醒";
-        return cell;
     } else {
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
+        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -126,8 +124,9 @@
         } else {
             cell.textLabel.text = @"意见反馈";
         }
-        return cell;
     }
+    cell.textLabel.textColor = kContentNormalColor;
+    return cell;
 }
 
 
@@ -175,9 +174,10 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             MeSetViewController *meSet = [[MeSetViewController alloc] initWithNibName:@"MeSetViewController" bundle:nil];
+            self.navigationController.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:meSet animated:YES];
         } else if (indexPath.row == 1) {
-            
+            [[CandyShineAPIKit sharedAPIKit] registerUser];
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
