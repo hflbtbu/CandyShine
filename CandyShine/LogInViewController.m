@@ -17,6 +17,9 @@
     IBOutlet RegistMHTextField *_emailTextField;
     
     IBOutlet RegistMHTextField *_codeTextField;
+    
+    IBOutlet UIButton *_loginButton;
+    IBOutlet UIButton *_registerButton;
 }
 @end
 
@@ -37,6 +40,10 @@
     // Do any additional setup after loading the view from its nib.
     [_emailTextField setEmailField:YES];
     [_codeTextField setRequired:YES];
+    UIImage *logninImage = [[UIImage imageNamed:@"button_bg_login"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];
+    [_loginButton setBackgroundImage:logninImage forState:UIControlStateNormal];
+    UIImage *registerImage = [[UIImage imageNamed:@"button_bg_regist"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];
+    [_registerButton setBackgroundImage:registerImage forState:UIControlStateNormal];
 }
 
 - (IBAction)loginButtonClickHander:(id)sender {

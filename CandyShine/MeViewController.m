@@ -132,11 +132,16 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == 2) {
-        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
-        [addFriendButton setTitle : _isLogin? @"退出登录": @"登录" forState:UIControlStateNormal];
-        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
-        [addFriendButton addTarget:self action:@selector(logoutButtonClickerHander) forControlEvents:UIControlEventTouchUpInside];
-        return addFriendButton;
+        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, self.view.width)];
+        bgView.backgroundColor = [UIColor clearColor];
+        UIButton *logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(80, 8, 160, 44)];
+        [logoutButton setTitle:@"退出登陆" forState:UIControlStateNormal];
+        [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        UIImage *bgImage = [[UIImage imageNamed:@"button_bg_logout"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];
+        [logoutButton setBackgroundImage:bgImage forState:UIControlStateNormal];
+        [logoutButton addTarget:self action:@selector(logoutButtonClickerHander) forControlEvents:UIControlEventTouchUpInside];
+        [bgView addSubview:logoutButton];
+        return bgView;
     }
     return nil;
 }

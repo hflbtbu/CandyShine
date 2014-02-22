@@ -35,10 +35,10 @@
 {
     [super layoutSublayersOfLayer:layer];
     
-    [layer setBorderWidth: 0.8];
+    [layer setBorderWidth: 0.5];
     [layer setBorderColor: [UIColor colorWithWhite:0.1 alpha:0.2].CGColor];
     
-    [layer setCornerRadius:3.0];
+    [layer setCornerRadius:4.0];
     [layer setShadowOpacity:1.0];
     [layer setShadowColor:[UIColor redColor].CGColor];
     [layer setShadowOffset:CGSizeMake(1.0, 1.0)];

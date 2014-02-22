@@ -207,7 +207,7 @@
     } else if (_pickerType == PickerViewWeight) {
         str = [NSString stringWithFormat:@"%.1fkg",[[dic objectForKey:kPickerWeight] floatValue]];
     } else {
-        str = [NSString stringWithFormat:@"%d年%d月%d日",[[dic objectForKey:kPickerYear] integerValue],[[dic objectForKey:kPickerMonth] integerValue],[[dic objectForKey:kPickerDay] integerValue]];
+        str = [NSString stringWithFormat:@"%ld年%ld月%ld日",[[dic objectForKey:kPickerYear] integerValue],[[dic objectForKey:kPickerMonth] integerValue],[[dic objectForKey:kPickerDay] integerValue]];
     }
     _selectedCell.detailTextLabel.text = str;
 }

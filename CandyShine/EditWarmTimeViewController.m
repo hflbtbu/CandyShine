@@ -64,7 +64,7 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return [NSString stringWithFormat:@"%02ld",row];
+    return [NSString stringWithFormat:@"%02d",row];
 }
 
 

@@ -221,11 +221,16 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == 2 && _waterWarmManager.isCustome) {
-        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
+        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, self.view.width)];
+        bgView.backgroundColor = [UIColor clearColor];
+        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(80, 8, 160, 44)];
         [addFriendButton setTitle:@"添加时间" forState:UIControlStateNormal];
-        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
+        [addFriendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        UIImage *bgImage = [[UIImage imageNamed:@"button_bg_drink"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];
+        [addFriendButton setBackgroundImage:bgImage forState:UIControlStateNormal];
         [addFriendButton addTarget:self action:@selector(addWarmTime) forControlEvents:UIControlEventTouchUpInside];
-        return addFriendButton;
+        [bgView addSubview:addFriendButton];
+        return bgView;
     }
     return nil;
 }
