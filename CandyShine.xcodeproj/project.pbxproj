@@ -51,6 +51,7 @@
 		316C8C12188E624E00D31252 /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C11188E624E00D31252 /* DragView.m */; };
 		316C8C15188E9E9900D31252 /* GridPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C14188E9E9900D31252 /* GridPathView.m */; };
 		316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C17188EA5B800D31252 /* UIBezierPath+Smoothing.m */; };
+		3172999218B8D89A00DF4C9D /* CWScrollNumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3172999118B8D89A00DF4C9D /* CWScrollNumView.m */; };
 		3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622C188D3AB200D2C46D /* UIView+FrameAdjust.m */; };
 		31996230188D3B5400D2C46D /* UINavigationItem+CustomeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3199622F188D3B5400D2C46D /* UINavigationItem+CustomeItem.m */; };
 		31B278B418B24BC800A01E51 /* PickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B278B318B24BC800A01E51 /* PickerView.m */; };
@@ -233,6 +234,8 @@
 		316C8C14188E9E9900D31252 /* GridPathView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridPathView.m; sourceTree = "<group>"; };
 		316C8C16188EA5B800D31252 /* UIBezierPath+Smoothing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBezierPath+Smoothing.h"; sourceTree = "<group>"; };
 		316C8C17188EA5B800D31252 /* UIBezierPath+Smoothing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBezierPath+Smoothing.m"; sourceTree = "<group>"; };
+		3172999018B8D89A00DF4C9D /* CWScrollNumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWScrollNumView.h; sourceTree = "<group>"; };
+		3172999118B8D89A00DF4C9D /* CWScrollNumView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWScrollNumView.m; sourceTree = "<group>"; };
 		31996229188D39F400D2C46D /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		3199622A188D3A2500D2C46D /* MacroDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefine.h; sourceTree = "<group>"; };
 		3199622B188D3AB200D2C46D /* UIView+FrameAdjust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameAdjust.h"; sourceTree = "<group>"; };
@@ -520,6 +523,8 @@
 				31B511A818B4868E00FEA3E3 /* WaterAnimationView.m */,
 				3150454118B64001004DF58F /* CircleImageView.h */,
 				3150454218B64001004DF58F /* CircleImageView.m */,
+				3172999018B8D89A00DF4C9D /* CWScrollNumView.h */,
+				3172999118B8D89A00DF4C9D /* CWScrollNumView.m */,
 			);
 			name = CustomeView;
 			sourceTree = "<group>";
@@ -1064,6 +1069,7 @@
 				31B48BFB18B3396000980F69 /* UMFeedbackTableViewCellRight.m in Sources */,
 				312C440718A3D0C9006CE7D1 /* DetailTextView.m in Sources */,
 				316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */,
+				3172999218B8D89A00DF4C9D /* CWScrollNumView.m in Sources */,
 				31B511A018B4826500FEA3E3 /* OLImageView.m in Sources */,
 				31B51E4918B710380049438E /* NSString+MD5Addition.m in Sources */,
 				31473DB418B3995B00DEDA12 /* WaterWarmManager.m in Sources */,

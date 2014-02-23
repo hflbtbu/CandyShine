@@ -11,11 +11,8 @@
                 <outlet property="_methodLB1" destination="TXw-KZ-gU0" id="704-YR-Tao"/>
                 <outlet property="_methodLB2" destination="RmF-TN-dqc" id="oe9-mz-QIB"/>
                 <outlet property="_methodLB3" destination="9uF-ia-JfP" id="QU2-TP-tTd"/>
-                <outlet property="_number1Button" destination="nyY-Fo-pIN" id="908-hs-TmV"/>
-                <outlet property="_number2Button" destination="nom-VJ-Nvw" id="dZL-yr-v1x"/>
-                <outlet property="_number3Button" destination="WY3-B9-lNs" id="NMI-VR-Io5"/>
-                <outlet property="_number4Button" destination="RCT-fC-NqI" id="c09-4R-lel"/>
                 <outlet property="_plusButton" destination="qeA-hc-AKf" id="0TP-Mj-ITp"/>
+                <outlet property="_scrollNumView" destination="LTV-BT-vun" id="4q0-Sp-MqK"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -32,9 +29,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tAB-tD-18f">
-                    <rect key="frame" x="137" y="38" width="37" height="22"/>
+                    <rect key="frame" x="137" y="44" width="37" height="22"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="arrow_down">
+                    <state key="normal" image="arrow_up">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
@@ -42,52 +39,17 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qeA-hc-AKf">
-                    <rect key="frame" x="137" y="232" width="37" height="22"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <state key="normal" image="arrow_up">
+                    <rect key="frame" x="137" y="169" width="37" height="22"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="arrow_down">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="plusButtonClickHander:" destination="-1" eventType="touchUpInside" id="i1l-yz-O4c"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nyY-Fo-pIN">
-                    <rect key="frame" x="33" y="123" width="45" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                    <state key="normal" title="1">
-                        <color key="titleColor" red="1" green="0.66833941610000003" blue="0.19816377739999999" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nom-VJ-Nvw">
-                    <rect key="frame" x="100" y="123" width="45" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                    <state key="normal" title="1">
-                        <color key="titleColor" red="1" green="0.66833941610000003" blue="0.19816377739999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WY3-B9-lNs">
-                    <rect key="frame" x="160" y="123" width="45" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                    <state key="normal" title="1">
-                        <color key="titleColor" red="1" green="0.66833941610000003" blue="0.19816377739999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RCT-fC-NqI">
-                    <rect key="frame" x="232" y="123" width="45" height="45"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                    <state key="normal" title="1">
-                        <color key="titleColor" red="1" green="0.66833941610000003" blue="0.19816377739999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如何实现目标" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gku-ES-4wL">
-                    <rect key="frame" x="108" y="407" width="103" height="17"/>
+                    <rect key="frame" x="109" y="412" width="103" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -161,6 +123,11 @@
                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" id="LTV-BT-vun" customClass="CWScrollNumView">
+                    <rect key="frame" x="56" y="86" width="199" height="58"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
