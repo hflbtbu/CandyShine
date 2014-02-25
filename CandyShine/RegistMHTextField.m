@@ -16,7 +16,7 @@
     
     [self setBorderStyle:UITextBorderStyleNone];
     
-    [self setFont: [UIFont systemFontOfSize:17]];
+    //[self setFont: [UIFont systemFontOfSize:17]];
     [self setTintColor:[UIColor colorWithRed:0.0 green:122.0/255.0 blue:1.0 alpha:1.0]];
     [self setBackgroundColor:[UIColor whiteColor]];
 }
@@ -44,9 +44,9 @@
     [layer setShadowOffset:CGSizeMake(1.0, 1.0)];
 }
 
-- (void) drawPlaceholderInRect:(CGRect)rect {
-    NSDictionary *attributes = @{ NSFontAttributeName: [UIFont systemFontOfSize:17], NSForegroundColorAttributeName : [UIColor colorWithRed:182/255. green:182/255. blue:183/255. alpha:1.0]};
-    [self.placeholder drawInRect:CGRectInset(rect, 5, 5) withAttributes:attributes];
-}
+//- (void) drawPlaceholderInRect:(CGRect)rect {
+//    NSDictionary *attributes = @{ NSFontAttributeName: [UIFont systemFontOfSize:12], NSForegroundColorAttributeName : [UIColor colorWithRed:182/255. green:182/255. blue:183/255. alpha:1.0]};
+//    [self.placeholder drawInRect:CGRectInset(rect, 5, 5) withAttributes:attributes];
+//}
 
 @end

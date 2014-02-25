@@ -45,11 +45,12 @@
     if (_waterWarmManager.isOpenWarm) {
         NSArray *times = [_waterWarmManager getWarmTimes];
         NSArray *states = [_waterWarmManager warmTimeStateArray];
+        int number = MIN(times.count, states.count);
         int count = 0;
-        for (int i = 0; i <states.count/3 + 1; i++) {
+        for (int i = 0; i <number/3 + 1; i++) {
             for (int j = 0; j < 3; j++) {
-                if (count < times.count) {
-                    WaterAnimationView *animation = [[WaterAnimationView alloc] initWithFrame:CGRectMake(10 + j*90, 10 + i*90, 80, 80)];
+                if (count < number) {
+                    WaterAnimationView *animation = [[WaterAnimationView alloc] initWithFrame:CGRectMake(20 + j*100, 10 + i*90, 80, 80)];
                     animation.tag = count + kAnimationViewTag;
                     [animation setWarmTime:[[times objectAtIndex:count] integerValue] WarmState:[[states objectAtIndex:count] integerValue]];
                     [self.view addSubview:animation];
@@ -60,6 +61,8 @@
             }
         }
 
+    } else {
+        [MBProgressHUDManager showTextWithTitle:@"赶紧去添加喝水提醒吧😜" inView:self.view];
     }
 }
 
@@ -71,7 +74,7 @@
 
 - (void)go {
     WaterWarmSetViewController *waterWarmSet =[[WaterWarmSetViewController alloc] initWithNibName:@"WaterWarmSetViewController" bundle:nil];
-    self.navigationController.hidesBottomBarWhenPushed = YES;
+    waterWarmSet.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:waterWarmSet animated:YES];
 }
 

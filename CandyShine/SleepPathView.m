@@ -9,7 +9,7 @@
 #import "SleepPathView.h"
 
 #define SleepPathViewLeftCap 48
-#define SleepPathViewRightCap 28
+#define SleepPathViewRightCap 17
 #define SleepPathViewBottomCap 20
 #define PathHeight 45
 #define StateTextPathCap 5

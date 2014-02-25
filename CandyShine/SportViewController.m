@@ -398,6 +398,7 @@
 
 - (IBAction)go {
     AddFriendViewController *vc = [[AddFriendViewController alloc] initWithNibName:@"AddFriendViewController" bundle:nil];
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

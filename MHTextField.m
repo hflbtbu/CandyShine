@@ -225,13 +225,13 @@
     
     CGRect aRect = self.window.bounds;
     
-    aRect.origin.y = -scrollView.contentOffset.y;
-    aRect.size.height -= keyboardSize.height + self.toolbar.frame.size.height + 35;
+    aRect.origin.y = -scrollView.contentOffset.y;  //40 My add
+    aRect.size.height -= keyboardSize.height + self.toolbar.frame.size.height + 40;
     
     CGPoint textRectBoundary = CGPointMake(textFieldRect.origin.x, textFieldRect.origin.y + textFieldRect.size.height);
     
     if (!CGRectContainsPoint(aRect, textRectBoundary) || scrollView.contentOffset.y > 0) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.superview.frame.origin.y + _textField.frame.origin.y + _textField.frame.size.height - aRect.size.height);
+        CGPoint scrollPoint = CGPointMake(0.0, 150);
         
         if (scrollPoint.y < 0) scrollPoint.y = 0;
         
@@ -241,7 +241,7 @@
 
 - (BOOL) validate
 {
-    self.backgroundColor = [UIColor colorWithRed:255 green:0 blue:0 alpha:0.5];
+    //self.backgroundColor = [UIColor colorWithRed:255 green:0 blue:0 alpha:0.5];
     
     if (required && [self.text isEqualToString:@""]){
         return NO;
@@ -263,7 +263,7 @@
         }
     }
     
-    [self setBackgroundColor:[UIColor whiteColor]];
+    //[self setBackgroundColor:[UIColor whiteColor]];
     
     return YES;
 }
@@ -284,7 +284,7 @@
     
     _textField = textField;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
     [self setBarButtonNeedsDisplayAtTag:textField.tag];
@@ -293,7 +293,7 @@
         self.scrollView = (UIScrollView*)self.superview;
     
     [self selectInputView:textField];
-    [self setInputAccessoryView:toolbar];
+    //[self setInputAccessoryView:toolbar];
     
     [self setDoneCommand:NO];
     [self setToolbarCommand:NO];

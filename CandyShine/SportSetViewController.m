@@ -44,8 +44,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _currentSportGoal = 600;
-    [_scrollNumView setNumber:600];
+    self.navigationController.hidesBottomBarWhenPushed = YES;
+    _currentSportGoal = 1000;
+    [_scrollNumView setNumber:1000];
 }
 
 - (IBAction)addButtonClickHander:(id)sender {

@@ -55,4 +55,9 @@
 
 #import "CircleImageView.h"
 
+
+#import "MBProgressHUDManager.h"
+#import "CandyShineAPIKit.h"
+#import "CSDataManager.h"
+
 #endif

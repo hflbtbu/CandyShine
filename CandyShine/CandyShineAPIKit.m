@@ -50,18 +50,12 @@
 }
 
 
-- (void)registerUser {
-    [_requestOperationManager GET:@"/friend_list" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"%@",responseObject);
+- (void)requestRegisterWithUserName:(NSString *)userName passWord:(NSString *)passWord type:(CSLoginType)type success:(SuccessBlock)success fail:(FailBlock)fail {
+    [_requestOperationManager GET:@"/register" parameters:@{@"luser": userName,@"pwd":passWord} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        
+        fail(error);
     }];
-    
-//    [_requestOperationManager POST:@"/authentication" parameters:@{@"pwd": @"123456",@"user":@"lintao"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        
-//    }];
 }
 
 @end

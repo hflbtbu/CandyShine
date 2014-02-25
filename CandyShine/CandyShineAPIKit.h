@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+
+typedef void(^SuccessBlock)(NSDictionary *result);
+typedef void(^FailBlock)(NSError *error);
+
 @interface CandyShineAPIKit : NSObject
 
 + (CandyShineAPIKit *)sharedAPIKit;
 
-- (void)registerUser;
+- (void)requestRegisterWithUserName:(NSString *)userName
+                           passWord:(NSString *)passWord
+                               type:(CSLoginType)type
+                            success:(SuccessBlock)success
+                               fail:(FailBlock)fail;
 
 @end

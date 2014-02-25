@@ -22,8 +22,6 @@
     IBOutlet UITableView *_tableView;
     
     CircleImageView *_thumberImage;
-    
-    BOOL _isLogin;
 }
 @end
 
@@ -147,7 +145,7 @@
 }
 
 - (void)logoutButtonClickerHander {
-    if (_isLogin) {
+    if ([[CSDataManager sharedInstace] isLogin]) {
         UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"退出后不会删除你的任何数据", @"")
                                                         delegate:nil
                                                cancelButtonTitle:NSLocalizedString(@"取消", @"")
@@ -156,20 +154,21 @@
         as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
         as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
             if (buttonIndex == 0) {
-                _isLogin = NO;
+                [CSDataManager sharedInstace].isLogin = NO;
                 [_tableView reloadData];
             }
         };
         [as showInView:[UIApplication sharedApplication].keyWindow];
 
     } else {
-        _isLogin = YES;
+        [CSDataManager sharedInstace].isLogin = YES;
         LogInViewController *logInVC = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
-        //BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
-        //            [self presentViewController:logIn animated:YES completion:^{
-        //
-        //            }];
-        [self.navigationController pushViewController:logInVC animated:YES];
+        logInVC.hidesBottomBarWhenPushed = YES;
+        BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
+        [self presentViewController:logIn animated:YES completion:^{
+        
+                    }];
+        //[self.navigationController pushViewController:logInVC animated:YES];
         
     }
 }
@@ -179,14 +178,15 @@
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
             MeSetViewController *meSet = [[MeSetViewController alloc] initWithNibName:@"MeSetViewController" bundle:nil];
-            self.navigationController.hidesBottomBarWhenPushed = YES;
+            meSet.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:meSet animated:YES];
         } else if (indexPath.row == 1) {
-            [[CandyShineAPIKit sharedAPIKit] registerUser];
+            //[[CandyShineAPIKit sharedAPIKit] registerUser];
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {
             SportSetViewController *sportSet = [[SportSetViewController alloc] initWithNibName:@"SportSetViewController" bundle:nil];
+            sportSet.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:sportSet animated:YES];
         } else  if (indexPath.row == 1) {
             
@@ -195,6 +195,7 @@
             [pickerView show];
         } else  if (indexPath.row == 2){
             WaterWarmSetViewController *warm = [[WaterWarmSetViewController alloc] initWithNibName:@"WaterWarmSetViewController" bundle:nil];
+            warm.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:warm animated:YES];
         }
     } else {
