@@ -14,6 +14,7 @@
 #import "PickerView.h"
 #import "WaterWarmSetViewController.h"
 #import "CircleImageView.h"
+#import "FriendListViewController.h"
 
 #import "CandyShineAPIKit.h"
 
@@ -135,7 +136,7 @@
         UIButton *logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(80, 8, 160, 44)];
         [logoutButton setTitle:@"退出登陆" forState:UIControlStateNormal];
         [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        UIImage *bgImage = [[UIImage imageNamed:@"button_bg_logout"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];
+        UIImage *bgImage = [[UIImage imageNamed:@"button_bg_logout"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 3, 0, 4)];
         [logoutButton setBackgroundImage:bgImage forState:UIControlStateNormal];
         [logoutButton addTarget:self action:@selector(logoutButtonClickerHander) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:logoutButton];
@@ -181,7 +182,9 @@
             meSet.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:meSet animated:YES];
         } else if (indexPath.row == 1) {
-            //[[CandyShineAPIKit sharedAPIKit] registerUser];
+            FriendListViewController *friendList = [[FriendListViewController alloc] initWithNibName:@"FriendListViewController" bundle:nil];
+            friendList.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:friendList animated:YES];
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {

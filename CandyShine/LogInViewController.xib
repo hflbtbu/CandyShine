@@ -58,7 +58,7 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="weiboButtonClickHander:" destination="-1" eventType="touchUpInside" id="2xd-3Y-eWp"/>
+                        <action selector="qqButtonClickHander:" destination="-1" eventType="touchUpInside" id="Bqm-S6-KGv"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="label_bg" id="cai-F3-7oU">

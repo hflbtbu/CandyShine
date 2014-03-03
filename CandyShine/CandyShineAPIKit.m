@@ -7,6 +7,7 @@
 //
 
 #import "CandyShineAPIKit.h"
+#import "CSFreiend.h"
 
 @interface CandyShineAPIKit ()
 {
@@ -50,12 +51,28 @@
 }
 
 
-- (void)requestRegisterWithUserName:(NSString *)userName passWord:(NSString *)passWord type:(CSLoginType)type success:(SuccessBlock)success fail:(FailBlock)fail {
-    [_requestOperationManager GET:@"/register" parameters:@{@"luser": userName,@"pwd":passWord} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+- (void)requestRegisterSuccess:(SuccessBlock)success fail:(FailBlock)fail {
+    [_requestOperationManager GET:@"/register" parameters:@{@"luser": _userName,@"pwd":_passWord} success:^(AFHTTPRequestOperation *operation, id responseObject) {
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         fail(error);
     }];
 }
+
+- (void)requestFriednListSuccess:(SuccessArrayBlock)success fail:(FailBlock)fail {
+    [_requestOperationManager GET:@"/friend_list" parameters:@{@"user": @"lin"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        success(responseObject);
+        NSMutableArray *friendArray = [NSMutableArray arrayWithCapacity:0];
+        for (NSDictionary *dic in [responseObject objectForKey:@"friend_list"]) {
+            CSFreiend *fried = [[CSFreiend alloc] initWithDic:dic];
+            [friendArray addObject:fried];
+        }
+        success(friendArray);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        fail(error);
+    }];
+}
+
+
 
 @end

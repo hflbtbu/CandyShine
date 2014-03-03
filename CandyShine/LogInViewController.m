@@ -83,7 +83,9 @@
                 NSString *username = [[[accountResponse.data objectForKey:@"accounts"] objectForKey:UMShareToSina] objectForKey:@"username"];
                 NSString *userid = [[[accountResponse.data objectForKey:@"accounts"] objectForKey:UMShareToSina] objectForKey:@"usid"];
                 [MBProgressHUDManager showIndicatorWithTitle:@"正在登陆" inView:[[UIApplication sharedApplication] keyWindow]];
-                [[CandyShineAPIKit sharedAPIKit] requestRegisterWithUserName:userid passWord:username type:CSLoginDefault success:^(NSDictionary *result) {
+                [CandyShineAPIKit sharedAPIKit].userName = username;
+                [CandyShineAPIKit sharedAPIKit].passWord = userid;
+                [[CandyShineAPIKit sharedAPIKit] requestRegisterSuccess:^(NSDictionary *result) {
                     [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
                     [MBProgressHUDManager showTextWithTitle:@"登陆成功" inView:self.view];
                     [CSDataManager sharedInstace].isLogin = YES;
@@ -98,6 +100,34 @@
         }];
     });
 }
+
+- (IBAction)qqButtonClickHander:(id)sender {
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToQzone];
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response)
+                                  {
+                                      [[UMSocialDataService defaultDataService] requestSocialAccountWithCompletion:^(UMSocialResponseEntity *accountResponse){
+                                          if (accountResponse.responseCode == UMSResponseCodeSuccess) {
+                                              NSString *username = [[[accountResponse.data objectForKey:@"accounts"] objectForKey:UMShareToQzone] objectForKey:@"username"];
+                                              NSString *userid = [[[accountResponse.data objectForKey:@"accounts"] objectForKey:UMShareToQzone] objectForKey:@"usid"];
+                                              [MBProgressHUDManager showIndicatorWithTitle:@"正在登陆" inView:[[UIApplication sharedApplication] keyWindow]];
+                                              [CandyShineAPIKit sharedAPIKit].userName = username;
+                                              [CandyShineAPIKit sharedAPIKit].passWord = userid;
+                                              [[CandyShineAPIKit sharedAPIKit] requestRegisterSuccess:^(NSDictionary *result) {
+                                                  [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
+                                                  [MBProgressHUDManager showTextWithTitle:@"登陆成功" inView:self.view];
+                                                  [CSDataManager sharedInstace].isLogin = YES;
+                                              } fail:^(NSError *error) {
+                                                  [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
+                                                  [MBProgressHUDManager showTextWithTitle:@"登陆失败" inView:self.view];
+                                              }];
+                                              
+                                          } else {
+                                              [MBProgressHUDManager showTextWithTitle:@"授权失败" inView:self.view];
+                                          }
+                                      }];
+                                  });
+}
+
 
 - (void)showUsernameTexgtField {
     if (_isOpen) {
@@ -140,7 +170,9 @@
         } else {
             [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
             [MBProgressHUDManager showIndicatorWithTitle:@"正在登陆" inView:[[UIApplication sharedApplication] keyWindow]];
-            [[CandyShineAPIKit sharedAPIKit] requestRegisterWithUserName:_emailTextField.text passWord:_codeTextField.text type:CSLoginDefault success:^(NSDictionary *result) {
+            [CandyShineAPIKit sharedAPIKit].userName = _userName.text;
+            [CandyShineAPIKit sharedAPIKit].passWord = _codeTextField.text;
+            [[CandyShineAPIKit sharedAPIKit] requestRegisterSuccess:^(NSDictionary *result) {
                 [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
                 [MBProgressHUDManager showTextWithTitle:@"登陆成功" inView:self.view];
                 [CSDataManager sharedInstace].isLogin = YES;
@@ -165,7 +197,9 @@
             } else {
                 [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
                 [MBProgressHUDManager showIndicatorWithTitle:@"正在注册" inView:[[UIApplication sharedApplication] keyWindow]];
-                [[CandyShineAPIKit sharedAPIKit] requestRegisterWithUserName:_emailTextField.text passWord:_codeTextField.text type:CSLoginDefault success:^(NSDictionary *result) {
+                [CandyShineAPIKit sharedAPIKit].userName = _userName.text;
+                [CandyShineAPIKit sharedAPIKit].passWord = _codeTextField.text;
+                [[CandyShineAPIKit sharedAPIKit] requestRegisterSuccess:^(NSDictionary *result) {
                     [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
                     [MBProgressHUDManager showTextWithTitle:@"注册成功" inView:self.view];
                     [CSDataManager sharedInstace].isLogin = YES;
@@ -179,7 +213,6 @@
         [self showUsernameTexgtField];
     }
 }
-
 
 
 - (IBAction)forgetCodeButtonClickHander:(id)sender {

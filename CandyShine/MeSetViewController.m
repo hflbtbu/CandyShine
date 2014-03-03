@@ -107,7 +107,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:sexCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"SexView" owner:self options:nil] objectAtIndex:0];
-            view.x = 180;
+            view.x = cell.contentView.width - view.width;
             [cell.contentView addSubview:view];
         }
         cell.textLabel.text = @"性别";

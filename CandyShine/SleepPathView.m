@@ -110,10 +110,6 @@
     CGContextMoveToPoint(context, SleepPathViewLeftCap, height*3/4);
     CGContextAddLineToPoint(context, self.width - SleepPathViewRightCap, height*3/4);
     CGContextStrokePath(context);
-    
-    
-    
-
 }
 
 

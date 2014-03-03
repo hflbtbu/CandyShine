@@ -36,12 +36,18 @@
         
         _frinendThumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 0, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth) image:@"IMG_0005.JPG"];
         [self.contentView addSubview:_frinendThumberImage];
+        
+        _nameLB = [[UILabel alloc] initWithFrame:CGRectMake(_frinendThumberImage.x + _frinendThumberImage.width + 20, 0, 150, 20)];
+        _nameLB.backgroundColor =[UIColor clearColor];
+        _nameLB.textColor = kContentNormalColor;
+        [self.contentView addSubview:_nameLB];
 
         
         _addButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _addButton.backgroundColor = [UIColor clearColor];
-        _addButton.frame = CGRectMake(self.width - 20 - 50, 0, 50, 40);
-        [_addButton setTitle:@"添加" forState:UIControlStateNormal];
+        _addButton.frame = CGRectMake(self.width - 20 - 70, 0, 80, 50);
+        //_addButton.titleLabel.textAlignment = NSTextAlignmentRight;
+        [_addButton setTitle:@"关注" forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor grayColor ] forState:UIControlStateHighlighted];
         [self.contentView addSubview:_addButton];
@@ -69,6 +75,7 @@
     [super layoutSubviews];
     _frinendThumberImage.y = (self.contentView.height - _frinendThumberImage.height)/2;
     _middleLine.y = self.contentView.height - _middleLine.height;
+    _nameLB.y = self.contentView.height - _nameLB.height;
     _bottomLine.y = self.contentView.height - _bottomLine.height;
     _addButton.y = (self.contentView.height - _addButton.height)/2;
 }

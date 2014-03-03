@@ -109,7 +109,14 @@
 		31B51E4518B710040049438E /* UIDevice+DeviceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B51E4218B710040049438E /* UIDevice+DeviceInfo.m */; };
 		31B51E4618B710040049438E /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B51E4418B710040049438E /* UIDevice+IdentifierAddition.m */; };
 		31B51E4918B710380049438E /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B51E4818B710380049438E /* NSString+MD5Addition.m */; };
+		31B55E0D18C0251700BC5400 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B55E0C18C0251700BC5400 /* MessageUI.framework */; };
+		31B55E0F18C0252D00BC5400 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B55E0E18C0252D00BC5400 /* SystemConfiguration.framework */; };
 		31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5CE7B1890B17000C79CD6 /* MenuView.m */; };
+		31BE34D418C0627100FC2DA3 /* FBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BE34D118C0627100FC2DA3 /* FBEncryptorAES.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		31BE34D518C0627100FC2DA3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BE34D318C0627100FC2DA3 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		31C6D30F18BCCD820034BBB7 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C6D30D18BCCD820034BBB7 /* FriendListViewController.m */; };
+		31C6D31018BCCD820034BBB7 /* FriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31C6D30E18BCCD820034BBB7 /* FriendListViewController.xib */; };
+		31C6D31418BCD36E0034BBB7 /* CSFreiend.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C6D31318BCD36E0034BBB7 /* CSFreiend.m */; };
 		31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31EAFB88188D570E0052CC79 /* SportViewController.m */; };
 		31EAFB8B188D570E0052CC79 /* SportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31EAFB89188D570E0052CC79 /* SportViewController.xib */; };
 		31F2A2DE18BA49F600899A07 /* MBProgressHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F2A2DD18BA49F600899A07 /* MBProgressHUDManager.m */; };
@@ -320,8 +327,19 @@
 		31B51E4418B710040049438E /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		31B51E4718B710380049438E /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
 		31B51E4818B710380049438E /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		31B55E0C18C0251700BC5400 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		31B55E0E18C0252D00BC5400 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		31B5CE7A1890B17000C79CD6 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		31B5CE7B1890B17000C79CD6 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		31BE34D018C0627100FC2DA3 /* FBEncryptorAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBEncryptorAES.h; sourceTree = "<group>"; };
+		31BE34D118C0627100FC2DA3 /* FBEncryptorAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBEncryptorAES.m; sourceTree = "<group>"; };
+		31BE34D218C0627100FC2DA3 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		31BE34D318C0627100FC2DA3 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		31C6D30C18BCCD820034BBB7 /* FriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
+		31C6D30D18BCCD820034BBB7 /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
+		31C6D30E18BCCD820034BBB7 /* FriendListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendListViewController.xib; sourceTree = "<group>"; };
+		31C6D31218BCD36E0034BBB7 /* CSFreiend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSFreiend.h; sourceTree = "<group>"; };
+		31C6D31318BCD36E0034BBB7 /* CSFreiend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSFreiend.m; sourceTree = "<group>"; };
 		31EAFB87188D570E0052CC79 /* SportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportViewController.h; sourceTree = "<group>"; };
 		31EAFB88188D570E0052CC79 /* SportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportViewController.m; sourceTree = "<group>"; };
 		31EAFB89188D570E0052CC79 /* SportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportViewController.xib; sourceTree = "<group>"; };
@@ -374,6 +392,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31B55E0F18C0252D00BC5400 /* SystemConfiguration.framework in Frameworks */,
+				31B55E0D18C0251700BC5400 /* MessageUI.framework in Frameworks */,
 				310C0D6C18B735A900826FE6 /* Social.framework in Frameworks */,
 				31FCA209188CFD17005494AE /* CoreGraphics.framework in Frameworks */,
 				31FCA20B188CFD17005494AE /* UIKit.framework in Frameworks */,
@@ -402,6 +422,7 @@
 		31473DB118B3992C00DEDA12 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				31C6D31118BCD3210034BBB7 /* model */,
 				31473DB218B3995B00DEDA12 /* WaterWarmManager.h */,
 				31473DB318B3995B00DEDA12 /* WaterWarmManager.m */,
 				3151A74318B5149A00928C93 /* CandyShineAPIKit.h */,
@@ -631,6 +652,26 @@
 			name = OLImageView;
 			sourceTree = "<group>";
 		};
+		31BE34CF18C0627100FC2DA3 /* FBEncrypt */ = {
+			isa = PBXGroup;
+			children = (
+				31BE34D018C0627100FC2DA3 /* FBEncryptorAES.h */,
+				31BE34D118C0627100FC2DA3 /* FBEncryptorAES.m */,
+				31BE34D218C0627100FC2DA3 /* NSData+Base64.h */,
+				31BE34D318C0627100FC2DA3 /* NSData+Base64.m */,
+			);
+			path = FBEncrypt;
+			sourceTree = "<group>";
+		};
+		31C6D31118BCD3210034BBB7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				31C6D31218BCD36E0034BBB7 /* CSFreiend.h */,
+				31C6D31318BCD36E0034BBB7 /* CSFreiend.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		31FCA1FA188CFD17005494AE = {
 			isa = PBXGroup;
 			children = (
@@ -655,6 +696,8 @@
 		31FCA205188CFD17005494AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31B55E0E18C0252D00BC5400 /* SystemConfiguration.framework */,
+				31B55E0C18C0251700BC5400 /* MessageUI.framework */,
 				310C0D6B18B735A900826FE6 /* Social.framework */,
 				31FCA206188CFD17005494AE /* Foundation.framework */,
 				31FCA208188CFD17005494AE /* CoreGraphics.framework */,
@@ -708,6 +751,7 @@
 		31FCA235188D05E3005494AE /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				31BE34CF18C0627100FC2DA3 /* FBEncrypt */,
 				31B5119A18B4823000FEA3E3 /* OLImageView */,
 				31B48BB318B32BE500980F69 /* MHTextField */,
 				31B48BAD18B3180400980F69 /* UMFeedback_iOS_1.41 */,
@@ -795,6 +839,9 @@
 				315D6A1418B1D302004B0ADB /* LogInViewController.h */,
 				315D6A1518B1D302004B0ADB /* LogInViewController.m */,
 				315D6A1618B1D302004B0ADB /* LogInViewController.xib */,
+				31C6D30C18BCCD820034BBB7 /* FriendListViewController.h */,
+				31C6D30D18BCCD820034BBB7 /* FriendListViewController.m */,
+				31C6D30E18BCCD820034BBB7 /* FriendListViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -935,6 +982,7 @@
 				315D6A0D18B1C753004B0ADB /* UMSCommentInputControlleriPad.xib in Resources */,
 				31B48BF018B3396000980F69 /* nav_bar_bg@2x.png in Resources */,
 				31FCA23F188D09C5005494AE /* TabBarView.xib in Resources */,
+				31C6D31018BCCD820034BBB7 /* FriendListViewController.xib in Resources */,
 				31B48BE818B3396000980F69 /* item_ok@2x.png in Resources */,
 				31B48BEE18B3396000980F69 /* messages_toolbar_background.png in Resources */,
 				31B48BE518B3396000980F69 /* icon_rightArrow_selected@2x.png in Resources */,
@@ -1034,15 +1082,19 @@
 				3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */,
 				31B48BFA18B3396000980F69 /* UMFeedbackTableViewCellLeft.m in Sources */,
 				312C955018B28BAB00A04594 /* SportSetViewController.m in Sources */,
+				31C6D31418BCD36E0034BBB7 /* CSFreiend.m in Sources */,
 				31146229189001AE00702F29 /* CircleTableViewCell.m in Sources */,
 				31B51E4518B710040049438E /* UIDevice+DeviceInfo.m in Sources */,
 				31FCA246188D0E2A005494AE /* UIButton+SetEdge.m in Sources */,
+				31BE34D418C0627100FC2DA3 /* FBEncryptorAES.m in Sources */,
 				3124666518AC618C00315A06 /* SleepViewController.m in Sources */,
 				316C8C15188E9E9900D31252 /* GridPathView.m in Sources */,
 				31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */,
+				31C6D30F18BCCD820034BBB7 /* FriendListViewController.m in Sources */,
 				31FCA249188D0F22005494AE /* BaseNavigationController.m in Sources */,
 				31B278B418B24BC800A01E51 /* PickerView.m in Sources */,
 				31B48BB618B32C1800980F69 /* MHTextField.m in Sources */,
+				31BE34D518C0627100FC2DA3 /* NSData+Base64.m in Sources */,
 				3124F65118A9CF0C00DAC360 /* DateHelper.m in Sources */,
 				315D6A1C18B1FD8A004B0ADB /* NewsViewController.m in Sources */,
 				31B511A918B4868E00FEA3E3 /* WaterAnimationView.m in Sources */,
@@ -1152,6 +1204,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1171,6 +1224,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
@@ -1191,6 +1245,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
@@ -1203,7 +1258,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
+				VALIDATE_PRODUCT = NO;
 			};
 			name = Release;
 		};
@@ -1214,16 +1269,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
 				INFOPLIST_FILE = "CandyShine/CandyShine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4/frameworks/Wechat",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
@@ -1242,13 +1299,14 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CandyShine/CandyShine-Prefix.pch";
 				INFOPLIST_FILE = "CandyShine/CandyShine-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4/frameworks/Wechat",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine/UMSocial_Sdk_3.3.4",
 					"/Users/huangfulei/Desktop/Candy\\ Wearables/CandyShine",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/**";
