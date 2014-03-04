@@ -36,6 +36,7 @@
         self.edgesForExtendedLayout = UIRectEdgeNone;
         self.extendedLayoutIncludesOpaqueBars = YES;
     }
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (IBAction)back {

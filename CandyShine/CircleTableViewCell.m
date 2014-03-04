@@ -41,6 +41,7 @@
         _right.center = CGPointMake(300, 40 + CircleTableViewCellCircleRadius/2);
         _right.hidden = YES;
         [self.contentView addSubview:_right];
+        self.contentView.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }

@@ -30,7 +30,7 @@
     SportViewController *base = [[SportViewController alloc] initWithNibName:@"SportViewController" bundle:nil];
     //base.title = [NSString stringWithFormat:@"Page%d",i+1];
     BaseNavigationController *baseVC = [[BaseNavigationController alloc] initWithRootViewController:base];
-    
+
     WaterWarmViewController *waterWarmViewController = [[WaterWarmViewController alloc ] initWithNibName:@"WaterWarmViewController" bundle:nil];
     BaseNavigationController *water = [[BaseNavigationController alloc] initWithRootViewController:waterWarmViewController];
     
@@ -45,19 +45,31 @@
     
     UITabBarController *tabBarVC = [[UITabBarController alloc] init];
     tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, sleepNVC , news,water ,me,nil];
-    TabBarView *tabBarView = [UIXib viewWithXib:@"TabBarView"];
-    [tabBarVC.tabBar addSubview:tabBarView];
+    //TabBarView *tabBarView = [UIXib viewWithXib:@"TabBarView"];
+    //[tabBarVC.tabBar addSubview:tabBarView];
+    //[base.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabBarIcon_sport_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabBarIcon_sport"]];
+    if (IsIOS7) {
+        tabBarVC.tabBar.barTintColor = [UIColor colorWithRed:82/255.0 green:62/255.0 blue:55/255.0 alpha:1.0];
+    } else {
+        tabBarVC.tabBar.tintColor = [UIColor colorWithRed:82/255.0 green:62/255.0 blue:55/255.0 alpha:1.0];
+    }
     
     self.window.rootViewController = tabBarVC;
     
-    //[self initAppearece];
+    [self initAppearece];
+    
+    //tabBarVC.tabBar.selectionIndicatorImage = ;
+
+
     
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 - (void)initAppearece {
-    
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor orangeColor], UITextAttributeTextColor, nil] forState:UIControlStateSelected];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kContentFont3, UITextAttributeFont, kContentNormalColor, UITextAttributeTextColor, nil]];
 }
 
 - (void)initialShareSDK {

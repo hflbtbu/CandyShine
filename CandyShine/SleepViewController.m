@@ -25,6 +25,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        if (IsIOS7) {
+            UIImage *image = [UIImage imageNamed:@"tabBarIcon_sleep"];
+            image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            UIImage *imageSelected = [UIImage imageNamed:@"tabBarIcon_sleep_selected"];
+            imageSelected = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            self.tabBarItem  = [[UITabBarItem alloc] initWithTitle:@"睡眠" image:image selectedImage:imageSelected];
+        } else {
+            [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabBarIcon_sleep_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabBarIcon_sleep"]];
+            self.tabBarItem.title = @"睡眠";
+        }
     }
     return self;
 }
@@ -44,6 +54,7 @@
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.pagingEnabled = YES;
     _tableView.backgroundColor = [UIColor blackColor];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
 }
 
@@ -109,16 +120,12 @@
 
 - (void)initNavigationItem {
     [super initNavigationItem];
-    _titleLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 40)];
-    _titleLB.textColor = [UIColor convertHexColorToUIColor:0x8c8377];
-    _titleLB.textAlignment = NSTextAlignmentCenter;
-    _titleLB.text = [DateHelper getDayStringWith:0];
-    self.navigationItem.titleView = _titleLB;
+    self.navigationItem.title = [DateHelper getDayStringWith:0];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _currentPage = 10 - scrollView.contentOffset.y/self.view.width - 1;
-    _titleLB.text = [DateHelper getDayStringWith:_currentPage];
+    self.navigationItem.title = [DateHelper getDayStringWith:_currentPage];
 }
 
 - (void)viewWillLayoutSubviews {

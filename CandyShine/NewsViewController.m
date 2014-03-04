@@ -13,8 +13,6 @@
 @interface NewsViewController () <UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_tableView;
-    
-    UIView *sf ;
 }
 @end
 
@@ -25,6 +23,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        if (IsIOS7) {
+            UIImage *image = [UIImage imageNamed:@"tabBarIcon_news"];
+            image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            UIImage *imageSelected = [UIImage imageNamed:@"tabBarIcon_news_selected"];
+            imageSelected = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            self.tabBarItem  = [[UITabBarItem alloc] initWithTitle:@"资讯" image:image selectedImage:imageSelected];
+        } else {
+            [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabBarIcon_news_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabBarIcon_news"]];
+            self.tabBarItem.title = @"资讯";
+        }
     }
     return self;
 }
@@ -43,17 +51,10 @@
     _tableView.rowHeight = self.view.frame.size.width;
     _tableView.showsVerticalScrollIndicator = NO;
     _tableView.pagingEnabled = YES;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:_tableView];
     self.view.backgroundColor = [UIColor orangeColor];
-    
-    sf = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 100)];
-    sf.backgroundColor = [UIColor grayColor];
-    [sf.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
-    sf.transform = CGAffineTransformMakeRotation(-M_PI_2);
-    //[self.view addSubview:sf];
-    
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -79,11 +80,6 @@
     _tableView.width = self.view.width;
     _tableView.height = self.view.height;
     _tableView.center = CGPointMake(self.view.width/2, self.view.height/2);
-    
-    sf.width = 200;
-    sf.height = 260;
-    
-    sf.center = CGPointMake(160, 130);
 }
 
 - (void)viewDidAppear:(BOOL)animate {

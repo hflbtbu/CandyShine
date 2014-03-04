@@ -20,6 +20,7 @@
 #define kTitleFont1                 [UIFont boldSystemFontOfSize:16]//一级标题字号
 #define kTitleFont2                 [UIFont boldSystemFontOfSize:14]//二级标题字号
 
+#define kContentFont3               [UIFont systemFontOfSize:16]  //内容部分字号
 #define kContentFont1               [UIFont systemFontOfSize:14]  //内容部分字号
 #define kContentFont2               [UIFont systemFontOfSize:12]  //内容部分字号
 

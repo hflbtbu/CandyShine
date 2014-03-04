@@ -33,6 +33,7 @@
             CGSize size;
             if (i != 2) {
                 UILabel *timeLB = [[UILabel alloc] init];
+                timeLB.backgroundColor = [UIColor clearColor];
                 timeLB.font = [UIFont systemFontOfSize:13];
                 timeLB.textColor = [UIColor convertHexColorToUIColor:0xccc7c2];
                 timeLB.textAlignment = NSTextAlignmentCenter;
@@ -71,6 +72,8 @@
         [self.layer addSublayer:_path];
         
         //NSArray *values = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
+        
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

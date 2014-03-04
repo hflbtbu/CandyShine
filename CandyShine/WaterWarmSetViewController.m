@@ -56,8 +56,9 @@
     //[self deleteLocalNotificationWith:0];
 
     _tableView.allowsSelectionDuringEditing = YES;
-    //_tableView.allowsSelection = NO;
-    _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    if (IsIOS7) {
+        _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    }
     
     _waterWarmManager = [WaterWarmManager shared];
     

@@ -24,6 +24,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        if (IsIOS7) {
+            UIImage *image = [UIImage imageNamed:@"tabBarIcon_water"];
+            image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            UIImage *imageSelected = [UIImage imageNamed:@"tabBarIcon_water_selected"];
+            imageSelected = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            self.tabBarItem  = [[UITabBarItem alloc] initWithTitle:@"喝水" image:image selectedImage:imageSelected];
+        } else {
+            [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabBarIcon_water_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabBarIcon_water"]];
+            self.tabBarItem.title = @"喝水";
+        }
     }
     return self;
 }

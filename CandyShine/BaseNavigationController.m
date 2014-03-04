@@ -56,6 +56,10 @@
 //        [self.view addGestureRecognizer:recognizer];
 //
 //    }
+    
+//    self.navigationBar.tintColor = [UIColor whiteColor];
+//    [self.navigationBar setBackgroundImage:[[UIImage imageNamed:@"nabg"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, 0)] forBarMetrics:UIBarMetricsDefault];
+//    self.navigationBar.shadowImage = [UIImage imageNamed:@"line_normal"];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {

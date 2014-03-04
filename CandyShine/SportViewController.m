@@ -58,6 +58,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        if (IsIOS7) {
+            UIImage *image = [UIImage imageNamed:@"tabBarIcon_sport"];
+            image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            UIImage *imageSelected = [UIImage imageNamed:@"tabBarIcon_sport_selected"];
+            imageSelected = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            self.tabBarItem  = [[UITabBarItem alloc] initWithTitle:@"运动" image:image selectedImage:imageSelected];
+        } else {
+            [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabBarIcon_sport_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabBarIcon_sport"]];
+            self.tabBarItem.title = @"运动";
+        }
     }
     return self;
 }
@@ -80,9 +90,11 @@
     _circleTableView.showsVerticalScrollIndicator = NO;
     _circleTableView.pagingEnabled = YES;
     _circleTableView.backgroundColor = [UIColor blackColor];
+    _circleTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_circleTableView];
     
     _freshTimeLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, 0, 0)];
+    _freshTimeLB.backgroundColor = [UIColor clearColor];
     _freshTimeLB.font = [UIFont systemFontOfSize:12];
     _freshTimeLB.text = @"2014.01.02 11:47";
     _freshTimeLB.textColor = [UIColor convertHexColorToUIColor:0xccc8c2];
@@ -101,6 +113,7 @@
     _pathTableView.showsVerticalScrollIndicator = NO;
     _pathTableView.pagingEnabled = YES;
     _pathTableView.backgroundColor = [UIColor blackColor];
+    _pathTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_pathTableView];
     _pathTableView.scrollEnabled = YES;
     

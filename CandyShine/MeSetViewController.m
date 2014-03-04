@@ -48,7 +48,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    if (IsIOS7) {
+        _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    }
     
     _image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 200, 120, 120)];
     [self.view addSubview:_image];
@@ -97,7 +99,8 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:thumberCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(cell.width - 92, 5, 60, 60) image:@"IMG_0005.JPG"];
+            NSInteger originX = IsIOS7 ? 226:212;
+            _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(originX, 5, 60, 60) image:@"IMG_0005.JPG"];
             [cell.contentView addSubview:_thumberImage];
         }
         cell.textLabel.text = @"头像";
@@ -107,7 +110,8 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:sexCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"SexView" owner:self options:nil] objectAtIndex:0];
-            view.x = cell.contentView.width - view.width;
+            NSInteger originX = IsIOS7 ? cell.contentView.width - view.width :  cell.contentView.width - view.width - 9;
+            view.x = originX;
             [cell.contentView addSubview:view];
         }
         cell.textLabel.text = @"性别";

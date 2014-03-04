@@ -59,6 +59,7 @@
         _right.center = CGPointMake(300, 8 + 160/2);
         _right.hidden = YES;
         [self.contentView addSubview:_right];
+        self.contentView.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }

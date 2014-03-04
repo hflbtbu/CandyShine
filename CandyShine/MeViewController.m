@@ -33,6 +33,16 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        if (IsIOS7) {
+            UIImage *image = [UIImage imageNamed:@"tabBarIcon_me"];
+            image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            UIImage *imageSelected = [UIImage imageNamed:@"tabBarIcon_me_selected"];
+            imageSelected = [imageSelected imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+            self.tabBarItem  = [[UITabBarItem alloc] initWithTitle:@"我" image:image selectedImage:imageSelected];
+        } else {
+            [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabBarIcon_me_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabBarIcon_me"]];
+            self.tabBarItem.title = @"我";
+        }
     }
     return self;
 }
@@ -41,7 +51,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    if (IsIOS7) {
+        _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -92,7 +104,8 @@
             _thumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 5, 60, 60) image:@"IMG_0005.JPG"];
             [cell.contentView addSubview:_thumberImage];
         }
-        cell.textLabel.text = @"              CandyWearables";
+        cell.textLabel.text = IsIOS7 ? @"              CandyWearables":@"               CandyWearables";
+        cell.textLabel.backgroundColor = [UIColor clearColor];
     } else if (indexPath.section == 1 && indexPath.row == 3) {
         cell = [tableView dequeueReusableCellWithIdentifier:newsCellIdentifer];
         if (cell == nil) {

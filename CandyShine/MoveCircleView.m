@@ -56,6 +56,7 @@
     
     _gogalLB = [[UILabel alloc] init];
     _gogalLB.textAlignment = NSTextAlignmentCenter;
+    _gogalLB.backgroundColor = [UIColor clearColor];
     _gogalLB.font = [UIFont systemFontOfSize:15];
     _gogalLB.textColor = [UIColor convertHexColorToUIColor:0x333333];
     _gogalLB.text = @"12";
@@ -65,6 +66,7 @@
     
     _runNumberLB = [[UILabel alloc] init];
     _runNumberLB.textAlignment = NSTextAlignmentCenter;
+    _runNumberLB.backgroundColor = [UIColor clearColor];
     _runNumberLB.text = @"12";
     _runNumberLB.font = [UIFont systemFontOfSize:45];
     _runNumberLB.textColor = [UIColor convertHexColorToUIColor:0xfeaa00];
@@ -77,6 +79,7 @@
     [self addSubview:_lineView];
     
     _calorieLB = [[DetailTextView alloc] init];
+    _calorieLB.backgroundColor = [UIColor clearColor];
     [_calorieLB setText:@"已消耗 25克 脂肪" WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x333333]];
     [_calorieLB setKeyWordTextArray:@[@"25克"] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xff7f00]];
     size = [@"已消耗 25克 脂肪" sizeWithFont:[UIFont systemFontOfSize:15]];
@@ -85,6 +88,7 @@
     
     _freshLB = [[UILabel alloc] init];
     _freshLB.textAlignment = NSTextAlignmentCenter;
+    _freshLB.backgroundColor = [UIColor clearColor];
     _freshLB.text = @"点击更新数据";
     _freshLB.font = [UIFont systemFontOfSize:15];
     _freshLB.textColor = [UIColor convertHexColorToUIColor:0xccc8c2];

@@ -38,7 +38,6 @@
         _leftPath = [CAShapeLayer layer];
         _leftPath.frame = self.layer.bounds;
         _leftPath.lineWidth = 10.0;
-        //_leftPath.lineDashPattern = @[[NSNumber numberWithFloat:2.0],[NSNumber numberWithFloat:1.0]];
         _leftPath.lineCap = kCALineCapButt;
         _leftPath.fillColor = [[UIColor clearColor] CGColor];
         _leftPath.strokeColor = [[UIColor grayColor] CGColor];
@@ -47,7 +46,6 @@
         _path = [CAShapeLayer layer];
         _path.frame = self.layer.bounds;
         _path.lineWidth = 10.0;
-        //_path.lineDashPattern = @[[NSNumber numberWithFloat:2.0],[NSNumber numberWithFloat:1.0]];
         _path.lineCap = kCALineCapButt;
         _path.fillColor = [[UIColor clearColor] CGColor];
         _path.strokeColor = [[UIColor greenColor] CGColor];
@@ -87,18 +85,21 @@
 - (void)addTextLabel {
     _gogalLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CirclePathCircleRadius, 10)];
     _gogalLB.textAlignment = NSTextAlignmentCenter;
+    _gogalLB.backgroundColor = [UIColor clearColor];
     _gogalLB.center = CGPointMake(self.width/2, self.height/2);
     _gogalLB.font = [UIFont systemFontOfSize:10];
     [self addSubview:_gogalLB];
     
     _runNumberLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CirclePathCircleRadius, 10)];
     _runNumberLB.textAlignment = NSTextAlignmentCenter;
+    _runNumberLB.backgroundColor = [UIColor clearColor];
     _runNumberLB.center = CGPointMake(self.width/2, self.height/2 - CirclePathTextGap);
     _runNumberLB.font = [UIFont systemFontOfSize:10];
     [self addSubview:_runNumberLB];
     
     _calorieLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CirclePathCircleRadius, 10)];
     _calorieLB.textAlignment = NSTextAlignmentCenter;
+    _calorieLB.backgroundColor = [UIColor clearColor];
     _calorieLB.center = CGPointMake(self.width/2, self.height/2 + CirclePathTextGap);
     _calorieLB.font = [UIFont systemFontOfSize:10];
     [self addSubview:_calorieLB];
