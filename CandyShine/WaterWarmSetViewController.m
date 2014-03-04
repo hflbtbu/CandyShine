@@ -110,6 +110,7 @@
                                 cell.timeSwitch.on = _waterWarmManager.isOpenWarm;
                                 cell.delegate = self;
                                 cell.textLabel.textColor = kContentNormalColor;
+                                cell.textLabel.font = kContentFont3;
                             }
                             cell.indexPath = indexPath;
                             cell.textLabel.text = @"喝水提醒";
@@ -122,6 +123,7 @@
                                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:accessoryCellIdentifier];
                                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                                 cell.textLabel.textColor = kContentNormalColor;
+                                cell.textLabel.font = kContentFont3;
                             }
                             cell.textLabel.text = @"起床时间";
                             cell.detailTextLabel.text = [self getTimeStringWith:_waterWarmManager.getupTime];
@@ -137,6 +139,7 @@
                 SelectedCell *cell = [tableView dequeueReusableCellWithIdentifier:selectedCellIdentifier];
                 if (cell == nil) {
                     cell = [[SelectedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:selectedCellIdentifier];
+                    cell.textLabel.font = kContentFont3;
                 }
                 switch (indexPath.row) {
                         case 0:
@@ -164,7 +167,7 @@
                             SelectedCell *cell = [tableView dequeueReusableCellWithIdentifier:selectedCellIdentifier];
                             if (cell == nil) {
                                 cell = [[SelectedCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:selectedCellIdentifier];
-                                //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+                                cell.textLabel.font = kContentFont3;
                             }
                             cell.textLabel.text = @"自定义喝水提醒";
                             cell.isSelected = [_waterWarmManager.selectedIndexPath isEqual:indexPath];
@@ -177,6 +180,7 @@
                             cell = [[IndexPathCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:switchCellIdentifier];
                             cell.delegate = self;
                             cell.textLabel.textColor = kContentNormalColor;
+                            cell.textLabel.font = kContentFont3;
                         }
                         cell.indexPath = indexPath;
                         NSDictionary *dic = [[[WaterWarmManager shared] warmTimeArray] objectAtIndex:indexPath.row - 1];
@@ -195,12 +199,11 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 1) {
         VerticalLabel *label = [[VerticalLabel alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 0)];
+        label.backgroundColor = [UIColor clearColor];
         label.text = @"   每隔以下时间提醒我喝水";
         label.font = [UIFont systemFontOfSize:15];
         label.contentMode = UIViewContentModeBottom;
         label.textColor = kContentNormalColor;
-        
-        //label.backgroundColor = [UIColor grayColor];
         return label;
     }
     return nil ;

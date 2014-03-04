@@ -47,6 +47,8 @@
 		315D6A1818B1D302004B0ADB /* LogInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315D6A1618B1D302004B0ADB /* LogInViewController.xib */; };
 		315D6A1C18B1FD8A004B0ADB /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 315D6A1A18B1FD8A004B0ADB /* NewsViewController.m */; };
 		315D6A1D18B1FD8A004B0ADB /* NewsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315D6A1B18B1FD8A004B0ADB /* NewsViewController.xib */; };
+		31605EF818C5D7B800E4CB99 /* water_annimation3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31605EF718C5D7B800E4CB99 /* water_annimation3.gif */; };
+		31605EFA18C5D94300E4CB99 /* warm3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31605EF918C5D94300E4CB99 /* warm3.gif */; };
 		3166DD9D1891784C00AB468F /* MoveCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3166DD9C1891784C00AB468F /* MoveCircleView.m */; };
 		316C8C12188E624E00D31252 /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C11188E624E00D31252 /* DragView.m */; };
 		316C8C15188E9E9900D31252 /* GridPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 316C8C14188E9E9900D31252 /* GridPathView.m */; };
@@ -235,6 +237,8 @@
 		315D6A1918B1FD8A004B0ADB /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		315D6A1A18B1FD8A004B0ADB /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		315D6A1B18B1FD8A004B0ADB /* NewsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsViewController.xib; sourceTree = "<group>"; };
+		31605EF718C5D7B800E4CB99 /* water_annimation3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = water_annimation3.gif; sourceTree = "<group>"; };
+		31605EF918C5D94300E4CB99 /* warm3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = warm3.gif; sourceTree = "<group>"; };
 		3166DD9B1891784C00AB468F /* MoveCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoveCircleView.h; sourceTree = "<group>"; };
 		3166DD9C1891784C00AB468F /* MoveCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoveCircleView.m; sourceTree = "<group>"; };
 		316C8C10188E624E00D31252 /* DragView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragView.h; sourceTree = "<group>"; };
@@ -318,9 +322,9 @@
 		31B5119E18B4826500FEA3E3 /* OLImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLImageView.m; sourceTree = "<group>"; };
 		31B511A718B4868E00FEA3E3 /* WaterAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterAnimationView.h; sourceTree = "<group>"; };
 		31B511A818B4868E00FEA3E3 /* WaterAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterAnimationView.m; sourceTree = "<group>"; };
-		31B511AD18B4CD3400FEA3E3 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
-		31B511B418B4CF3F00FEA3E3 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 1.gif; sourceTree = "<group>"; };
-		31B511B618B4D01100FEA3E3 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 2.gif; sourceTree = "<group>"; };
+		31B511AD18B4CD3400FEA3E3 /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 3.gif; path = ../3.gif; sourceTree = "<group>"; };
+		31B511B418B4CF3F00FEA3E3 /* 1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 1.gif; path = ../1.gif; sourceTree = "<group>"; };
+		31B511B618B4D01100FEA3E3 /* 2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = 2.gif; path = ../2.gif; sourceTree = "<group>"; };
 		31B51E4118B710040049438E /* UIDevice+DeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DeviceInfo.h"; sourceTree = "<group>"; };
 		31B51E4218B710040049438E /* UIDevice+DeviceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DeviceInfo.m"; sourceTree = "<group>"; };
 		31B51E4318B710040049438E /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
@@ -506,6 +510,20 @@
 			path = SocialSDKXib;
 			sourceTree = "<group>";
 		};
+		31605EF618C5D74200E4CB99 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				31605EF918C5D94300E4CB99 /* warm3.gif */,
+				31605EF718C5D7B800E4CB99 /* water_annimation3.gif */,
+				31B511B418B4CF3F00FEA3E3 /* 1.gif */,
+				31B511B618B4D01100FEA3E3 /* 2.gif */,
+				31B511AD18B4CD3400FEA3E3 /* 3.gif */,
+				31B48C0318B34CF800980F69 /* news.png */,
+				31F642E218B1180B00D8A6EF /* IMG_0005.JPG */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		316C8C0F188E623A00D31252 /* CustomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -641,9 +659,6 @@
 		31B5119A18B4823000FEA3E3 /* OLImageView */ = {
 			isa = PBXGroup;
 			children = (
-				31B511B418B4CF3F00FEA3E3 /* 1.gif */,
-				31B511B618B4D01100FEA3E3 /* 2.gif */,
-				31B511AD18B4CD3400FEA3E3 /* 3.gif */,
 				31B5119B18B4826500FEA3E3 /* OLImage.h */,
 				31B5119C18B4826500FEA3E3 /* OLImage.m */,
 				31B5119D18B4826500FEA3E3 /* OLImageView.h */,
@@ -787,6 +802,7 @@
 		31FCA237188D0670005494AE /* General */ = {
 			isa = PBXGroup;
 			children = (
+				31605EF618C5D74200E4CB99 /* image */,
 				316C8C0F188E623A00D31252 /* CustomeView */,
 				31FCA240188D0A33005494AE /* Tool */,
 				31FCA215188CFD17005494AE /* AppDelegate.h */,
@@ -801,8 +817,6 @@
 		31FCA238188D06A2005494AE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				31B48C0318B34CF800980F69 /* news.png */,
-				31F642E218B1180B00D8A6EF /* IMG_0005.JPG */,
 				31EAFB87188D570E0052CC79 /* SportViewController.h */,
 				31EAFB88188D570E0052CC79 /* SportViewController.m */,
 				31EAFB89188D570E0052CC79 /* SportViewController.xib */,
@@ -1007,6 +1021,7 @@
 				3124666B18AC643B00315A06 /* SleepCell.xib in Resources */,
 				31B48BE918B3396000980F69 /* item_ok_selected@2x.png in Resources */,
 				31B48BAC18B30B3200980F69 /* ModifyCodeViewController.xib in Resources */,
+				31605EF818C5D7B800E4CB99 /* water_annimation3.gif in Resources */,
 				31F3795E18A8AB4A005DB08B /* WaterWarmSetViewController.xib in Resources */,
 				315D6A0718B1C753004B0ADB /* UMSocialLocalizable.strings in Resources */,
 				315D6A0F18B1C753004B0ADB /* UMShareEditViewControlleriPad.xib in Resources */,
@@ -1014,6 +1029,7 @@
 				31B48BEC18B3396000980F69 /* messages_tableview_background.png in Resources */,
 				315D6A1318B1C753004B0ADB /* UMSocialSDKResourcesNew.bundle in Resources */,
 				31B48BF318B3396000980F69 /* nav_btn_bg@2x.png in Resources */,
+				31605EFA18C5D94300E4CB99 /* warm3.gif in Resources */,
 				31F3796318A8BEF6005DB08B /* EditWarmTimeViewController.xib in Resources */,
 				312C955118B28BAB00A04594 /* SportSetViewController.xib in Resources */,
 				31B48BEA18B3396000980F69 /* messages_left_bubble@2x.png in Resources */,

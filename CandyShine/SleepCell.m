@@ -25,6 +25,8 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.transform = CGAffineTransformMakeRotation(M_PI_2);
         
+        [self commenInit];
+        
         UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
         line.y = _sleepLB.y - 5;
         [self.contentView addSubview:line];
@@ -37,7 +39,7 @@
         _tableView.rowHeight = kTableViewRowHeith;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor clearColor];
-        [self.contentView addSubview:_tableView];
+        [self addSubview:_tableView];
         
         
         _left = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page_left"]];
@@ -49,10 +51,21 @@
         _right.center = CGPointMake(320 - 7, _sleepPathView.height/2 + 20);
         _right.hidden = YES;
         [self.contentView addSubview:_right];
+        self.contentView.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
 
+
+- (void)commenInit {
+    [self.contentView addSubview:_sleepPathView];
+    [self.contentView addSubview:_sleepLB];
+    [self.contentView addSubview:_getUpLB];
+    [self.contentView addSubview:_sleepEffectLB];
+    [self.contentView addSubview:_sleepTimeLB];
+    [self.contentView addSubview:_depthSleepLB];
+    [self.contentView addSubview:_lightSleepTimeLB];
+}
 
 - (void)setCellPosition:(CellPosition)cellPosition {
     if (cellPosition == CellPositionTop) {

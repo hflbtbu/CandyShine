@@ -134,10 +134,6 @@
                     <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="mmo-Ni-i4g">
-                    <rect key="frame" x="16" y="264" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
@@ -145,8 +141,12 @@
             <connections>
                 <outlet property="depthSleepLB" destination="9iO-QG-8g8" id="f4A-fX-RGi"/>
                 <outlet property="friendSleepPkLabel" destination="meS-Of-pNM" id="nuY-Rg-pNt"/>
+                <outlet property="getUpLB" destination="J8k-th-6G0" id="CrU-5N-Nn7"/>
+                <outlet property="lightSleepTimeLB" destination="jcV-cg-bcR" id="1HI-rz-rg1"/>
+                <outlet property="sleepEffectLB" destination="nc6-va-dQf" id="PxA-tj-CoG"/>
                 <outlet property="sleepLB" destination="MTP-MB-Bco" id="CL6-9e-aku"/>
                 <outlet property="sleepPathView" destination="gEM-hm-8rY" id="MQr-jp-Q4M"/>
+                <outlet property="sleepTimeLB" destination="Tir-f4-aBY" id="Nyx-GD-VG6"/>
             </connections>
         </view>
     </objects>

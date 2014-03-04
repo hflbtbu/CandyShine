@@ -15,7 +15,15 @@
 @property (nonatomic, retain) IBOutlet DetailTextView *friendSleepPkLabel;
 @property (nonatomic, retain) IBOutlet SleepPathView *sleepPathView;
 @property (nonatomic, retain) IBOutlet UILabel *sleepLB;
+@property (nonatomic, retain) IBOutlet UILabel *getUpLB;
+@property (nonatomic, retain) IBOutlet UILabel *sleepEffectLB;
+@property (nonatomic, retain) IBOutlet UILabel *sleepTimeLB;
 @property (nonatomic, retain) IBOutlet UILabel *depthSleepLB;
+@property (nonatomic, retain) IBOutlet UILabel *lightSleepTimeLB;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+
+
+
+
 @property (nonatomic, assign) CellPosition cellPosition;
 @end

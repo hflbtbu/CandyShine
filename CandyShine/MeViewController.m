@@ -138,6 +138,7 @@
         }
     }
     cell.textLabel.textColor = kContentNormalColor;
+    cell.textLabel.font = kContentFont3;
     return cell;
 }
 

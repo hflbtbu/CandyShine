@@ -81,7 +81,7 @@
         _animationImage.image = [OLImage imageNamed:@"2.gif"];
     } else {
         _animationImage.isRepeate = NO;
-        _animationImage.image = [OLImage imageNamed:@"3.gif"];
+        _animationImage.image = [OLImage imageNamed:@"warm3.gif"];
     }
 }
 

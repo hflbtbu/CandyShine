@@ -60,7 +60,7 @@
         for (int i = 0; i <number/3 + 1; i++) {
             for (int j = 0; j < 3; j++) {
                 if (count < number) {
-                    WaterAnimationView *animation = [[WaterAnimationView alloc] initWithFrame:CGRectMake(20 + j*100, 10 + i*90, 80, 80)];
+                    WaterAnimationView *animation = [[WaterAnimationView alloc] initWithFrame:CGRectMake(20 + j*100, 10 + i*118, 88, 108)];
                     animation.tag = count + kAnimationViewTag;
                     [animation setWarmTime:[[times objectAtIndex:count] integerValue] WarmState:[[states objectAtIndex:count] integerValue]];
                     [self.view addSubview:animation];
