@@ -23,6 +23,9 @@ PODS:
     - REFormattedNumberField (~> 1.1.1)
     - REValidation (~> 0.1.4)
   - REValidation (0.1.4)
+  - SDWebImage (3.5.2):
+    - SDWebImage/Core
+  - SDWebImage/Core (3.5.2)
   - UIActionSheet+Blocks (0.8)
   - UIAlertView+Blocks (0.8)
 
@@ -30,6 +33,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.1.0)
   - MBProgressHUD (~> 0.8)
   - RETableViewManager (~> 1.5.9)
+  - SDWebImage (~> 3.5.2)
   - UIActionSheet+Blocks (~> 0.8)
   - UIAlertView+Blocks (~> 0.8)
 
@@ -39,7 +43,8 @@ SPEC CHECKSUMS:
   REFormattedNumberField: 57016d59e96dbf5b6281fec4d08b401cb0a3c792
   RETableViewManager: d737f2e49b7f10841e4d9ee17ea5c10a0ace1054
   REValidation: 02160035110a63af1bf6ad1b8791837b3fa13584
+  SDWebImage: fe7ce01ae4e0a884d168f59c9dd82d35baf8429e
   UIActionSheet+Blocks: d3c7515281a4c5c5b9fbf127d8a9220982d4392c
   UIAlertView+Blocks: 39a1aee8ea75c4f9f877ff0b3734d84bf2009d1f
 
-COCOAPODS: 0.28.0
+COCOAPODS: 0.29.0
