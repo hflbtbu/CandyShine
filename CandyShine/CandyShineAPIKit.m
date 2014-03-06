@@ -109,6 +109,19 @@
     }];
 }
 
+- (void)requestModifyPortraitWithImage:(NSData *)image Success:(SuccessBlock)success fail:(FailBlock)fail {
+    NSString *uid = [CSDataManager sharedInstace].userId;
+    [_requestOperationManager POST:[NSString stringWithFormat:@"image?encrypt_param=%@",[self encryptorStringWithAES:[NSString stringWithFormat:@"action=upload&type=portrait&uid=%@",uid]]] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFormData:image name:@"portrait"];
+    } success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======UploadPortrait======");
+        NSLog(@"%@",responseObject);
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        fail(error);
+    }];
+}
+
 - (NSString *)encryptorStringWithAES:(NSString *)str {
     NSMutableString *string = [NSMutableString stringWithString:str];
     int count = 16 - [string length]%16;

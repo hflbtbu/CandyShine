@@ -148,9 +148,9 @@
         UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, self.view.width)];
         bgView.backgroundColor = [UIColor clearColor];
         UIButton *logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(80, 8, 160, 44)];
-        [logoutButton setTitle:@"退出登陆" forState:UIControlStateNormal];
+        [logoutButton setTitle: [CSDataManager sharedInstace].isLogin ? @"退出登陆" : @"登陆" forState:UIControlStateNormal];
         [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        UIImage *bgImage = [[UIImage imageNamed:@"button_bg_logout"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 3, 0, 4)];
+        UIImage *bgImage = [[UIImage imageNamed:[CSDataManager sharedInstace].isLogin ? @"button_bg_logout" : @"button_bg_login"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 3, 0, 4)];
         [logoutButton setBackgroundImage:bgImage forState:UIControlStateNormal];
         [logoutButton addTarget:self action:@selector(logoutButtonClickerHander) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:logoutButton];

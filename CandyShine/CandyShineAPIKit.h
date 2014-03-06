@@ -29,4 +29,6 @@ typedef void(^SuccessArrayBlock)(NSMutableArray *result);
 
 - (void)requestFriednListSuccess:(SuccessArrayBlock)success fail:(FailBlock)fail;
 
+- (void)requestModifyPortraitWithImage:(NSData *)image Success:(SuccessBlock)success fail:(FailBlock)fail;
+
 @end

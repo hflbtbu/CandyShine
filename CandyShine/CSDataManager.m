@@ -27,6 +27,7 @@
 - (id)init {
     self = [super init];
     if (self) {
+        _isLogin = NO;
         _totalDays = [DateHelper getDaysBetween:[[NSUserDefaults standardUserDefaults] objectForKey:kFirstLaunchDate] and:[NSDate date]];
     }
     return self;

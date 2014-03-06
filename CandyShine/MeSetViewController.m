@@ -218,16 +218,15 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *image= [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    UIImage *erw = [info objectForKey:@"UIImagePickerControllerEditedImage"];
-    
-    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-    {
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
-    }
-
-    _thumberImage.imageView.image = erw;
-    [self dismiss];
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    _thumberImage.imageView.image = image;
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[CandyShineAPIKit sharedAPIKit] requestModifyPortraitWithImage:UIImageJPEGRepresentation(image,0.01) Success:^(NSDictionary *result) {
+            
+        } fail:^(NSError *error) {
+            
+        }];
+    }];
 }
 
 //压缩图片
