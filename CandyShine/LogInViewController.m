@@ -25,6 +25,7 @@
     IBOutlet UIButton *_forgerPassword;
     
     BOOL _isOpen;
+    CSLoginType _loginType;
 }
 @end
 
@@ -82,18 +83,11 @@
             if (accountResponse.responseCode == UMSResponseCodeSuccess) {
                 NSString *username = [[[accountResponse.data objectForKey:@"accounts"] objectForKey:UMShareToSina] objectForKey:@"username"];
                 NSString *userid = [[[accountResponse.data objectForKey:@"accounts"] objectForKey:UMShareToSina] objectForKey:@"usid"];
-                [MBProgressHUDManager showIndicatorWithTitle:@"正在登陆" inView:[[UIApplication sharedApplication] keyWindow]];
+                [CandyShineAPIKit sharedAPIKit].loginType = CSLoginWeibo;
                 [CandyShineAPIKit sharedAPIKit].userName = username;
                 [CandyShineAPIKit sharedAPIKit].passWord = userid;
-                [[CandyShineAPIKit sharedAPIKit] requestRegisterSuccess:^(NSDictionary *result) {
-                    [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
-                    [MBProgressHUDManager showTextWithTitle:@"登陆成功" inView:self.view];
-                    [CSDataManager sharedInstace].isLogin = YES;
-                } fail:^(NSError *error) {
-                    [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
-                    [MBProgressHUDManager showTextWithTitle:@"登陆失败" inView:self.view];
-                }];
-                
+                _loginType = CSLoginWeibo;
+                [self registerRequest];
             } else {
                 [MBProgressHUDManager showTextWithTitle:@"授权失败" inView:self.view];
             }
@@ -109,19 +103,13 @@
                                           if (accountResponse.responseCode == UMSResponseCodeSuccess) {
                                               NSString *username = [[[accountResponse.data objectForKey:@"accounts"] objectForKey:UMShareToQzone] objectForKey:@"username"];
                                               NSString *userid = [[[accountResponse.data objectForKey:@"accounts"] objectForKey:UMShareToQzone] objectForKey:@"usid"];
-                                              [MBProgressHUDManager showIndicatorWithTitle:@"正在登陆" inView:[[UIApplication sharedApplication] keyWindow]];
+                                              [CandyShineAPIKit sharedAPIKit].loginType = CSLoginQQ;
                                               [CandyShineAPIKit sharedAPIKit].userName = username;
                                               [CandyShineAPIKit sharedAPIKit].passWord = userid;
-                                              [[CandyShineAPIKit sharedAPIKit] requestRegisterSuccess:^(NSDictionary *result) {
-                                                  [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
-                                                  [MBProgressHUDManager showTextWithTitle:@"登陆成功" inView:self.view];
-                                                  [CSDataManager sharedInstace].isLogin = YES;
-                                              } fail:^(NSError *error) {
-                                                  [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
-                                                  [MBProgressHUDManager showTextWithTitle:@"登陆失败" inView:self.view];
-                                              }];
-                                              
-                                          } else {
+                                              _loginType = CSLoginQQ;
+                                              [self registerRequest];
+                                          }
+                                          else {
                                               [MBProgressHUDManager showTextWithTitle:@"授权失败" inView:self.view];
                                           }
                                       }];
@@ -169,17 +157,10 @@
             [MBProgressHUDManager showTextWithTitle:@"请输入正确的邮箱" inView:[[UIApplication sharedApplication] keyWindow]];
         } else {
             [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-            [MBProgressHUDManager showIndicatorWithTitle:@"正在登陆" inView:[[UIApplication sharedApplication] keyWindow]];
             [CandyShineAPIKit sharedAPIKit].userName = _userName.text;
             [CandyShineAPIKit sharedAPIKit].passWord = _codeTextField.text;
-            [[CandyShineAPIKit sharedAPIKit] requestRegisterSuccess:^(NSDictionary *result) {
-                [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
-                [MBProgressHUDManager showTextWithTitle:@"登陆成功" inView:self.view];
-                [CSDataManager sharedInstace].isLogin = YES;
-            } fail:^(NSError *error) {
-                [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
-                [MBProgressHUDManager showTextWithTitle:@"登陆失败" inView:self.view];
-            }];
+            _loginType = CSLoginDefault;
+            [self loginRequest];
         }
 
     }
@@ -196,17 +177,12 @@
                 [MBProgressHUDManager showTextWithTitle:@"密码不能少于6位" inView:self.view];
             } else {
                 [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-                [MBProgressHUDManager showIndicatorWithTitle:@"正在注册" inView:[[UIApplication sharedApplication] keyWindow]];
+                [CandyShineAPIKit sharedAPIKit].loginType = CSLoginDefault;
                 [CandyShineAPIKit sharedAPIKit].userName = _userName.text;
                 [CandyShineAPIKit sharedAPIKit].passWord = _codeTextField.text;
-                [[CandyShineAPIKit sharedAPIKit] requestRegisterSuccess:^(NSDictionary *result) {
-                    [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
-                    [MBProgressHUDManager showTextWithTitle:@"注册成功" inView:self.view];
-                    [CSDataManager sharedInstace].isLogin = YES;
-                } fail:^(NSError *error) {
-                    [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
-                    [MBProgressHUDManager showTextWithTitle:@"注册失败" inView:self.view];
-                }];
+                [CandyShineAPIKit sharedAPIKit].email = _emailTextField.text;
+                _loginType = CSLoginDefault;
+                [self registerRequest];
             }
         }
     } else {
@@ -214,10 +190,49 @@
     }
 }
 
-
 - (IBAction)forgetCodeButtonClickHander:(id)sender {
+    
 }
 
+- (void)registerRequest {
+    [MBProgressHUDManager showIndicatorWithTitle:_loginType == CSLoginDefault ? @"正在注册" : @"正在登陆" inView:[[UIApplication sharedApplication] keyWindow]];
+    [[CandyShineAPIKit sharedAPIKit] requestRegisterSuccess:^(NSDictionary *result) {
+        CSResponceCode code = [[result objectForKey:@"code"] integerValue];
+        [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
+        if (code == CSResponceCodeSuccess) {
+            [self loginRequest];
+        } else {
+            if (_loginType == CSLoginDefault) {
+                [MBProgressHUDManager showTextWithTitle:@"用户名已存在" inView:self.view];
+            } else {
+                [self loginRequest];
+            }
+        }
+    } fail:^(NSError *error) {
+        [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
+        [MBProgressHUDManager showTextWithTitle:_loginType == CSLoginDefault ? @"注册失败" : @"登陆失败" inView:self.view];
+    }];
+}
+
+- (void)loginRequest {
+    [MBProgressHUDManager showIndicatorWithTitle:@"正在登陆" inView:[[UIApplication sharedApplication] keyWindow]];
+    [[CandyShineAPIKit sharedAPIKit] requestLogInSuccess:^(NSDictionary *result) {
+        CSResponceCode code = [[result objectForKey:@"code"] integerValue];
+        [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
+        if (code == CSResponceCodeSuccess) {
+            [MBProgressHUDManager showTextWithTitle:@"登陆成功" inView:self.view];
+            [CSDataManager sharedInstace].userName = [[result objectForKey:@"user_info"] objectForKey:@"custom_name"];
+            [CSDataManager sharedInstace].userId = [[result objectForKey:@"user_info"] objectForKey:@"uid"];
+            [CSDataManager sharedInstace].portrait = [[result objectForKey:@"user_info"] objectForKey:@"portrait"];
+            [CSDataManager sharedInstace].isLogin = YES;
+        } else {
+            [MBProgressHUDManager showTextWithTitle:@"用户名或密码错误" inView:self.view];
+        }
+    } fail:^(NSError *error) {
+        [MBProgressHUDManager hideMBProgressInView:[[UIApplication sharedApplication] keyWindow]];
+        [MBProgressHUDManager showTextWithTitle:@"登陆失败" inView:self.view];
+    }];
+}
 
 - (void)initNavigationItem {
     [self.navigationItem  setCustomeLeftBarButtonItem:@"navagation_back" target:self action:@selector(dismiss)];

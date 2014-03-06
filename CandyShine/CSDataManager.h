@@ -12,6 +12,9 @@
 @interface CSDataManager : NSObject
 
 @property (nonatomic, assign) BOOL isLogin;
+@property (nonatomic, retain) NSString *userName;
+@property (nonatomic, retain) NSString *userId;
+@property (nonatomic, retain) NSString *portrait;
 @property (nonatomic, assign) NSInteger totalDays;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

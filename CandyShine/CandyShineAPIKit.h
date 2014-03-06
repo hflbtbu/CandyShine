@@ -17,12 +17,15 @@ typedef void(^SuccessArrayBlock)(NSMutableArray *result);
 
 @property (nonatomic, retain) NSString *userName;
 @property (nonatomic, retain) NSString *passWord;
+@property (nonatomic, retain) NSString *email;
 @property (nonatomic, assign) CSLoginType loginType;
 
 
 + (CandyShineAPIKit *)sharedAPIKit;
 
 - (void)requestRegisterSuccess:(SuccessBlock)success fail:(FailBlock)fail;
+
+- (void)requestLogInSuccess:(SuccessBlock)success fail:(FailBlock)fail;
 
 - (void)requestFriednListSuccess:(SuccessArrayBlock)success fail:(FailBlock)fail;
 

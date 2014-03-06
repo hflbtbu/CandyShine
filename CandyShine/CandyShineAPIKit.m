@@ -52,7 +52,43 @@
 
 
 - (void)requestRegisterSuccess:(SuccessBlock)success fail:(FailBlock)fail {
-    [_requestOperationManager GET:@"/register" parameters:@{@"luser": _userName,@"pwd":_passWord} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSMutableString *parameterString = [NSMutableString stringWithCapacity:0];
+    [parameterString appendString:@"user="];
+    [parameterString appendString:[self encodeToPercentEscapeString:_userName]];
+    [parameterString appendString:@"&"];
+    [parameterString appendString:@"type="];
+    [parameterString appendString:[self encodeToPercentEscapeString:[NSString stringWithFormat:@"%d",_loginType]]];
+    [parameterString appendString:@"&"];
+    [parameterString appendString:@"pwd="];
+    [parameterString appendString:[self encodeToPercentEscapeString:_passWord]];
+    if (_loginType == CSLoginDefault) {
+        [parameterString appendString:@"&"];
+        [parameterString appendString:@"email="];
+        [parameterString appendString:[self encodeToPercentEscapeString:_email]];
+    }
+
+    [_requestOperationManager GET:@"/register" parameters:@{@"encrypt_param":[self encryptorStringWithAES:parameterString]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======Register======");
+        NSLog(@"%@",responseObject);
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        fail(error);
+    }];
+}
+
+- (void)requestLogInSuccess:(SuccessBlock)success fail:(FailBlock)fail {
+    NSMutableString *parameterString = [NSMutableString stringWithCapacity:0];
+    [parameterString appendString:@"user="];
+    [parameterString appendString:[self encodeToPercentEscapeString:_userName]];
+    [parameterString appendString:@"&"];
+    [parameterString appendString:@"type="];
+    [parameterString appendString:[self encodeToPercentEscapeString:[NSString stringWithFormat:@"%d",_loginType]]];
+    [parameterString appendString:@"&"];
+    [parameterString appendString:@"pwd="];
+    [parameterString appendString:[self encodeToPercentEscapeString:_passWord]];
+    [_requestOperationManager GET:@"/authentication" parameters:@{@"encrypt_param":[self encryptorStringWithAES:parameterString]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======LogIn======");
+        NSLog(@"%@",responseObject);
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         fail(error);
@@ -74,8 +110,7 @@
 }
 
 - (NSString *)encryptorStringWithAES:(NSString *)str {
-    NSString *urlEncodeString = [self encodeToPercentEscapeString:str];
-    NSMutableString *string = [NSMutableString stringWithString:urlEncodeString];
+    NSMutableString *string = [NSMutableString stringWithString:str];
     int count = 16 - [string length]%16;
     for (int i = 0; i < count; i++) {
         [string appendString:@"&"];

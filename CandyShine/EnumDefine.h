@@ -48,9 +48,14 @@ typedef NS_ENUM(NSInteger, WaterWarmState) {
 };
 
 typedef NS_ENUM(NSInteger, CSLoginType) {
-    CSLoginWeibo,
-    CSLoginQQ,
-    CSLoginDefault,
+    CSLoginDefault = 0,
+    CSLoginQQ = 1,
+    CSLoginWeibo = 2,
+};
+
+typedef NS_ENUM(NSInteger, CSResponceCode) {
+    CSResponceCodeFail = 0,
+    CSResponceCodeSuccess = 1,
 };
 
 #endif
