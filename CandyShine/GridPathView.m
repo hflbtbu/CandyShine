@@ -7,6 +7,7 @@
 //
 
 #import "GridPathView.h"
+#import "Sport.h"
 
 #define BorderGap      30
 #define TextSpaceY     8
@@ -84,10 +85,12 @@
         _path.hidden = NO;
 
         UIBezierPath *path = [UIBezierPath bezierPath];
-        int value = [[_valueArray objectAtIndex:0] intValue];
+        Sport *item = [_valueArray objectAtIndex:0];
+        int value = [item.value intValue];
         [path moveToPoint:CGPointMake(0, self.height - TextSpaceY - 2*PathBorderBap - value - 30)];
         for (int i = 1; i < [_valueArray count]; i++) {
-            int value = [[_valueArray objectAtIndex:i] intValue];
+            Sport *item = [_valueArray objectAtIndex:0];
+            int value = [item.value intValue];
             [path addLineToPoint:CGPointMake(BorderGap + LineWidth + 12*i, self.height - TextSpaceY - 2*PathBorderBap - value -30)];
         }
         UIBezierPath *smoothing = [path smoothedPathWithGranularity:40 minY:self.height - TextSpaceY - 2*PathBorderBap - 110 maxY:self.height - TextSpaceY - 2*PathBorderBap - 0];

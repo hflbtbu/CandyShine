@@ -116,6 +116,9 @@
 		31B5CE7C1890B17000C79CD6 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B5CE7B1890B17000C79CD6 /* MenuView.m */; };
 		31BE34D418C0627100FC2DA3 /* FBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BE34D118C0627100FC2DA3 /* FBEncryptorAES.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		31BE34D518C0627100FC2DA3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BE34D318C0627100FC2DA3 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		31BF6ED918C824FF00D100B8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BF6ED818C824FF00D100B8 /* CoreData.framework */; };
+		31BF6EDC18C8270700D100B8 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31BF6EDA18C8270700D100B8 /* CoreData.xcdatamodeld */; };
+		31BF6EDF18C8275D00D100B8 /* Sport.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BF6EDE18C8275D00D100B8 /* Sport.m */; };
 		31C6D30F18BCCD820034BBB7 /* FriendListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C6D30D18BCCD820034BBB7 /* FriendListViewController.m */; };
 		31C6D31018BCCD820034BBB7 /* FriendListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31C6D30E18BCCD820034BBB7 /* FriendListViewController.xib */; };
 		31C6D31418BCD36E0034BBB7 /* CSFreiend.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C6D31318BCD36E0034BBB7 /* CSFreiend.m */; };
@@ -339,6 +342,10 @@
 		31BE34D118C0627100FC2DA3 /* FBEncryptorAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBEncryptorAES.m; sourceTree = "<group>"; };
 		31BE34D218C0627100FC2DA3 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		31BE34D318C0627100FC2DA3 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		31BF6ED818C824FF00D100B8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		31BF6EDB18C8270700D100B8 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		31BF6EDD18C8275D00D100B8 /* Sport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sport.h; sourceTree = "<group>"; };
+		31BF6EDE18C8275D00D100B8 /* Sport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sport.m; sourceTree = "<group>"; };
 		31C6D30C18BCCD820034BBB7 /* FriendListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendListViewController.h; sourceTree = "<group>"; };
 		31C6D30D18BCCD820034BBB7 /* FriendListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendListViewController.m; sourceTree = "<group>"; };
 		31C6D30E18BCCD820034BBB7 /* FriendListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendListViewController.xib; sourceTree = "<group>"; };
@@ -396,6 +403,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31BF6ED918C824FF00D100B8 /* CoreData.framework in Frameworks */,
 				31B55E0F18C0252D00BC5400 /* SystemConfiguration.framework in Frameworks */,
 				31B55E0D18C0251700BC5400 /* MessageUI.framework in Frameworks */,
 				310C0D6C18B735A900826FE6 /* Social.framework in Frameworks */,
@@ -681,6 +689,8 @@
 		31C6D31118BCD3210034BBB7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				31BF6EDD18C8275D00D100B8 /* Sport.h */,
+				31BF6EDE18C8275D00D100B8 /* Sport.m */,
 				31C6D31218BCD36E0034BBB7 /* CSFreiend.h */,
 				31C6D31318BCD36E0034BBB7 /* CSFreiend.m */,
 			);
@@ -711,6 +721,7 @@
 		31FCA205188CFD17005494AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31BF6ED818C824FF00D100B8 /* CoreData.framework */,
 				31B55E0E18C0252D00BC5400 /* SystemConfiguration.framework */,
 				31B55E0C18C0251700BC5400 /* MessageUI.framework */,
 				310C0D6B18B735A900826FE6 /* Social.framework */,
@@ -737,6 +748,9 @@
 		31FCA20D188CFD17005494AE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				31FCA215188CFD17005494AE /* AppDelegate.h */,
+				31FCA216188CFD17005494AE /* AppDelegate.m */,
+				31BF6EDA18C8270700D100B8 /* CoreData.xcdatamodeld */,
 				31FCA20E188CFD17005494AE /* CandyShine-Info.plist */,
 				31FCA20F188CFD17005494AE /* InfoPlist.strings */,
 				31FCA212188CFD17005494AE /* main.m */,
@@ -805,8 +819,6 @@
 				31605EF618C5D74200E4CB99 /* image */,
 				316C8C0F188E623A00D31252 /* CustomeView */,
 				31FCA240188D0A33005494AE /* Tool */,
-				31FCA215188CFD17005494AE /* AppDelegate.h */,
-				31FCA216188CFD17005494AE /* AppDelegate.m */,
 				31FCA23A188D084E005494AE /* BaseClass */,
 				31FCA239188D0709005494AE /* Define */,
 				31FCA218188CFD17005494AE /* Images.xcassets */,
@@ -1131,11 +1143,13 @@
 				31F3795B18A8A429005DB08B /* WaterWarmSetViewController.m in Sources */,
 				31B48BF818B3396000980F69 /* UMContactViewController.m in Sources */,
 				312C440A18A3F41E006CE7D1 /* FriendCell.m in Sources */,
+				31BF6EDC18C8270700D100B8 /* CoreData.xcdatamodeld in Sources */,
 				31FCA213188CFD17005494AE /* main.m in Sources */,
 				31EAFB8A188D570E0052CC79 /* SportViewController.m in Sources */,
 				315D6A1718B1D302004B0ADB /* LogInViewController.m in Sources */,
 				31473DBA18B3AF2200DEDA12 /* IndexPathCell.m in Sources */,
 				31B51E4618B710040049438E /* UIDevice+IdentifierAddition.m in Sources */,
+				31BF6EDF18C8275D00D100B8 /* Sport.m in Sources */,
 				31B5119F18B4826500FEA3E3 /* OLImage.m in Sources */,
 				31B48BB918B32C8400980F69 /* RegistMHTextField.m in Sources */,
 				31FCA24C188D0FA9005494AE /* BaseViewController.m in Sources */,
@@ -1403,6 +1417,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		31BF6EDA18C8270700D100B8 /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				31BF6EDB18C8270700D100B8 /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 31BF6EDB18C8270700D100B8 /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 31FCA1FB188CFD17005494AE /* Project object */;
 }

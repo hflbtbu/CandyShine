@@ -104,7 +104,7 @@
 }
 
 - (void)setProgress:(CGFloat)progress {
-    //_currentProgress = progress;
+    _currentProgress = progress;
     _progress = progress;
     [self setNeedsDisplay];
 }
@@ -131,7 +131,7 @@
         _isSyn = YES;
         _runNumberLB.hidden = NO;
         _calorieLB.hidden = NO;
-        _gogalLB.text = @"目标 : 1200卡路里";
+        _gogalLB.text = @"目标 : 9900卡路里";
         
     }
 }
@@ -142,8 +142,9 @@
     
     if (_currentPattern == DataPatternDay) {
         _runNumberLB.text = [NSString stringWithFormat:@"%d",_runNumbers];
-        [self updateWithProgress:_runNumbers/1200.0];
-        _gogalLB.text = [NSString stringWithFormat:@"目标 : 1200卡路里"];
+        //[self updateWithProgress:_runNumbers/1200.0];
+        self.progress = _runNumbers/9900.0;
+        _gogalLB.text = [NSString stringWithFormat:@"目标 : 9900卡路里"];
         _calorieLB.text = [NSString stringWithFormat:@"700卡路里"];
     } else {
         

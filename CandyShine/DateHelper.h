@@ -22,5 +22,6 @@
 
 + (NSString *)getWeekStringWith:(int)week;
 
++ (NSInteger)getDaysBetween:(NSDate *)startDate and:(NSDate *)endDate;
 
 @end

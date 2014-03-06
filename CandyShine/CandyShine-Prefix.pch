@@ -53,6 +53,8 @@
 #import "UMSocial.h"
 #import "UMSocialSnsService.h"
 #import "AFNetworking.h"
+#import <CoreData/CoreData.h>
+
 
 
 #import "CircleImageView.h"

@@ -10,7 +10,7 @@
 
 @interface GridPathView : UIView
 
-@property (nonatomic, strong) NSMutableArray *valueArray;
+@property (nonatomic, strong) NSArray *valueArray;
 @property (nonatomic, assign) DataPattern currentPattern;
 
 - (void)refresh;

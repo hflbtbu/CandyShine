@@ -17,8 +17,11 @@
 
 //AppKey
 
-#define UmengAppkey @"5289a8fb56240be0de2a15d8"
+#define UmengAppkey         @"5289a8fb56240be0de2a15d8"
 
-#define kAESKey     @"wearable_devices"
+#define kAESKey             @"wearable_devices"
+
+#define kIsFirstLaunch      @"IsFirstLaunch"
+#define kFirstLaunchDate    @"FirstLaunchDate"
 
 #endif

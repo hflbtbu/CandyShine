@@ -98,15 +98,14 @@
         [cancelButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         cancelButton.backgroundColor = [UIColor clearColor];
     } else {
-        UIButton *cancelButton = [_addFriendSearchbar.subviews objectAtIndex:2];
+        UIButton *cancelButton = [_addFriendSearchbar.subviews objectAtIndex:1];
         [cancelButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        cancelButton.titleLabel.font = kContentFont1;
         cancelButton.backgroundColor = [UIColor clearColor];
         [cancelButton setBackgroundImage:nil forState:UIControlStateSelected];
         [cancelButton setBackgroundImage:nil forState:UIControlStateNormal];
         [cancelButton setBackgroundImage:nil forState:UIControlStateHighlighted];
     }
-    
-    
     return YES;
 }
 
@@ -126,7 +125,6 @@
     [self searchFriendWithUserName:searchBar.text];
     return YES;
 }
-
 
 - (void)didReceiveMemoryWarning
 {

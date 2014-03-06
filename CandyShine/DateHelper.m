@@ -68,4 +68,10 @@
     return [NSString stringWithFormat:@"%d月%d日~%d月%d日",begainComponents.month,begainComponents.day,endComponents.month,endComponents.day];
 }
 
++ (NSInteger)getDaysBetween:(NSDate *)startDate and:(NSDate *)endDate {
+    unsigned int unitFlags = NSMonthCalendarUnit | NSDayCalendarUnit;
+    NSDateComponents *comps = [[NSCalendar currentCalendar] components:unitFlags fromDate:endDate  toDate:[DateHelper getDayBegainWith:-3]  options:0];
+    return [comps day];
+}
+
 @end

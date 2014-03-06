@@ -20,12 +20,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self commenInit];
     [self initialShareSDK];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-
     
     SportViewController *base = [[SportViewController alloc] initWithNibName:@"SportViewController" bundle:nil];
     //base.title = [NSString stringWithFormat:@"Page%d",i+1];
@@ -64,6 +64,15 @@
     
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)commenInit {
+    BOOL isFirstLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:kIsFirstLaunch];
+    if (!isFirstLaunch) {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kIsFirstLaunch];
+        [[NSUserDefaults standardUserDefaults] setObject:[DateHelper getDayBegainWith:0] forKey:kFirstLaunchDate];
+    }
+    [CSDataManager sharedInstace];
 }
 
 - (void)initAppearece {

@@ -10,7 +10,7 @@
 
 @interface PathTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) NSMutableArray *valueArray;
+@property (nonatomic, strong) NSArray *valueArray;
 @property (nonatomic, strong) UITableView *friensTableView;
 @property (nonatomic, assign) PageMoveType moveType;
 @property (nonatomic, assign) CellPosition cellPosition;

@@ -7,11 +7,26 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Sport.h"
 
 @interface CSDataManager : NSObject
 
 @property (nonatomic, assign) BOOL isLogin;
+@property (nonatomic, assign) NSInteger totalDays;
+
+@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+@property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 + (CSDataManager *)sharedInstace;
+
+- (Sport *)insertSportItemWithBlock:(void (^)(Sport *))settingBlock;
+
+- (NSArray *)fetchSportItemsByDay:(NSInteger)day;
+
+- (BOOL)saveData;
+
+
 
 @end
