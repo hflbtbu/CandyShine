@@ -36,6 +36,8 @@
     #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
     #import <MBProgressHUD/MBProgressHUD.h>
 
+#import "FBEncryptorAES.h"
+
 
 //enum
 #import "EnumDefine.h"

@@ -132,6 +132,13 @@
     return [data base64EncodedStringWithSeparateLines:separateLines];
 }
 
++ (NSString*)encryptString:(NSString*)string keyString:(NSString*)keyString  {
+    NSData* data = [self encryptData:[string dataUsingEncoding:NSUTF8StringEncoding]
+                                 key:[keyString dataUsingEncoding:NSUTF8StringEncoding]
+                                  iv:nil];
+    return [FBEncryptorAES hexStringForData:data];
+}
+
 + (NSString*)decryptBase64String:(NSString*)encryptedBase64String keyString:(NSString*)keyString
 {
     NSData* encryptedData = [NSData dataFromBase64String:encryptedBase64String];
@@ -174,7 +181,7 @@
 
     const unsigned char *p = [data bytes];
     
-    for (int i=0; i < [data length]; i++) {
+    for (int i=0; i < [data length] - 16; i++) {
         [hexString appendFormat:@"%02x", *p++];
     }
     return hexString;

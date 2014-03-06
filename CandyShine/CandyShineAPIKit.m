@@ -73,6 +73,29 @@
     }];
 }
 
+- (NSString *)encryptorStringWithAES:(NSString *)str {
+    NSString *urlEncodeString = [self encodeToPercentEscapeString:str];
+    NSMutableString *string = [NSMutableString stringWithString:urlEncodeString];
+    int count = 16 - [string length]%16;
+    for (int i = 0; i < count; i++) {
+        [string appendString:@"&"];
+    }
+    NSString *encryptedString = [FBEncryptorAES encryptString:string keyString:kAESKey];
+    return encryptedString;
+}
 
+
+- (NSString *)encodeToPercentEscapeString: (NSString *) input
+
+{
+    NSString* outputStr = (__bridge NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                       
+                                                                                       NULL, /* allocator */
+                                                                                       (__bridge CFStringRef)input,
+                                                                                       NULL, /* charactersToLeaveUnescaped */
+                                                                                       (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                       kCFStringEncodingUTF8);
+    return outputStr;
+}
 
 @end

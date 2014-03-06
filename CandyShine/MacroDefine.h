@@ -19,4 +19,6 @@
 
 #define UmengAppkey @"5289a8fb56240be0de2a15d8"
 
+#define kAESKey     @"wearable_devices"
+
 #endif
