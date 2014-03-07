@@ -6,6 +6,12 @@
 //  Copyright (c) 2014年 CandyWearables. All rights reserved.
 //
 
+#define kUserIsLogin        @"UserIsLogin"
+#define kUserName           @"UserName"
+#define kUserId             @"UserId"
+#define kUserPortrait       @"UserPortrait"
+
+
 #import <Foundation/Foundation.h>
 #import "Sport.h"
 
@@ -28,8 +34,9 @@
 
 - (NSArray *)fetchSportItemsByDay:(NSInteger)day;
 
-- (BOOL)saveData;
+- (BOOL)saveCoreData;
 
+- (void)saveUserData;
 
 
 @end

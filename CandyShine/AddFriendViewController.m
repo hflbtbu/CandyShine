@@ -8,11 +8,14 @@
 
 #import "AddFriendViewController.h"
 #import "AddFriendCell.h"
+#import "CSFreiend.h"
 
 @interface AddFriendViewController () <UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource>
 {
     IBOutlet UISearchBar *_addFriendSearchbar;
     IBOutlet UITableView *_searchResultTableView;
+    UIButton *_selectedButton;
+    NSArray *_frendArray;
 }
 
 @end
@@ -56,7 +59,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return _frendArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -64,28 +67,71 @@
     AddFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
     if (cell == nil) {
         cell = [[AddFriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
-        [cell.addButton addTarget:self action:@selector(addFriend) forControlEvents:UIControlEventTouchUpInside];
     }
+    [cell.addButton setTitle:@"关注" forState:UIControlStateNormal];
+    [cell.addButton addTarget:self action:@selector(addFriend:) forControlEvents:UIControlEventTouchUpInside];
+    cell.addButton.tag = indexPath.row;
     
-    if (indexPath.row == 0) {
-        [cell setCellPosition:CellPositionTop];
-    } else if (indexPath.row == 5 - 1) {
+    if (_frendArray.count == 1) {
         [cell setCellPosition:CellPositionBottom];
     } else {
-        [cell setCellPosition:CellPositionMiddle];
+        if (indexPath.row == 0) {
+            [cell setCellPosition:CellPositionTop];
+        } else if (indexPath.row == _frendArray.count - 1) {
+            [cell setCellPosition:CellPositionBottom];
+        } else {
+            [cell setCellPosition:CellPositionMiddle];
+        }
+
     }
 
-    
+    CSFreiend *item;
+    if (indexPath.row < _frendArray.count) {
+        item = [_frendArray objectAtIndex:indexPath.row];
+    }
+    NSString *url = [NSString stringWithFormat:@"%@%@",kPortraitURL,item.portrait];
+    [cell.frinendThumberImage.imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"IMG_0005.JPG"]];
+    cell.nameLB.text = item.name;
     return cell;
 }
 
 
 - (void)searchFriendWithUserName:(NSString *)userName {
-    
+    [MBProgressHUDManager showIndicatorWithTitle:@"正在请求" inView:self.view];
+    [[CandyShineAPIKit sharedAPIKit] requestSearchFriednListWithKeyword:userName Success:^(NSMutableArray *result) {
+        [MBProgressHUDManager hideMBProgressInView:self.view];
+        if (result == nil || result.count == 0) {
+            [MBProgressHUDManager showTextWithTitle:@"未搜到好友" inView:self.view];
+        } else {
+            _frendArray = result;
+            [_searchResultTableView reloadData];
+        }
+    } fail:^(NSError *error) {
+        [MBProgressHUDManager hideMBProgressInView:self.view];
+        [MBProgressHUDManager showTextWithTitle:@"请求失败" inView:self.view];
+    }];
 }
 
-- (void)addFriend {
-    
+- (void)addFriend:(UIButton *)sender {
+    _selectedButton = sender;
+    if ([sender.titleLabel.text isEqualToString:@"关注"]) {
+        [MBProgressHUDManager showIndicatorWithTitle:@"正在请求" inView:self.view];
+        CSFreiend *item = [_frendArray objectAtIndex:sender.tag];
+        [[CandyShineAPIKit sharedAPIKit] requestAddFeiendWithUserID:item.uid Success:^(NSDictionary *result) {
+            [MBProgressHUDManager hideMBProgressInView:self.view];
+            CSResponceCode code = [[result objectForKey:@"code"] integerValue];
+            if (code == CSResponceCodeSuccess) {
+                [MBProgressHUDManager showTextWithTitle:@"关注成功" inView:self.view];
+                [_selectedButton setTitle:@"已关注" forState:UIControlStateNormal];
+            } else {
+                [MBProgressHUDManager showTextWithTitle:@"已关注过该好友" inView:self.view];
+                [_selectedButton setTitle:@"已关注" forState:UIControlStateNormal];
+            }
+        } fail:^(NSError *error) {
+            [MBProgressHUDManager hideMBProgressInView:self.view];
+            [MBProgressHUDManager showTextWithTitle:@"请求失败" inView:self.view];
+        }];
+    }
 }
 
 #pragma mark UISearchBarDelegate
@@ -117,13 +163,14 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     [searchBar resignFirstResponder];
+    [self searchFriendWithUserName:searchBar.text];
     searchBar.text = nil;
     [searchBar setShowsCancelButton:NO animated:YES];
 }
 
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
-    [self searchFriendWithUserName:searchBar.text];
-    return YES;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [_addFriendSearchbar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning

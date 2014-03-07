@@ -110,17 +110,17 @@ static char kAFResponseSerializerKey;
 #pragma mark -
 
 - (void)setImageWithURL:(NSURL *)url {
-    [self setImageWithURL:url placeholderImage:nil];
+    //[self setImageWithURL:url placeholderImage:nil];
 }
 
-- (void)setImageWithURL:(NSURL *)url
-       placeholderImage:(UIImage *)placeholderImage
-{
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
-
-    [self setImageWithURLRequest:request placeholderImage:placeholderImage success:nil failure:nil];
-}
+//- (void)setImageWithURL:(NSURL *)url
+//       placeholderImage:(UIImage *)placeholderImage
+//{
+//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+//    [request addValue:@"image/*" forHTTPHeaderField:@"Accept"];
+//
+//    [self setImageWithURLRequest:request placeholderImage:placeholderImage success:nil failure:nil];
+//}
 
 - (void)setImageWithURLRequest:(NSURLRequest *)urlRequest
               placeholderImage:(UIImage *)placeholderImage

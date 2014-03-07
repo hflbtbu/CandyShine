@@ -35,6 +35,7 @@
     #import <UIActionSheet+Blocks/UIActionSheet+Blocks.h>
     #import <UIAlertView+Blocks/UIAlertView+Blocks.h>
     #import <MBProgressHUD/MBProgressHUD.h>
+    #import <SDWebImage/UIImageView+WebCache.h>
 
 #import "FBEncryptorAES.h"
 

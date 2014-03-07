@@ -23,7 +23,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         _topLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
         _topLine.y = 0;
         [self.contentView addSubview:_topLine];

@@ -10,6 +10,7 @@
 #import "LogInViewController.h"
 #import "ModifyCodeViewController.h"
 #import "PickerView.h"
+#import "MeViewController.h"
 
 @interface MeSetViewController () <UITableViewDataSource, UITableViewDelegate, UMSocialUIDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate, PickerViewDelegate>
 {
@@ -19,12 +20,11 @@
     
     CircleImageView *_thumberImage;
     
-    UIImageView *_image;
-    
     PickerView *_pickerView;
     
     UITableViewCell *_selectedCell;
     PickerViewType _pickerType;
+    CSDataManager *_dataManager;
     
 }
 
@@ -51,9 +51,7 @@
     if (IsIOS7) {
         _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     }
-    
-    _image = [[UIImageView alloc] initWithFrame:CGRectMake(0, 200, 120, 120)];
-    [self.view addSubview:_image];
+    _dataManager = [CSDataManager sharedInstace];
 }
 
 
@@ -101,6 +99,10 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             NSInteger originX = IsIOS7 ? 226:212;
             _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(originX, 5, 60, 60) image:@"IMG_0005.JPG"];
+            if (_dataManager.isLogin) {
+                NSString * url = [NSString stringWithFormat:@"%@%@",kPortraitURL,[CSDataManager sharedInstace].userId];
+                [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:url]];
+            }
             [cell.contentView addSubview:_thumberImage];
         }
         cell.textLabel.text = @"头像";
@@ -220,8 +222,13 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     _thumberImage.imageView.image = image;
+    MeViewController *vc = (MeViewController *)[self.navigationController.viewControllers objectAtIndex:0];
+    if ([vc isKindOfClass:[MeViewController class]]) {
+        vc.thumberImage.imageView.image = image;
+    }
     [self dismissViewControllerAnimated:YES completion:^{
-        [[CandyShineAPIKit sharedAPIKit] requestModifyPortraitWithImage:UIImageJPEGRepresentation(image,0.01) Success:^(NSDictionary *result) {
+        NSData *imageData = UIImageJPEGRepresentation(image,0.01);
+        [[CandyShineAPIKit sharedAPIKit] requestModifyPortraitWithImage:imageData Success:^(NSDictionary *result) {
             
         } fail:^(NSError *error) {
             
@@ -238,7 +245,6 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
-
 
 - (void)didReceiveMemoryWarning
 {

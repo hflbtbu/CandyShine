@@ -18,6 +18,7 @@ typedef void(^SuccessArrayBlock)(NSMutableArray *result);
 @property (nonatomic, retain) NSString *userName;
 @property (nonatomic, retain) NSString *passWord;
 @property (nonatomic, retain) NSString *email;
+
 @property (nonatomic, assign) CSLoginType loginType;
 
 
@@ -30,5 +31,9 @@ typedef void(^SuccessArrayBlock)(NSMutableArray *result);
 - (void)requestFriednListSuccess:(SuccessArrayBlock)success fail:(FailBlock)fail;
 
 - (void)requestModifyPortraitWithImage:(NSData *)image Success:(SuccessBlock)success fail:(FailBlock)fail;
+
+- (void)requestSearchFriednListWithKeyword:(NSString *)keyword Success:(SuccessArrayBlock)success fail:(FailBlock)fail;
+
+- (void)requestAddFeiendWithUserID:(NSString *)uid Success:(SuccessBlock)success fail:(FailBlock)fail;
 
 @end

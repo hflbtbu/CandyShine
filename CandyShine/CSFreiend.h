@@ -12,6 +12,8 @@
 
 @property (nonatomic, retain)NSString *name;
 @property (nonatomic, assign)NSInteger sorce;
+@property (nonatomic, retain)NSString *portrait;
+@property (nonatomic, retain)NSString *uid;
 
 - (id)initWithDic:(NSDictionary *)dic;
 

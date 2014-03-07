@@ -13,8 +13,10 @@
 - (id)initWithDic:(NSDictionary *)dic {
     self = [super init];
     if (self) {
-        _name = [dic objectForKey:@"name"];
+        _name = [dic objectForKey:@"custom_name"];
         _sorce = [[dic objectForKey:@"score"] integerValue];
+        _portrait = [dic objectForKey:@"portrait"];
+        _uid = [dic objectForKey:@"uid"];
     }
     return self;
 }

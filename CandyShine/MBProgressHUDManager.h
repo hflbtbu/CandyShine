@@ -14,6 +14,8 @@
 
 + (void)showIndicatorWithTitle:(NSString *)title inView:(UIView *)view;
 
++ (void)showTextWithTitle:(NSString *)title inView:(UIView *)view completionBlock:(MBProgressHUDCompletionBlock)completion;
+
 + (void)hideMBProgressInView:(UIView *)view;
 
 @end

@@ -14,6 +14,7 @@
 #define kContentHighlightColor          [UIColor convertHexColorToUIColor:0xffaa33]
 
 #define kBaseURL                        @"http://112.124.23.71:12789/"
+#define kPortraitURL                    @"http://112.124.23.71:12789/image?action=download&type=portrait&uid="
 
 
 //设置app界面字体及颜色

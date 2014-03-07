@@ -46,7 +46,6 @@
         _addButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _addButton.backgroundColor = [UIColor clearColor];
         _addButton.frame = CGRectMake(self.width - 20 - 70, 0, 80, 50);
-        //_addButton.titleLabel.textAlignment = NSTextAlignmentRight;
         [_addButton setTitle:@"关注" forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [_addButton setTitleColor:[UIColor grayColor ] forState:UIControlStateHighlighted];
@@ -75,7 +74,7 @@
     [super layoutSubviews];
     _frinendThumberImage.y = (self.contentView.height - _frinendThumberImage.height)/2;
     _middleLine.y = self.contentView.height - _middleLine.height;
-    _nameLB.y = self.contentView.height - _nameLB.height;
+    _nameLB.y = (self.contentView.height - _nameLB.height)/2;
     _bottomLine.y = self.contentView.height - _bottomLine.height;
     _addButton.y = (self.contentView.height - _addButton.height)/2;
 }

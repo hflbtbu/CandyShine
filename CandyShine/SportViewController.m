@@ -151,18 +151,18 @@
     NSArray *array3 = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
     _pathTest = @[array1,array2,array3];
     
-    for (int i = -2; i<1; i++) {
-        NSDate *date = [DateHelper getDayBegainWith:i];
-        for (int j = 0; j < 288; j++) {
-            date = [date dateByAddingTimeInterval:5*60];
-            NSNumber *value = [NSNumber numberWithInt:arc4random() % 30];
-            [[CSDataManager sharedInstace] insertSportItemWithBlock:^(Sport *item) {
-                item.value = value;
-                item.date = date;
-            }];
-        }
-        [[CSDataManager sharedInstace] saveData];
-    }
+//    for (int i = -2; i<1; i++) {
+//        NSDate *date = [DateHelper getDayBegainWith:i];
+//        for (int j = 0; j < 288; j++) {
+//            date = [date dateByAddingTimeInterval:5*60];
+//            NSNumber *value = [NSNumber numberWithInt:arc4random() % 30];
+//            [[CSDataManager sharedInstace] insertSportItemWithBlock:^(Sport *item) {
+//                item.value = value;
+//                item.date = date;
+//            }];
+//        }
+//        [[CSDataManager sharedInstace] saveData];
+//    }
 }
 
 - (void)receivePanGestureRecognizer:(UIPanGestureRecognizer *)recognizer {

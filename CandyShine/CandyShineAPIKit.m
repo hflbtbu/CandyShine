@@ -54,13 +54,16 @@
 - (void)requestRegisterSuccess:(SuccessBlock)success fail:(FailBlock)fail {
     NSMutableString *parameterString = [NSMutableString stringWithCapacity:0];
     [parameterString appendString:@"user="];
-    [parameterString appendString:[self encodeToPercentEscapeString:_userName]];
+    [parameterString appendString:[self encodeToPercentEscapeString:_email]];
     [parameterString appendString:@"&"];
     [parameterString appendString:@"type="];
     [parameterString appendString:[self encodeToPercentEscapeString:[NSString stringWithFormat:@"%d",_loginType]]];
     [parameterString appendString:@"&"];
     [parameterString appendString:@"pwd="];
     [parameterString appendString:[self encodeToPercentEscapeString:_passWord]];
+    [parameterString appendString:@"&"];
+    [parameterString appendString:@"custom_name="];
+    [parameterString appendString:[self encodeToPercentEscapeString:_userName]];
     if (_loginType == CSLoginDefault) {
         [parameterString appendString:@"&"];
         [parameterString appendString:@"email="];
@@ -79,7 +82,7 @@
 - (void)requestLogInSuccess:(SuccessBlock)success fail:(FailBlock)fail {
     NSMutableString *parameterString = [NSMutableString stringWithCapacity:0];
     [parameterString appendString:@"user="];
-    [parameterString appendString:[self encodeToPercentEscapeString:_userName]];
+    [parameterString appendString:[self encodeToPercentEscapeString:_email]];
     [parameterString appendString:@"&"];
     [parameterString appendString:@"type="];
     [parameterString appendString:[self encodeToPercentEscapeString:[NSString stringWithFormat:@"%d",_loginType]]];
@@ -96,8 +99,8 @@
 }
 
 - (void)requestFriednListSuccess:(SuccessArrayBlock)success fail:(FailBlock)fail {
-    [_requestOperationManager GET:@"/friend_list" parameters:@{@"user": @"lin"} success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        success(responseObject);
+    [_requestOperationManager GET:@"/friend_list" parameters:@{@"encrypt_param":[self encryptorStringWithAES:[NSString stringWithFormat:@"uid=%@",[CSDataManager sharedInstace].userId]]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======FriendList======\n%@",responseObject);
         NSMutableArray *friendArray = [NSMutableArray arrayWithCapacity:0];
         for (NSDictionary *dic in [responseObject objectForKey:@"friend_list"]) {
             CSFreiend *fried = [[CSFreiend alloc] initWithDic:dic];
@@ -112,10 +115,35 @@
 - (void)requestModifyPortraitWithImage:(NSData *)image Success:(SuccessBlock)success fail:(FailBlock)fail {
     NSString *uid = [CSDataManager sharedInstace].userId;
     [_requestOperationManager POST:[NSString stringWithFormat:@"image?encrypt_param=%@",[self encryptorStringWithAES:[NSString stringWithFormat:@"action=upload&type=portrait&uid=%@",uid]]] parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFormData:image name:@"portrait"];
+        [formData appendPartWithFileData:image name:@"portrait" fileName:@"portrait" mimeType:@"image/jpeg"];
     } success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"======UploadPortrait======");
         NSLog(@"%@",responseObject);
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        fail(error);
+    }];
+}
+
+- (void)requestSearchFriednListWithKeyword:(NSString *)keyword Success:(SuccessArrayBlock)success fail:(FailBlock)fail; {
+    NSString *parameterString = [NSString stringWithFormat:@"query=%@",[self encodeToPercentEscapeString:keyword]];
+    [_requestOperationManager GET:@"/friend_list" parameters:@{@"encrypt_param":[self encryptorStringWithAES:parameterString]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======SearchFriendList======\n%@",responseObject);
+        NSMutableArray *friendArray = [NSMutableArray arrayWithCapacity:0];
+        for (NSDictionary *dic in [responseObject objectForKey:@"friend_list"]) {
+            CSFreiend *fried = [[CSFreiend alloc] initWithDic:dic];
+            [friendArray addObject:fried];
+        }
+        success(friendArray);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        fail(error);
+    }];
+}
+
+- (void)requestAddFeiendWithUserID:(NSString *)uid Success:(SuccessBlock)success fail:(FailBlock)fail {
+    NSString *parameterString = [NSString stringWithFormat:@"uid=%@&friend_id=%@",[CSDataManager sharedInstace].userId,uid];
+    [_requestOperationManager GET:@"add_friend" parameters:@{@"encrypt_param":[self encryptorStringWithAES:parameterString]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======AddFeiend======\n%@",responseObject);
         success(responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         fail(error);

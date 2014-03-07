@@ -13,7 +13,6 @@
 #import "LogInViewController.h"
 #import "PickerView.h"
 #import "WaterWarmSetViewController.h"
-#import "CircleImageView.h"
 #import "FriendListViewController.h"
 
 #import "CandyShineAPIKit.h"
@@ -21,8 +20,7 @@
 @interface MeViewController () <UITableViewDataSource, UITableViewDelegate,PickerViewDelegate>
 {
     IBOutlet UITableView *_tableView;
-    
-    CircleImageView *_thumberImage;
+    CSDataManager *_dataManager;
 }
 @end
 
@@ -54,6 +52,7 @@
     if (IsIOS7) {
         _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     }
+    _dataManager = [CSDataManager sharedInstace];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -101,10 +100,18 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:thumberCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            _thumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 5, 60, 60) image:@"IMG_0005.JPG"];
+            _thumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 5, 60, 60) image:nil];
             [cell.contentView addSubview:_thumberImage];
         }
-        cell.textLabel.text = IsIOS7 ? @"              CandyWearables":@"               CandyWearables";
+        _thumberImage.imageView.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+        if (_dataManager.isLogin) {
+            NSString * url = [NSString stringWithFormat:@"%@%@",kPortraitURL,[CSDataManager sharedInstace].userId];
+            [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:url]];
+        }
+
+        NSString *username = _dataManager.isLogin ? _dataManager.userName : @"游客";
+        NSString *placeString = IsIOS7 ? @"              " : @"               ";
+        cell.textLabel.text = [NSString stringWithFormat:@"%@%@",placeString,username];
         cell.textLabel.backgroundColor = [UIColor clearColor];
     } else if (indexPath.section == 1 && indexPath.row == 3) {
         cell = [tableView dequeueReusableCellWithIdentifier:newsCellIdentifer];

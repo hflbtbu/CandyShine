@@ -27,7 +27,12 @@
 - (id)init {
     self = [super init];
     if (self) {
-        _isLogin = NO;
+        _isLogin = [[NSUserDefaults standardUserDefaults] boolForKey:kUserIsLogin];
+        if (_isLogin) {
+            _userName = [[NSUserDefaults standardUserDefaults] stringForKey:kUserName];
+            _userId = [[NSUserDefaults standardUserDefaults] stringForKey:kUserId];
+            _portrait = [[NSUserDefaults standardUserDefaults] stringForKey:kUserPortrait];
+        }
         _totalDays = [DateHelper getDaysBetween:[[NSUserDefaults standardUserDefaults] objectForKey:kFirstLaunchDate] and:[NSDate date]];
     }
     return self;
@@ -55,7 +60,17 @@
     }
 }
 
-- (BOOL)saveData {
+- (void)saveUserData {
+    [[NSUserDefaults standardUserDefaults] setBool:_isLogin forKey:kUserIsLogin];
+    if (_isLogin) {
+        [[NSUserDefaults standardUserDefaults] setObject:_userName forKey:kUserName];
+        [[NSUserDefaults standardUserDefaults] setObject:_userId forKey:kUserId];
+        [[NSUserDefaults standardUserDefaults] setObject:_portrait forKey:kUserPortrait];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (BOOL)saveCoreData {
     BOOL result = NO;
     if (![self.managedObjectContext hasChanges]) {
         return YES;

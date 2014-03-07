@@ -60,34 +60,40 @@
     AddFriendCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
     if (cell == nil) {
         cell = [[AddFriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
-        [cell.addButton setTitle:@"取消关注" forState:UIControlStateNormal];
-        [cell.addButton addTarget:self action:@selector(addFreindButtonClickedHander:) forControlEvents:UIControlEventTouchUpInside];
+        cell.addButton.hidden = YES;
     }
     
     
-    if (indexPath.row == 0) {
-        [cell setCellPosition:CellPositionTop];
-    } else if (indexPath.row == 5 - 1) {
+    if (_friendArray.count == 1) {
         [cell setCellPosition:CellPositionBottom];
     } else {
-        [cell setCellPosition:CellPositionMiddle];
+        if (indexPath.row == 0) {
+            [cell setCellPosition:CellPositionTop];
+        } else if (indexPath.row == _friendArray.count - 1) {
+            [cell setCellPosition:CellPositionBottom];
+        } else {
+            [cell setCellPosition:CellPositionMiddle];
+        }
+        
     }
-    cell.addButton.tag = indexPath.row;
-    CSFreiend *friend;
+    
+    CSFreiend *item;
     if (indexPath.row < _friendArray.count) {
-        friend = [_friendArray objectAtIndex:indexPath.row];
+        item = [_friendArray objectAtIndex:indexPath.row];
     }
-    cell.nameLB.text = friend.name;
+    NSString *url = [NSString stringWithFormat:@"%@%@",kPortraitURL,item.portrait];
+    [cell.frinendThumberImage.imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"IMG_0005.JPG"]];
+    cell.nameLB.text = item.name;
     return cell;
 }
 
-- (void)addFreindButtonClickedHander:(UIButton *)button {
-    if ([button.titleLabel.text isEqualToString:@"关注"]) {
-        [button setTitle:@"取消关注" forState:UIControlStateNormal];
-    } else {
-        [button setTitle:@"关注" forState:UIControlStateNormal];
-    }
-}
+//- (void)addFreindButtonClickedHander:(UIButton *)button {
+//    if ([button.titleLabel.text isEqualToString:@"关注"]) {
+//        [button setTitle:@"取消关注" forState:UIControlStateNormal];
+//    } else {
+//        [button setTitle:@"关注" forState:UIControlStateNormal];
+//    }
+//}
 
 - (void)didReceiveMemoryWarning
 {

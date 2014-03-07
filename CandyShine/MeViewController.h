@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "CircleImageView.h"
 
 @interface MeViewController : BaseViewController
+
+@property (nonatomic, retain) CircleImageView *thumberImage;
 
 @end

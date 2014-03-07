@@ -86,6 +86,7 @@
                 [CandyShineAPIKit sharedAPIKit].loginType = CSLoginWeibo;
                 [CandyShineAPIKit sharedAPIKit].userName = username;
                 [CandyShineAPIKit sharedAPIKit].passWord = userid;
+                [CandyShineAPIKit sharedAPIKit].email = userid;
                 _loginType = CSLoginWeibo;
                 [self registerRequest];
             } else {
@@ -106,6 +107,7 @@
                                               [CandyShineAPIKit sharedAPIKit].loginType = CSLoginQQ;
                                               [CandyShineAPIKit sharedAPIKit].userName = username;
                                               [CandyShineAPIKit sharedAPIKit].passWord = userid;
+                                              [CandyShineAPIKit sharedAPIKit].email = userid;
                                               _loginType = CSLoginQQ;
                                               [self registerRequest];
                                           }
@@ -157,7 +159,7 @@
             [MBProgressHUDManager showTextWithTitle:@"请输入正确的邮箱" inView:[[UIApplication sharedApplication] keyWindow]];
         } else {
             [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
-            [CandyShineAPIKit sharedAPIKit].userName = _userName.text;
+            [CandyShineAPIKit sharedAPIKit].email = _emailTextField.text;
             [CandyShineAPIKit sharedAPIKit].passWord = _codeTextField.text;
             _loginType = CSLoginDefault;
             [self loginRequest];
@@ -225,6 +227,7 @@
             [CSDataManager sharedInstace].userId = [[result objectForKey:@"user_info"] objectForKey:@"uid"];
             [CSDataManager sharedInstace].portrait = [[result objectForKey:@"user_info"] objectForKey:@"portrait"];
             [CSDataManager sharedInstace].isLogin = YES;
+            [self dismiss];
         } else {
             [MBProgressHUDManager showTextWithTitle:@"用户名或密码错误" inView:self.view];
         }

@@ -23,5 +23,6 @@
 
 #define kIsFirstLaunch      @"IsFirstLaunch"
 #define kFirstLaunchDate    @"FirstLaunchDate"
+#define kUserInfoAndState   @"UserInfoAndState"
 
 #endif
