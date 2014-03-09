@@ -188,15 +188,12 @@
         [as showInView:[UIApplication sharedApplication].keyWindow];
 
     } else {
-        [CSDataManager sharedInstace].isLogin = YES;
         LogInViewController *logInVC = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
         logInVC.hidesBottomBarWhenPushed = YES;
         BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
         [self presentViewController:logIn animated:YES completion:^{
         
                     }];
-        //[self.navigationController pushViewController:logInVC animated:YES];
-        
     }
 }
 
@@ -250,6 +247,15 @@
     
 }
 
+- (void)addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginDidFinishHander) name:kLoginFinishNotification object:nil];
+}
+
+- (void)loginDidFinishHander {
+    [CSDataManager sharedInstace].isLogin = YES;
+    [_tableView reloadData];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [_tableView reloadData];
@@ -259,6 +265,10 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

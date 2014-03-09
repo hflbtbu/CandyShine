@@ -95,7 +95,7 @@
     } else if (section == 1) {
         return 3;
     } else {
-        return _waterWarmManager.isCustome ? [_waterWarmManager warmTimeArray].count + 1 : 1;
+        return _waterWarmManager.isCustome ? [_waterWarmManager customeWarmTimeArray].count + 1 : 1;
     }
 }
 
@@ -188,7 +188,7 @@
                             cell.textLabel.font = kContentFont3;
                         }
                         cell.indexPath = indexPath;
-                        NSDictionary *dic = [[[WaterWarmManager shared] warmTimeArray] objectAtIndex:indexPath.row - 1];
+                        NSDictionary *dic = [[[WaterWarmManager shared] customeWarmTimeArray] objectAtIndex:indexPath.row - 1];
                         cell.timeSwitch.on = [[dic objectForKey:kWarmTimeIsOn] boolValue];
                         NSInteger timeInterval = [[dic objectForKey:kWarmTimeValue] integerValue];
                         cell.textLabel.text = [self getTimeStringWith:timeInterval];
@@ -307,11 +307,9 @@
     if (indexPath.section == 2 && indexPath.row >= 1) {
         [self showPickerView];
     } else if (indexPath.section == 1) {
-        _waterWarmManager.isCustome = NO;
         _waterWarmManager.timeInterval = (indexPath.row + 1)*2*3600;
         [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     } else if (indexPath.section == 2 && indexPath.row == 0) {
-        _waterWarmManager.isCustome = YES;
         _waterWarmManager.timeInterval = 0;
         [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     }

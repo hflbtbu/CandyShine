@@ -30,29 +30,34 @@
                 _isOpenWarm = YES;
                 _getupTime = 8*60*60;
                 _timeInterval = 4*60*60;
+                _timeInterva = _timeInterval;
                 [_warmTimeDic setObject:[NSNumber numberWithBool:_isCustome] forKey:kIsCustome];
                 [_warmTimeDic setObject:[NSNumber numberWithBool:_isOpenWarm] forKey:kIsOpenWarm];
                 [_warmTimeDic setObject:[NSNumber numberWithInteger:_getupTime] forKey:kGetupTime];
                 [_warmTimeDic setObject:[NSNumber numberWithInteger:_timeInterval] forKey:kWarmInterval];
+                [_warmTimeDic setObject:[NSNumber numberWithInteger:_timeInterva] forKey:kWarmInterva];
                 
                 _warmTimeArray = [NSMutableArray arrayWithCapacity:0];
-                _warmTimeStateArray= [NSMutableArray arrayWithCapacity:0];
-                for (int i = 0; i < kWarmCount; i++) {
-                    NSInteger timeInterval = i*30*60;
-                    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:timeInterval],kWarmTimeValue,[NSNumber numberWithBool:YES],kWarmTimeIsOn, nil];
-                    [_warmTimeArray addObject:dic];
+                for (int i = 0; i < [self warmTimeCount]; i++) {
+                    NSInteger timeInterval = i*_timeInterval + _getupTime;
+                    [_warmTimeArray addObject:[NSNumber numberWithInteger:timeInterval]];
                     [self addLocalNotificationWith:timeInterval];
                 }
+                _customeWarmTimeArray = [NSMutableArray arrayWithCapacity:0];
+                _warmTimeStateArray = [NSMutableArray arrayWithCapacity:0];
                 [self refreshWarmTimeState];
                 [_warmTimeDic setObject:_warmTimeArray forKey:kWaterWarmTime];
+                [_warmTimeDic setObject:_customeWarmTimeArray forKey:kCustomeWaterWarmTime];
                 [_warmTimeDic setObject:_warmTimeStateArray forKey:[DateHelper getDayStringWith:0]];
                 [[NSUserDefaults standardUserDefaults] setObject:_warmTimeDic forKey:kWaterWarmData];
                 [[NSUserDefaults standardUserDefaults] synchronize];
             } else {
                 _isCustome = [[_warmTimeDic objectForKey:kIsCustome] boolValue];
                 _isOpenWarm = [[_warmTimeDic objectForKey:kIsOpenWarm] boolValue];
-                _warmTimeArray = [_warmTimeDic objectForKey:kWaterWarmTime];
+                _warmTimeArray = [NSMutableArray arrayWithArray:[_warmTimeDic objectForKey:kWaterWarmTime]];
+                _customeWarmTimeArray = [NSMutableArray arrayWithArray:[_warmTimeDic objectForKey:kCustomeWaterWarmTime]];
                 _timeInterval = [[_warmTimeDic objectForKey:kWarmInterval] integerValue];
+                _timeInterva = [[_warmTimeDic objectForKey:kWarmInterva] integerValue];
                 _getupTime = [[_warmTimeDic objectForKey:kGetupTime] integerValue];
                 
                 _warmTimeStateArray = [_warmTimeDic objectForKey:[DateHelper getDayStringWith:0]];
@@ -68,15 +73,19 @@
     return self;
 }
 
+- (NSInteger)warmTimeCount {
+    NSInteger count = (24*60*60 - _getupTime)/(_timeInterval == 0 ? 7200 : _timeInterval) + 1;
+    return count;
+}
+
 - (void)refreshWarmTimeState {
     [_warmTimeStateArray removeAllObjects];
     if (!_isCustome) {
-        for (int i = 0; i < kWarmCount; i++) {
+        for (int i = 0; i < [self warmTimeCount]; i++) {
             [_warmTimeStateArray addObject:[NSNumber numberWithInteger:WaterWarmStateBefore]];
         }
-
     } else {
-        for (NSDictionary *dic in _warmTimeArray) {
+        for (NSDictionary *dic in _customeWarmTimeArray) {
             BOOL isOn = [[dic objectForKey:kWarmTimeIsOn] boolValue];
             if (isOn) {
                 [_warmTimeStateArray addObject:[NSNumber numberWithInteger:WaterWarmStateBefore]];
@@ -90,21 +99,21 @@
 }
 
 - (NSIndexPath *)selectedIndexPath {
-    NSInteger section = _timeInterval == 0 ? 2 : 1;
+    NSInteger section = _timeInterva == 0 ? 2 : 1;
     NSInteger row;
     if (section == 2) {
         row = 0;
     } else {
-        row = _timeInterval/3600/2 - 1;
+        row = _timeInterva/3600/2 - 1;
     }
     
     return [NSIndexPath indexPathForRow:row inSection:section];
 }
 
 - (void)removeWarmTimeWith:(NSInteger)index{
-    NSInteger timeInterVal = [[[_warmTimeArray objectAtIndex:index] objectForKey:kWarmTimeValue] integerValue];
+    NSInteger timeInterVal = [[[_customeWarmTimeArray objectAtIndex:index] objectForKey:kWarmTimeValue] integerValue];
     [self cancelLocalNotificationWith:timeInterVal];
-    [_warmTimeArray removeObjectAtIndex:index];
+    [_customeWarmTimeArray removeObjectAtIndex:index];
     [self refreshWarmTimeState];
 }
 
@@ -144,8 +153,10 @@
     [_warmTimeDic setValue:[NSNumber numberWithBool:_isCustome] forKey:kIsCustome];
     [_warmTimeDic setValue:[NSNumber numberWithBool:_isOpenWarm] forKey:kIsOpenWarm];
     [_warmTimeDic setValue:[NSNumber numberWithInteger:_timeInterval] forKey:kWarmInterval];
+    [_warmTimeDic setValue:[NSNumber numberWithInteger:_timeInterva] forKey:kWarmInterva];
     [_warmTimeDic setValue:[NSNumber numberWithInteger:_getupTime] forKey:kGetupTime];
     [_warmTimeDic setValue:_warmTimeArray forKey:kWaterWarmTime];
+    [_warmTimeDic setValue:_customeWarmTimeArray forKey:kCustomeWaterWarmTime];
     [_warmTimeDic setValue:_warmTimeStateArray forKey:[DateHelper getDayStringWith:0]];
     
     [[NSUserDefaults standardUserDefaults] setValue:_warmTimeDic forKey:kWaterWarmData];
@@ -153,7 +164,7 @@
 }
 
 - (void)sortWarmTimeArray {
-    _warmTimeArray = [NSMutableArray arrayWithArray:[_warmTimeArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+    _customeWarmTimeArray = [NSMutableArray arrayWithArray:[_customeWarmTimeArray sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         if ([[obj1 objectForKey:kWarmTimeValue] integerValue] > [[obj2 objectForKey:kWarmTimeValue] integerValue]) {
             return NSOrderedDescending;
         }
@@ -167,20 +178,20 @@
 
 - (void)addWarmTimeWith:(NSInteger)timeInterval {
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:timeInterval],kWarmTimeValue,[NSNumber numberWithBool:YES],kWarmTimeIsOn, nil];
-    [_warmTimeArray addObject:dic];
+    [_customeWarmTimeArray addObject:dic];
     [self addLocalNotificationWith:timeInterval];
     [self sortWarmTimeArray];
     [self refreshWarmTimeState];
 }
 
 - (void)replaceWarmTimeWith:(NSInteger)timeInterval atIndex:(NSInteger)index {
-    BOOL isOn = [[[_warmTimeArray objectAtIndex:index] objectForKey:kWarmTimeIsOn] boolValue];
-    NSInteger oldTimeInterval = [[[_warmTimeArray objectAtIndex:index] objectForKey:kWarmTimeValue] integerValue];
+    BOOL isOn = [[[_customeWarmTimeArray objectAtIndex:index] objectForKey:kWarmTimeIsOn] boolValue];
+    NSInteger oldTimeInterval = [[[_customeWarmTimeArray objectAtIndex:index] objectForKey:kWarmTimeValue] integerValue];
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:timeInterval],kWarmTimeValue,[NSNumber numberWithBool:isOn],kWarmTimeIsOn, nil];
     if (isOn) {
         [self cancelLocalNotificationWith:oldTimeInterval];
     }
-    [_warmTimeArray replaceObjectAtIndex:index withObject:dic];
+    [_customeWarmTimeArray replaceObjectAtIndex:index withObject:dic];
     if (isOn) {
         [self addLocalNotificationWith:timeInterval];
     }
@@ -188,9 +199,9 @@
 }
 
 - (void)replaceWarmTimeOnWith:(BOOL)isOn atIndex:(NSInteger)index {
-    NSInteger timeInterval =  [[[_warmTimeArray objectAtIndex:index] objectForKey:kWarmTimeValue] integerValue];
+    NSInteger timeInterval =  [[[_customeWarmTimeArray objectAtIndex:index] objectForKey:kWarmTimeValue] integerValue];
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:timeInterval],kWarmTimeValue,[NSNumber numberWithBool:isOn],kWarmTimeIsOn, nil];
-    [_warmTimeArray replaceObjectAtIndex:index withObject:dic];
+    [_customeWarmTimeArray replaceObjectAtIndex:index withObject:dic];
     if (isOn) {
         [self addLocalNotificationWith:timeInterval];
     } else {
@@ -201,64 +212,67 @@
 
 - (void)setGetupTime:(NSInteger)getupTime {
     _getupTime = getupTime;
+    [_warmTimeArray removeAllObjects];
+    if (!_isCustome) {
+        [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    }
+    for (int i = 0; i < [self warmTimeCount]; i++) {
+        NSInteger timeInterval = i*_timeInterval + _getupTime;
+        [_warmTimeArray addObject:[NSNumber numberWithInteger:timeInterval]];
+        if (!_isCustome) {
+            [self addLocalNotificationWith:timeInterval];
+        }
+    }
     if (!_isCustome) {
         [self refreshWarmTimeState];
     }
 }
 
-- (void)setIsCustome:(BOOL)isCustome {
-    _isCustome = isCustome;
-    [self refreshWarmTimeState];
-    if (_isCustome) {
-        for (NSInteger i = 0; i < [_warmTimeArray count]; i++) {
-            NSInteger timeInterval =  [[[_warmTimeArray objectAtIndex:i] objectForKey:kWarmTimeValue] integerValue];
-            [self cancelLocalNotificationWith:timeInterval];
-        }
-        
-        for (int i = 0; i < kWarmCount; i++) {
-            [self addLocalNotificationWith:_getupTime + (i+1)*2*3600];
-        }
-    } else {
-        for (NSInteger i = 0; i < [_warmTimeArray count]; i++) {
-            NSInteger timeInterval =  [[[_warmTimeArray objectAtIndex:i] objectForKey:kWarmTimeValue] integerValue];
+- (void)setTimeInterval:(NSInteger)timeInterval {
+    _timeInterva = timeInterval;
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    if (timeInterval == 0) {
+        _isCustome = YES;
+        for (NSInteger i = 0; i < [_customeWarmTimeArray count]; i++) {
+            NSInteger timeInterval =  [[[_customeWarmTimeArray objectAtIndex:i] objectForKey:kWarmTimeValue] integerValue];
             [self addLocalNotificationWith:timeInterval];
         }
-        
-        for (int i = 0; i < kWarmCount; i++) {
-            [self cancelLocalNotificationWith:_getupTime + (i+1)*2*3600];
+    } else {
+        _timeInterval = timeInterval;
+        _isCustome = NO;
+        [_warmTimeArray removeAllObjects];
+        for (int i = 0; i < [self warmTimeCount]; i++) {
+            NSInteger timeInterval = i*_timeInterval + _getupTime;
+            [_warmTimeArray addObject:[NSNumber numberWithInteger:timeInterval]];
+            [self addLocalNotificationWith:timeInterval];
         }
     }
+    [self refreshWarmTimeState];
 }
 
 - (void)setIsOpenWarm:(BOOL)isOpenWarm {
     _isOpenWarm = isOpenWarm;
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
     if (_isOpenWarm) {
-        if (_isCustome) {
-            for (int i = 0; i < kWarmCount; i++) {
-                [self addLocalNotificationWith:_getupTime + (i+1)*2*3600];
+        if (!_isCustome) {
+            for (int i = 0; i < [self warmTimeCount]; i++) {
+                [self addLocalNotificationWith:_getupTime + i*_timeInterval];
             }
         } else {
-            for (NSInteger i = 0; i < [_warmTimeArray count]; i++) {
-                NSInteger timeInterval =  [[[_warmTimeArray objectAtIndex:i] objectForKey:kWarmTimeValue] integerValue];
+            for (NSInteger i = 0; i < [_customeWarmTimeArray count]; i++) {
+                NSInteger timeInterval =  [[[_customeWarmTimeArray objectAtIndex:i] objectForKey:kWarmTimeValue] integerValue];
                 [self addLocalNotificationWith:timeInterval];
             }
         }
-    } else {
-        [[UIApplication sharedApplication] cancelAllLocalNotifications];
     }
 }
 
 - (NSArray *)getWarmTimes {
     NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
     if (!_isCustome) {
-        for (int i = 0; i < kWarmCount; i++) {
-            NSUInteger time = _getupTime + (i+1)*_timeInterval;
-            if (time <= 24*60*60) {
-                [array addObject:[NSNumber numberWithInteger:time]];
-            }
-        }
+        return _warmTimeArray;
     } else {
-        for (NSDictionary *dic in _warmTimeArray) {
+        for (NSDictionary *dic in _customeWarmTimeArray) {
             BOOL isOn = [[dic objectForKey:kWarmTimeIsOn] boolValue];
             if (isOn) {
                 [array addObject:[NSNumber numberWithInteger:[[dic objectForKey:kWarmTimeValue] integerValue]]];

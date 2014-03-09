@@ -9,6 +9,7 @@
 #define kWaterWarmData      @"WaterWarmData"
 
 #define kWaterWarmTime      @"WaterWarmTime"
+#define kCustomeWaterWarmTime  @"CustomeWaterWarmTime"
 #define kWarmTimeState      @"WarmTimeState"
 #define kWarmTimeValue      @"WarmTimeValue"
 #define kWarmTimeIsOn       @"WarmTimeIsOn"
@@ -16,6 +17,7 @@
 #define kGetupTime          @"GetupTime"
 #define kIsCustome          @"IsCustome"
 #define kWarmInterval       @"WarmInterval"
+#define kWarmInterva       @"WarmInterva"
 #define kIsOpenWarm         @"IsOpenWarm"
 
 #define kWarmCount          3
@@ -28,9 +30,11 @@
 
 @property (nonatomic, assign) NSInteger getupTime;
 @property (nonatomic, assign) NSInteger timeInterval;
+@property (nonatomic, assign) NSInteger timeInterva;
 @property (nonatomic, assign) BOOL isCustome;
 @property (nonatomic, assign) BOOL isOpenWarm;
 @property (nonatomic, retain) NSMutableArray *warmTimeArray;
+@property (nonatomic, retain) NSMutableArray *customeWarmTimeArray;
 @property (nonatomic, retain) NSMutableArray *warmTimeStateArray;
 
 @property (nonatomic, retain) NSIndexPath *selectedIndexPath;

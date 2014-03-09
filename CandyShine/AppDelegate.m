@@ -16,6 +16,12 @@
 
 #import "WaterWarmManager.h"
 
+@interface AppDelegate ()
+{
+    UITabBarController *_tabBarController;
+}
+@end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -43,18 +49,19 @@
     MeViewController *meViewController = [[MeViewController alloc] initWithNibName:@"MeViewController" bundle:nil];
     BaseNavigationController *me = [[BaseNavigationController alloc] initWithRootViewController:meViewController];
     
-    UITabBarController *tabBarVC = [[UITabBarController alloc] init];
-    tabBarVC.viewControllers = [NSArray arrayWithObjects:baseVC, sleepNVC , news,water ,me,nil];
-    //TabBarView *tabBarView = [UIXib viewWithXib:@"TabBarView"];
-    //[tabBarVC.tabBar addSubview:tabBarView];
-    //[base.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabBarIcon_sport_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabBarIcon_sport"]];
+    _tabBarController = [[UITabBarController alloc] init];
+    _tabBarController.viewControllers = [NSArray arrayWithObjects:baseVC, sleepNVC , news,water ,me,nil];
     if (IsIOS7) {
-        tabBarVC.tabBar.barTintColor = [UIColor colorWithRed:82/255.0 green:62/255.0 blue:55/255.0 alpha:1.0];
+        _tabBarController.tabBar.barTintColor = [UIColor colorWithRed:82/255.0 green:62/255.0 blue:55/255.0 alpha:1.0];
     } else {
-        tabBarVC.tabBar.tintColor = [UIColor colorWithRed:82/255.0 green:62/255.0 blue:55/255.0 alpha:1.0];
+        _tabBarController.tabBar.tintColor = [UIColor colorWithRed:82/255.0 green:62/255.0 blue:55/255.0 alpha:1.0];
     }
     
-    self.window.rootViewController = tabBarVC;
+    if (launchOptions != nil) {
+        _tabBarController.selectedIndex = 3;
+    }
+    
+    self.window.rootViewController = _tabBarController;
     
     [self initAppearece];
     
@@ -97,6 +104,10 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    _tabBarController.selectedIndex = 3;
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
     
 }
 

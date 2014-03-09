@@ -84,7 +84,9 @@
                 [CandyShineAPIKit sharedAPIKit].passWord = userid;
                 [CandyShineAPIKit sharedAPIKit].email = userid;
                 _loginType = CSLoginWeibo;
-                [self registerRequest];
+                if (username != nil) {
+                    [self registerRequest];
+                }
             } else {
                 [MBProgressHUDManager showTextWithTitle:@"授权失败" inView:self.view];
             }
@@ -105,7 +107,9 @@
                                               [CandyShineAPIKit sharedAPIKit].passWord = userid;
                                               [CandyShineAPIKit sharedAPIKit].email = userid;
                                               _loginType = CSLoginQQ;
-                                              [self registerRequest];
+                                              if (username != nil) {
+                                                  [self registerRequest];
+                                              }
                                           }
                                           else {
                                               [MBProgressHUDManager showTextWithTitle:@"授权失败" inView:self.view];
