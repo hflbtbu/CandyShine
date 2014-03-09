@@ -13,7 +13,7 @@
 #define kContentNormalShallowColorA     [UIColor convertHexColorToUIColor:0xccc8c2]
 #define kContentHighlightColor          [UIColor convertHexColorToUIColor:0xffaa33]
 
-#define kBaseURL                        @"http://112.124.23.71:12789/"
+#define kBaseURL                        @"http://112.124.23.71:12789"
 #define kPortraitURL                    @"http://112.124.23.71:12789/image?action=download&type=portrait&uid="
 
 

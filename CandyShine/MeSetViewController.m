@@ -51,6 +51,10 @@
     if (IsIOS7) {
         _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     }
+    if (!IsIOS7) {
+        _tableView.backgroundColor = [UIColor colorWithRed:0.937255 green:0.937255 blue:0.956863 alpha:1.0];
+        _tableView.backgroundView = nil;
+    }
     _dataManager = [CSDataManager sharedInstace];
 }
 
@@ -99,9 +103,8 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             NSInteger originX = IsIOS7 ? 226:212;
             _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(originX, 5, 60, 60) image:@"IMG_0005.JPG"];
-            if (_dataManager.isLogin) {
-                NSString * url = [NSString stringWithFormat:@"%@%@",kPortraitURL,[CSDataManager sharedInstace].userId];
-                [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:url]];
+            if (_dataManager.isLogin && _dataManager.portrait.length != 0) {
+                [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:_dataManager.portrait]];
             }
             [cell.contentView addSubview:_thumberImage];
         }
@@ -126,7 +129,7 @@
         if (indexPath.section == 0) {
             if (indexPath.row == 1) {
                 cell.textLabel.text = @"用户名";
-                cell.detailTextLabel.text = @"CandyWearables";
+                cell.detailTextLabel.text = _dataManager.isLogin ? _dataManager.userName : @"游客";
             } else {
                 cell.textLabel.text = @"修改密码";
             }
@@ -152,6 +155,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
+        if (!_dataManager.isLogin) {
+            [MBProgressHUDManager showTextWithTitle:@"请先登录" inView:self.view];
+            return;
+        }
         if (indexPath.row == 0) {
             UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从相册选择", nil];
             as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
@@ -174,8 +181,28 @@
             [as showInView:[UIApplication sharedApplication].keyWindow];
         } else if (indexPath.row == 1) {
                 [UIAlertView showWithTitle:@"输入用户名" message:nil style:UIAlertViewStylePlainTextInput cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
-                    UITextField *textField  = [alertView textFieldAtIndex:0];
-                    NSLog(@"%@",textField.text);
+                    if (buttonIndex == 1) {
+                        UITextField *textField  = [alertView textFieldAtIndex:0];
+                        if (textField.text == nil) {
+                            [MBProgressHUDManager showTextWithTitle:@"用户名不能为空" inView:self.view];
+                        } else {
+                            [MBProgressHUDManager showIndicatorWithTitle:@"正在请求" inView:self.view];
+                            [[CandyShineAPIKit sharedAPIKit] requestModifyUserNameWithName:textField.text Success:^(NSDictionary *result) {
+                                [MBProgressHUDManager hideMBProgressInView:self.view];
+                                CSResponceCode code = [[result objectForKey:@"code"] integerValue];
+                                if (code == CSResponceCodeSuccess) {
+                                    [CSDataManager sharedInstace].userName = [[result objectForKey:@"user_info"] objectForKey:@"custom_name"];
+                                    [_tableView reloadData];
+                                    [MBProgressHUDManager showTextWithTitle:@"修改成功" inView:self.view];
+                                } else {
+                                    [MBProgressHUDManager showTextWithTitle:@"修改失败" inView:self.view];
+                                }
+                            } fail:^(NSError *error) {
+                                [MBProgressHUDManager hideMBProgressInView:self.view];
+                                [MBProgressHUDManager showTextWithTitle:error.localizedDescription inView:self.view];
+                            }];
+                        }
+                    }
                 }];
         } else {
             ModifyCodeViewController *modifyCode = [[ModifyCodeViewController alloc] initWithNibName:@"ModifyCodeViewController" bundle:nil];
@@ -222,16 +249,21 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     _thumberImage.imageView.image = image;
-    MeViewController *vc = (MeViewController *)[self.navigationController.viewControllers objectAtIndex:0];
-    if ([vc isKindOfClass:[MeViewController class]]) {
-        vc.thumberImage.imageView.image = image;
-    }
     [self dismissViewControllerAnimated:YES completion:^{
         NSData *imageData = UIImageJPEGRepresentation(image,0.01);
+        //[[CSDataManager sharedInstace] savePortrait:imageData];
+        [MBProgressHUDManager showTextWithTitle:@"正在请求" inView:self.view];
         [[CandyShineAPIKit sharedAPIKit] requestModifyPortraitWithImage:imageData Success:^(NSDictionary *result) {
-            
+            [MBProgressHUDManager hideMBProgressInView:self.view];
+            CSResponceCode code = [[result objectForKey:@"code"] integerValue];
+            if (code == CSResponceCodeSuccess) {
+                [MBProgressHUDManager showTextWithTitle:@"修改成功" inView:self.view];
+            } else {
+                [MBProgressHUDManager showTextWithTitle:@"修改失败" inView:self.view];
+            }
         } fail:^(NSError *error) {
-            
+            [MBProgressHUDManager hideMBProgressInView:self.view];
+            [MBProgressHUDManager showTextWithTitle:error.localizedDescription inView:self.view];
         }];
     }];
 }

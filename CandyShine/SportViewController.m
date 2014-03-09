@@ -16,6 +16,7 @@
 #import "MenuView.h"
 #import "AddFriendViewController.h"
 #import "Sport.h"
+#import "CSFreiend.h"
 
 #define GapCircleAndPath 300
 
@@ -41,15 +42,17 @@
     DataPattern _currentPattern;
     PageMoveType _moveType;
     
-    
+    BOOL _isOpen;
     BOOL _isInPathTableView;
     int _currentPage;
+    int _requestedPage;
     NSIndexPath *_currentIndexPath;
     
     
     NSArray *_testArray;
-    NSArray *_pathTest;
+    NSArray *_friendArray;
     NSArray *_sportItemsArray;
+    NSMutableDictionary *_friendDataDic;
 }
 
 @end
@@ -79,7 +82,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    _requestedPage = -1;
+    _friendDataDic = [NSMutableDictionary dictionaryWithCapacity:0];
     _moveType = PageMoveDown;
     
     _circleTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width) style:UITableViewStylePlain];
@@ -142,15 +146,6 @@
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
     
-    _testArray = @[[NSNumber numberWithInt:100],[NSNumber numberWithInt:400],[NSNumber numberWithInt:900]];
-    
-    NSArray *array1 = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:10],[NSNumber numberWithInt:20],[NSNumber numberWithInt:0],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
-    
-    NSArray *array2 = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:20],[NSNumber numberWithInt:10],[NSNumber numberWithInt:0]];
-    
-    NSArray *array3 = @[[NSNumber numberWithInt:0],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:00],[NSNumber numberWithInt:50],[NSNumber numberWithInt:40],[NSNumber numberWithInt:30],[NSNumber numberWithInt:30],[NSNumber numberWithInt:60],[NSNumber numberWithInt:40],[NSNumber numberWithInt:10],[NSNumber numberWithInt:30],[NSNumber numberWithInt:40],[NSNumber numberWithInt:60],[NSNumber numberWithInt:80]];
-    _pathTest = @[array1,array2,array3];
-    
 //    for (int i = -2; i<1; i++) {
 //        NSDate *date = [DateHelper getDayBegainWith:i];
 //        for (int j = 0; j < 288; j++) {
@@ -200,10 +195,10 @@
                 [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
                     _pathTableView.y = 0;
                 } completion:^(BOOL finished) {
-                    //_pathTableView.scrollEnabled = NO;
                     _moveType = PageMoveUp;
                     cell.moveType = _moveType;
                     cell.cellPosition = cellPosition;
+                    [self requestFriendData];
                 }];
             } else if ((_pathTableView.y >=GapCircleAndPath - 20) || ((_pathTableView.y > 0 +20 && _pathTableView.y < GapCircleAndPath - 20) && ((_offset1 + _offset2 + _offset3) >= 0))) {
                 [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -251,12 +246,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == _circleTableView) {
-        return _testArray.count;
+        return 3;
     } else if (tableView == _pathTableView) {
-        return _pathTest.count;
+        return 3;
     } else {
         if (section == 0) {
-            return [[_pathTest objectAtIndex:0] count] + 1;
+            return _friendArray.count + 1;
         }
         return 1;
     }
@@ -310,8 +305,7 @@
         
         return cell;
     } else {
-        
-        if (indexPath.row == [[_pathTest objectAtIndex:0] count]) {
+        if (indexPath.row == _friendArray.count) {
             UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:friendCellIdentiferAddFriend];
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentiferAddFriend];
@@ -334,45 +328,30 @@
             cell = [[FriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentifer];
             cell.selectionStyle = UITableViewCellEditingStyleNone;
         }
+        CSFreiend *item;
+        if (indexPath.row < _friendArray.count) {
+            item = [_friendArray objectAtIndex:indexPath.row];
+        }
+        cell.frinendThumberImage.imageView.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+        if (item.portrait.length != 0) {
+            [cell.frinendThumberImage.imageView setImageWithURL:[NSURL URLWithString:item.portrait]];
+        }
         
-        //cell.textLabel.text = [NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]];
-        NSString *str = @"范冰冰今天运动 : %d 卡路里";
+        NSString *str = [NSString stringWithFormat:@"%@今天消耗 : %d 卡路里",item.name,item.sorce];
         CGSize size =[str sizeWithFont:kTitleFont1];
         cell.friendRunLB.frame = CGRectMake(cell.friendRunLB.x, cell.friendRunLB.y, cell.width, size.height);
-        [cell.friendRunLB setText:[NSString stringWithFormat:@"范冰冰今天运动 : %d 卡路里",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]] WithFont:kContentFont1 AndColor:kContentNormalColor];
-        [cell.friendRunLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",[[[_pathTest objectAtIndex:_currentPage] objectAtIndex:indexPath.row] intValue]]] WithFont:kContentFont1 AndColor:kContentHighlightColor];
+        [cell.friendRunLB setText:str WithFont:kContentFont1 AndColor:kContentNormalColor];
+        [cell.friendRunLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",item.sorce]] WithFont:kContentFont1 AndColor:kContentHighlightColor];
         if (indexPath.row == 0) {
             [cell setCellPosition:CellPositionTop];
-        } else if (indexPath.row == [[_pathTest objectAtIndex:_currentPage] count] - 1) {
+        } else if (indexPath.row == _friendArray.count - 1) {
             [cell setCellPosition:CellPositionBottom];
         } else {
             [cell setCellPosition:CellPositionMiddle];
         }
-        
         return cell;
     }
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-//    if (tableView != _circleTableView && tableView != _pathTableView) {
-//        return 60;
-//    }
-//    return 0;
-//
-//}
-//
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-//    if (tableView != _circleTableView && tableView != _pathTableView) {
-//        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(130, 0, 60, 40)];
-//        [addFriendButton setBackgroundImage:[UIImage imageNamed:@"button_bg_login"] forState:UIControlStateNormal];
-//        [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
-//        [addFriendButton setTitleColor:[UIColor convertHexColorToUIColor:0xfeaa00] forState:UIControlStateNormal];
-//        [addFriendButton addTarget:self action:@selector(go) forControlEvents:UIControlEventTouchUpInside];
-//        return addFriendButton;
-//    }
-//    return nil;
-//}
-
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     _menuView.hidden = YES;
@@ -388,11 +367,12 @@
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    _currentPage = _testArray.count - scrollView.contentOffset.y/self.view.width - 1;
+    _currentPage = 3 - scrollView.contentOffset.y/self.view.width - 1;
     [_titleButton setTitle:[DateHelper getDayStringWith:_currentPage] forState:UIControlStateNormal];
     //[_titleButton setEdgeCenterWithSpace:0];
-    PathTableViewCell *pathCell = (PathTableViewCell *)[_pathTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:scrollView.contentOffset.y/self.view.width inSection:0]];
-    [pathCell.friensTableView reloadData];
+    if (_moveType == PageMoveUp) {
+        [self requestFriendData];
+    }
 }
 
 - (NSInteger)calculateTotalValueByDay:(NSIndexPath *)indexPath {
@@ -438,10 +418,32 @@
     _menuView.hidden = YES;
 }
 
+- (void)requestFriendData {
+    if ([CSDataManager sharedInstace].isLogin) {
+        _friendArray = [_friendDataDic objectForKey:[NSString stringWithFormat:@"%d",_currentPage]];
+        if (_friendArray == nil) {
+            //[MBProgressHUDManager showIndicatorWithTitle:@"正在加载" inView:self.view];
+            [[CandyShineAPIKit sharedAPIKit] requestFriednListSuccess:^(NSMutableArray *result) {
+                //[MBProgressHUDManager hideMBProgressInView:self.view];
+                _friendArray = result;
+                [_friendDataDic setObject:_friendArray forKey:[NSString stringWithFormat:@"%d",_currentPage]];
+                [self reloadFeiendData];
+            } fail:^(NSError *error) {
+                
+            }];
+        }
+        [self reloadFeiendData];
+    }
+}
+
 - (IBAction)go {
-    AddFriendViewController *vc = [[AddFriendViewController alloc] initWithNibName:@"AddFriendViewController" bundle:nil];
-    vc.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:vc animated:YES];
+    if ([CSDataManager sharedInstace].isLogin) {
+        AddFriendViewController *vc = [[AddFriendViewController alloc] initWithNibName:@"AddFriendViewController" bundle:nil];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        [MBProgressHUDManager showTextWithTitle:@"请先登录" inView:self.view];
+    }
 }
 
 
@@ -460,4 +462,42 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendDidFinishHandler) name:kAddFriendFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginDidFinishHandler) name:kLoginFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutDidFinishHandler) name:kLogoutFinishNotification object:nil];
+    
+}
+
+- (void)addFriendDidFinishHandler {
+    [_friendDataDic removeAllObjects];
+    if (_moveType == PageMoveUp) {
+        [self requestFriendData];
+    }
+}
+
+- (void)loginDidFinishHandler {
+    [_friendDataDic removeAllObjects];
+    if (_moveType == PageMoveUp) {
+        [self requestFriendData];
+    }
+}
+
+- (void)logoutDidFinishHandler {
+    _friendArray = nil;
+    [_friendDataDic removeAllObjects];
+    [self reloadFeiendData];
+}
+
+- (void)reloadFeiendData {
+    if (_moveType == PageMoveUp) {
+        PathTableViewCell *pathCell = (PathTableViewCell *)[_pathTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_pathTableView.contentOffset.y/self.view.width inSection:0]];
+        [pathCell.friensTableView reloadData];
+    }
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kAddFriendFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kLoginFinishNotification object:nil];
+}
 @end

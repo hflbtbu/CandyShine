@@ -50,12 +50,8 @@
     [_loginButton setBackgroundImage:logninImage forState:UIControlStateNormal];
     UIImage *registerImage = [[UIImage imageNamed:@"button_bg_regist"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];
     [_registerButton setBackgroundImage:registerImage forState:UIControlStateNormal];
-    
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
 }
 
 
@@ -225,8 +221,28 @@
             [MBProgressHUDManager showTextWithTitle:@"登陆成功" inView:self.view];
             [CSDataManager sharedInstace].userName = [[result objectForKey:@"user_info"] objectForKey:@"custom_name"];
             [CSDataManager sharedInstace].userId = [[result objectForKey:@"user_info"] objectForKey:@"uid"];
-            [CSDataManager sharedInstace].portrait = [[result objectForKey:@"user_info"] objectForKey:@"portrait"];
+            NSString *url = [[result objectForKey:@"user_info"] objectForKey:@"portrait"];
+            if (![url isKindOfClass:[NSNull class]]) {
+                [CSDataManager sharedInstace].portrait = [NSString stringWithFormat:@"%@%@",kBaseURL,url];
+            }
             [CSDataManager sharedInstace].isLogin = YES;
+            CSLoginType loginType = [[[result objectForKey:@"user_info"] objectForKey:@"type"] integerValue];
+            [CSDataManager sharedInstace].loginType = loginType;
+            if ([url isKindOfClass:[NSNull class]] && loginType != CSLoginDefault) {
+                NSDictionary *dic = [[[UMSocialDataService defaultDataService] socialData] socialAccount];
+                NSString *type = loginType == CSLoginQQ ? UMShareToQzone:UMShareToSina;
+                UMSocialAccountEntity *info = [dic objectForKey:type];
+                [CSDataManager sharedInstace].portrait = info.iconURL;
+                dispatch_async(dispatch_get_global_queue(0, 0), ^{
+                    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:info.iconURL]];
+                    [[CandyShineAPIKit sharedAPIKit] requestModifyPortraitWithImage:data Success:^(NSDictionary *result) {
+                        
+                    } fail:^(NSError *error) {
+                        
+                    }];
+                });
+            }
+            [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kLoginFinishNotification object:nil]];
             [self dismiss];
         } else {
             [MBProgressHUDManager showTextWithTitle:@"用户名或密码错误" inView:self.view];

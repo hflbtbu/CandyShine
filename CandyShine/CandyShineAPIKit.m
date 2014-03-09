@@ -32,20 +32,6 @@
     if (self) {
         _requestOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURL]];
         _requestOperationManager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
-        NSOperationQueue *operationQueue = _requestOperationManager.operationQueue;
-        [_requestOperationManager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-            switch (status) {
-                case AFNetworkReachabilityStatusReachableViaWWAN:
-                case AFNetworkReachabilityStatusReachableViaWiFi:
-                    [operationQueue setSuspended:NO];
-                    break;
-                case AFNetworkReachabilityStatusNotReachable:
-                    NSLog(@"AFNetworkReachabilityStatusNotReachable");
-                default:
-                    [operationQueue setSuspended:YES];
-                    break;
-            }
-        }];
     }
     return self;
 }
@@ -150,6 +136,26 @@
     }];
 }
 
+- (void)requestModifyUserNameWithName:(NSString *)name Success:(SuccessBlock)success fail:(FailBlock)fail {
+    NSString *parameterString = [NSString stringWithFormat:@"uid=%@&modify_field=custom_name&custom_name=%@",[CSDataManager sharedInstace].userId,[self encodeToPercentEscapeString:name]];
+    [_requestOperationManager GET:@"user_modify" parameters:@{@"encrypt_param":[self encryptorStringWithAES:parameterString]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======ModifyUserName======\n%@",responseObject);
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        fail(error);
+    }];
+}
+
+- (void)requestModifyPassWordWithNewPsw:(NSString *)newPsw  oldPsw:(NSString *)oldPsw  Success:(SuccessBlock)success fail:(FailBlock)fail {
+    NSString *parameterString = [NSString stringWithFormat:@"uid=%@&modify_field=pwd&new_pwd=%@&old_pwd=%@",[CSDataManager sharedInstace].userId,[self encodeToPercentEscapeString:newPsw],[self encodeToPercentEscapeString:oldPsw]];
+    [_requestOperationManager GET:@"user_modify" parameters:@{@"encrypt_param":[self encryptorStringWithAES:parameterString]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======ModifyPassWord======\n%@",responseObject);
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        fail(error);
+    }];
+}
+
 - (NSString *)encryptorStringWithAES:(NSString *)str {
     NSMutableString *string = [NSMutableString stringWithString:str];
     int count = 16 - [string length]%16;
@@ -173,5 +179,6 @@
                                                                                        kCFStringEncodingUTF8);
     return outputStr;
 }
+
 
 @end

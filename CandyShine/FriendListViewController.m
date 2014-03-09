@@ -81,9 +81,12 @@
     if (indexPath.row < _friendArray.count) {
         item = [_friendArray objectAtIndex:indexPath.row];
     }
-    NSString *url = [NSString stringWithFormat:@"%@%@",kPortraitURL,item.portrait];
-    [cell.frinendThumberImage.imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"IMG_0005.JPG"]];
-    cell.nameLB.text = item.name;
+
+    cell.frinendThumberImage.imageView.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+    if (item.portrait.length != 0) {
+        [cell.frinendThumberImage.imageView setImageWithURL:[NSURL URLWithString:item.portrait]];
+        cell.nameLB.text = item.name;
+    }
     return cell;
 }
 

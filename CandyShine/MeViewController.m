@@ -52,7 +52,13 @@
     if (IsIOS7) {
         _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     }
+    
+    if (!IsIOS7) {
+        _tableView.backgroundColor = [UIColor colorWithRed:0.937255 green:0.937255 blue:0.956863 alpha:1.0];
+        _tableView.backgroundView = nil;
+    }
     _dataManager = [CSDataManager sharedInstace];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -104,11 +110,9 @@
             [cell.contentView addSubview:_thumberImage];
         }
         _thumberImage.imageView.image = [UIImage imageNamed:@"IMG_0005.JPG"];
-        if (_dataManager.isLogin) {
-            NSString * url = [NSString stringWithFormat:@"%@%@",kPortraitURL,[CSDataManager sharedInstace].userId];
-            [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:url]];
+        if (_dataManager.isLogin && _dataManager.portrait.length != 0) {
+            [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:_dataManager.portrait]];
         }
-
         NSString *username = _dataManager.isLogin ? _dataManager.userName : @"游客";
         NSString *placeString = IsIOS7 ? @"              " : @"               ";
         cell.textLabel.text = [NSString stringWithFormat:@"%@%@",placeString,username];
@@ -178,6 +182,7 @@
             if (buttonIndex == 0) {
                 [CSDataManager sharedInstace].isLogin = NO;
                 [_tableView reloadData];
+                [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kLogoutFinishNotification object:nil]];
             }
         };
         [as showInView:[UIApplication sharedApplication].keyWindow];
@@ -203,9 +208,13 @@
             meSet.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:meSet animated:YES];
         } else if (indexPath.row == 1) {
-            FriendListViewController *friendList = [[FriendListViewController alloc] initWithNibName:@"FriendListViewController" bundle:nil];
-            friendList.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:friendList animated:YES];
+            if (_dataManager.isLogin) {
+                FriendListViewController *friendList = [[FriendListViewController alloc] initWithNibName:@"FriendListViewController" bundle:nil];
+                friendList.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:friendList animated:YES];
+            } else {
+                [MBProgressHUDManager showTextWithTitle:@"请先登录" inView:self.view];
+            }
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 0) {

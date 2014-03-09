@@ -60,6 +60,11 @@
         _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     }
     
+    if (!IsIOS7) {
+        _tableView.backgroundColor = [UIColor colorWithRed:0.937255 green:0.937255 blue:0.956863 alpha:1.0];
+        _tableView.backgroundView = nil;
+    }
+    
     _waterWarmManager = [WaterWarmManager shared];
     
 }

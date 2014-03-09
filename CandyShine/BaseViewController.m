@@ -37,6 +37,8 @@
         self.extendedLayoutIncludesOpaqueBars = YES;
     }
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self addNotification];
 }
 
 - (IBAction)back {
@@ -57,6 +59,10 @@
     if (self.navigationController.viewControllers.count >= 2) {
         [self.navigationItem  setCustomeLeftBarButtonItem:@"navagation_back" target:self action:@selector(back)];
     }
+}
+
+- (void)addNotification {
+    
 }
 
 - (void)didReceiveMemoryWarning

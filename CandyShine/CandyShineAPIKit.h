@@ -18,8 +18,9 @@ typedef void(^SuccessArrayBlock)(NSMutableArray *result);
 @property (nonatomic, retain) NSString *userName;
 @property (nonatomic, retain) NSString *passWord;
 @property (nonatomic, retain) NSString *email;
-
 @property (nonatomic, assign) CSLoginType loginType;
+@property (nonatomic, retain) AFHTTPRequestOperationManager *requestOperationManager;
+
 
 
 + (CandyShineAPIKit *)sharedAPIKit;
@@ -35,5 +36,9 @@ typedef void(^SuccessArrayBlock)(NSMutableArray *result);
 - (void)requestSearchFriednListWithKeyword:(NSString *)keyword Success:(SuccessArrayBlock)success fail:(FailBlock)fail;
 
 - (void)requestAddFeiendWithUserID:(NSString *)uid Success:(SuccessBlock)success fail:(FailBlock)fail;
+
+- (void)requestModifyUserNameWithName:(NSString *)name Success:(SuccessBlock)success fail:(FailBlock)fail;
+
+- (void)requestModifyPassWordWithNewPsw:(NSString *)newPsw  oldPsw:(NSString *)oldPsw  Success:(SuccessBlock)success fail:(FailBlock)fail;
 
 @end

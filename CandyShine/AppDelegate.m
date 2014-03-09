@@ -79,6 +79,9 @@
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor orangeColor], UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kContentFont3, UITextAttributeFont, kContentNormalColor, UITextAttributeTextColor, nil]];
+    if (!IsIOS7) {
+        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    }
 }
 
 - (void)initialShareSDK {

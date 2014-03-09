@@ -34,6 +34,27 @@
             _portrait = [[NSUserDefaults standardUserDefaults] stringForKey:kUserPortrait];
         }
         _totalDays = [DateHelper getDaysBetween:[[NSUserDefaults standardUserDefaults] objectForKey:kFirstLaunchDate] and:[NSDate date]];
+        
+        
+        AFHTTPRequestOperationManager *requestOperationManager = [CandyShineAPIKit sharedAPIKit].requestOperationManager;
+        NSOperationQueue *operationQueue = requestOperationManager.operationQueue;
+        [requestOperationManager.reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            switch (status) {
+                case AFNetworkReachabilityStatusReachableViaWWAN:
+                    _isReachable = YES;
+                case AFNetworkReachabilityStatusReachableViaWiFi:
+                    _isReachable = YES;
+                    [operationQueue setSuspended:NO];
+                    break;
+                case AFNetworkReachabilityStatusNotReachable:
+                    NSLog(@"AFNetworkReachabilityStatusNotReachable");
+                    _isReachable = NO;
+                default:
+                    [operationQueue setSuspended:YES];
+                    break;
+            }
+        }];
+        [requestOperationManager.reachabilityManager startMonitoring];
     }
     return self;
 }
@@ -138,6 +159,32 @@
     _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequset managedObjectContext:self.managedObjectContext sectionNameKeyPath:@"date" cacheName:nil];
     [_fetchedResultsController performFetch:nil];
     return _fetchedResultsController;
+}
+
+- (void)savePortrait:(NSData *)data {
+    [self saveData:data directory:@"Portrait" fileName:@"Portrait"];
+}
+
+- (NSData *)readPortrait {
+    NSString *path = [self getPathWithDirectory:@"Portrait" fileName:@"Portrait"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    return data;
+}
+
+- (void)saveData:(NSData *)data directory:(NSString *)directory fileName:(NSString *)fileName {
+    NSString *path = [self getPathWithDirectory:directory fileName:fileName];
+    [data writeToFile:path atomically:YES];
+}
+
+- (NSString *)getPathWithDirectory:(NSString *)directory fileName:(NSString *)fileName {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *path = [paths objectAtIndex:0];
+    NSString *directoryPath = [path stringByAppendingPathComponent:directory];
+    if (![fileManager fileExistsAtPath:directoryPath]) {
+        [fileManager createDirectoryAtPath:directoryPath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    return [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@",directory,fileName]];
 }
 
 @end

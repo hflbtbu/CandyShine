@@ -14,6 +14,7 @@
 - (IBAction)dismiss;
 - (IBAction)go;
 - (void)initNavigationItem;
+- (void)addNotification;
 
 
 @end

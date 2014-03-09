@@ -32,7 +32,8 @@
         
         UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
         line.y = 0;
-        [self.contentView addSubview:line];
+        self.contentView.layer.masksToBounds = NO;
+        [self.contentView.layer addSublayer:line.layer];
         
         _gridPathView = [[GridPathView alloc] initWithFrame:CGRectMake(0, 8, self.contentView.width, 160)];
         [self.contentView addSubview:_gridPathView];

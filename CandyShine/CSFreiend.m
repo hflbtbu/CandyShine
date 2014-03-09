@@ -15,8 +15,11 @@
     if (self) {
         _name = [dic objectForKey:@"custom_name"];
         _sorce = [[dic objectForKey:@"score"] integerValue];
-        _portrait = [dic objectForKey:@"portrait"];
         _uid = [dic objectForKey:@"uid"];
+        NSString *str = [dic objectForKey:@"portrait"];
+        if (![str isKindOfClass:[NSNull class]]) {
+            _portrait = [NSString stringWithFormat:@"%@%@",kBaseURL,str];
+        }
     }
     return self;
 }

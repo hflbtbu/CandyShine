@@ -48,7 +48,7 @@
     if (IsIOS7) {
         //[[[[_addFriendSearchbar.subviews objectAtIndex:0] subviews] objectAtIndex:0]removeFromSuperview];  //去掉搜索框背景
     } else {
-        [[_addFriendSearchbar.subviews objectAtIndex:0]removeFromSuperview];  //去掉搜索框背景
+        //[[_addFriendSearchbar.subviews objectAtIndex:0]removeFromSuperview];  //去掉搜索框背景
     }
     
     
@@ -89,8 +89,12 @@
     if (indexPath.row < _frendArray.count) {
         item = [_frendArray objectAtIndex:indexPath.row];
     }
-    NSString *url = [NSString stringWithFormat:@"%@%@",kPortraitURL,item.portrait];
-    [cell.frinendThumberImage.imageView setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:@"IMG_0005.JPG"]];
+    cell.frinendThumberImage.imageView.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+    if (item.portrait.length != 0) {
+        [cell.frinendThumberImage.imageView setImageWithURL:[NSURL URLWithString:item.portrait]];
+        cell.nameLB.text = item.name;
+    }
+    
     cell.nameLB.text = item.name;
     return cell;
 }
@@ -123,6 +127,7 @@
             if (code == CSResponceCodeSuccess) {
                 [MBProgressHUDManager showTextWithTitle:@"关注成功" inView:self.view];
                 [_selectedButton setTitle:@"已关注" forState:UIControlStateNormal];
+                [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kAddFriendFinishNotification object:nil]];
             } else {
                 [MBProgressHUDManager showTextWithTitle:@"已关注过该好友" inView:self.view];
                 [_selectedButton setTitle:@"已关注" forState:UIControlStateNormal];
@@ -144,13 +149,13 @@
         [cancelButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         cancelButton.backgroundColor = [UIColor clearColor];
     } else {
-        UIButton *cancelButton = [_addFriendSearchbar.subviews objectAtIndex:1];
-        [cancelButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        cancelButton.titleLabel.font = kContentFont1;
-        cancelButton.backgroundColor = [UIColor clearColor];
-        [cancelButton setBackgroundImage:nil forState:UIControlStateSelected];
-        [cancelButton setBackgroundImage:nil forState:UIControlStateNormal];
-        [cancelButton setBackgroundImage:nil forState:UIControlStateHighlighted];
+//        UIButton *cancelButton = [_addFriendSearchbar.subviews objectAtIndex:1];
+//        [cancelButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+//        cancelButton.titleLabel.font = kContentFont1;
+//        cancelButton.backgroundColor = [UIColor clearColor];
+//        [cancelButton setBackgroundImage:nil forState:UIControlStateSelected];
+//        [cancelButton setBackgroundImage:nil forState:UIControlStateNormal];
+//        [cancelButton setBackgroundImage:nil forState:UIControlStateHighlighted];
     }
     return YES;
 }

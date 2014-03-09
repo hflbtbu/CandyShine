@@ -25,4 +25,8 @@
 #define kFirstLaunchDate    @"FirstLaunchDate"
 #define kUserInfoAndState   @"UserInfoAndState"
 
+#define kAddFriendFinishNotification    @"AddFriendFinifishNotification"
+#define kLoginFinishNotification        @"LoginFinishNotification"
+#define kLogoutFinishNotification       @"LogoutFinishNotification"
+
 #endif

@@ -21,7 +21,9 @@
 @property (nonatomic, retain) NSString *userName;
 @property (nonatomic, retain) NSString *userId;
 @property (nonatomic, retain) NSString *portrait;
+@property (nonatomic, assign) CSLoginType loginType;
 @property (nonatomic, assign) NSInteger totalDays;
+@property (nonatomic, assign) BOOL isReachable;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -38,5 +40,8 @@
 
 - (void)saveUserData;
 
+- (void)savePortrait:(NSData *)data;
+
+- (NSData *)readPortrait;
 
 @end
