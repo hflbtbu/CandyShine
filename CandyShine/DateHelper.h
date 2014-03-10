@@ -16,6 +16,8 @@
 
 + (NSString *)getDayStringWith:(int)day;
 
++ (NSString *)getYYMMDDString:(NSInteger)day;
+
 + (NSDate *)getWeekBegainWith:(int)week;
 
 + (NSDate *)getWeekEndWith:(int)week;
@@ -23,5 +25,11 @@
 + (NSString *)getWeekStringWith:(int)week;
 
 + (NSInteger)getDaysBetween:(NSDate *)startDate and:(NSDate *)endDate;
+
++ (NSString *)getDayWithIndex:(NSInteger)index;
+
++ (NSString *)getMothWithIndex:(NSInteger)index;
+
++ (NSString *)getYearWithIndex:(NSInteger)index;
 
 @end

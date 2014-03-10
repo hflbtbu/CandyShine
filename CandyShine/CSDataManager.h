@@ -14,6 +14,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Sport.h"
+#import "News.h"
 
 @interface CSDataManager : NSObject
 
@@ -35,6 +36,10 @@
 - (Sport *)insertSportItemWithBlock:(void (^)(Sport *))settingBlock;
 
 - (NSArray *)fetchSportItemsByDay:(NSInteger)day;
+
+- (News *)insertNewsWithBlock:(void (^)(News *))settingBlock;
+
+- (News *)fetchNewsByDate:(NSString *)date;
 
 - (BOOL)saveCoreData;
 

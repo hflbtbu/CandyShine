@@ -9,10 +9,16 @@
 #import "NewsViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import "NewsCell.h"
+#import "News.h"
 
 @interface NewsViewController () <UITableViewDelegate,UITableViewDataSource>
 {
     UITableView *_tableView;
+    CSDataManager *_dataManager;
+    NSArray *_images;
+    NSArray *_contents;
+    NSArray *_authors;
+    NSIndexPath *_currentIndexPath;
 }
 @end
 
@@ -53,8 +59,26 @@
     _tableView.pagingEnabled = YES;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = [UIColor blackColor];
+    [_tableView registerNib:[UINib nibWithNibName:@"NewsCell" bundle:nil ] forCellReuseIdentifier:@"NewsCellIdentifer"];
     [self.view addSubview:_tableView];
-    self.view.backgroundColor = [UIColor orangeColor];
+    
+    _currentIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    _dataManager = [CSDataManager sharedInstace];
+    _images = @[@"http://pic5.nipic.com/20091223/2839526_205415187634_2.jpg",@"http://pic3.nipic.com/20090519/1627506_173219001_2.jpg",@"http://www.88ly.com/llll/zhw_4104/200708/20078223823494.jpg"];
+    _contents = @[@"马来西亚民航局称，2人持偷来的护照登机，包括意大利人Luigi Maraldi和奥地利人KOZEL CHRISTIAN，二人票号相连。",@"奥巴马表示，自从去年我们在安纳伯格庄园会晤以来，美中关系取得了积极进展，今年是美中建交35周年，美方希望两国在一系列重大问题上的合作取得新成果。",@"巡视组组长徐光春指出，云南省党风廉政建设形势严峻，反映领导干部问题较"];
+    
+//    NSArray *author = @[@"Candy1",@"Candy2",@"Candy3"];
+//    for (int i=0; i<3; i++) {
+//        [_dataManager insertNewsWithBlock:^(News *news) {
+//            news.date = [DateHelper getDayBegainWith:i];
+//            news.content = [contents objectAtIndex:i];
+//            news.image = [images objectAtIndex:i];
+//            news.author = [author objectAtIndex:i];
+//        }];
+//    }
+//    [_dataManager saveCoreData];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -62,16 +86,63 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifer = @"newCell";
+    static NSString *cellIdentifer = @"NewsCellIdentifer";
     NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
-    if (cell == nil) {
-        cell = [UIXib cellWithXib:@"NewsCell" style:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
+    cell.scrollView.contentOffset = CGPointMake(0, 0);
+    NSString *date = [DateHelper getYYMMDDString:indexPath.row];
+    News *news = [_dataManager fetchNewsByDate:date];
+    if (news == nil) {
+        [self requestNewsWithDateIndex:indexPath.row];
+    } else {
+        [cell.pictureImageView setImageWithURL:[NSURL URLWithString:news.image] placeholderImage:[UIImage imageNamed:@"news_placeholderImage"]];
+        cell.contentLB.text = news.content;
+        cell.dayLB.text = [DateHelper getDayWithIndex:indexPath.row];
+        cell.motheLB.text = [DateHelper getMothWithIndex:indexPath.row];
+        cell.authorLB.text = news.author;
     }
     return cell;
+}
+
+- (void)requestNewsWithDateIndex:(NSInteger)index {
+    [MBProgressHUDManager showIndicatorWithTitle:@"正在请求" inView:self.view];
+    [[CandyShineAPIKit sharedAPIKit] requestNewsWithDate:[DateHelper getYYMMDDString:index] Success:^(NSDictionary *result) {
+        [MBProgressHUDManager hideMBProgressInView:self.view];
+        CSResponceCode code = [[result objectForKey:@"code"] integerValue];
+        if (code == CSResponceCodeSuccess) {
+            NSArray *messages = [result objectForKey:@"message"];
+            NSDictionary *message;
+            NSString *image;
+            NSString *content;
+            if (messages.count >= 2) {
+                message = [messages objectAtIndex:0];
+                image = [NSString stringWithFormat:@"%@%@",kBaseURL,[message objectForKey:@"text"]];
+                message = [messages objectAtIndex:1];
+                content = [message objectForKey:@"url"];
+            }
+            [_dataManager insertNewsWithBlock:^(News *new) {
+                new.date = [DateHelper getYYMMDDString:index];
+                new.image = [_images objectAtIndex:index];
+                new.content = [_contents objectAtIndex:index];
+                new.author = @"CandyWearables";
+            }];
+            [_dataManager saveCoreData];
+            [_tableView reloadData];
+        } else {
+            [MBProgressHUDManager showTextWithTitle:@"请求失败" inView:self.view];
+        }
+    } fail:^(NSError *error) {
+        [MBProgressHUDManager hideMBProgressInView:self.view];
+        [MBProgressHUDManager showTextWithTitle:error.localizedDescription inView:self.view];
+    }];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger page = scrollView.contentOffset.y/self.view.width;
+    _currentIndexPath = [NSIndexPath indexPathForRow:page inSection:0];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -82,16 +153,20 @@
     _tableView.center = CGPointMake(self.view.width/2, self.view.height/2);
 }
 
-- (void)viewDidAppear:(BOOL)animate {
-    
+- (void)initNavigationItem {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"分享" style:UIBarButtonItemStyleBordered target:self action:@selector(shareHandler)];
 }
 
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+- (void)shareHandler {
+    News *news = [_dataManager fetchNewsByDate:[DateHelper getYYMMDDString:_currentIndexPath.row]];
+    NewsCell *cell = (NewsCell *)[_tableView cellForRowAtIndexPath:_currentIndexPath];
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:nil
+                                      shareText:news.content
+                                     shareImage:cell.pictureImageView.image
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,nil]
+                                       delegate:nil];
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {

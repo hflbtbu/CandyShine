@@ -161,6 +161,31 @@
     return _fetchedResultsController;
 }
 
+- (News *)insertNewsWithBlock:(void (^)(News *))settingBlock {
+    News *data = [NSEntityDescription insertNewObjectForEntityForName:@"News" inManagedObjectContext:self.managedObjectContext];
+    settingBlock(data);
+    return data;
+}
+
+- (News *)fetchNewsByDate:(NSString *)date {
+    NSFetchRequest *fetchRequset = [[NSFetchRequest alloc] initWithEntityName:@"News"];
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"date = %@",date];
+    fetchRequset.predicate = predicate;
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequset error:&error];
+    if (error == nil) {
+        if (results.count != 0) {
+            News *news = [results objectAtIndex:0];
+            return news;
+        } else {
+            return nil;
+        }
+    } else {
+        NSLog(@"FetchSportItemsByDay Failed");
+        return nil;
+    }
+}
+
 - (void)savePortrait:(NSData *)data {
     [self saveData:data directory:@"Portrait" fileName:@"Portrait"];
 }

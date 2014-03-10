@@ -22,7 +22,7 @@
                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="news.png" id="ZPj-u8-YYx">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ZPj-u8-YYx">
                             <rect key="frame" x="20" y="77" width="280" height="239"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
@@ -62,12 +62,14 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="_scrollView" destination="CpM-6U-Ups" id="Iqb-UR-3x8"/>
+                <outlet property="authorLB" destination="5FE-Fa-Bpr" id="Rfa-Pj-NHm"/>
+                <outlet property="contentLB" destination="ImU-rh-6CM" id="473-f6-fK1"/>
+                <outlet property="dayLB" destination="du3-cp-9Qd" id="Bl0-2s-cFG"/>
+                <outlet property="motheLB" destination="8xR-TT-CYT" id="Bcs-jP-c7M"/>
                 <outlet property="pageLB" destination="sDy-cS-Ifa" id="RAW-nD-N2v"/>
+                <outlet property="pictureImageView" destination="ZPj-u8-YYx" id="9RU-o3-kUj"/>
+                <outlet property="scrollView" destination="CpM-6U-Ups" id="tqM-d5-6vv"/>
             </connections>
         </view>
     </objects>
-    <resources>
-        <image name="news.png" width="734" height="586"/>
-    </resources>
 </document>

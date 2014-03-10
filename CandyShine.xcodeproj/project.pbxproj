@@ -30,6 +30,7 @@
 		31473DBA18B3AF2200DEDA12 /* IndexPathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31473DB918B3AF2200DEDA12 /* IndexPathCell.m */; };
 		3150454318B64001004DF58F /* CircleImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3150454218B64001004DF58F /* CircleImageView.m */; };
 		3151A74518B5149A00928C93 /* CandyShineAPIKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3151A74418B5149A00928C93 /* CandyShineAPIKit.m */; };
+		3158C54118CD9347006BD5E3 /* News.m in Sources */ = {isa = PBXBuildFile; fileRef = 3158C54018CD9347006BD5E3 /* News.m */; };
 		315D6A0718B1C753004B0ADB /* UMSocialLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 315D69E718B1C753004B0ADB /* UMSocialLocalizable.strings */; };
 		315D6A0818B1C753004B0ADB /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315D69EB18B1C753004B0ADB /* libWeChatSDK.a */; };
 		315D6A0918B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315D69FA18B1C753004B0ADB /* libUMSocial_Sdk_3.3.4.a */; };
@@ -207,6 +208,8 @@
 		3150454218B64001004DF58F /* CircleImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleImageView.m; sourceTree = "<group>"; };
 		3151A74318B5149A00928C93 /* CandyShineAPIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandyShineAPIKit.h; sourceTree = "<group>"; };
 		3151A74418B5149A00928C93 /* CandyShineAPIKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CandyShineAPIKit.m; sourceTree = "<group>"; };
+		3158C53F18CD9347006BD5E3 /* News.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = News.h; sourceTree = "<group>"; };
+		3158C54018CD9347006BD5E3 /* News.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = News.m; sourceTree = "<group>"; };
 		315D69E818B1C753004B0ADB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/UMSocialLocalizable.strings; sourceTree = "<group>"; };
 		315D69EB18B1C753004B0ADB /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		315D69EC18B1C753004B0ADB /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
@@ -689,6 +692,8 @@
 		31C6D31118BCD3210034BBB7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				3158C53F18CD9347006BD5E3 /* News.h */,
+				3158C54018CD9347006BD5E3 /* News.m */,
 				31BF6EDD18C8275D00D100B8 /* Sport.h */,
 				31BF6EDE18C8275D00D100B8 /* Sport.m */,
 				31C6D31218BCD36E0034BBB7 /* CSFreiend.h */,
@@ -1105,6 +1110,7 @@
 				3150454318B64001004DF58F /* CircleImageView.m in Sources */,
 				31B2D8EE18A5E21C00F3A1F5 /* AddFriendCell.m in Sources */,
 				31FCA23D188D0954005494AE /* TabBarView.m in Sources */,
+				3158C54118CD9347006BD5E3 /* News.m in Sources */,
 				31B48BE018B3396000980F69 /* UMEGORefreshTableHeaderView.m in Sources */,
 				312C440118A3B9A4006CE7D1 /* UIColor+Addition.m in Sources */,
 				3199622D188D3AB200D2C46D /* UIView+FrameAdjust.m in Sources */,

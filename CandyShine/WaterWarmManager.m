@@ -28,7 +28,7 @@
                 _warmTimeDic = [NSMutableDictionary dictionaryWithCapacity:0];
                 _isCustome = NO;
                 _isOpenWarm = YES;
-                _getupTime = 8*60*60;
+                _getupTime = 9*60*60;
                 _timeInterval = 4*60*60;
                 _timeInterva = _timeInterval;
                 [_warmTimeDic setObject:[NSNumber numberWithBool:_isCustome] forKey:kIsCustome];

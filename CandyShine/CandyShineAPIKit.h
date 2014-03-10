@@ -41,4 +41,6 @@ typedef void(^SuccessArrayBlock)(NSMutableArray *result);
 
 - (void)requestModifyPassWordWithNewPsw:(NSString *)newPsw  oldPsw:(NSString *)oldPsw  Success:(SuccessBlock)success fail:(FailBlock)fail;
 
+- (void)requestNewsWithDate:(NSString *)date Success:(SuccessBlock)success fail:(FailBlock)fail;
+
 @end

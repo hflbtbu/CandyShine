@@ -156,6 +156,16 @@
     }];
 }
 
+- (void)requestNewsWithDate:(NSString *)date Success:(SuccessBlock)success fail:(FailBlock)fail {
+    NSString *parameterString = [NSString stringWithFormat:@"type=daily_message&date=%@",date];
+    [_requestOperationManager GET:@"system_message" parameters:@{@"encrypt_param":[self encryptorStringWithAES:parameterString]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======News======\n%@",responseObject);
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        fail(error);
+    }];
+}
+
 - (NSString *)encryptorStringWithAES:(NSString *)str {
     NSMutableString *string = [NSMutableString stringWithString:str];
     int count = 16 - [string length]%16;

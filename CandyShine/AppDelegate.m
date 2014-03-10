@@ -96,7 +96,7 @@
     //设置微信AppId
     [UMSocialConfig setWXAppId:@"applwxd9a39c7122aa6516" url:nil];
     //打开新浪微博的SSO开关
-    //[UMSocialConfig setSupportSinaSSO:YES];
+    [UMSocialConfig setSupportSinaSSO:YES];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
