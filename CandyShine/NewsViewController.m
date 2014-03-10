@@ -65,7 +65,7 @@
     _currentIndexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     
     _dataManager = [CSDataManager sharedInstace];
-    _images = @[@"http://pic5.nipic.com/20091223/2839526_205415187634_2.jpg",@"http://pic3.nipic.com/20090519/1627506_173219001_2.jpg",@"http://www.88ly.com/llll/zhw_4104/200708/20078223823494.jpg"];
+    _images = @[@"http://image03.u69cn.com/2013/contentinfo/08/109813_zi.jpg",@"http://d06.res.meilishuo.net/pic/_o/24/4c/345a6cfa2469959d18b873160df2_310_302.c6.jpg",@"http://img.ea3w.com/267/266328.jpg"];
     _contents = @[@"马来西亚民航局称，2人持偷来的护照登机，包括意大利人Luigi Maraldi和奥地利人KOZEL CHRISTIAN，二人票号相连。",@"奥巴马表示，自从去年我们在安纳伯格庄园会晤以来，美中关系取得了积极进展，今年是美中建交35周年，美方希望两国在一系列重大问题上的合作取得新成果。",@"巡视组组长徐光春指出，云南省党风廉政建设形势严峻，反映领导干部问题较"];
     
 //    NSArray *author = @[@"Candy1",@"Candy2",@"Candy3"];

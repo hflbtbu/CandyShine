@@ -13,8 +13,11 @@
 #import "NewsViewController.h"
 #import "MeViewController.h"
 #import "WaterWarmViewController.h"
-
 #import "WaterWarmManager.h"
+
+#import <TencentOpenAPI/QQApiInterface.h>
+#import <TencentOpenAPI/TencentOAuth.h>
+#import "UMSocialWechatHandler.h"
 
 @interface AppDelegate ()
 {
@@ -93,11 +96,11 @@
 
 - (void)initialShareSDK {
     [UMSocialData setAppKey:UmengAppkey];
-    //设置微信AppId
-    [UMSocialConfig setWXAppId:@"applwxd9a39c7122aa6516" url:nil];
+    [UMSocialConfig setQQAppId:@"100424468" url:nil importClasses:@[[QQApiInterface class],[TencentOAuth class]]];
     //打开新浪微博的SSO开关
     [UMSocialConfig setSupportSinaSSO:YES];
-}
+    //设置微信AppId，url地址传nil，将默认使用友盟的网址
+    [UMSocialWechatHandler setWXAppId:@"wxd9a39c7122aa6516" url:nil];}
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];
