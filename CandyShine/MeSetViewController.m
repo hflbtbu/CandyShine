@@ -258,6 +258,8 @@
             CSResponceCode code = [[result objectForKey:@"code"] integerValue];
             if (code == CSResponceCodeSuccess) {
                 [MBProgressHUDManager showTextWithTitle:@"修改成功" inView:self.view];
+                NSString *portrait = [[result objectForKey:@"user_info"] objectForKey:@"portrait"];
+                [CSDataManager sharedInstace].portrait = [NSString stringWithFormat:@"%@%@",kBaseURL,portrait];
             } else {
                 [MBProgressHUDManager showTextWithTitle:@"修改失败" inView:self.view];
             }

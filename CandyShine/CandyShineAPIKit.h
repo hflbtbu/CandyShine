@@ -43,4 +43,7 @@ typedef void(^SuccessArrayBlock)(NSMutableArray *result);
 
 - (void)requestNewsWithDate:(NSString *)date Success:(SuccessBlock)success fail:(FailBlock)fail;
 
+- (void)requestFindPasswordWithEmail:(NSString *)email Success:(SuccessBlock)success fail:(FailBlock)fail;
+
+
 @end

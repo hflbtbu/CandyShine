@@ -166,6 +166,17 @@
     }];
 }
 
+- (void)requestFindPasswordWithEmail:(NSString *)email Success:(SuccessArrayBlock)success fail:(FailBlock)fail {
+    NSString *parameterString = [NSString stringWithFormat:@"user=%@&type=0",[self encodeToPercentEscapeString:email]];
+    [_requestOperationManager GET:@"find_password?" parameters:@{@"encrypt_param":[self encryptorStringWithAES:parameterString]} success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"======FindPassword======\n%@",responseObject);
+        success(responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        fail(error);
+    }];
+
+}
+
 - (NSString *)encryptorStringWithAES:(NSString *)str {
     NSMutableString *string = [NSMutableString stringWithString:str];
     int count = 16 - [string length]%16;

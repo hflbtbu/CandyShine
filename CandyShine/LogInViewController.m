@@ -193,7 +193,29 @@
 }
 
 - (IBAction)forgetCodeButtonClickHander:(id)sender {
-    
+    [UIAlertView showWithTitle:@"输入邮箱" message:nil style:UIAlertViewStylePlainTextInput cancelButtonTitle:@"取消" otherButtonTitles:@[@"确定"] tapBlock:^(UIAlertView *alertView, NSInteger buttonIndex) {
+        if (buttonIndex == 1) {
+            UITextField *textField  = [alertView textFieldAtIndex:0];
+            
+            if (![self validEmail:textField.text]) {
+                [MBProgressHUDManager showTextWithTitle:@"请输入正确的邮箱" inView:self.view];
+            } else {
+                [MBProgressHUDManager showIndicatorWithTitle:@"正在请求" inView:self.view];
+                [[CandyShineAPIKit sharedAPIKit] requestFindPasswordWithEmail:textField.text Success:^(NSDictionary *result) {
+                    [MBProgressHUDManager hideMBProgressInView:self.view];
+                    CSResponceCode code = [[result objectForKey:@"code"] integerValue];
+                    if (code == CSResponceCodeSuccess) {
+                        [MBProgressHUDManager showTextWithTitle:@"登陆邮箱找回密码" inView:self.view];
+                    } else {
+                        [MBProgressHUDManager showTextWithTitle:@"用户不存在" inView:self.view];
+                    }
+                } fail:^(NSError *error) {
+                    [MBProgressHUDManager hideMBProgressInView:self.view];
+                    [MBProgressHUDManager showTextWithTitle:error.localizedDescription inView:self.view];
+                }];
+            }
+        }
+    }];
 }
 
 - (void)registerRequest {
@@ -265,6 +287,25 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (BOOL) validEmail:(NSString*) emailString {
+    
+    if([emailString length]==0){
+        return NO;
+    }
+    
+    NSString *regExPattern = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+    
+    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger regExMatches = [regEx numberOfMatchesInString:emailString options:0 range:NSMakeRange(0, [emailString length])];
+    
+    NSLog(@"%i", regExMatches);
+    if (regExMatches == 0) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end
