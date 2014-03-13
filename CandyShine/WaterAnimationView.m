@@ -72,14 +72,14 @@
 - (void)setWaterWarmState:(WaterWarmState)waterWarmState {
     _waterWarmState = waterWarmState;
     if (_waterWarmState == WaterWarmStateOff) {
-        _animationImage.image = [UIImage imageNamed:@"news"];
+        _animationImage.image = [UIImage imageNamed:@"state1"];
     } else if (_waterWarmState == WaterWarmStateBefore){
         _animationImage.isRepeate = YES;
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"warm3" ofType:@"gif"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"warm1" ofType:@"gif"];
         _animationImage.image = [OLImage imageWithContentsOfFile:path];
     } else if (_waterWarmState == WaterWarmStateDrink) {
         _animationImage.isRepeate = NO;
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"warm3" ofType:@"gif"];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"warm2" ofType:@"gif"];
         _animationImage.image = [OLImage imageWithContentsOfFile:path];
     } else {
         _animationImage.isRepeate = NO;
