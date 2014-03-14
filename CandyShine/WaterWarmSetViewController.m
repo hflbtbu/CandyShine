@@ -129,6 +129,8 @@
                                 cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
                                 cell.textLabel.textColor = kContentNormalColor;
                                 cell.textLabel.font = kContentFont3;
+                                cell.detailTextLabel.textColor = kContentNormalColor;
+                                cell.detailTextLabel.font = kContentFont3;
                             }
                             cell.textLabel.text = @"起床时间";
                             cell.detailTextLabel.text = [self getTimeStringWith:_waterWarmManager.getupTime];

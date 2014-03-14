@@ -35,11 +35,11 @@
         [self.contentView addSubview:line];
 
         
-        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, line.y + line.height, self.width,(Is_4Inch?455:367) - line.y - line.height) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, line.y + line.height, 320,(Is_4Inch?455:367) - line.y - line.height) style:UITableViewStylePlain];
         _tableView.rowHeight = kTableViewRowHeith;
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor clearColor];
-        [self addSubview:_tableView];
+        [self.contentView addSubview:_tableView];
         
         
         _left = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page_left"]];
