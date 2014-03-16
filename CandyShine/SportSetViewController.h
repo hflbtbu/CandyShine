@@ -10,4 +10,8 @@
 
 @interface SportSetViewController : BaseViewController
 
+@property (nonatomic, assign) BOOL isView;
+
+- (void)saveUserGogalData;
+
 @end

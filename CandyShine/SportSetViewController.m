@@ -25,6 +25,9 @@
     IBOutlet UILabel *_methodLB2;
     IBOutlet UILabel *_methodLB3;
     
+    IBOutlet UILabel *_goalLB;
+
+    
     NSInteger _currentSportGoal;
 }
 @end
@@ -45,8 +48,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.navigationController.hidesBottomBarWhenPushed = YES;
-    _currentSportGoal = 1000;
-    [_scrollNumView setNumber:1000];
+    _currentSportGoal = [[NSUserDefaults standardUserDefaults] integerForKey:kUserGogal];
+    if (_currentSportGoal == 0) {
+        _currentSportGoal = 2000;
+    }
+    [_scrollNumView setNumber:_currentSportGoal];
+}
+
+- (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
+    if (_isView && IsIOS7) {
+        _addButton.y += 20;
+        _plusButton.y += 20;
+        _scrollNumView.y += 20;
+        _goalLB.y += 20;
+    }
 }
 
 - (IBAction)addButtonClickHander:(id)sender {
@@ -55,6 +71,16 @@
 
 - (IBAction)plusButtonClickHander:(id)sender {
     [_scrollNumView plus];
+}
+
+- (void)saveUserGogalData {
+    [[NSUserDefaults standardUserDefaults] setInteger:_scrollNumView.number forKey:kUserGogal];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self saveUserGogalData];
 }
 
 - (void)didReceiveMemoryWarning

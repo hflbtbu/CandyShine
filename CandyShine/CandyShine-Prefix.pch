@@ -59,6 +59,7 @@
 
 
 #import "CircleImageView.h"
+#import "DetailTextView.h"
 
 
 #import "MBProgressHUDManager.h"

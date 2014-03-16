@@ -15,6 +15,8 @@
 #import "WaterWarmViewController.h"
 #import "WaterWarmManager.h"
 
+#import "IntroduceViewController.h"
+
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "UMSocialWechatHandler.h"
@@ -22,6 +24,7 @@
 @interface AppDelegate ()
 {
     UITabBarController *_tabBarController;
+    IntroduceViewController *_introVC;
 }
 @end
 
@@ -65,6 +68,11 @@
     }
     
     self.window.rootViewController = _tabBarController;
+    
+    
+    _introVC = [[IntroduceViewController alloc] initWithNibName:@"IntroduceViewController" bundle:nil];
+
+    [_tabBarController.view addSubview:_introVC.view];
     
     [self initAppearece];
     

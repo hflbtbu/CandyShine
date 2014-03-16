@@ -24,6 +24,8 @@
 		312C954C18B284EB00A04594 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312C954A18B284EB00A04594 /* MeViewController.xib */; };
 		312C955018B28BAB00A04594 /* SportSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 312C954E18B28BAB00A04594 /* SportSetViewController.m */; };
 		312C955118B28BAB00A04594 /* SportSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 312C954F18B28BAB00A04594 /* SportSetViewController.xib */; };
+		313BB21118D4438F00518E74 /* IntroduceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313BB20F18D4438F00518E74 /* IntroduceViewController.m */; };
+		313BB21218D4438F00518E74 /* IntroduceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313BB21018D4438F00518E74 /* IntroduceViewController.xib */; };
 		313DF80E18B40A4400DF7898 /* VerticalLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 313DF80D18B40A4400DF7898 /* VerticalLabel.m */; };
 		31473DB418B3995B00DEDA12 /* WaterWarmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 31473DB318B3995B00DEDA12 /* WaterWarmManager.m */; };
 		31473DB718B3A93B00DEDA12 /* SelectedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31473DB618B3A93B00DEDA12 /* SelectedCell.m */; };
@@ -201,6 +203,9 @@
 		312C954D18B28BAB00A04594 /* SportSetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportSetViewController.h; sourceTree = "<group>"; };
 		312C954E18B28BAB00A04594 /* SportSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportSetViewController.m; sourceTree = "<group>"; };
 		312C954F18B28BAB00A04594 /* SportSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportSetViewController.xib; sourceTree = "<group>"; };
+		313BB20E18D4438F00518E74 /* IntroduceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroduceViewController.h; sourceTree = "<group>"; };
+		313BB20F18D4438F00518E74 /* IntroduceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroduceViewController.m; sourceTree = "<group>"; };
+		313BB21018D4438F00518E74 /* IntroduceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroduceViewController.xib; sourceTree = "<group>"; };
 		313DF80C18B40A4400DF7898 /* VerticalLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerticalLabel.h; sourceTree = "<group>"; };
 		313DF80D18B40A4400DF7898 /* VerticalLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerticalLabel.m; sourceTree = "<group>"; };
 		31473DB218B3995B00DEDA12 /* WaterWarmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterWarmManager.h; sourceTree = "<group>"; };
@@ -900,6 +905,9 @@
 				31C6D30C18BCCD820034BBB7 /* FriendListViewController.h */,
 				31C6D30D18BCCD820034BBB7 /* FriendListViewController.m */,
 				31C6D30E18BCCD820034BBB7 /* FriendListViewController.xib */,
+				313BB20E18D4438F00518E74 /* IntroduceViewController.h */,
+				313BB20F18D4438F00518E74 /* IntroduceViewController.m */,
+				313BB21018D4438F00518E74 /* IntroduceViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1036,6 +1044,7 @@
 				31B48BF018B3396000980F69 /* nav_bar_bg@2x.png in Resources */,
 				31FCA23F188D09C5005494AE /* TabBarView.xib in Resources */,
 				31C6D31018BCCD820034BBB7 /* FriendListViewController.xib in Resources */,
+				313BB21218D4438F00518E74 /* IntroduceViewController.xib in Resources */,
 				317874DC18D15A6900D08AFC /* state1.png in Resources */,
 				31B48BE818B3396000980F69 /* item_ok@2x.png in Resources */,
 				31B48BEE18B3396000980F69 /* messages_toolbar_background.png in Resources */,
@@ -1144,6 +1153,7 @@
 				312C955018B28BAB00A04594 /* SportSetViewController.m in Sources */,
 				31C6D31418BCD36E0034BBB7 /* CSFreiend.m in Sources */,
 				31146229189001AE00702F29 /* CircleTableViewCell.m in Sources */,
+				313BB21118D4438F00518E74 /* IntroduceViewController.m in Sources */,
 				31B51E4518B710040049438E /* UIDevice+DeviceInfo.m in Sources */,
 				31FCA246188D0E2A005494AE /* UIButton+SetEdge.m in Sources */,
 				31BE34D418C0627100FC2DA3 /* FBEncryptorAES.m in Sources */,

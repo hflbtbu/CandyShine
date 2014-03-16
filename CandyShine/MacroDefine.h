@@ -29,4 +29,9 @@
 #define kLoginFinishNotification        @"LoginFinishNotification"
 #define kLogoutFinishNotification       @"LogoutFinishNotification"
 
+
+#define kUserHeight         @"UserHeight"
+#define kUserWeight         @"UserWeight"
+#define kUserGogal          @"UserGogal"
+
 #endif
