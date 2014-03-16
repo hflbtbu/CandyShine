@@ -113,11 +113,17 @@
     if (self.currentPage < 3) {
         self.currentPage+= 1;
     } else {
-        [UIView animateWithDuration:IntorAnimationTime animations:^{
-            self.view.alpha = 0.0;
-        } completion:^(BOOL finished) {
-            [self.view removeFromSuperview];
-        }];
+        if ([_delegate respondsToSelector:@selector(introduceViewDidFinish)]) {
+            [_delegate introduceViewDidFinish];
+        }
+
+//        [UIView animateWithDuration:IntorAnimationTime animations:^{
+//            self.view.alpha = 0.0;
+//        } completion:^(BOOL finished) {
+//            if ([_delegate respondsToSelector:@selector(introduceViewDidFinish)]) {
+//                [_delegate introduceViewDidFinish];
+//            }
+//        }];
     }
 }
 

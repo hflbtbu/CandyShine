@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
+@protocol IntroduceViewControllerDelegate <NSObject>
+
+- (void)introduceViewDidFinish;
+
+@end
+
 @interface IntroduceViewController : BaseViewController
+
+@property (nonatomic, assign) id <IntroduceViewControllerDelegate> delegate;
 
 @end

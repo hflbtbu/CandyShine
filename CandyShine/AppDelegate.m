@@ -21,7 +21,7 @@
 #import <TencentOpenAPI/TencentOAuth.h>
 #import "UMSocialWechatHandler.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <IntroduceViewControllerDelegate>
 {
     UITabBarController *_tabBarController;
     IntroduceViewController *_introVC;
@@ -67,12 +67,12 @@
         _tabBarController.selectedIndex = 3;
     }
     
-    self.window.rootViewController = _tabBarController;
-    
-    
     _introVC = [[IntroduceViewController alloc] initWithNibName:@"IntroduceViewController" bundle:nil];
-
-    [_tabBarController.view addSubview:_introVC.view];
+    _introVC.delegate = self;
+   // _introVC.view.frame = CGRectMake(0, 0, _tabBarController.view.width, _tabBarController.view.height);
+    //[_tabBarController.view addSubview:_introVC.view];
+    
+    self.window.rootViewController = _introVC;
     
     [self initAppearece];
     
@@ -151,6 +151,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)introduceViewDidFinish {
+    _introVC = nil;
+    self.window.rootViewController = _tabBarController;
 }
 
 @end
