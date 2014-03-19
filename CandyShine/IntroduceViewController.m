@@ -13,10 +13,12 @@
 
 #import "IntroduceViewController.h"
 #import "SportSetViewController.h"
+#import "ConnectDeviceViewController.h"
 
 @interface IntroduceViewController () <UIScrollViewDelegate>
 {
     SportSetViewController *_goalVC;
+    ConnectDeviceViewController *_connectVC;
     DetailTextView *_heightLB;
     DetailTextView *_weightLB;
     
@@ -82,12 +84,15 @@
             [self addHeightView];
             break;
         case 2:
-            [_nextButton setTitle:@"下一页" forState:UIControlStateNormal];
             [self addWeightView];
             break;
         case 3:
-            [_nextButton setTitle:@"完成" forState:UIControlStateNormal];
+            [_nextButton setTitle:@"下一页" forState:UIControlStateNormal];
             [self addGoalView];
+            break;
+        case 4:
+            [_nextButton setTitle:@"完成" forState:UIControlStateNormal];
+            [self addConnectDeviceView];
             break;
         default:
             break;
@@ -110,7 +115,7 @@
     }
 }
 - (IBAction)nextPageButtonClickedHander:(UIButton *)sender {
-    if (self.currentPage < 3) {
+    if (self.currentPage < 4) {
         self.currentPage+= 1;
     } else {
         if ([_delegate respondsToSelector:@selector(introduceViewDidFinish)]) {
@@ -279,6 +284,14 @@
     _goalVC.view.tag = IntorViewTag;
     _goalVC.view.alpha = 0.0;
     [self.view addSubview:_goalVC.view];
+}
+
+- (void)addConnectDeviceView {
+    _connectVC = [[ConnectDeviceViewController alloc] initWithNibName:@"ConnectDeviceViewController" bundle:nil];
+    _connectVC.view.frame = CGRectMake(0, 0, self.view.width, self.view.height - 49);
+    _connectVC.view.tag = IntorViewTag;
+    _connectVC.view.alpha = 0.0;
+    [self.view addSubview:_connectVC.view];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
