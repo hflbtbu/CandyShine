@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 CandyWearables. All rights reserved.
 //
 
-#define kSpaceBetweenDigitView  10
+#define kSpaceBetweenDigitView  5
 
 #import "CWScrollNumView.h"
 
@@ -109,14 +109,33 @@
 
 - (void)awakeFromNib {
     CGFloat width = (self.width - 3*kSpaceBetweenDigitView)/4;
-    _digitView0 = [[CWScrollDigitView alloc] initWithFrame:CGRectMake(3*(width + kSpaceBetweenDigitView), 0, width, self.height) :YES];
+    CGRect frame = CGRectMake(3*(width + kSpaceBetweenDigitView), 0, width, self.height);
+    UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_bg_number"]];
+    image.frame = frame;
+    [self addSubview:image];
+    _digitView0 = [[CWScrollDigitView alloc] initWithFrame:frame :YES];
     _digitView0.delegate = self;
     [self addSubview:_digitView0];
-    _digitView1 = [[CWScrollDigitView alloc] initWithFrame:CGRectMake(2*(width + kSpaceBetweenDigitView), 0, width, self.height) :NO];
+    
+    frame =CGRectMake(2*(width + kSpaceBetweenDigitView), 0, width, self.height);
+    image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_bg_number"]];
+    image.frame = frame;
+    [self addSubview:image];
+    _digitView1 = [[CWScrollDigitView alloc] initWithFrame:frame :NO];
     [self addSubview:_digitView1];
-    _digitView2 = [[CWScrollDigitView alloc] initWithFrame:CGRectMake(width + kSpaceBetweenDigitView, 0, width, self.height) :NO];
+    
+    frame =CGRectMake(width + kSpaceBetweenDigitView, 0, width, self.height);
+    image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_bg_number"]];
+    image.frame = frame;
+    [self addSubview:image];
+    _digitView2 = [[CWScrollDigitView alloc] initWithFrame:frame :NO];
     [self addSubview:_digitView2];
-    _digitView3 = [[CWScrollDigitView alloc] initWithFrame:CGRectMake(0, 0, width, self.height) :NO];
+    
+    frame =CGRectMake(0, 0, width, self.height);
+    image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_bg_number"]];
+    image.frame = frame;
+    [self addSubview:image];
+    _digitView3 = [[CWScrollDigitView alloc] initWithFrame:frame :NO];
     [self addSubview:_digitView3];
     
 }

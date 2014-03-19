@@ -25,6 +25,8 @@
     IBOutlet UILabel *_methodLB2;
     IBOutlet UILabel *_methodLB3;
     
+    IBOutlet UIImageView *_bgImageView;
+    
     IBOutlet UILabel *_goalLB;
 
     
@@ -53,6 +55,8 @@
         _currentSportGoal = 2000;
     }
     [_scrollNumView setNumber:_currentSportGoal];
+    UIImage *image  = [[UIImage imageNamed:@"intro_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 0, 0, 0)];
+    _bgImageView.image = image;
 }
 
 - (void)viewWillLayoutSubviews {

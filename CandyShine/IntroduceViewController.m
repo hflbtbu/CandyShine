@@ -192,8 +192,8 @@
     image  = [UIImage imageNamed:@"intro_height"];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
     imageView.image = image;
-    _heightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.view.width - image.size.width - 48, 31 + self.offsetY, image.size.width,300)];
-    _heightScrollView.contentSize = CGSizeMake(image.size.width, image.size.height + 161.5);
+    _heightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.view.width - image.size.width - 10, 31 + self.offsetY, image.size.width,300)];
+    _heightScrollView.contentSize = CGSizeMake(image.size.width, image.size.height + 160);
     _heightScrollView.showsHorizontalScrollIndicator = NO;
     _heightScrollView.showsVerticalScrollIndicator = NO;
     _heightScrollView.delegate = self;
@@ -211,7 +211,7 @@
     _heightScrollView.contentOffset = offset;
     
     image = [UIImage imageNamed:@"intro_height_line"];
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(_heightScrollView.width + _heightScrollView.x - image.size.width/2, _heightScrollView.y + 68, image.size.width, image.size.height)];
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(_heightScrollView.width + _heightScrollView.x - image.size.width/2 - 27, _heightScrollView.y + 68.5, image.size.width, image.size.height)];
     imageView.image = image;
     imageView.tag = IntorViewTag;
     imageView.alpha = 0.0;
@@ -238,10 +238,10 @@
     [self.view addSubview:peopleImagView];
     
     image  = [UIImage imageNamed:@"intro_weight"];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(120, 0, image.size.width, image.size.height)];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(150 - 70, 0, image.size.width, image.size.height)];
     imageView.image = image;
     _weightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.width - 300)/2,340 + self.offsetY, 300,image.size.height)];
-    _weightScrollView.contentSize = CGSizeMake(image.size.width + 120 + 121.5, image.size.height);
+    _weightScrollView.contentSize = CGSizeMake(image.size.width + 80 + 79, image.size.height);
     _weightScrollView.showsHorizontalScrollIndicator = NO;
     _weightScrollView.showsVerticalScrollIndicator = NO;
     _weightScrollView.delegate = self;
@@ -269,7 +269,7 @@
 
     
     image = [UIImage imageNamed:@"intro_weight_line"];
-    imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.width - image.size.width)/2 - 1, _weightScrollView.y - image.size.height/2, image.size.width, image.size.height)];
+    imageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.width - image.size.width)/2 , _weightScrollView.y - image.size.height/2 + 26, image.size.width, image.size.height)];
     imageView.image = image;
     imageView.tag = IntorViewTag;
     imageView.alpha = 0.0;

@@ -62,13 +62,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 2;
-    } else if (section == 1){
+    if (section == 2) {
         return 4;
     } else  {
         return 1;
@@ -90,7 +88,7 @@
 //}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 2) {
+    if (section == 3) {
         return 60;
     }
     return 0;
@@ -117,7 +115,7 @@
         NSString *placeString = IsIOS7 ? @"              " : @"               ";
         cell.textLabel.text = [NSString stringWithFormat:@"%@%@",placeString,username];
         cell.textLabel.backgroundColor = [UIColor clearColor];
-    } else if (indexPath.section == 1 && indexPath.row == 3) {
+    } else if (indexPath.section == 2 && indexPath.row == 3) {
         cell = [tableView dequeueReusableCellWithIdentifier:newsCellIdentifer];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:newsCellIdentifer];
@@ -126,26 +124,32 @@
             cell.accessoryView = news;
         }
         cell.textLabel.text = @"资讯提醒";
+        cell.imageView.image = [UIImage imageNamed:@"me_news"];
     } else {
         cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         }
-        if (indexPath.section == 0) {
-            if (indexPath.row == 1) {
+        if (indexPath.section == 1) {
+            if (indexPath.row == 0) {
                 cell.textLabel.text = @"好友列表";
+                cell.imageView.image = [UIImage imageNamed:@"me_friendlist"];
             }
-        } else if (indexPath.section == 1) {
+        } else if (indexPath.section == 2) {
             if (indexPath.row == 0) {
                 cell.textLabel.text = @"运动目标";
+                cell.imageView.image = [UIImage imageNamed:@"me_aportgogal"];
             } else if (indexPath.row == 1) {
                 cell.textLabel.text = @"睡眠时间";
+                cell.imageView.image = [UIImage imageNamed:@"me_sleeptime"];
             } else  if (indexPath.row == 2) {
                 cell.textLabel.text = @"喝水设置";
+                cell.imageView.image = [UIImage imageNamed:@"me_watertime"];
             }
         } else {
             cell.textLabel.text = @"意见反馈";
+            cell.imageView.image = [UIImage imageNamed:@"me_feedbace"];
         }
     }
     cell.textLabel.textColor = kContentNormalColor;
@@ -157,7 +161,7 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (section == 2) {
+    if (section == 3) {
         UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, self.view.width)];
         bgView.backgroundColor = [UIColor clearColor];
         UIButton *logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(80, 8, 160, 44)];
@@ -202,20 +206,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
-            MeSetViewController *meSet = [[MeSetViewController alloc] initWithNibName:@"MeSetViewController" bundle:nil];
-            meSet.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:meSet animated:YES];
-        } else if (indexPath.row == 1) {
-            if (_dataManager.isLogin) {
-                FriendListViewController *friendList = [[FriendListViewController alloc] initWithNibName:@"FriendListViewController" bundle:nil];
-                friendList.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:friendList animated:YES];
-            } else {
-                [MBProgressHUDManager showTextWithTitle:@"请先登录" inView:self.view];
-            }
-        }
+        MeSetViewController *meSet = [[MeSetViewController alloc] initWithNibName:@"MeSetViewController" bundle:nil];
+        meSet.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:meSet animated:YES];
     } else if (indexPath.section == 1) {
+        if (_dataManager.isLogin) {
+            FriendListViewController *friendList = [[FriendListViewController alloc] initWithNibName:@"FriendListViewController" bundle:nil];
+            friendList.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:friendList animated:YES];
+        } else {
+            [MBProgressHUDManager showTextWithTitle:@"请先登录" inView:self.view];
+        }
+    } else if (indexPath.section == 2) {
         if (indexPath.row == 0) {
             SportSetViewController *sportSet = [[SportSetViewController alloc] initWithNibName:@"SportSetViewController" bundle:nil];
             sportSet.hidesBottomBarWhenPushed = YES;

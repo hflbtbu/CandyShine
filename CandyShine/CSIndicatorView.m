@@ -47,7 +47,7 @@
         circleLine.strokeColor = [[UIColor orangeColor] CGColor];
         circleLine.fillColor = [[UIColor clearColor] CGColor];
         UIBezierPath *circlePath = [UIBezierPath bezierPath];
-        [circlePath addArcWithCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2) radius:MIN(self.frame.size.width/2,  self.frame.size.height/2) - 15 startAngle:0 endAngle:M_PI*2 clockwise:YES];
+        [circlePath addArcWithCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2) radius:MIN(self.frame.size.width/2,  self.frame.size.height/2) - 17 startAngle:0 endAngle:M_PI*2 clockwise:YES];
         circleLine.path = [circlePath CGPath];
         [self.layer addSublayer:circleLine];
         
@@ -77,7 +77,7 @@
     circleLine.strokeColor = [[UIColor orangeColor] CGColor];
     circleLine.fillColor = [[UIColor clearColor] CGColor];
     UIBezierPath *circlePath = [UIBezierPath bezierPath];
-    [circlePath addArcWithCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2) radius:MIN(self.frame.size.width/2,  self.frame.size.height/2) - 15 startAngle:0 endAngle:M_PI*2 clockwise:YES];
+    [circlePath addArcWithCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2) radius:MIN(self.frame.size.width/2,  self.frame.size.height/2) - 17 startAngle:0 endAngle:M_PI*2 clockwise:YES];
     circleLine.path = [circlePath CGPath];
     [self.layer addSublayer:circleLine];
 }
