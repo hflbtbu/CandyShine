@@ -47,6 +47,7 @@
     [_tablerViewManager addSection:section];
     
     _oldCodeItem = [RETextItem itemWithTitle:NSLocalizedString(@"原始密码:", @"") value:@"" placeholder:nil];
+    
     _oldCodeItem.keyboardType = UIKeyboardTypeASCIICapable;
     _oldCodeItem.secureTextEntry = YES;
     _newCodeItem = [RETextItem itemWithTitle:NSLocalizedString(@"新密码:", @"") value:@"" placeholder:nil];

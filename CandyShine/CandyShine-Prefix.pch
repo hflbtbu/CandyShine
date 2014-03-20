@@ -66,4 +66,6 @@
 #import "CandyShineAPIKit.h"
 #import "CSDataManager.h"
 
+#import "Ble4Util.h"
+
 #endif

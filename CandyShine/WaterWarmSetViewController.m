@@ -60,10 +60,8 @@
         _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     }
     
-    if (!IsIOS7) {
-        _tableView.backgroundColor = [UIColor colorWithRed:0.937255 green:0.937255 blue:0.956863 alpha:1.0];
-        _tableView.backgroundView = nil;
-    }
+    _tableView.backgroundColor = [UIColor convertHexColorToUIColor:0xf2f0ed];
+    _tableView.backgroundView = nil;
     
     _waterWarmManager = [WaterWarmManager shared];
     
@@ -119,6 +117,7 @@
                             }
                             cell.indexPath = indexPath;
                             cell.textLabel.text = @"喝水提醒";
+                            cell.textLabel.textColor = kContentNormalColor;
                             return cell;
                             break;
                         }
@@ -133,7 +132,9 @@
                                 cell.detailTextLabel.font = kContentFont3;
                             }
                             cell.textLabel.text = @"起床时间";
+                            cell.textLabel.textColor = kContentNormalColor;
                             cell.detailTextLabel.text = [self getTimeStringWith:_waterWarmManager.getupTime];
+                            cell.detailTextLabel.textColor = kContentNormalShallowColorA;
                             return cell;
                             break;
                         }
@@ -234,7 +235,7 @@
     if (section == 2 && _waterWarmManager.isCustome) {
         UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, self.view.width)];
         bgView.backgroundColor = [UIColor clearColor];
-        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(80, 8, 160, 44)];
+        UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 8, 304, 44)];
         [addFriendButton setTitle:@"添加时间" forState:UIControlStateNormal];
         [addFriendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         UIImage *bgImage = [[UIImage imageNamed:@"button_bg_drink"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];

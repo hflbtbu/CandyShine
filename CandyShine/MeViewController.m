@@ -14,6 +14,7 @@
 #import "PickerView.h"
 #import "WaterWarmSetViewController.h"
 #import "FriendListViewController.h"
+#import "WaterWarmManager.h"
 
 #import "CandyShineAPIKit.h"
 
@@ -21,6 +22,8 @@
 {
     IBOutlet UITableView *_tableView;
     CSDataManager *_dataManager;
+    WaterWarmManager *_waterWarmManager;
+    NSIndexPath *_selectedIndexPath;
 }
 @end
 
@@ -41,6 +44,7 @@
             [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabBarIcon_me_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabBarIcon_me"]];
             self.tabBarItem.title = @"我";
         }
+        self.navigationItem.title = @"我";
     }
     return self;
 }
@@ -53,11 +57,10 @@
         _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     }
     
-    if (!IsIOS7) {
-        _tableView.backgroundColor = [UIColor colorWithRed:0.937255 green:0.937255 blue:0.956863 alpha:1.0];
-        _tableView.backgroundView = nil;
-    }
-    _dataManager = [CSDataManager sharedInstace];
+    _tableView.backgroundColor = [UIColor convertHexColorToUIColor:0xf2f0ed];
+    _tableView.backgroundView = nil;    _dataManager = [CSDataManager sharedInstace];
+    
+    _waterWarmManager = [WaterWarmManager shared];
     
 }
 
@@ -75,7 +78,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
-        return 70;
+        return 82;
     }
     return 44;
 }
@@ -87,12 +90,6 @@
 //    return 0;
 //}
 
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if (section == 3) {
-        return 60;
-    }
-    return 0;
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellIdentifer = @"CellIdentifer";
@@ -104,7 +101,7 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:thumberCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            _thumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 5, 60, 60) image:nil];
+            _thumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 11, 60, 60) image:nil];
             [cell.contentView addSubview:_thumberImage];
         }
         _thumberImage.imageView.image = [UIImage imageNamed:@"IMG_0005.JPG"];
@@ -143,9 +140,11 @@
             } else if (indexPath.row == 1) {
                 cell.textLabel.text = @"睡眠时间";
                 cell.imageView.image = [UIImage imageNamed:@"me_sleeptime"];
+                cell.detailTextLabel.text = [self getTimeStringWith:_waterWarmManager.sleepTime];
             } else  if (indexPath.row == 2) {
                 cell.textLabel.text = @"喝水设置";
-                cell.imageView.image = [UIImage imageNamed:@"me_watertime"];
+                cell.detailTextLabel.text = _waterWarmManager.isOpenWarm ? @"已打开" : @"已关闭";
+                cell.imageView.image = [UIImage imageNamed:@"me_watertime"];;\
             }
         } else {
             cell.textLabel.text = @"意见反馈";
@@ -154,56 +153,14 @@
     }
     cell.textLabel.textColor = kContentNormalColor;
     cell.textLabel.font = kContentFont3;
-    cell.detailTextLabel.textColor = kContentNormalColor;
+    cell.detailTextLabel.textColor = kContentNormalShallowColorA;
     cell.detailTextLabel.font = kContentFont3;
     return cell;
 }
 
 
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if (section == 3) {
-        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, self.view.width)];
-        bgView.backgroundColor = [UIColor clearColor];
-        UIButton *logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(80, 8, 160, 44)];
-        [logoutButton setTitle: [CSDataManager sharedInstace].isLogin ? @"退出登陆" : @"登陆" forState:UIControlStateNormal];
-        [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        UIImage *bgImage = [[UIImage imageNamed:[CSDataManager sharedInstace].isLogin ? @"button_bg_logout" : @"button_bg_login"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 3, 0, 4)];
-        [logoutButton setBackgroundImage:bgImage forState:UIControlStateNormal];
-        [logoutButton addTarget:self action:@selector(logoutButtonClickerHander) forControlEvents:UIControlEventTouchUpInside];
-        [bgView addSubview:logoutButton];
-        return bgView;
-    }
-    return nil;
-}
-
-- (void)logoutButtonClickerHander {
-    if ([[CSDataManager sharedInstace] isLogin]) {
-        UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"退出后不会删除你的任何数据", @"")
-                                                        delegate:nil
-                                               cancelButtonTitle:NSLocalizedString(@"取消", @"")
-                                          destructiveButtonTitle:NSLocalizedString(@"退出登陆", @"")
-                                               otherButtonTitles:nil];
-        as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
-        as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
-            if (buttonIndex == 0) {
-                [CSDataManager sharedInstace].isLogin = NO;
-                [_tableView reloadData];
-                [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kLogoutFinishNotification object:nil]];
-            }
-        };
-        [as showInView:[UIApplication sharedApplication].keyWindow];
-
-    } else {
-        LogInViewController *logInVC = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
-        logInVC.hidesBottomBarWhenPushed = YES;
-        BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
-        [self presentViewController:logIn animated:YES completion:^{
-        
-                    }];
-    }
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _selectedIndexPath = indexPath;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (indexPath.section == 0) {
         MeSetViewController *meSet = [[MeSetViewController alloc] initWithNibName:@"MeSetViewController" bundle:nil];
@@ -248,7 +205,18 @@
 }
 
 - (void)pickerViewDidSelectedWithVlaue:(NSDictionary *)dic {
-    
+    NSInteger hour = [[dic objectForKey:@"kPickerHuor"] integerValue];
+    NSInteger minute = [[dic objectForKey:@"kPickerMinute"] integerValue];
+    NSInteger timeInterval = hour*3600 + minute*60;
+    _waterWarmManager.sleepTime = timeInterval;
+    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:_selectedIndexPath];
+    cell.detailTextLabel.text = [self getTimeStringWith:timeInterval];
+}
+
+- (NSString *)getTimeStringWith:(NSInteger)timeInterval {
+    NSInteger minute = timeInterval/60%60;
+    NSInteger hour = (timeInterval/60 - minute)/60;
+    return  [NSString stringWithFormat:@"%02d:%02d",hour,minute];
 }
 
 - (void)addNotification {

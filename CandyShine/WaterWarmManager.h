@@ -15,6 +15,7 @@
 #define kWarmTimeIsOn       @"WarmTimeIsOn"
 
 #define kGetupTime          @"GetupTime"
+#define kSleepTime          @"SleepTime"
 #define kIsCustome          @"IsCustome"
 #define kWarmInterval       @"WarmInterval"
 #define kWarmInterva       @"WarmInterva"
@@ -29,6 +30,7 @@
 @property (nonatomic, retain) NSMutableDictionary *warmTimeDic;
 
 @property (nonatomic, assign) NSInteger getupTime;
+@property (nonatomic, assign) NSInteger sleepTime;
 @property (nonatomic, assign) NSInteger timeInterval;
 @property (nonatomic, assign) NSInteger timeInterva;
 @property (nonatomic, assign) BOOL isCustome;

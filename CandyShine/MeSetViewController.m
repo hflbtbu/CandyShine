@@ -51,13 +51,9 @@
     if (IsIOS7) {
         _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     }
-    if (!IsIOS7) {
-        _tableView.backgroundColor = [UIColor colorWithRed:0.937255 green:0.937255 blue:0.956863 alpha:1.0];
-        _tableView.backgroundView = nil;
-    }
-    _dataManager = [CSDataManager sharedInstace];
+    _tableView.backgroundColor = [UIColor convertHexColorToUIColor:0xf2f0ed];
+    _tableView.backgroundView = nil;    _dataManager = [CSDataManager sharedInstace];
 }
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
@@ -74,9 +70,59 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row == 0) {
-        return 70;
+        return 82;
     }
     return 44;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == 1) {
+        return 60;
+    }
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    if (section == 1) {
+        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 60, self.view.width)];
+        bgView.backgroundColor = [UIColor clearColor];
+        UIButton *logoutButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 8, 304, 44)];
+        [logoutButton setTitle: [CSDataManager sharedInstace].isLogin ? @"退出登陆" : @"登陆" forState:UIControlStateNormal];
+        [logoutButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        UIImage *bgImage = [[UIImage imageNamed:[CSDataManager sharedInstace].isLogin ? @"button_bg_logout" : @"button_bg_login"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 3, 0, 4)];
+        [logoutButton setBackgroundImage:bgImage forState:UIControlStateNormal];
+        [logoutButton addTarget:self action:@selector(logoutButtonClickerHander) forControlEvents:UIControlEventTouchUpInside];
+        [bgView addSubview:logoutButton];
+        return bgView;
+    }
+    return nil;
+}
+
+- (void)logoutButtonClickerHander {
+    if ([[CSDataManager sharedInstace] isLogin]) {
+        UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"退出后不会删除你的任何数据", @"")
+                                                        delegate:nil
+                                               cancelButtonTitle:NSLocalizedString(@"取消", @"")
+                                          destructiveButtonTitle:NSLocalizedString(@"退出登陆", @"")
+                                               otherButtonTitles:nil];
+        as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+        as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+            if (buttonIndex == 0) {
+                [CSDataManager sharedInstace].isLogin = NO;
+                [_tableView reloadData];
+                [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:kLogoutFinishNotification object:nil]];
+            }
+        };
+        [as showInView:[UIApplication sharedApplication].keyWindow];
+        
+    } else {
+        LogInViewController *logInVC = [[LogInViewController alloc] initWithNibName:@"LogInViewController" bundle:nil];
+        logInVC.hidesBottomBarWhenPushed = YES;
+        BaseNavigationController *logIn = [[BaseNavigationController alloc] initWithRootViewController:logInVC];
+        [self presentViewController:logIn animated:YES completion:^{
+            
+        }];
+    }
 }
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -102,7 +148,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:thumberCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             NSInteger originX = IsIOS7 ? 226:212;
-            _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(originX, 5, 60, 60) image:@"IMG_0005.JPG"];
+            _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(originX, 11, 60, 60) image:@"IMG_0005.JPG"];
             if (_dataManager.isLogin && _dataManager.portrait.length != 0) {
                 [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:_dataManager.portrait]];
             }
@@ -148,7 +194,7 @@
     }
     cell.textLabel.textColor = kContentNormalColor;
     cell.textLabel.font = kContentFont3;
-    cell.detailTextLabel.textColor = kContentNormalColor;
+    cell.detailTextLabel.textColor = kContentNormalShallowColorA;
     cell.detailTextLabel.font = kContentFont3;
     return cell;
 }

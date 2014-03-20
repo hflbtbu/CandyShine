@@ -9,8 +9,8 @@
 #ifndef CandyShine_Config_h
 #define CandyShine_Config_h
 
-#define kContentNormalColor             [UIColor convertHexColorToUIColor:0x8c8377]
-#define kContentNormalShallowColorA     [UIColor convertHexColorToUIColor:0xccc8c2]
+#define kContentNormalColor             [UIColor convertHexColorToUIColor:0x4c4841]
+#define kContentNormalShallowColorA     [UIColor convertHexColorToUIColor:0xb2a798]
 #define kContentHighlightColor          [UIColor convertHexColorToUIColor:0xffaa33]
 
 #define kBaseURL                        @"http://112.124.23.71:12789"
@@ -30,10 +30,10 @@
 #define kContentFontSize3           12  //内容部分字号
 
 
-#define kTableViewRowHeith              60
+#define kTableViewRowHeith              66
 
-#define kCircleImageViewLineWidth       1.5
-#define kCircleImageViewLineCap         1.5
-#define kCircleImageViewWidth           50
+#define kCircleImageViewLineWidth       1
+#define kCircleImageViewLineCap         1
+#define kCircleImageViewWidth           43
 
 #endif

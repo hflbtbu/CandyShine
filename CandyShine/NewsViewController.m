@@ -39,6 +39,8 @@
             [self.tabBarItem setFinishedSelectedImage:[UIImage imageNamed:@"tabBarIcon_news_selected"] withFinishedUnselectedImage:[UIImage imageNamed:@"tabBarIcon_news"]];
             self.tabBarItem.title = @"资讯";
         }
+        
+        self.navigationItem.title = @"资讯";
     }
     return self;
 }

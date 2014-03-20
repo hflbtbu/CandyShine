@@ -58,9 +58,10 @@
     _tabBarController = [[UITabBarController alloc] init];
     _tabBarController.viewControllers = [NSArray arrayWithObjects:baseVC, sleepNVC , news,water ,me,nil];
     if (IsIOS7) {
-        _tabBarController.tabBar.barTintColor = [UIColor colorWithRed:82/255.0 green:62/255.0 blue:55/255.0 alpha:1.0];
+        _tabBarController.tabBar.barTintColor = [UIColor convertHexColorToUIColor:0x403633];
+        _tabBarController.tabBar.tintColor = kContentNormalColor;
     } else {
-        _tabBarController.tabBar.tintColor = [UIColor colorWithRed:82/255.0 green:62/255.0 blue:55/255.0 alpha:1.0];
+        _tabBarController.tabBar.tintColor =  [UIColor convertHexColorToUIColor:0x403633];
     }
     
     if (launchOptions != nil) {
@@ -96,9 +97,11 @@
 - (void)initAppearece {
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor orangeColor], UITextAttributeTextColor, nil] forState:UIControlStateSelected];
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:kContentFont3, UITextAttributeFont, kContentNormalColor, UITextAttributeTextColor, nil]];
-    if (!IsIOS7) {
-        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:20], UITextAttributeFont, [UIColor convertHexColorToUIColor:0x403c36], UITextAttributeTextColor, nil]];
+    if (IsIOS7) {
+        [[UINavigationBar appearance] setTintColor:[UIColor convertHexColorToUIColor:0xa69b8d]];
+    } else {
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@""] forBarMetrics:UIBarMetricsDefault];
     }
 }
 

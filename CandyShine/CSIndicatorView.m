@@ -125,7 +125,7 @@
 -(void)startAnimating
 {
     if (animateTimer==nil) {
-        animateTimer = [NSTimer scheduledTimerWithTimeInterval:0.5/(_numOfObjects/2.) target:self selector:@selector(next) userInfo:nil repeats:YES];
+        animateTimer = [NSTimer scheduledTimerWithTimeInterval:0.3/(_numOfObjects/2.) target:self selector:@selector(next) userInfo:nil repeats:YES];
     }
     self.hidden = NO;
 }
@@ -134,7 +134,7 @@
 {
     [animateTimer invalidate];
     animateTimer = nil;
-    self.hidden = YES;
+    //self.hidden = YES;
 }
 
 -(void)next

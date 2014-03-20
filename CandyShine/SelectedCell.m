@@ -21,7 +21,7 @@
 - (void)setIsSelected:(BOOL)isSelected {
     _isSelected = isSelected;
     if (_isSelected) {
-        self.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"TabMeSelected"]];
+        self.accessoryView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"warmtime_selected"]];
         self.textLabel.textColor = kContentHighlightColor;
     } else {
         self.accessoryView = nil;

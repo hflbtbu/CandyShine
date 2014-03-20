@@ -231,7 +231,8 @@
         cell.detailTextLabel.text = ((RETableViewItem *)item).detailLabelText;
     
     //add by huangfulei
-    cell.textLabel.textColor = [UIColor colorWithRed:140/255.0 green:131/255.0 blue:119/255.0 alpha:1.0];
+    cell.textLabel.textColor = [UIColor colorWithRed:86/255.0 green:72/255.0 blue:65/255.0 alpha:1.0];
+    cell.textLabel.font = [UIFont systemFontOfSize:16];
     
     [cell cellWillAppear];
     

@@ -74,8 +74,8 @@
     _runNumberLB.frame = CGRectMake(0, _gogalLB.y  - size.height, self.width, size.height);
     [self addSubview:_runNumberLB];
     
-    _lineView = [[UIView alloc] initWithFrame:CGRectMake((self.width - 160)/2, (self.height - 1)/2, 160, 1)];
-    _lineView.backgroundColor = [UIColor convertHexColorToUIColor:0xe5e1da];
+    _lineView = [[UIView alloc] initWithFrame:CGRectMake((self.width - 160)/2, (self.height - 1)/2, 160, 0.5)];
+    _lineView.backgroundColor = [UIColor convertHexColorToUIColor:0xe5e4e1];
     [self addSubview:_lineView];
     
     _calorieLB = [[DetailTextView alloc] init];
@@ -90,7 +90,7 @@
     _freshLB.textAlignment = NSTextAlignmentCenter;
     _freshLB.backgroundColor = [UIColor clearColor];
     _freshLB.text = @"点击更新数据";
-    _freshLB.font = [UIFont systemFontOfSize:15];
+    _freshLB.font = [UIFont systemFontOfSize:12];
     _freshLB.textColor = [UIColor convertHexColorToUIColor:0xccc8c2];
     size = [_freshLB.text sizeWithFont:_freshLB.font];
     _freshLB.frame = CGRectMake(0, _calorieLB.y + _calorieLB.height + 20, self.width, size.height);
@@ -167,7 +167,7 @@
     CGContextAddArc(ctx, self.frame.size.width/2, self.frame.size.height/2, self.frame.size.width/2 - CircleWidth/2, 0, M_PI *2, 0);
     
     //Set the stroke color to black
-    [[UIColor convertHexColorToUIColor:0xe5e1da]setStroke];
+    [[UIColor convertHexColorToUIColor:0xf2f0ed]setStroke];
     
     //Define line width and cap
     CGContextSetLineWidth(ctx, CircleWidth);

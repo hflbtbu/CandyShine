@@ -310,7 +310,7 @@
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentiferAddFriend];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake((cell.width - 120)/2, (kTableViewRowHeith - 44)/2, 120, 44)];
+                UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake((cell.width - 304)/2, (kTableViewRowHeith - 44)/2, 304, 44)];
                 UIImage *image = [[UIImage imageNamed:@"button_bg_login"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];
                 [addFriendButton setBackgroundImage:image forState:UIControlStateNormal];
                 [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
@@ -368,8 +368,9 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _currentPage = 3 - scrollView.contentOffset.y/self.view.width - 1;
-    [_titleButton setTitle:[DateHelper getDayStringWith:_currentPage] forState:UIControlStateNormal];
+    //[_titleButton setTitle:[DateHelper getDayStringWith:_currentPage] forState:UIControlStateNormal];
     //[_titleButton setEdgeCenterWithSpace:0];
+    self.navigationItem.title = [DateHelper getDayStringWith:_currentPage];
     if (_moveType == PageMoveUp) {
         [self requestFriendData];
     }
@@ -403,7 +404,8 @@
     [_titleButton setTitleColor:[UIColor convertHexColorToUIColor:0x8c8377] forState:UIControlStateNormal];
 //    [_titleButton setEdgeCenterWithSpace:0];
     //[_titleButton addTarget:self action:@selector(showMenuView) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView = _titleButton;
+    //self.navigationItem.titleView = _titleButton;
+    self.navigationItem.title = [DateHelper getDayStringWith:0];
 }
 
 - (void)showMenuView {

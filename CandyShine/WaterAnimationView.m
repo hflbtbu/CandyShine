@@ -31,6 +31,8 @@
         // Initialization code
         _timeLB = [[UILabel alloc] initWithFrame:CGRectMake(0, self.height - 20, self.width, 20)];
         _timeLB.textAlignment = NSTextAlignmentCenter;
+        _timeLB.font =  [UIFont systemFontOfSize:15];
+        _timeLB.textColor = kContentNormalColor;
         [self addSubview:_timeLB];
         
         _animationImage = [[OLImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height - 20)];

@@ -29,11 +29,13 @@
                 _isCustome = NO;
                 _isOpenWarm = YES;
                 _getupTime = 9*60*60;
-                _timeInterval = 4*60*60;
+                _sleepTime = 22*60*60;
+                _timeInterval = 2*60*60;
                 _timeInterva = _timeInterval;
                 [_warmTimeDic setObject:[NSNumber numberWithBool:_isCustome] forKey:kIsCustome];
                 [_warmTimeDic setObject:[NSNumber numberWithBool:_isOpenWarm] forKey:kIsOpenWarm];
                 [_warmTimeDic setObject:[NSNumber numberWithInteger:_getupTime] forKey:kGetupTime];
+                [_warmTimeDic setObject:[NSNumber numberWithInteger:_sleepTime] forKey:kSleepTime];
                 [_warmTimeDic setObject:[NSNumber numberWithInteger:_timeInterval] forKey:kWarmInterval];
                 [_warmTimeDic setObject:[NSNumber numberWithInteger:_timeInterva] forKey:kWarmInterva];
                 
@@ -59,6 +61,7 @@
                 _timeInterval = [[_warmTimeDic objectForKey:kWarmInterval] integerValue];
                 _timeInterva = [[_warmTimeDic objectForKey:kWarmInterva] integerValue];
                 _getupTime = [[_warmTimeDic objectForKey:kGetupTime] integerValue];
+                _sleepTime = [[_warmTimeDic objectForKey:kSleepTime] integerValue];
                 
                 _warmTimeStateArray = [_warmTimeDic objectForKey:[DateHelper getDayStringWith:0]];
                 if (_warmTimeStateArray == nil) {
@@ -155,6 +158,7 @@
     [_warmTimeDic setValue:[NSNumber numberWithInteger:_timeInterval] forKey:kWarmInterval];
     [_warmTimeDic setValue:[NSNumber numberWithInteger:_timeInterva] forKey:kWarmInterva];
     [_warmTimeDic setValue:[NSNumber numberWithInteger:_getupTime] forKey:kGetupTime];
+    [_warmTimeDic setValue:[NSNumber numberWithInteger:_sleepTime] forKey:kSleepTime];
     [_warmTimeDic setValue:_warmTimeArray forKey:kWaterWarmTime];
     [_warmTimeDic setValue:_customeWarmTimeArray forKey:kCustomeWaterWarmTime];
     [_warmTimeDic setValue:_warmTimeStateArray forKey:[DateHelper getDayStringWith:0]];
@@ -174,7 +178,6 @@
         return NSOrderedSame;
     }]];
 }
-
 
 - (void)addWarmTimeWith:(NSInteger)timeInterval {
     NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInteger:timeInterval],kWarmTimeValue,[NSNumber numberWithBool:YES],kWarmTimeIsOn, nil];

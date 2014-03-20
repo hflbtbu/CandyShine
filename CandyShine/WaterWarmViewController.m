@@ -44,6 +44,7 @@
     // Do any additional setup after loading the view from its nib.
     _waterWarmManager = [WaterWarmManager shared];
     //[self initNavigationItem];
+    self.view.backgroundColor = [UIColor convertHexColorToUIColor:0xf2f0ed];
 }
 
 - (void)refresh {
@@ -56,11 +57,14 @@
         NSArray *times = [_waterWarmManager getWarmTimes];
         NSArray *states = [_waterWarmManager warmTimeStateArray];
         int number = MIN(times.count, states.count);
+        
+        self.navigationItem.title = [NSString stringWithFormat:@"%d杯水",number];
+        
         int count = 0;
         for (int i = 0; i <number/3 + 1; i++) {
             for (int j = 0; j < 3; j++) {
                 if (count < number) {
-                    WaterAnimationView *animation = [[WaterAnimationView alloc] initWithFrame:CGRectMake(20 + j*100, 10 + i*118, 88, 108)];
+                    WaterAnimationView *animation = [[WaterAnimationView alloc] initWithFrame:CGRectMake(16 + j*100, 15 + i*118, 88, 108)];
                     animation.tag = count + kAnimationViewTag;
                     [animation setWarmTime:[[times objectAtIndex:count] integerValue] WarmState:[[states objectAtIndex:count] integerValue]];
                     [self.view addSubview:animation];
