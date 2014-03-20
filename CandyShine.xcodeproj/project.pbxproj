@@ -126,6 +126,7 @@
 		31BBE16A18DA9534000EC4AE /* Ble4Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BBE16918DA9534000EC4AE /* Ble4Util.m */; };
 		31BBE16C18DAB8A8000EC4AE /* warm3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 31BBE16B18DAB8A8000EC4AE /* warm3.gif */; };
 		31BBE17218DABCFF000EC4AE /* state1.png in Resources */ = {isa = PBXBuildFile; fileRef = 31BBE17118DABCFF000EC4AE /* state1.png */; };
+		31BBE17A18DAED70000EC4AE /* WeekTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BBE17918DAED70000EC4AE /* WeekTableViewCell.m */; };
 		31BE34D418C0627100FC2DA3 /* FBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BE34D118C0627100FC2DA3 /* FBEncryptorAES.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		31BE34D518C0627100FC2DA3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BE34D318C0627100FC2DA3 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		31BF6ED918C824FF00D100B8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31BF6ED818C824FF00D100B8 /* CoreData.framework */; };
@@ -366,6 +367,8 @@
 		31BBE16918DA9534000EC4AE /* Ble4Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ble4Util.m; sourceTree = "<group>"; };
 		31BBE16B18DAB8A8000EC4AE /* warm3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = warm3.gif; sourceTree = "<group>"; };
 		31BBE17118DABCFF000EC4AE /* state1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = state1.png; sourceTree = "<group>"; };
+		31BBE17818DAED70000EC4AE /* WeekTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekTableViewCell.h; sourceTree = "<group>"; };
+		31BBE17918DAED70000EC4AE /* WeekTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekTableViewCell.m; sourceTree = "<group>"; };
 		31BE34D018C0627100FC2DA3 /* FBEncryptorAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBEncryptorAES.h; sourceTree = "<group>"; };
 		31BE34D118C0627100FC2DA3 /* FBEncryptorAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBEncryptorAES.m; sourceTree = "<group>"; };
 		31BE34D218C0627100FC2DA3 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
@@ -586,6 +589,8 @@
 				31146225188FEBA200702F29 /* CirclePathView.m */,
 				3166DD9B1891784C00AB468F /* MoveCircleView.h */,
 				3166DD9C1891784C00AB468F /* MoveCircleView.m */,
+				31BBE17818DAED70000EC4AE /* WeekTableViewCell.h */,
+				31BBE17918DAED70000EC4AE /* WeekTableViewCell.m */,
 				31146227189001AE00702F29 /* CircleTableViewCell.h */,
 				31146228189001AE00702F29 /* CircleTableViewCell.m */,
 				3114622A189006AC00702F29 /* PathTableViewCell.h */,
@@ -1229,6 +1234,7 @@
 				31F642DE18B1017200D8A6EF /* MeSetViewController.m in Sources */,
 				31FCA243188D0A68005494AE /* UIXib.m in Sources */,
 				31B48BAB18B30B3200980F69 /* ModifyCodeViewController.m in Sources */,
+				31BBE17A18DAED70000EC4AE /* WeekTableViewCell.m in Sources */,
 				31B48C0018B346EB00980F69 /* NewsCell.m in Sources */,
 				316C8C12188E624E00D31252 /* DragView.m in Sources */,
 				3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */,

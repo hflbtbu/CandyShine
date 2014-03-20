@@ -161,6 +161,10 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:sexCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             UIView *view = [[[NSBundle mainBundle] loadNibNamed:@"SexView" owner:self options:nil] objectAtIndex:0];
+            UISwitch *sex = (UISwitch *)[view viewWithTag:100];
+            BOOL isMale = [[NSUserDefaults standardUserDefaults] boolForKey:kUserIsMale];
+            sex.on = isMale ? NO : YES;
+            [sex addTarget:self action:@selector(sexSwitchHandler:) forControlEvents:UIControlEventValueChanged];
             NSInteger originX = IsIOS7 ? cell.contentView.width - view.width :  cell.contentView.width - view.width - 9;
             view.x = originX;
             [cell.contentView addSubview:view];
@@ -182,10 +186,12 @@
         } else {
             if (indexPath.row == 1) {
                 cell.textLabel.text = @"身高";
-                cell.detailTextLabel.text = @"170m";
+                CGFloat heitht = [[NSUserDefaults standardUserDefaults] floatForKey:kUserHeight];
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2fm",heitht];
             } else if (indexPath.row == 2) {
                 cell.textLabel.text = @"体重";
-                cell.detailTextLabel.text = @"58kg";
+                NSInteger weitht = [[NSUserDefaults standardUserDefaults] integerForKey:kUserWeight];
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%dkg",weitht];
             } else {
                 cell.textLabel.text = @"出生日期";
                 cell.detailTextLabel.text = @"1990年8月";
@@ -281,11 +287,17 @@
 
 }
 
+- (void)sexSwitchHandler:(UISwitch *)sender {
+    BOOL isMale = sender.isOn ? NO : YES;
+    [[NSUserDefaults standardUserDefaults] setBool:isMale forKey:kUserIsMale];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void)pickerViewDidSelectedWithVlaue:(NSDictionary *)dic {
     NSLog(@"%@",_selectedCell.detailTextLabel.text);
     NSString *str;
     if (_pickerType == PickerViewHeight) {
-        str = [NSString stringWithFormat:@"%.1fm",[[dic objectForKey:kPickerHeight] floatValue]];
+        str = [NSString stringWithFormat:@"%.2fm",[[dic objectForKey:kPickerHeight] floatValue]];
     } else if (_pickerType == PickerViewWeight) {
         str = [NSString stringWithFormat:@"%.1fkg",[[dic objectForKey:kPickerWeight] floatValue]];
     } else {

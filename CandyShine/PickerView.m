@@ -80,7 +80,7 @@
     if (_pickerViewType == PickerViewWeight) {
         [dic setObject:[NSNumber numberWithFloat:_weightInt*1.0 + _weightFloat*0.1] forKey:kPickerWeight];
     } else if (_pickerViewType == PickerViewHeight) {
-        [dic setObject:[NSNumber numberWithFloat:_heightInt + _heightFloat*0.1] forKey:kPickerHeight];
+        [dic setObject:[NSNumber numberWithFloat:_heightInt + _heightFloat*0.01] forKey:kPickerHeight];
     } else {
         unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
         NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:[_datePicker date]];
@@ -119,7 +119,7 @@
         if (component == 0) {
             return 3;
         } else if (component == 1) {
-            return 10;
+            return 100;
         }
         return 1;
     } else if (_pickerViewType == PickerViewWeight) {

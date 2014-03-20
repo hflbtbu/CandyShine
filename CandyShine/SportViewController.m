@@ -17,6 +17,7 @@
 #import "AddFriendViewController.h"
 #import "Sport.h"
 #import "CSFreiend.h"
+#import "WeekTableViewCell.h"
 
 #define GapCircleAndPath 300
 
@@ -53,6 +54,8 @@
     NSArray *_friendArray;
     NSArray *_sportItemsArray;
     NSMutableDictionary *_friendDataDic;
+    
+    UIImageView *shouMenuImage;
 }
 
 @end
@@ -259,28 +262,49 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *circleCellIdentifer = @"CircleCellIdentifer";
+    static NSString *circleCellIdentiferDay = @"CircleCellIdentiferDay";
+    static NSString *circleCellIdentiferWeek = @"CircleCellIdentiferWeek";
     static NSString *pathCellIdentifer = @"PathCellIdentifer";
     static NSString *friendCellIdentifer = @"FriendCellIdentifer";
     static NSString *friendCellIdentiferAddFriend = @"FriendCellIdentiferAddFriend";
     if (tableView == _circleTableView) {
-        CircleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:circleCellIdentifer];
-        if (cell == nil) {
-            cell = [[CircleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:circleCellIdentifer];
-        }
-        CellPosition cellPosition;
-        if (indexPath.row == 2) {
-            cellPosition = CellPositionTop;
-        } else if (indexPath.row == 1) {
-            cellPosition = CellPositionMiddle;
+        if (_currentPattern == DataPatternDay) {
+            CircleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:circleCellIdentiferDay];
+            if (cell == nil) {
+                cell = [[CircleTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:circleCellIdentiferDay];
+            }
+            CellPosition cellPosition;
+            if (indexPath.row == 2) {
+                cellPosition = CellPositionTop;
+            } else if (indexPath.row == 1) {
+                cellPosition = CellPositionMiddle;
+            } else {
+                cellPosition = CellPositionBottom;
+            }
+            cell.currentPage = cellPosition;
+            cell.runNumbers = [self calculateTotalValueByDay:indexPath];
+            [cell refresh];
+            
+            return cell;
         } else {
-            cellPosition = CellPositionBottom;
+            WeekTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:circleCellIdentiferWeek];
+            if (cell == nil) {
+                cell = [[WeekTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:circleCellIdentiferWeek];
+            }
+//            CellPosition cellPosition;
+//            if (indexPath.row == 2) {
+//                cellPosition = CellPositionTop;
+//            } else if (indexPath.row == 1) {
+//                cellPosition = CellPositionMiddle;
+//            } else {
+//                cellPosition = CellPositionBottom;
+//            }
+//            cell.currentPage = cellPosition;
+//            cell.runNumbers = [self calculateTotalValueByDay:indexPath];
+//            [cell refresh];
+            
+            return cell;
         }
-        cell.currentPage = cellPosition;
-        cell.runNumbers = [self calculateTotalValueByDay:indexPath];
-        [cell refresh];
-        
-        return cell;
     } else if (tableView == _pathTableView) {
         PathTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:pathCellIdentifer];
         if (cell == nil) {
@@ -368,12 +392,17 @@
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     _currentPage = 3 - scrollView.contentOffset.y/self.view.width - 1;
-    //[_titleButton setTitle:[DateHelper getDayStringWith:_currentPage] forState:UIControlStateNormal];
-    //[_titleButton setEdgeCenterWithSpace:0];
-    self.navigationItem.title = [DateHelper getDayStringWith:_currentPage];
+    NSString *str = _currentPattern ==DataPatternWeek ? [DateHelper getWeekStringWith:_currentPage] : [DateHelper getDayStringWith:_currentPage];
+    [_titleButton setTitle:str forState:UIControlStateNormal];
+    [_titleButton setEdgeCenterWithSpace:0];
     if (_moveType == PageMoveUp) {
         [self requestFriendData];
     }
+}
+
+
+- (void)moveMenuImage:(NSInteger)length {
+    
 }
 
 - (NSInteger)calculateTotalValueByDay:(NSIndexPath *)indexPath {
@@ -393,19 +422,16 @@
 }
 
 - (void)initNavigationItem {
-    //[self.navigationItem setCustomeLeftBarButtonItem:@"TabMeSelected" target:self action:@selector(go)];
-    
-    _titleButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 300, 44)];
-    //_titleButton.backgroundColor = [UIColor grayColor];
+    _titleButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 280, 44)];
     [_titleButton setTitle:[DateHelper getDayStringWith:0] forState:UIControlStateNormal];
-//    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateNormal];
-//    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateSelected];
-//    [_titleButton setImage:[UIImage imageNamed:@"TabMeSelected"] forState:UIControlStateHighlighted];
-    [_titleButton setTitleColor:[UIColor convertHexColorToUIColor:0x8c8377] forState:UIControlStateNormal];
-//    [_titleButton setEdgeCenterWithSpace:0];
-    //[_titleButton addTarget:self action:@selector(showMenuView) forControlEvents:UIControlEventTouchUpInside];
-    //self.navigationItem.titleView = _titleButton;
-    self.navigationItem.title = [DateHelper getDayStringWith:0];
+    [_titleButton setImage:[UIImage imageNamed:@"intro_arrow_down"] forState:UIControlStateNormal];
+    [_titleButton setImage:[UIImage imageNamed:@"intro_arrow_down"] forState:UIControlStateSelected];
+    [_titleButton setImage:[UIImage imageNamed:@"intro_arrow_down"] forState:UIControlStateHighlighted];
+    _titleButton.titleLabel.font = [UIFont systemFontOfSize:20];
+    [_titleButton setTitleColor:[UIColor convertHexColorToUIColor:0x403c36] forState:UIControlStateNormal];
+    [_titleButton setEdgeCenterWithSpace:0];
+    [_titleButton addTarget:self action:@selector(showMenuView) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = _titleButton;
 }
 
 - (void)showMenuView {
@@ -414,6 +440,14 @@
 
 - (void)menuViewDidSelectedDataPattern:(DataPattern)dataPattern {
     _menuView.hidden = YES;
+    _currentPattern = dataPattern;
+    NSString *str = _currentPattern ==DataPatternWeek ? [DateHelper getWeekStringWith:_currentPage] : [DateHelper getDayStringWith:_currentPage];
+    [_titleButton setTitle:str forState:UIControlStateNormal];
+    [_titleButton setEdgeCenterWithSpace:0];
+    
+    _pathTableView.hidden = dataPattern == DataPatternWeek ? YES : NO;
+    
+   [_circleTableView reloadData];
 }
 
 - (void)receiveTapGestureRecognizer:(UIPanGestureRecognizer *)recognizer {

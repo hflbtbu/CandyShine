@@ -30,6 +30,7 @@
 #define kLogoutFinishNotification       @"LogoutFinishNotification"
 
 
+#define kUserIsMale         @"UserSex"
 #define kUserHeight         @"UserHeight"
 #define kUserWeight         @"UserWeight"
 #define kUserGogal          @"UserGogal"

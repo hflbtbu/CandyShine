@@ -54,7 +54,7 @@
 
 - (void)receiveTapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
         CGPoint touchPoint = [recognizer locationInView:self];
-    if (touchPoint.y > MenuViewArrowHeight && touchPoint.y < MenuViewArrowHeight + self.height) {
+    if (touchPoint.y > MenuViewArrowHeight && touchPoint.y < MenuViewArrowHeight + (self.height - MenuViewArrowHeight)/2) {
         _movedImage.center = _movedImage.center = CGPointMake(self.width - MenuViewMoveImageGap, MenuViewArrowHeight + (self.height - MenuViewArrowHeight)/4);
         [_delegate menuViewDidSelectedDataPattern:DataPatternDay];
     } else {

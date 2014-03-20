@@ -27,6 +27,8 @@
     
     IBOutlet UIButton *_nextButton;
     IBOutlet UIButton *_preButton;
+    
+    BOOL _isMale;
 }
 
 @property (nonatomic, assign) NSInteger currentPage;
@@ -173,16 +175,19 @@
 }
 
 - (void)sexButtonClickedHander:(UIButton *)sender {
-    self.currentPage++;
     if (sender.tag == IntorfemaleViewTag + IntorViewTag) {
-        NSLog(@"sdfs");
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kUserIsMale];
+        _isMale = NO;
     } else {
-        
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kUserIsMale];
+        _isMale = YES;
     }
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.currentPage++;
 }
 
 - (void)addHeightView {
-    UIImage *image = [UIImage imageNamed:@"intro_male"];
+    UIImage *image = [UIImage imageNamed:_isMale ? @"intro_male" : @"intro_female"];
     UIImageView *peopleImagView = [[UIImageView alloc] initWithFrame:CGRectMake(50, 31 + self.offsetY, image.size.width, image.size.height)];
     peopleImagView.image = image;
     peopleImagView.alpha = 0.0;
@@ -230,7 +235,7 @@
 }
 
 - (void)addWeightView {
-    UIImage *image = [UIImage imageNamed:@"intro_male_small"];
+    UIImage *image = [UIImage imageNamed:_isMale ? @"intro_male_small" : @"intro_female_small"];
     UIImageView *peopleImagView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.width - image.size.width)/2, 3 + self.offsetY, image.size.width, image.size.height)];
     peopleImagView.image = image;
     peopleImagView.alpha = 0.0;
