@@ -35,4 +35,6 @@
 #define kUserWeight         @"UserWeight"
 #define kUserGogal          @"UserGogal"
 
+#define kUserDeviceID       @"UserDeviceID"
+
 #endif

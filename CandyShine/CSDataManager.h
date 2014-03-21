@@ -15,8 +15,11 @@
 #import <Foundation/Foundation.h>
 #import "Sport.h"
 #import "News.h"
+#import "Ble4Util.h"
 
-@interface CSDataManager : NSObject
+typedef void(^ConnectStateBlock)(CSConnectState);
+
+@interface CSDataManager : NSObject <Ble4UtilDelegate,Ble4PeripheralDelegate>
 
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, retain) NSString *userName;
@@ -25,6 +28,8 @@
 @property (nonatomic, assign) CSLoginType loginType;
 @property (nonatomic, assign) NSInteger totalDays;
 @property (nonatomic, assign) BOOL isReachable;
+
+@property (nonatomic, retain) Ble4Util *ble4Util;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -48,5 +53,7 @@
 - (void)savePortrait:(NSData *)data;
 
 - (NSData *)readPortrait;
+
+- (void)scanDeviceWithBlock:(void (^) (CSConnectState))state;
 
 @end

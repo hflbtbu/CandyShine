@@ -58,4 +58,9 @@ typedef NS_ENUM(NSInteger, CSResponceCode) {
     CSResponceCodeSuccess = 1,
 };
 
+typedef NS_ENUM(NSInteger, CSConnectState) {
+    CSConnectUnfound = 0,
+    CSConnectfound = 1,
+};
+
 #endif

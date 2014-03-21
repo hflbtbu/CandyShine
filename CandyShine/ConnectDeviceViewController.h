@@ -7,7 +7,19 @@
 //
 
 #import "BaseViewController.h"
+@class CSIndicatorView;
+
+@protocol ConnectDeviceViewControllerDelegate <NSObject>
+
+- (void) connectDeviceViewWithState:(CSConnectState)state;
+
+@end
 
 @interface ConnectDeviceViewController : BaseViewController
+
+@property (nonatomic, assign) id<ConnectDeviceViewControllerDelegate> delegate;
+@property (nonatomic, retain) IBOutlet CSIndicatorView *indicatorView;
+
+-(void)scanningWithTimeout:(NSInteger)timeout;
 
 @end

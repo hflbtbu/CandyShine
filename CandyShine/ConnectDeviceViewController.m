@@ -14,9 +14,10 @@
     IBOutlet UILabel *_connectStateLB;
     IBOutlet UILabel *_connectTipLB;
     IBOutlet UILabel *_connectIndicatorLB;
-    IBOutlet CSIndicatorView *_indicatorView;
     
     Ble4Util *_ble4Util;
+    NSTimer *_timer;
+    BOOL _isScaningDevice;
 }
 @end
 
@@ -38,51 +39,46 @@
     _connectStateLB.text = @"连接设备";
     _connectTipLB.text = @"连接前请打开蓝牙哦";
     _connectIndicatorLB.text = @"将卡米放置此处";
-    [_indicatorView startAnimating];
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognizerHander)];
     [_indicatorView addGestureRecognizer:tapGestureRecognizer];
-    
-    //_ble4Util = [Ble4Util shareBleUtilWithTarget:self];
-    
-    //[self scanningWithTimeout:20];
+
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear: animated];
+    [self scanningDevice];
+}
+
 
 - (void)tapGestureRecognizerHander {
-    [_indicatorView stopAnimating];
+    if (!_isScaningDevice) {
+        [self scanningDevice];
+    }
 }
 
--(void)scanningWithTimeout:(NSInteger)timeout
+
+-(void)scanningDevice
 {
-    if([self startConnectionHead])
-    {
-        [_ble4Util stopScanBle];
-        
-        [_ble4Util startScanBle];
-    }
+    _isScaningDevice = YES;
+    _connectIndicatorLB.text = @"将卡米放置此处";
+    [_indicatorView startAnimating];
+    [[CSDataManager sharedInstace] scanDeviceWithBlock:^(CSConnectState state) {
+        _isScaningDevice = NO;
+        [_indicatorView stopAnimating];
+        if (state == CSConnectfound) {
+            _connectIndicatorLB.text = @"连接成功";
+            if ([_delegate respondsToSelector:@selector(connectDeviceViewWithState:)]) {
+                [_delegate connectDeviceViewWithState:CSConnectfound];
+            }
+        } else {
+            _connectIndicatorLB.text = @"点击重新连接";
+            if ([_delegate respondsToSelector:@selector(connectDeviceViewWithState:)]) {
+                [_delegate connectDeviceViewWithState:CSConnectUnfound];
+            }
+        }
+    }];
 }
 
-/** 判断手机蓝牙状态 */
--(BOOL)startConnectionHead
-{
-    NSArray *stateArray = [NSArray arrayWithObjects:@"未发现蓝牙4.0设备"
-                           ,@"请重设蓝牙设备"
-                           ,@"硬件不支持蓝牙4.0"
-                           ,@"app未被授权使用BLE4.0"
-                           ,@"请在设置中开启蓝牙功能", nil];
-    
-    if ([_ble4Util cbCentralManagerState] == CBCentralManagerStatePoweredOn)
-    {
-        return YES;
-    }
-    else
-    {
-        return NO;
-    }
-}
-
-- (void)ble4Util:(id)ble4Util didDiscoverPeripheralWithUUID:(NSString *)uuid {
-    
-}
 
 - (void)didReceiveMemoryWarning
 {

@@ -15,7 +15,7 @@
 #import "SportSetViewController.h"
 #import "ConnectDeviceViewController.h"
 
-@interface IntroduceViewController () <UIScrollViewDelegate>
+@interface IntroduceViewController () <UIScrollViewDelegate,ConnectDeviceViewControllerDelegate>
 {
     SportSetViewController *_goalVC;
     ConnectDeviceViewController *_connectVC;
@@ -52,6 +52,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.currentPage = 0;
+    
+    
+    [Ble4Util shareBleUtilWithTarget:nil];
 }
 
 - (CGFloat)offsetY {
@@ -93,7 +96,7 @@
             [self addGoalView];
             break;
         case 4:
-            [_nextButton setTitle:@"完成" forState:UIControlStateNormal];
+            [_nextButton setTitle:@"跳过" forState:UIControlStateNormal];
             [self addConnectDeviceView];
             break;
         default:
@@ -293,6 +296,7 @@
 
 - (void)addConnectDeviceView {
     _connectVC = [[ConnectDeviceViewController alloc] initWithNibName:@"ConnectDeviceViewController" bundle:nil];
+    _connectVC.delegate = self;
     _connectVC.view.frame = CGRectMake(0, 0, self.view.width, self.view.height - 49);
     _connectVC.view.tag = IntorViewTag;
     _connectVC.view.alpha = 0.0;
@@ -333,6 +337,14 @@
             [[NSUserDefaults standardUserDefaults] setFloat:height forKey:kUserHeight];
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+}
+
+- (void)connectDeviceViewWithState:(CSConnectState)state {
+    if (state == CSConnectfound) {
+        [_nextButton setTitle:@"完成" forState:UIControlStateNormal];
+    } else {
+        [_nextButton setTitle:@"跳过" forState:UIControlStateNormal];
     }
 }
 

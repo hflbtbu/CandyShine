@@ -9,7 +9,14 @@
 
 #import "CSDataManager.h"
 
-@implementation CSDataManager
+@interface CSDataManager ()
+{
+    NSTimer *_timer;
+    ConnectStateBlock _connectStateBlock;
+}
+@end
+
+@implementation CSDataManager 
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -27,6 +34,8 @@
 - (id)init {
     self = [super init];
     if (self) {
+        
+        _ble4Util = [Ble4Util shareBleUtilWithTarget:self];
         _isLogin = [[NSUserDefaults standardUserDefaults] boolForKey:kUserIsLogin];
         if (_isLogin) {
             _userName = [[NSUserDefaults standardUserDefaults] stringForKey:kUserName];
@@ -211,5 +220,55 @@
     }
     return [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@",directory,fileName]];
 }
+
+
+- (void)scanDeviceWithBlock:(void (^) (CSConnectState))state {
+    if([self startConnectionHead])
+    {
+        _connectStateBlock = state;
+        _timer =  [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(scanDeviceTimeoutHandler:) userInfo:nil repeats:NO];
+        
+        [_ble4Util stopScanBle];
+        
+        [_ble4Util startScanBle];
+    }
+}
+
+- (void)scanDeviceTimeoutHandler:(NSTimer *)timer {
+    [_timer invalidate];
+    _timer = nil;
+    [_ble4Util stopScanBle];
+    _connectStateBlock(CSConnectUnfound);
+}
+
+-(BOOL)startConnectionHead
+{
+    NSArray *stateArray = [NSArray arrayWithObjects:@"未发现蓝牙4.0设备"
+                           ,@"请重设蓝牙设备"
+                           ,@"硬件不支持蓝牙4.0"
+                           ,@"app未被授权使用BLE4.0"
+                           ,@"请在设置中开启蓝牙功能", nil];
+    
+    if ([_ble4Util cbCentralManagerState] == CBCentralManagerStatePoweredOn)
+    {
+        return YES;
+    }
+    else
+    {
+        UIAlertView *bleAlert = [[UIAlertView alloc] initWithTitle:nil message:stateArray[[_ble4Util cbCentralManagerState]] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [bleAlert show];
+        return NO;
+    }
+}
+
+- (void)ble4Util:(id)ble4Util didDiscoverPeripheralWithUUID:(NSString *)uuid {
+    [_timer invalidate];
+    _timer = nil;
+    [_ble4Util stopScanBle];
+    [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:kUserDeviceID];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    _connectStateBlock(CSConnectfound);
+}
+
 
 @end
