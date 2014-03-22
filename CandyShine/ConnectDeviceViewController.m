@@ -9,13 +9,12 @@
 #import "ConnectDeviceViewController.h"
 #import "CSIndicatorView.h"
 
-@interface ConnectDeviceViewController () <Ble4UtilDelegate,Ble4PeripheralDelegate>
+@interface ConnectDeviceViewController ()
 {
     IBOutlet UILabel *_connectStateLB;
     IBOutlet UILabel *_connectTipLB;
     IBOutlet UILabel *_connectIndicatorLB;
     
-    Ble4Util *_ble4Util;
     NSTimer *_timer;
     BOOL _isScaningDevice;
 }
@@ -62,7 +61,7 @@
     _isScaningDevice = YES;
     _connectIndicatorLB.text = @"将卡米放置此处";
     [_indicatorView startAnimating];
-    [[CSDataManager sharedInstace] scanDeviceWithBlock:^(CSConnectState state) {
+    [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
         _isScaningDevice = NO;
         [_indicatorView stopAnimating];
         if (state == CSConnectfound) {

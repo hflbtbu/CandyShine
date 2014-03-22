@@ -178,8 +178,8 @@ typedef NS_ENUM(NSInteger, BleWriteValueError)
 
 @property (nonatomic,readonly) CBPeripheral *scCBPeripheral;
 
-/** uuid */
-@property (nonatomic,readonly) NSString *uuid;
+/** udid */
+@property (nonatomic,readonly) NSString *udid;
 /** 设备类型 */
 @property (nonatomic,readonly) BleDeviceType deviceType;
 /** 是否正在连接 */
@@ -187,8 +187,7 @@ typedef NS_ENUM(NSInteger, BleWriteValueError)
 /** 是否正在读取数据 */
 @property (nonatomic,readonly) BOOL isReading;
 
-- (id)initWithPeripheral:(CBPeripheral *)peripheral;
--(BOOL)isEqualUUID:(CBPeripheral *)peripheral;
+- (id)initWithPeripheral:(CBPeripheral *)peripheral andUDID:(NSString *)udid;
 -(void)invalidateTimer;
 
 /** 握手 */
@@ -234,20 +233,22 @@ typedef NS_ENUM(NSInteger, BleWriteValueError)
 @optional
 
 /** 发现设备 */
--(void)ble4Util:(id)ble4Util didDiscoverPeripheralWithUUID:(NSString *)uuid;
+-(void)ble4Util:(id)ble4Util didDiscoverPeripheralWithName:(NSString *)name andUDID:(NSString *)udid;
 /** 连接设备成功 */
--(void)ble4UtilDidConnect:(id)ble4Util withUUID:(NSString *)uuid;
+-(void)ble4UtilDidConnect:(id)ble4Util withUDID:(NSString *)udid;
 /** 失去连接 */
--(void)ble4UtilDidDisconnect:(id)ble4Util withUUID:(NSString *)uuid;
+-(void)ble4UtilDidDisconnect:(id)ble4Util withUDID:(NSString *)udid;
 
 @end
 
 @interface Ble4Util : NSObject
 
-@property (assign, nonatomic) id<Ble4UtilDelegate> delegate;
+@property (nonatomic,assign) id<Ble4UtilDelegate> delegate;
+/** 情侣设备ID */
+@property (nonatomic,strong) NSString *loverID;
 
 +(id)shareBleUtilWithTarget:(id<Ble4UtilDelegate,Ble4PeripheralDelegate>)target;
--(Ble4Peripheral *)ble4PeripheralWithUUID:(NSString *)uuid;
+-(Ble4Peripheral *)ble4PeripheralWithUDID:(NSString *)udid;
 
 /** 
  0:未发现蓝牙4.0设备;
@@ -259,55 +260,55 @@ typedef NS_ENUM(NSInteger, BleWriteValueError)
 -(CBCentralManagerState)cbCentralManagerState;
 /** 开始扫描周边设备 */
 -(void)startScanBle;
--(void)startScanBleWithUUID:(NSString *)uuid;
+-(void)startScanBleWithUDID:(NSString *)udid;
 /** 停止扫描 */
 -(void)stopScanBle;
 /** 连接设备 */
--(void)connectPeripheralWithUUID:(NSString *)uuid;
+-(void)connectPeripheralWithUDID:(NSString *)udid;
 /** 取消连接 */
--(void)stopConnectionWithUUID:(NSString *)uuid;
+-(void)stopConnectionWithUDID:(NSString *)udid;
 /** 取消所有连接 */
 -(void)stopConnection;
 /** 判断指定设备是否处于连接状态 */
--(BOOL)isConnectedWithUUID:(NSString *)uuid;
+-(BOOL)isConnectedWithUDID:(NSString *)udid;
 /** 判断指定设备集合是否处于连接状态 */
--(BOOL)isConnectedWithUUIDs:(NSArray *)arrUUID;
+-(BOOL)isConnectedWithUDIDs:(NSArray *)arrUDIDs;
 
 /** 握手 */
--(void)cmdShakeHandsWithUUID:(NSString *)uuid;
+-(void)cmdShakeHandsWithUDID:(NSString *)udid;
 /** 设备信息 */
--(void)cmdDeviceInfoWithUUID:(NSString *)uuid;
+-(void)cmdDeviceInfoWithUDID:(NSString *)udid;
 /** 更新设备时间 */
--(void)cmdUpdateTimeWithUUID:(NSString *)uuid;
+-(void)cmdUpdateTimeWithUDID:(NSString *)udid;
 /** 获取设备时间 */
--(void)cmdDeviceTimeWithUUID:(NSString *)uuid;
+-(void)cmdDeviceTimeWithUDID:(NSString *)udid;
 /** 读取数据 */
--(void)cmdReadDataWithUUID:(NSString *)uuid;
+-(void)cmdReadDataWithUDID:(NSString *)udid;
 /**
  设置运动计划
  @param type 类型(1:时间;2:圈数;3:步数[目前设备只支持步数])
  @param target 目标(若类型为时间,则目标单位为分钟)
  */
--(void)cmdSetSportsPlanWithType:(BleSportsPlanType)type andTarget:(NSInteger)target andUUID:(NSString *)uuid;
+-(void)cmdSetSportsPlanWithType:(BleSportsPlanType)type andTarget:(NSInteger)target andUDID:(NSString *)udid;
 /** 获取运动计划 */
--(void)cmdGetSportsPlanWithUUID:(NSString *)uuid;
+-(void)cmdGetSportsPlanWithUDID:(NSString *)udid;
 /** 情侣配对提示 */
--(void)cmdPairLoversWithUUID:(NSString *)uuid;
+-(void)cmdPairLoversWithUDID:(NSString *)udid;
 /** 喝水提示 */
--(void)cmdDrinkWaterWithUUID:(NSString *)uuid;
+-(void)cmdDrinkWaterWithUDID:(NSString *)udid;
 /**
  设置睡眠模式时间
  @param startHour 开始时间(小时)
  @param startMin  开始时间(分钟)
  */
--(void)cmdSetSleepTimeWithHour:(NSInteger)hour andMin:(NSInteger)min andUUID:(NSString *)uuid;
+-(void)cmdSetSleepTimeWithHour:(NSInteger)hour andMin:(NSInteger)min andUDID:(NSString *)udid;
 /**
  设置喝水提示间隔时间
  @param interval 间隔时间(秒)
  */
--(void)cmdSetDrinkWaterInterval:(NSInteger)interval withUUID:(NSString *)uuid;
+-(void)cmdSetDrinkWaterInterval:(NSInteger)interval withUDID:(NSString *)udid;
 /** 读取电量 */
--(void)cmdBatteryWithUUID:(NSString *)uuid;
+-(void)cmdBatteryWithUDID:(NSString *)udid;
 
 @end
 

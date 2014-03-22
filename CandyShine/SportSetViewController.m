@@ -51,9 +51,7 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationController.hidesBottomBarWhenPushed = YES;
     _currentSportGoal = [[NSUserDefaults standardUserDefaults] integerForKey:kUserGogal];
-    if (_currentSportGoal == 0) {
-        _currentSportGoal = 2000;
-    }
+    _goalLB.text = [NSString stringWithFormat:@"当前状况: %d/天",_currentSportGoal];
     [_scrollNumView setNumber:_currentSportGoal];
     UIImage *image  = [[UIImage imageNamed:@"intro_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 0, 0, 0)];
     _bgImageView.image = image;
@@ -80,6 +78,7 @@
 - (void)saveUserGogalData {
     [[NSUserDefaults standardUserDefaults] setInteger:_scrollNumView.number forKey:kUserGogal];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    [CSDataManager sharedInstace].userGogal = _scrollNumView.number;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

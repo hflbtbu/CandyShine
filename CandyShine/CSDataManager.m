@@ -13,6 +13,8 @@
 {
     NSTimer *_timer;
     ConnectStateBlock _connectStateBlock;
+    ReadDataBlock _readDataBlock;
+    NSString *_udid;
 }
 @end
 
@@ -36,7 +38,16 @@
     if (self) {
         
         _ble4Util = [Ble4Util shareBleUtilWithTarget:self];
+        _udid = [[NSUserDefaults standardUserDefaults] stringForKey:kUserDeviceID];
+        _isConneting = NO;
         _isLogin = [[NSUserDefaults standardUserDefaults] boolForKey:kUserIsLogin];
+        
+        _userGogal = [[NSUserDefaults standardUserDefaults] integerForKey:kUserGogal];
+        if (_userGogal  == 0) {
+            [[NSUserDefaults standardUserDefaults] setInteger:2000 forKey:kUserGogal];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+        
         if (_isLogin) {
             _userName = [[NSUserDefaults standardUserDefaults] stringForKey:kUserName];
             _userId = [[NSUserDefaults standardUserDefaults] stringForKey:kUserId];
@@ -77,13 +88,46 @@
 - (NSArray *)fetchSportItemsByDay:(NSInteger)day {
     NSFetchRequest *fetchRequset = [[NSFetchRequest alloc] initWithEntityName:@"Sport"];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
-    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"date between {%@, %@}",[DateHelper getDayBegainWith:day],[DateHelper getDayEndWith:day]];
+    NSDate *begain = [DateHelper getDayBegainWith:day];
+    NSDate *end = [DateHelper getDayEndWith:day];
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"date between {%@, %@}",begain,end];
     fetchRequset.sortDescriptors = @[sortDescriptor];
     fetchRequset.predicate = predicate;
     NSError *error;
     NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequset error:&error];
+    
+    //if (day == 0) {
+        for (Sport *item in results) {
+            //[self.managedObjectContext deleteObject:item];
+            NSLog(@"%@===%d",item.date ,[item.value integerValue]);
+        }
+    //}
+
+    
     if (error == nil) {
         return results;
+    } else {
+        NSLog(@"FetchSportItemsByDay Failed");
+        return nil;
+    }
+}
+
+- (NSArray *)fetchSportItemsByWeek:(NSInteger)week {
+    NSFetchRequest *fetchRequset = [[NSFetchRequest alloc] initWithEntityName:@"Sport"];
+    NSError *error;
+    NSDate *weekBegain = [DateHelper getWeekBegainWith:week];
+    NSMutableArray *array = [NSMutableArray arrayWithCapacity:7];
+    for (int i = 0; i < 7; i++) {
+        NSDate *begain = [weekBegain dateByAddingTimeInterval:24*60*60*i];
+        NSDate *end = [weekBegain dateByAddingTimeInterval:24*60*60*(i+1)];
+        NSPredicate *predicate =[NSPredicate predicateWithFormat:@"date between {%@, %@}",begain,end];
+        fetchRequset.predicate = predicate;
+        NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequset error:&error];
+        [array addObject:results];
+    }
+    
+    if (error == nil) {
+        return array;
     } else {
         NSLog(@"FetchSportItemsByDay Failed");
         return nil;
@@ -222,11 +266,10 @@
 }
 
 
-- (void)scanDeviceWithBlock:(void (^) (CSConnectState))state {
+- (void)scanDevice {
     if([self startConnectionHead])
     {
-        _connectStateBlock = state;
-        _timer =  [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(scanDeviceTimeoutHandler:) userInfo:nil repeats:NO];
+        _timer =  [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scanDeviceTimeoutHandler:) userInfo:nil repeats:NO];
         
         [_ble4Util stopScanBle];
         
@@ -261,14 +304,122 @@
     }
 }
 
-- (void)ble4Util:(id)ble4Util didDiscoverPeripheralWithUUID:(NSString *)uuid {
+-(void)ble4Util:(id)ble4Util didDiscoverPeripheralWithName:(NSString *)name andUDID:(NSString *)udid {
     [_timer invalidate];
     _timer = nil;
-    [_ble4Util stopScanBle];
-    [[NSUserDefaults standardUserDefaults] setObject:uuid forKey:kUserDeviceID];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    _connectStateBlock(CSConnectfound);
+    
+    if (_udid == nil || _udid.length == 0) {
+        _udid = udid;
+        [[NSUserDefaults standardUserDefaults] setObject:_udid forKey:kUserDeviceID];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([_udid isEqualToString:udid]) {
+     [_ble4Util stopScanBle];
+     [_ble4Util connectPeripheralWithUDID:_udid];
+    }
 }
 
+
+-(void)ble4UtilDidConnect:(id)ble4Util withUDID:(NSString *)udid {
+    _isConneting = YES;
+}
+
+- (void)ble4PeripheralDidDiscoverCharacteristics:(id)ble4Peripheral {
+    [_ble4Util cmdDeviceTimeWithUDID:_udid];
+}
+
+/** 获取设备时间回调 */
+- (void)ble4Peripheral:(id)ble4Peripheral callBackWithDeviceTime:(NSDate *)date andWeek:(NSInteger)week {
+    if (date == nil) {
+        [_ble4Util cmdUpdateTimeWithUDID:_udid];
+
+    } else {
+        _connectStateBlock(CSConnectfound);
+    }
+}
+
+
+- (void)ble4Peripheral:(id)ble4Peripheral callBackWithMark:(Ble4CallBackMark)mark
+{
+    switch (mark) {
+        case Ble4CallBackMarkShakeHands:
+            //_lblResponse.text=@"握手成功!";
+            break;
+        case Ble4CallBackMarkUpdateTime:
+            //_lblResponse.text=@"更新设备时间成功!";
+            _connectStateBlock(CSConnectfound);
+            break;
+        case Ble4CallBackMarkSetSportsPlan:
+            //_lblResponse.text=@"设置运动计划成功!";
+            break;
+        case Ble4CallBackMarkPairLovers:
+            //_lblResponse.text=@"情侣配对提示!";
+            break;
+        case Ble4CallBackMarkDrinkWater:
+            //_lblResponse.text=@"喝水提示!";
+            break;
+        case Ble4CallBackMarkSetSleepTime:
+            //_lblResponse.text=@"设置睡眠模式时间成功!";
+            break;
+        case Ble4CallBackMarkSetDrinkWaterInterval:
+            //_lblResponse.text=@"设置喝水提示间隔时间成功!";
+            break;
+        default:
+            break;
+    }
+}
+
+
+- (void)ble4UtilDidDisconnect:(id)ble4Util withUDID:(NSString *)udid {
+    _isConneting = NO;
+}
+
+- (void)connectDeviceWithBlock:(ConnectStateBlock)block {
+    _connectStateBlock = block;
+    [self scanDevice];
+}
+
+- (void)synchronizationDeviceDataWithBlock:(ReadDataBlock)block {
+    if (_udid != nil || _udid.length > 0) {
+        _readDataBlock = block;
+        [_ble4Util cmdReadDataWithUDID:_udid];
+    }
+}
+
+/** 读取数据回调 */
+- (void)ble4Peripheral:(id)ble4Peripheral callBackWithSportsData:(NSArray *)data
+{
+    if(data && data.count>0)
+    {
+        for(int i=0;i<data.count;i++)
+        {
+            BleSportsDataList *dataList=[data objectAtIndex:i];
+            if(dataList.listData.count == 0)continue;
+            
+            BleSportsDataType sportsDataType=dataList.dataType;
+            NSDate *startDate = dataList.startTime;
+            for(int j=0;j<dataList.listData.count;j++)
+            {
+                if(sportsDataType==BleSportsDataTypeSports)
+                {
+                    BleSportsData *sportsData=[dataList.listData objectAtIndex:j];
+                    [self insertSportItemWithBlock:^(Sport *item) {
+                        item.date =  [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
+                        item.value = [NSNumber numberWithInteger:sportsData.calories];
+                    }];
+                }
+                else if(sportsDataType==BleSportsDataTypeSleep)
+                {
+                    [self insertSportItemWithBlock:^(Sport *item) {
+                        item.date = [NSDate dateWithTimeInterval:300 sinceDate:startDate];
+                        item.value = 0;
+                    }];
+                }
+            }
+        }
+        [self saveCoreData];
+    }
+    _readDataBlock();
+}
 
 @end

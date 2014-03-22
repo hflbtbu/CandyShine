@@ -13,7 +13,7 @@
 
 @interface WeekTableViewCell ()
 {
-    NSMutableArray *_weekDataArray;
+    NSMutableArray *_weekViewArray;
     CAShapeLayer *_gogalLine;
     UITableView *_friendTableView;
 }
@@ -28,12 +28,12 @@
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.transform = CGAffineTransformMakeRotation(M_PI_2);
-        [self addWeekDataView];
+        [self addWeekView];
     }
     return self;
 }
 
-- (void) addWeekDataView {
+- (void) addWeekView {
     _gogalLine = [CAShapeLayer layer];
     _gogalLine.frame = CGRectMake(16.5, 40, 320 - kWeekCellCap, 0.5);
     _gogalLine.lineWidth = 0.5;
@@ -46,8 +46,8 @@
     _gogalLine.path = line.CGPath;
     [self.contentView.layer addSublayer:_gogalLine];
     
-    if (_weekDataArray == nil) {
-        _weekDataArray = [NSMutableArray arrayWithCapacity:0];
+    if (_weekViewArray == nil) {
+        _weekViewArray = [NSMutableArray arrayWithCapacity:0];
     }
     
     NSArray *weekStrings = @[@"一",@"二",@"三",@"四",@"五",@"六",@"日"];
@@ -58,6 +58,8 @@
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(kWeekCellCap + i*(kWeekCellWidth + space), 160 + 35 - 20*i - 10, kWeekCellWidth, 20*i + 10)];
         view.backgroundColor = kContentNormalShallowColorA;
         [self.contentView addSubview:view];
+        
+        [_weekViewArray addObject:view];
         
         UILabel *dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
         dayLabel.center = CGPointMake(kWeekCellCap + kWeekCellWidth/2 + i*(kWeekCellWidth + space), 195 + 16);
@@ -74,6 +76,22 @@
     _friendTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 225, 320, 200) style:UITableViewStylePlain];
     _friendTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.contentView addSubview:_friendTableView];
+}
+
+- (void)refresh {
+    if (_weekDataArray.count == 7) {
+        for (int i = 0; i<7; i++) {
+            NSArray *array = [_weekDataArray objectAtIndex:i];
+            NSInteger totalValue = 0;
+            for (Sport *item in array) {
+                totalValue += [item.value integerValue];
+            }
+            NSInteger gogal = [CSDataManager sharedInstace].userGogal;
+            CGFloat sizeHeight = totalValue/(gogal*1.0)*195;
+            UIView *view =[_weekViewArray objectAtIndex:i];
+            view.frame = CGRectMake(view.x, 195 - sizeHeight, view.width, sizeHeight);
+        }
+    }
 }
 
 - (void)awakeFromNib

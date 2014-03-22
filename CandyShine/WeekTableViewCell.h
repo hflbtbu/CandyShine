@@ -10,4 +10,8 @@
 
 @interface WeekTableViewCell : UITableViewCell
 
+@property (nonatomic, retain) NSArray *weekDataArray;
+
+- (void)refresh;
+
 @end

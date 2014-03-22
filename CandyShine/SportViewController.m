@@ -19,7 +19,7 @@
 #import "CSFreiend.h"
 #import "WeekTableViewCell.h"
 
-#define GapCircleAndPath 300
+#define GapCircleAndPath 287
 
 @interface SportViewController () <UITableViewDelegate,UITableViewDataSource,MenuViewDelegate>
 {
@@ -56,6 +56,8 @@
     NSMutableDictionary *_friendDataDic;
     
     UIImageView *shouMenuImage;
+    
+    CSDataManager *_dataManager;
 }
 
 @end
@@ -86,6 +88,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _requestedPage = -1;
+    _dataManager = [CSDataManager sharedInstace];
     _friendDataDic = [NSMutableDictionary dictionaryWithCapacity:0];
     _moveType = PageMoveDown;
     
@@ -251,7 +254,7 @@
     if (tableView == _circleTableView) {
         return 3;
     } else if (tableView == _pathTableView) {
-        return 3;
+        return _currentPattern == DataPatternDay ? 3:0;
     } else {
         if (section == 0) {
             return _friendArray.count + 1;
@@ -300,8 +303,8 @@
 //                cellPosition = CellPositionBottom;
 //            }
 //            cell.currentPage = cellPosition;
-//            cell.runNumbers = [self calculateTotalValueByDay:indexPath];
-//            [cell refresh];
+            cell.weekDataArray = [_dataManager fetchSportItemsByWeek:2 - indexPath.row];
+            [cell refresh];
             
             return cell;
         }
@@ -400,7 +403,6 @@
     }
 }
 
-
 - (void)moveMenuImage:(NSInteger)length {
     
 }
@@ -416,7 +418,7 @@
 - (NSArray *)sportItemsArrayWith:(NSIndexPath *)indexPath {
     if (![indexPath isEqual:_currentIndexPath]) {
         _currentIndexPath = indexPath;
-        _sportItemsArray = [[CSDataManager sharedInstace] fetchSportItemsByDay:indexPath.row - 2];
+        _sportItemsArray = [[CSDataManager sharedInstace] fetchSportItemsByDay:2-indexPath.row];
     }
     return _sportItemsArray;
 }
@@ -446,7 +448,7 @@
     [_titleButton setEdgeCenterWithSpace:0];
     
     _pathTableView.hidden = dataPattern == DataPatternWeek ? YES : NO;
-    
+    [_pathTableView reloadData];
    [_circleTableView reloadData];
 }
 
@@ -502,7 +504,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendDidFinishHandler) name:kAddFriendFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginDidFinishHandler) name:kLoginFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutDidFinishHandler) name:kLogoutFinishNotification object:nil];
-    
 }
 
 - (void)addFriendDidFinishHandler {

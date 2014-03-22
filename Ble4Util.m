@@ -80,6 +80,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
 
 #define kBleServiceUUID @"1880"
 #define kBleCharacteristicUUID @"2a80"
+#define kBleName @"kuqi"
 
 @interface Ble4Util()<CBCentralManagerDelegate>
 
@@ -87,18 +88,20 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
 @property (nonatomic,strong) CBCentralManager *scCentralManager;
 @property (nonatomic,assign) CBCentralManagerState centralState;
 @property (nonatomic,strong) NSMutableArray *arrPeripherals;
-@property (nonatomic,strong) NSString *scanUUID;
+@property (nonatomic,strong) NSString *scanUDID;
 
 @end
 
 @implementation Ble4Util
 
 @synthesize delegate=_delegate;
+@synthesize loverID=_loverID;
+
 @synthesize target=_target;
 @synthesize scCentralManager=_scCentralManager;
 @synthesize centralState=_centralState;
 @synthesize arrPeripherals=_arrPeripherals;
-@synthesize scanUUID=_scanUUID;
+@synthesize scanUDID=_scanUDID;
 
 +(id)shareBleUtilWithTarget:(id<Ble4UtilDelegate,Ble4PeripheralDelegate>)target
 {
@@ -136,29 +139,28 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     return _centralState;
 }
 
--(NSString *)uuidWithPeripheral:(CBPeripheral *)peripheral
+/** 获取设备唯一标识 */
+-(NSString *)udidWithManufacturerData:(NSData *)data
 {
-    NSString *uuid=nil;
-    if(peripheral && peripheral.UUID)
+    NSMutableString *udid=nil;
+    
+    if(data && data.length>0)
     {
-        if([peripheral respondsToSelector:@selector(identifier)])
+        udid=[NSMutableString stringWithString:@""];
+        Byte *bts=(Byte *)[data bytes];
+        for(int i=0;i<data.length;i++)
         {
-            uuid=peripheral.identifier.UUIDString;
-        }
-        else
-        {
-            CFStringRef cfStr=CFUUIDCreateString(NULL, peripheral.UUID);
-            uuid=[NSString stringWithFormat:@"%@",cfStr];
-            CFRelease(cfStr);
+            [udid appendFormat:@"%02x",bts[i]];
         }
     }
-    return uuid;
+    
+    return udid;
 }
 /** 扫描设备 */
 -(void)startScanBle
 {
     [self stopScanBle];
-    self.scanUUID=nil;
+    self.scanUDID=nil;
     if ([self.scCentralManager respondsToSelector:@selector(scanForPeripheralsWithServices:options:)])
     {
         [self stopConnection];
@@ -168,12 +170,12 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     }
 }
 /** 扫描设备 */
--(void)startScanBleWithUUID:(NSString *)uuid
+-(void)startScanBleWithUDID:(NSString *)udid
 {
     [self stopScanBle];
     if ([self.scCentralManager respondsToSelector:@selector(scanForPeripheralsWithServices:options:)])
     {
-        self.scanUUID=uuid;
+        self.scanUDID=udid;
         
         NSMutableArray *services=[[NSMutableArray alloc] initWithObjects:[CBUUID UUIDWithString:kBleServiceUUID], nil];
         [self.scCentralManager scanForPeripheralsWithServices:services options:nil];
@@ -185,10 +187,10 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     if (_scCentralManager.state == CBCentralManagerStatePoweredOn) [self.scCentralManager stopScan];
 }
 /** 连接指定设备 */
--(void)connectPeripheralWithUUID:(NSString *)uuid
+-(void)connectPeripheralWithUDID:(NSString *)udid
 {
     CBPeripheral *peripheral=nil;
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
         peripheral=blePeripheral.scCBPeripheral;
     if(peripheral && !peripheral.isConnected && !blePeripheral.isConnecting)
@@ -212,13 +214,13 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     }
 }
 /** 取消指定设备连接 */
--(void)stopConnectionWithUUID:(NSString *)uuid
+-(void)stopConnectionWithUDID:(NSString *)udid
 {
     if (_arrPeripherals.count>0 && [self.scCentralManager respondsToSelector:@selector(scanForPeripheralsWithServices:options:)])
     {
         for(Ble4Peripheral *blePeripheral in _arrPeripherals)
         {
-            if([blePeripheral.uuid isEqualToString:uuid])
+            if([blePeripheral.udid isEqualToString:udid])
             {
                 if(blePeripheral.scCBPeripheral.isConnected)
                     [self.scCentralManager cancelPeripheralConnection:blePeripheral.scCBPeripheral];
@@ -228,30 +230,27 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     }
 }
 /** 判断指定设备是否处于连接状态 */
--(BOOL)isConnectedWithUUID:(NSString *)uuid
+-(BOOL)isConnectedWithUDID:(NSString *)udid
 {
     BOOL isConnected=NO;
     
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
         isConnected=blePeripheral.scCBPeripheral.isConnected;
     
     return isConnected;
 }
 /** 判断指定设备集合是否处于连接状态 */
--(BOOL)isConnectedWithUUIDs:(NSArray *)arrUUID
+-(BOOL)isConnectedWithUDIDs:(NSArray *)arrUDIDs
 {
     BOOL isConnected=YES;
     
-    if(_arrPeripherals.count>0)
+    if(arrUDIDs && arrUDIDs.count>0)
     {
-        for(Ble4Peripheral *blePeripheral in _arrPeripherals)
+        for(int i=0;i<arrUDIDs.count;i++)
         {
-            if(!blePeripheral.scCBPeripheral.isConnected)
-            {
-                isConnected=NO;
-                break;
-            }
+            isConnected=[self isConnectedWithUDID:[arrUDIDs objectAtIndex:i]];
+            if(!isConnected)break;
         }
     }
     else
@@ -261,12 +260,24 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     
     return isConnected;
 }
--(Ble4Peripheral *)ble4PeripheralWithUUID:(NSString *)uuid
+-(Ble4Peripheral *)ble4PeripheralWithPeripheral:(CBPeripheral *)peripheral
 {
     Ble4Peripheral *blePeripheral=nil;
     for(blePeripheral in _arrPeripherals)
     {
-        if([blePeripheral.uuid isEqualToString:uuid])
+        if([blePeripheral.scCBPeripheral isEqual:peripheral])
+            break;
+        else
+            blePeripheral=nil;
+    }
+    return blePeripheral;
+}
+-(Ble4Peripheral *)ble4PeripheralWithUDID:(NSString *)udid
+{
+    Ble4Peripheral *blePeripheral=nil;
+    for(blePeripheral in _arrPeripherals)
+    {
+        if([blePeripheral.udid isEqualToString:udid])
             break;
         else
             blePeripheral=nil;
@@ -275,81 +286,81 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
 }
 
 /** 握手 */
--(void)cmdShakeHandsWithUUID:(NSString *)uuid
+-(void)cmdShakeHandsWithUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdShakeHands];
     }
 }
 /** 设备信息 */
--(void)cmdDeviceInfoWithUUID:(NSString *)uuid
+-(void)cmdDeviceInfoWithUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdDeviceInfo];
     }
 }
 /** 更新设备时间 */
--(void)cmdUpdateTimeWithUUID:(NSString *)uuid
+-(void)cmdUpdateTimeWithUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdUpdateTime];
     }
 }
 /** 获取设备时间 */
--(void)cmdDeviceTimeWithUUID:(NSString *)uuid
+-(void)cmdDeviceTimeWithUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdDeviceTime];
     }
 }
 /** 读取数据 */
--(void)cmdReadDataWithUUID:(NSString *)uuid
+-(void)cmdReadDataWithUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdReadData];
     }
 }
 /** 设置运动计划 */
--(void)cmdSetSportsPlanWithType:(BleSportsPlanType)type andTarget:(NSInteger)target andUUID:(NSString *)uuid
+-(void)cmdSetSportsPlanWithType:(BleSportsPlanType)type andTarget:(NSInteger)target andUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdSetSportsPlanWithType:type andTarget:target];
     }
 }
 /** 获取运动计划 */
--(void)cmdGetSportsPlanWithUUID:(NSString *)uuid
+-(void)cmdGetSportsPlanWithUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdGetSportsPlan];
     }
 }
 /** 情侣配对提示 */
--(void)cmdPairLoversWithUUID:(NSString *)uuid
+-(void)cmdPairLoversWithUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdPairLovers];
     }
 }
 /** 喝水提示 */
--(void)cmdDrinkWaterWithUUID:(NSString *)uuid
+-(void)cmdDrinkWaterWithUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdDrinkWater];
@@ -360,9 +371,9 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
  @param startHour 开始时间(小时)
  @param startMin  开始时间(分钟)
  */
--(void)cmdSetSleepTimeWithHour:(NSInteger)hour andMin:(NSInteger)min andUUID:(NSString *)uuid
+-(void)cmdSetSleepTimeWithHour:(NSInteger)hour andMin:(NSInteger)min andUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdSetSleepTimeWithHour:hour andMin:min];
@@ -372,18 +383,18 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
  设置喝水提示间隔时间
  @param interval 间隔时间(秒)
  */
--(void)cmdSetDrinkWaterInterval:(NSInteger)interval withUUID:(NSString *)uuid
+-(void)cmdSetDrinkWaterInterval:(NSInteger)interval withUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdSetDrinkWaterInterval:interval];
     }
 }
 /** 读取电量 */
--(void)cmdBatteryWithUUID:(NSString *)uuid
+-(void)cmdBatteryWithUDID:(NSString *)udid
 {
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUDID:udid];
     if(blePeripheral)
     {
         [blePeripheral cmdBattery];
@@ -396,34 +407,38 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
 {
     _centralState=central.state;
 }
-- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI {
-    
-    if(peripheral && peripheral.UUID)
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
+{
+    if(peripheral && peripheral.name && [[peripheral.name lowercaseString] rangeOfString:kBleName].location!=NSNotFound)
     {
-        NSString *uuid=[self uuidWithPeripheral:peripheral];
-        if(!_scanUUID || [_scanUUID isEqualToString:uuid])
+        NSData *manufacturerData=[advertisementData objectForKey:@"kCBAdvDataManufacturerData"];
+        NSString *udid=[self udidWithManufacturerData:manufacturerData];
+        if(udid)
         {
-            if(_scanUUID)
-                [self.scCentralManager stopScan];
-            
-            BOOL isContains=NO;
-            for(Ble4Peripheral *blePeripheral in _arrPeripherals)
+            if(!_scanUDID || [_scanUDID isEqualToString:udid] || [udid isEqualToString:_loverID])
             {
-                if([uuid isEqualToString:blePeripheral.uuid])
+                if(_scanUDID)
+                    [self.scCentralManager stopScan];
+                
+                BOOL isContains=NO;
+                for(Ble4Peripheral *blePeripheral in _arrPeripherals)
                 {
-                    isContains=YES;
-                    break;
+                    if([udid isEqualToString:blePeripheral.udid])
+                    {
+                        isContains=YES;
+                        break;
+                    }
                 }
-            }
-            if(!isContains)
-            {
-                Ble4Peripheral *blePeripheral=[[Ble4Peripheral alloc] initWithPeripheral:peripheral];
-                blePeripheral.delegate=_target;
-                [_arrPeripherals addObject:blePeripheral];
-            }
-            if (_delegate && [_delegate respondsToSelector:@selector(ble4Util:didDiscoverPeripheralWithUUID:)])
-            {
-                [_delegate ble4Util:self didDiscoverPeripheralWithUUID:uuid];
+                if(!isContains)
+                {
+                    Ble4Peripheral *blePeripheral=[[Ble4Peripheral alloc] initWithPeripheral:peripheral andUDID:udid];
+                    blePeripheral.delegate=_target;
+                    [_arrPeripherals addObject:blePeripheral];
+                }
+                if (_delegate && [_delegate respondsToSelector:@selector(ble4Util:didDiscoverPeripheralWithName:andUDID:)])
+                {
+                    [_delegate ble4Util:self didDiscoverPeripheralWithName:peripheral.name andUDID:udid];
+                }
             }
         }
     }
@@ -431,12 +446,12 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
 
 - (void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
 {
-    NSString *uuid=[self uuidWithPeripheral:peripheral];
-    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithUUID:uuid];
-    blePeripheral.isConnecting=NO;
-    if (_delegate && [_delegate respondsToSelector:@selector(ble4UtilDidConnect:withUUID:)])
+    Ble4Peripheral *blePeripheral=[self ble4PeripheralWithPeripheral:peripheral];
+    if (blePeripheral && _delegate && [_delegate respondsToSelector:@selector(ble4UtilDidConnect:withUDID:)])
     {
-        [_delegate ble4UtilDidConnect:self withUUID:uuid];
+        blePeripheral.isConnecting=NO;
+        
+        [_delegate ble4UtilDidConnect:self withUDID:blePeripheral.udid];
         
         [peripheral discoverServices:nil];
     }
@@ -446,7 +461,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     Ble4Peripheral *blePeripheral=nil;
     for(blePeripheral in _arrPeripherals)
     {
-        if([blePeripheral isEqualUUID:peripheral])
+        if([blePeripheral.scCBPeripheral isEqual:peripheral])
             break;
         else
             blePeripheral=nil;
@@ -455,11 +470,12 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     {
         blePeripheral.isConnecting=NO;
         [blePeripheral invalidateTimer];
-        if (_delegate && [_delegate respondsToSelector:@selector(ble4UtilDidDisconnect:withUUID:)])
+        if (_delegate && [_delegate respondsToSelector:@selector(ble4UtilDidDisconnect:withUDID:)])
         {
-            [_delegate ble4UtilDidDisconnect:self withUUID:blePeripheral.uuid];
+            [_delegate ble4UtilDidDisconnect:self withUDID:blePeripheral.udid];
         }
         peripheral.delegate=nil;
+        
         [self.arrPeripherals removeObject:blePeripheral];
     }
     
@@ -471,7 +487,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     Ble4Peripheral *blePeripheral=nil;
     for(blePeripheral in _arrPeripherals)
     {
-        if([blePeripheral isEqualUUID:peripheral])
+        if([blePeripheral.scCBPeripheral isEqual:peripheral])
             break;
         else
             blePeripheral=nil;
@@ -480,11 +496,12 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     {
         blePeripheral.isConnecting=NO;
         [blePeripheral invalidateTimer];
-        if (_delegate && [_delegate respondsToSelector:@selector(ble4UtilDidDisconnect:withUUID:)])
+        if (_delegate && [_delegate respondsToSelector:@selector(ble4UtilDidDisconnect:withUDID:)])
         {
-            [_delegate ble4UtilDidDisconnect:self withUUID:blePeripheral.uuid];
+            [_delegate ble4UtilDidDisconnect:self withUDID:blePeripheral.udid];
         }
         peripheral.delegate=nil;
+        
         [_arrPeripherals removeObject:blePeripheral];
     }
     
@@ -512,6 +529,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
 @implementation Ble4Peripheral
 
 @synthesize delegate=_delegate;
+@synthesize udid=_udid;
 @synthesize deviceType=_deviceType;
 @synthesize isConnecting=_isConnecting;
 @synthesize isReading=_isReading;
@@ -572,13 +590,13 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
 }
 
 /** 校验码 */
--(long)verifyCode:(Byte *)bts andLength:(long)len
+-(long)verifyCode:(Byte *)bts andLength:(int)len
 {
     long verify=0x00;
     
     if(bts)
     {
-        for(long i=0;i<len;i++)
+        for(int i=0;i<len;i++)
         {
             verify+=bts[i];
         }
@@ -683,7 +701,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     Byte verify[1]={[self verifyCode:bts andLength:10]};
     [data appendBytes:verify length:sizeof(verify)];
     
-    [self sendData:data];
+    [self sendDataWithoutCondition:data];
 }
 /** 获取设备时间 */
 -(void)cmdDeviceTime
@@ -695,7 +713,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     Byte verify[1]={[self verifyCode:bts andLength:3]};
     [data appendBytes:verify length:sizeof(verify)];
     
-    [self sendData:data];
+    [self sendDataWithoutCondition:data];
 }
 /** 读取数据 */
 -(void)cmdReadData
@@ -790,7 +808,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     Byte verify[1]={[self verifyCode:bts andLength:3]};
     [data appendBytes:verify length:sizeof(verify)];
     
-    [self sendData:data];
+    [self sendDataWithoutCondition:data];
 }
 /** 喝水提示 */
 -(void)cmdDrinkWater
@@ -802,7 +820,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     Byte verify[1]={[self verifyCode:bts andLength:3]};
     [data appendBytes:verify length:sizeof(verify)];
     
-    [self sendData:data];
+    [self sendDataWithoutCondition:data];
 }
 /**
  设置睡眠模式时间
@@ -902,34 +920,6 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     }
 }
 
--(NSString *)uuidWithPeripheral:(CBPeripheral *)peripheral
-{
-    NSString *uuid=nil;
-    if(peripheral && peripheral.UUID)
-    {
-        if([peripheral respondsToSelector:@selector(identifier)])
-        {
-            uuid=peripheral.identifier.UUIDString;
-        }
-        else
-        {
-            CFStringRef cfStr=CFUUIDCreateString(NULL, peripheral.UUID);
-            uuid=[NSString stringWithFormat:@"%@",cfStr];
-            CFRelease(cfStr);
-        }
-    }
-    return uuid;
-}
-
--(BOOL)isEqualUUID:(CBPeripheral *)peripheral
-{
-    BOOL isEqual=NO;
-    
-    isEqual=[_uuid isEqualToString:[self uuidWithPeripheral:peripheral]];
-    
-    return isEqual;
-}
-
 -(void)invalidateTimer
 {
     if(_timer)
@@ -940,21 +930,15 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
     }
 }
 
-- (id)initWithPeripheral:(CBPeripheral *)peripheral
+- (id)initWithPeripheral:(CBPeripheral *)peripheral andUDID:(NSString *)udid
 {
     self = [super init];
     if (self)
     {
-        NSString *struuid=[self uuidWithPeripheral:peripheral];
-        
+        _udid=[[NSString alloc] initWithString:udid];
         _scCBPeripheral=peripheral;
         self.scCBPeripheral.delegate=self;
         _arrData=[[NSMutableArray alloc] init];
-        
-        if(struuid)
-        {
-            _uuid=[[NSString alloc] initWithString:struuid];
-        }
     }
     return self;
 }
@@ -1018,7 +1002,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
                             [_timer invalidate];
                         self.timer=nil;
                     }
-                    _timer=[NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(readBatteryEvent:) userInfo:nil repeats:YES];
+                    _timer=[NSTimer scheduledTimerWithTimeInterval:180.0 target:self selector:@selector(readBatteryEvent:) userInfo:nil repeats:YES];
                     [self readBatteryEvent:_timer];
                     
                     if([_delegate respondsToSelector:@selector(ble4PeripheralDidDiscoverCharacteristics:)])
@@ -1099,14 +1083,11 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
                         break;
                     case Ble4CallBackMarkReadDataTimes:
                     {
-                        NSLog(@"high:%d,low:%d",receiveData[3],receiveData[4]);
                         [self cmdReadDataWithTimes:256*receiveData[3]+receiveData[4]];
                     }
                         break;
                     case Ble4CallBackMarkReadData:
                     {
-                        NSLog(@"data:%@",characteristic.value);
-                        
                         if(receiveData[3]==BleDataSignF3
                            && receiveData[4]==BleDataSignF3
                            && receiveData[5]==BleDataSignF3
@@ -1141,7 +1122,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
                                || _readState==BleSportsDataReadStateSleepTime)
                             {
                                 //读取时间
-                                NSInteger partYear=[self bcdToByte:receiveData[3]];
+                                int partYear=[self bcdToByte:receiveData[3]];
                                 NSString *year=[[NSString alloc] initWithFormat:@"%02d%02d",partYear,[self bcdToByte:receiveData[4]]];
                                 NSString *month=[[NSString alloc] initWithFormat:@"%02d",[self bcdToByte:receiveData[5]]];
                                 NSString *day=[[NSString alloc] initWithFormat:@"%02d",[self bcdToByte:receiveData[6]]];
@@ -1171,6 +1152,7 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
                                     if([_delegate respondsToSelector:@selector(ble4Peripheral:callBackWithSportsData:)])
                                     {
                                         [_delegate ble4Peripheral:self callBackWithSportsData:_arrData];
+                                        [_arrData removeAllObjects];
                                     }
                                 }
                                 else
@@ -1223,7 +1205,6 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
                     }
                         break;
                     case Ble4CallBackMarkClearData:
-                        NSLog(@"clear data!");
                         return;
                         break;
                     case Ble4CallBackMarkGetSportsPlan:

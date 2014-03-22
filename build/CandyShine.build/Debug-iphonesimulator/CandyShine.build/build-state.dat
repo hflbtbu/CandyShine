@@ -1,0 +1,3103 @@
+TCandyShine
+v6
+r1
+cCheck dependencies
+cPhaseScriptExecution Check\ Pods\ Manifest.lock /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Script-E4942BCC36C1428389DC7AD2.sh
+cDataModelVersionCompile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CoreData.momd /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CoreData.xcdatamodeld
+cProcessPCH /var/folders/7y/r2zcy98d5b37p2ny8_p635m40000gn/C/com.apple.DeveloperTools/5.1-5B130a/Xcode/SharedPrecompiledHeaders/CandyShine-Prefix-blexccyvgertyregpujfjjjbzvnf/CandyShine-Prefix.pch.pch CandyShine/CandyShine-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cProcessPCH /var/folders/7y/r2zcy98d5b37p2ny8_p635m40000gn/C/com.apple.DeveloperTools/5.1-5B130a/Xcode/SharedPrecompiledHeaders/CandyShine-Prefix-hckimjlvuedznfecucptpzywwgzm/CandyShine-Prefix.pch.pch CandyShine/CandyShine-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MBProgressHUDManager.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MBProgressHUDManager.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/ConnectDeviceViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/ConnectDeviceViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CircleImageView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CircleImageView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AddFriendCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/AddFriendCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/TabBarView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/TabBarView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/News.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/News.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMEGORefreshTableHeaderView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/EGO_Refresh/UMEGORefreshTableHeaderView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIColor+Addition.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIColor+Addition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIView+FrameAdjust.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIView+FrameAdjust.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackTableViewCellLeft.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMFeedbackTableViewCellLeft.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SportSetViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SportSetViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSFreiend.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CSFreiend.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CircleTableViewCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CircleTableViewCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/IntroduceViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/IntroduceViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIDevice+DeviceInfo.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIDevice+DeviceInfo.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIButton+SetEdge.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIButton+SetEdge.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FBEncryptorAES.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/FBEncrypt/FBEncryptorAES.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/GridPathView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/GridPathView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MenuView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MenuView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FriendListViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/FriendListViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/BaseNavigationController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/BaseNavigationController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/PickerView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/PickerView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MHTextField.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/MHTextField.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NSData+Base64.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/FBEncrypt/NSData+Base64.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DateHelper.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/DateHelper.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NewsViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/NewsViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterAnimationView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterAnimationView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CirclePathView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CirclePathView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AppDelegate.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/EditWarmTimeViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/EditWarmTimeViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CandyShineAPIKit.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CandyShineAPIKit.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/VerticalLabel.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/VerticalLabel.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MeViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MeViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMFeedbackViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MoveCircleView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MoveCircleView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSDataManager.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CSDataManager.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepPathView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepPathView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UINavigationItem+CustomeItem.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UINavigationItem+CustomeItem.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SelectedCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SelectedCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmSetViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmSetViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMContactViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMContactViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FriendCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/FriendCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/main.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SportViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SportViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/LogInViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/LogInViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/IndexPathCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/IndexPathCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSIndicatorView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CSIndicatorView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIDevice+IdentifierAddition.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIDevice+IdentifierAddition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/Sport.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/Sport.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/OLImage.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/OLImage.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/RegistMHTextField.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/RegistMHTextField.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/BaseViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/BaseViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AddFriendViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/AddFriendViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MeSetViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MeSetViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIXib.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/UIXib.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/ModifyCodeViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/ModifyCodeViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WeekTableViewCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WeekTableViewCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NewsCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/NewsCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DragView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/DragView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/PathTableViewCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/PathTableViewCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackTableViewCellRight.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMFeedbackTableViewCellRight.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DetailTextView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/DetailTextView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/Ble4Util.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/Ble4Util.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIBezierPath+Smoothing.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIBezierPath+Smoothing.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CWScrollNumView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CWScrollNumView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/OLImageView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/OLImageView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NSString+MD5Addition.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/NSString+MD5Addition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmManager.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmManager.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+cLd /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CandyShine normal i386
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSLoginViewController.xib
+cCpResource chat/Images/send_selected@2x.png build/Debug-iphonesimulator/CandyShine.app/send_selected@2x.png
+cCpResource chat/Images/messages_right_bubble@2x.png build/Debug-iphonesimulator/CandyShine.app/messages_right_bubble@2x.png
+cCpResource CandyShine/IMG_0005.JPG build/Debug-iphonesimulator/CandyShine.app/IMG_0005.JPG
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepViewController.xib
+cCpResource UMSocial_Sdk_3.3.5/UMSocialSDKResourcesNew.bundle build/Debug-iphonesimulator/CandyShine.app/UMSocialSDKResourcesNew.bundle
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/NewsCell.xib
+cCpResource chat/Images/item_cancel_selected@2x.png build/Debug-iphonesimulator/CandyShine.app/item_cancel_selected@2x.png
+cCpResource CandyShine/warm2.gif build/Debug-iphonesimulator/CandyShine.app/warm2.gif
+cCpResource chat/Images/icon_rightArrow@2x.png build/Debug-iphonesimulator/CandyShine.app/icon_rightArrow@2x.png
+cCpResource chat/Images/send@2x.png build/Debug-iphonesimulator/CandyShine.app/send@2x.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMContactViewController.xib
+cCpResource chat/Images/nav_bg.png build/Debug-iphonesimulator/CandyShine.app/nav_bg.png
+cCpResource chat/Images/nav_bar_bg@2x.png build/Debug-iphonesimulator/CandyShine.app/nav_bar_bg@2x.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/TabBarView.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/FriendListViewController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/IntroduceViewController.xib
+cCpResource chat/Images/item_ok@2x.png build/Debug-iphonesimulator/CandyShine.app/item_ok@2x.png
+cCpResource chat/Images/messages_toolbar_background.png build/Debug-iphonesimulator/CandyShine.app/messages_toolbar_background.png
+cCpResource chat/Images/icon_rightArrow_selected@2x.png build/Debug-iphonesimulator/CandyShine.app/icon_rightArrow_selected@2x.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentInputController.xib
+cCpResource chat/Images/background@2x.png build/Debug-iphonesimulator/CandyShine.app/background@2x.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMFeedbackViewController.xib
+cCpResource chat/Images/blueArrow@2x.png build/Debug-iphonesimulator/CandyShine.app/blueArrow@2x.png
+cCpResource chat/Images/messages_toolbar_background@2x.png build/Debug-iphonesimulator/CandyShine.app/messages_toolbar_background@2x.png
+cCpResource chat/Images/messages_tableview_background@2x.png build/Debug-iphonesimulator/CandyShine.app/messages_tableview_background@2x.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSnsAccountViewController.xib
+cCpResource CandyShine/warm3.gif build/Debug-iphonesimulator/CandyShine.app/warm3.gif
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMShareEditViewControlleriPad.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/LogInViewController.xib
+cCpResource chat/Images/nav_btn_bg_lighted@2x.png build/Debug-iphonesimulator/CandyShine.app/nav_btn_bg_lighted@2x.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmViewController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MeSetViewController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/NewsViewController.xib
+cCpResource umFeedback.bundle build/Debug-iphonesimulator/CandyShine.app/umFeedback.bundle
+cCpResource chat/Images/umeng_logo.png build/Debug-iphonesimulator/CandyShine.app/umeng_logo.png
+cCpResource CandyShine/state1.png build/Debug-iphonesimulator/CandyShine.app/state1.png
+cCopyStringsFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/en.lproj/InfoPlist.strings CandyShine/en.lproj/InfoPlist.strings
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SexView.xib
+cCpResource chat/Images/nav_btn_bg.png build/Debug-iphonesimulator/CandyShine.app/nav_btn_bg.png
+cCpResource chat/Images/item_cancel@2x.png build/Debug-iphonesimulator/CandyShine.app/item_cancel@2x.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentDetailController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMShareEditViewController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepCell.xib
+cCpResource chat/Images/item_ok_selected@2x.png build/Debug-iphonesimulator/CandyShine.app/item_ok_selected@2x.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/ModifyCodeViewController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmSetViewController.xib
+cCpResource chat/Images/messages_tableview_background.png build/Debug-iphonesimulator/CandyShine.app/messages_tableview_background.png
+cCopyStringsFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/en.lproj/UMSocialLocalizable.strings UMSocial_Sdk_3.3.5/en.lproj/UMSocialLocalizable.strings
+cCopyStringsFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/zh-Hans.lproj/UMSocialLocalizable.strings UMSocial_Sdk_3.3.5/zh-Hans.lproj/UMSocialLocalizable.strings
+cCpResource chat/Images/nav_btn_bg@2x.png build/Debug-iphonesimulator/CandyShine.app/nav_btn_bg@2x.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSShareListController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/EditWarmTimeViewController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SportSetViewController.xib
+cCpResource chat/Images/messages_left_bubble@2x.png build/Debug-iphonesimulator/CandyShine.app/messages_left_bubble@2x.png
+cCpResource CandyShine/warm1.gif build/Debug-iphonesimulator/CandyShine.app/warm1.gif
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MeViewController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentInputControlleriPad.xib
+cCpResource chat/Images/blueArrow.png build/Debug-iphonesimulator/CandyShine.app/blueArrow.png
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/ConnectDeviceViewController.xib
+cCpResource UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle build/Debug-iphonesimulator/CandyShine.app/TencentOpenApi_IOS_Bundle.bundle
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SportViewController.xib
+cCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/AddFriendViewController.xib
+cCompileAssetCatalog /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/Images.xcassets
+cProcessInfoPlistFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/Info.plist /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CandyShine-Info.plist
+cGenerateDSYMFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app.dSYM /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CandyShine
+cPhaseScriptExecution Copy\ Pods\ Resources /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Script-313E141221F147BDABE9D6F9.sh
+cTouch /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk
+c0000000053119F8A0000000000000198
+t1393663882
+s408
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/SDKSettings.plist
+c00000000531ECEAF00000000000003B4
+t1394527919
+s948
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/CoreServices/SystemVersion.plist
+c00000000531ECEB2000000000000019E
+t1394527922
+s414
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreData.framework/CoreData
+c00000000531ECEB400000000006CED60
+t1394527924
+s7138656
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
+c00000000531ECEB40000000000446820
+t1394527924
+s4483104
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/CoreTelephony.framework/CoreTelephony
+c00000000531ECEB4000000000022B660
+t1394527924
+s2274912
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
+c00000000531ECEB4000000000088D8C0
+t1394527924
+s8968384
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/MessageUI.framework/MessageUI
+c00000000531ECEB500000000002E5520
+t1394527925
+s3036448
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/Security.framework/Security
+c00000000531ECEB5000000000013FD70
+t1394527925
+s1310064
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/Social.framework/Social
+c00000000531ECEB50000000000222210
+t1394527925
+s2236944
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/SystemConfiguration.framework/SystemConfiguration
+c00000000531ECEB500000000001081C0
+t1394527925
+s1081792
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
+c00000000531ECEB70000000001F1DE10
+t1394527927
+s32628240
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libiconv.dylib
+c00000000531ECEBF0000000000205FF0
+t1394527935
+s2121712
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libsqlite3.dylib
+c00000000531ECEBF00000000001D35B0
+t1394527935
+s1914288
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libstdc++.dylib
+c00000000531ECEBF000000000018DF40
+t1394527935
+s1630016
+
+N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator7.1.sdk/usr/lib/libz.dylib
+c00000000531ECEBF000000000002B700
+t1394527935
+s177920
+
+N/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/5.1/include/module.map
+c00000000531ECEC10000000000000ADC
+t1394527937
+s2780
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/Ble4Util.m
+c00000000532BB822000000000000AD08
+t1395374114
+s44296
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/AddFriendCell.m
+c000000005319C9B20000000000000CFE
+t1394198962
+s3326
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/AddFriendViewController.m
+c00000000531C4E870000000000001B43
+t1394364039
+s6979
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/AddFriendViewController.xib
+c000000005306DE160000000000000BBC
+t1392958998
+s3004
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/AppDelegate.m
+c00000000532A95C80000000000001D11
+t1395299784
+s7441
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/BaseNavigationController.m
+c000000005315731F0000000000001C64
+t1393914655
+s7268
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/BaseViewController.m
+c00000000531C4501000000000000060B
+t1394361601
+s1547
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CSDataManager.m
+c00000000532C699F0000000000003110
+t1395419551
+s12560
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CSFreiend.m
+c00000000531C29520000000000000289
+t1394354514
+s649
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CSIndicatorView.m
+c00000000532976910000000000001277
+t1395226257
+s4727
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CWScrollNumView.m
+c0000000053295BDB0000000000001463
+t1395219419
+s5219
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CandyShine-Info.plist
+c00000000531D880500000000000006E2
+t1394444293
+s1762
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CandyShine-Prefix.pch
+c00000000532C099B000000000000058F
+t1395394971
+s1423
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CandyShineAPIKit.m
+c000000005321291700000000000028C6
+t1394682135
+s10438
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CircleImageView.m
+c000000005306F5FB000000000000071B
+t1392965115
+s1819
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CirclePathView.m
+c0000000053156C7300000000000011F5
+t1393912947
+s4597
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CircleTableViewCell.m
+c0000000053156E2D00000000000008EE
+t1393913389
+s2286
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/ConnectDeviceViewController.m
+c00000000532C0905000000000000096D
+t1395394821
+s2413
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/ConnectDeviceViewController.xib
+c000000005329759400000000000012F8
+t1395226004
+s4856
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CoreData.xcdatamodeld
+c00000000531D5BFD0000000000000066
+t1394433021
+s102
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/DateHelper.m
+c00000000532C3D9F000000000000143B
+t1395408287
+s5179
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/DetailTextView.m
+c0000000052F399930000000000000CF5
+t1391696275
+s3317
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/DragView.m
+c0000000052DF4B7B00000000000009C8
+t1390365563
+s2504
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/EditWarmTimeViewController.m
+c0000000053085F390000000000000AB2
+t1393057593
+s2738
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/EditWarmTimeViewController.xib
+c0000000052F88A4F0000000000000834
+t1392020047
+s2100
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/FriendCell.m
+c000000005319BDE20000000000000ACF
+t1394195938
+s2767
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/FriendListViewController.m
+c00000000531C26800000000000000C14
+t1394353792
+s3092
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/FriendListViewController.xib
+c00000000530DB7780000000000000B40
+t1393407864
+s2880
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/GridPathView.m
+c00000000532C4802000000000000160B
+t1395410946
+s5643
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/IMG_0005.JPG
+c00000000521F38E2000000000000820D
+t1377777890
+s33293
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/Images.xcassets
+c00000000532B167000000000000007B4
+t1395332720
+s1972
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/IndexPathCell.m
+c000000005303BC95000000000000040B
+t1392753813
+s1035
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/IntroduceViewController.m
+c00000000532C10940000000000003666
+t1395396756
+s13926
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/IntroduceViewController.xib
+c00000000532BB8F20000000000000E46
+t1395374322
+s3654
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/LogInViewController.m
+c0000000053212ABD0000000000003AF2
+t1394682557
+s15090
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/LogInViewController.xib
+c000000005321291700000000000032FC
+t1394682135
+s13052
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MBProgressHUDManager.m
+c00000000531D8E040000000000000679
+t1394445828
+s1657
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MeSetViewController.m
+c00000000532B22EE0000000000004070
+t1395335918
+s16496
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MeSetViewController.xib
+c0000000053024CED00000000000008D5
+t1392659693
+s2261
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MeViewController.m
+c00000000532AABC90000000000002849
+t1395305417
+s10313
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MeViewController.xib
+c000000005303035000000000000008D2
+t1392706384
+s2258
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MenuView.m
+c00000000532AC8E60000000000000AD3
+t1395312870
+s2771
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/ModifyCodeViewController.m
+c00000000532A9E920000000000000E75
+t1395302034
+s3701
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/ModifyCodeViewController.xib
+c000000005302E6010000000000000839
+t1392698881
+s2105
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MoveCircleView.m
+c00000000532C63120000000000002012
+t1395417874
+s8210
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/News.m
+c00000000531D5BC600000000000000FA
+t1394432966
+s250
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/NewsCell.m
+c00000000531D8BB20000000000000935
+t1394445234
+s2357
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/NewsCell.xib
+c00000000531D6AFA0000000000001B8E
+t1394436858
+s7054
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/NewsViewController.m
+c00000000532AA5360000000000001FBC
+t1395303734
+s8124
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/NewsViewController.xib
+c0000000053032614000000000000053B
+t1392715284
+s1339
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/PathTableViewCell.m
+c00000000531C0F070000000000000E21
+t1394347783
+s3617
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/PickerView.m
+c00000000532B23EB0000000000001DBF
+t1395336171
+s7615
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/RegistMHTextField.m
+c00000000531569DB000000000000058F
+t1393912283
+s1423
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SelectedCell.m
+c00000000532A85C700000000000003BA
+t1395295687
+s954
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SexView.xib
+c00000000532B1F03000000000000117C
+t1395334915
+s4476
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepCell.m
+c00000000532298330000000000000C58
+t1394776115
+s3160
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepCell.xib
+c000000005315CB970000000000003C70
+t1393937303
+s15472
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepPathView.m
+c000000005310777E00000000000012BC
+t1393588094
+s4796
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepViewController.m
+c000000005322978700000000000016AA
+t1394775943
+s5802
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepViewController.xib
+c0000000052FC2A0C0000000000000513
+t1392257548
+s1299
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/Sport.m
+c000000005317EFDC00000000000000D9
+t1394077660
+s217
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SportSetViewController.m
+c00000000532C4AC60000000000000967
+t1395411654
+s2407
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SportSetViewController.xib
+c00000000532C4AC600000000000035CD
+t1395411654
+s13773
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SportViewController.m
+c00000000532C454A0000000000005702
+t1395410250
+s22274
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SportViewController.xib
+c000000005306D2B4000000000000053C
+t1392956084
+s1340
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/TabBarView.m
+c0000000053146BFE000000000000045A
+t1393847294
+s1114
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/TabBarView.xib
+c00000000531461120000000000001F86
+t1393844498
+s8070
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/UIXib.m
+c0000000052DCD6EE00000000000002F8
+t1390204654
+s760
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/VerticalLabel.m
+c000000005303D47200000000000007A8
+t1392759922
+s1960
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterAnimationView.m
+c00000000532A8B1E0000000000000CC1
+t1395297054
+s3265
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmManager.m
+c00000000532AAAFF00000000000031B7
+t1395305215
+s12727
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmSetViewController.m
+c00000000532AA48E00000000000039A9
+t1395303566
+s14761
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmSetViewController.xib
+c000000005315D59B00000000000008E5
+t1393939867
+s2277
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmViewController.m
+c00000000532A94B10000000000000E74
+t1395299505
+s3700
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmViewController.xib
+c000000005305A37A0000000000000554
+t1392878458
+s1364
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WeekTableViewCell.m
+c00000000532AC75F0000000000000C6E
+t1395312479
+s3182
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/en.lproj/InfoPlist.strings
+c0000000052DCC597000000000000002D
+t1390200215
+s45
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/main.m
+c0000000053049FA1000000000000015A
+t1392811937
+s346
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/state1.png
+c00000000532A8568000000000000439A
+t1395295592
+s17306
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/warm1.gif
+c00000000532038C000000000000531D8
+t1394620608
+s340440
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/warm2.gif
+c000000005320444C0000000000011B58
+t1394623564
+s72536
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/warm3.gif
+c0000000053202B760000000000042C8B
+t1394617206
+s273547
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/FBEncrypt/FBEncryptorAES.m
+c000000005317E7280000000000001B43
+t1394075432
+s6979
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/FBEncrypt/NSData+Base64.m
+c0000000052CA74A700000000000023E7
+t1388999847
+s9191
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/MHTextField.m
+c00000000531569C900000000000027F8
+t1393912265
+s10232
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/NSString+MD5Addition.m
+c0000000052DCB6780000000000000321
+t1390196344
+s801
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/OLImage.m
+c0000000052FC82F80000000000002CC0
+t1392280312
+s11456
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/OLImageView.m
+c000000005304572F0000000000001491
+t1392793391
+s5265
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIBezierPath+Smoothing.m
+c0000000052DE6E640000000000000CE0
+t1390308964
+s3296
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIButton+SetEdge.m
+c00000000532B19960000000000000722
+t1395333526
+s1826
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIColor+Addition.m
+c0000000052FC623B000000000000086E
+t1392271931
+s2158
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIDevice+DeviceInfo.m
+c0000000052DCB67800000000000035F9
+t1390196344
+s13817
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIDevice+IdentifierAddition.m
+c0000000052DCB6780000000000000A47
+t1390196344
+s2631
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UINavigationItem+CustomeItem.m
+c0000000052DD26C70000000000000539
+t1390225095
+s1337
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIView+FrameAdjust.m
+c0000000052DD03620000000000000659
+t1390216034
+s1625
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentDetailController.xib
+c000000005317491200000000000044C8
+t1394034962
+s17608
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentInputController.xib
+c00000000531749120000000000007A5C
+t1394034962
+s31324
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentInputControlleriPad.xib
+c00000000531749120000000000006B77
+t1394034962
+s27511
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSLoginViewController.xib
+c00000000531749120000000000001D20
+t1394034962
+s7456
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSShareListController.xib
+c000000005317491200000000000019DA
+t1394034962
+s6618
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMShareEditViewController.xib
+c00000000531749120000000000007CC2
+t1394034962
+s31938
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMShareEditViewControlleriPad.xib
+c00000000531749120000000000005B20
+t1394034962
+s23328
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSnsAccountViewController.xib
+c0000000053174912000000000000B8F2
+t1394034962
+s47346
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/UMSocialSDKResourcesNew.bundle
+c00000000531D82CA0000000000000110
+t1394442954
+s272
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/en.lproj/UMSocialLocalizable.strings
+c000000005317491200000000000012B8
+t1394034962
+s4792
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/libUMSocial_Sdk_3.3.5.a
+c000000005318D1F400000000004F99EC
+t1394135540
+s5216748
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/zh-Hans.lproj/UMSocialLocalizable.strings
+c0000000053174912000000000000139F
+t1394034962
+s5023
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenAPI.framework/TencentOpenAPI
+c0000000053174914000000000051CC54
+t1394034964
+s5360724
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle
+c00000000531D82CA0000000000000154
+t1394442954
+s340
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_Extra_Frameworks/Wechat/libSocialWechat.a
+c00000000531749140000000000140584
+t1394034964
+s1312132
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AddFriendCell.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AddFriendViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AppDelegate.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/BaseNavigationController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/BaseViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/Ble4Util.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSDataManager.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSFreiend.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSIndicatorView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CWScrollNumView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CandyShine.LinkFileList
+c00000000532C69A30000000000002ACA
+t1395419555
+s10954
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CandyShineAPIKit.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CircleImageView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CirclePathView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CircleTableViewCell.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/ConnectDeviceViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DateHelper.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DetailTextView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DragView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/EditWarmTimeViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FBEncryptorAES.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FriendCell.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FriendListViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/GridPathView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/IndexPathCell.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/IntroduceViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/LogInViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MBProgressHUDManager.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MHTextField.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MeSetViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MeViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MenuView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/ModifyCodeViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MoveCircleView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NSData+Base64.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NSString+MD5Addition.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/News.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NewsCell.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NewsViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/OLImage.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/OLImageView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/PathTableViewCell.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/PickerView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/RegistMHTextField.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SelectedCell.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepCell.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepPathView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/Sport.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SportSetViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SportViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/TabBarView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIBezierPath+Smoothing.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIButton+SetEdge.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIColor+Addition.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIDevice+DeviceInfo.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIDevice+IdentifierAddition.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UINavigationItem+CustomeItem.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIView+FrameAdjust.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIXib.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMContactViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMEGORefreshTableHeaderView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackTableViewCellLeft.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackTableViewCellRight.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/VerticalLabel.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterAnimationView.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmManager.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmSetViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmViewController.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WeekTableViewCell.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/main.o
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Script-313E141221F147BDABE9D6F9.sh
+c00000000532C69A3000000000000002F
+t1395419555
+s47
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Script-E4942BCC36C1428389DC7AD2.sh
+c00000000532C69A30000000000000103
+t1395419555
+s259
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/assetcatalog_dependencies.txt
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/assetcatalog_generated_info.plist
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app
+t1395419555
+s136
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app.dSYM
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/AddFriendViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CandyShine
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/ConnectDeviceViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CoreData.momd
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/EditWarmTimeViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/FriendListViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/IMG_0005.JPG
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/Info.plist
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/IntroduceViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/LogInViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/MeSetViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/MeViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/ModifyCodeViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/NewsCell.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/NewsViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/PkgInfo
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/SexView.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/SleepCell.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/SleepViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/SportSetViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/SportViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/TabBarView.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/TencentOpenApi_IOS_Bundle.bundle
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMContactViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMFeedbackViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMSCommentDetailController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMSCommentInputController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMSCommentInputControlleriPad.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMSLoginViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMSShareListController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMShareEditViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMShareEditViewControlleriPad.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMSnsAccountViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/UMSocialSDKResourcesNew.bundle
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/WaterWarmSetViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/WaterWarmViewController.nib
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/background@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/blueArrow.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/blueArrow@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/en.lproj/InfoPlist.strings
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/en.lproj/UMSocialLocalizable.strings
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/icon_rightArrow@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/icon_rightArrow_selected@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/item_cancel@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/item_cancel_selected@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/item_ok@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/item_ok_selected@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/messages_left_bubble@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/messages_right_bubble@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/messages_tableview_background.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/messages_tableview_background@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/messages_toolbar_background.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/messages_toolbar_background@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/nav_bar_bg@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/nav_bg.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/nav_btn_bg.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/nav_btn_bg@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/nav_btn_bg_lighted@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/send@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/send_selected@2x.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/state1.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/umFeedback.bundle
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/umeng_logo.png
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/warm1.gif
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/warm2.gif
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/warm3.gif
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/zh-Hans.lproj/UMSocialLocalizable.strings
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/libPods.a
+c00000000000000000000000000000000
+t2
+s0
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/EGO_Refresh/UMEGORefreshTableHeaderView.m
+c000000005170F81A0000000000002881
+t1366358042
+s10369
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/background@2x.png
+c000000005158EFFA00000000000020EF
+t1364783098
+s8431
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/blueArrow.png
+c0000000050CFEA78000000000000118C
+t1355803256
+s4492
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/blueArrow@2x.png
+c0000000050CFEA7800000000000005F9
+t1355803256
+s1529
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/icon_rightArrow@2x.png
+c000000005158EFFA0000000000000494
+t1364783098
+s1172
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/icon_rightArrow_selected@2x.png
+c000000005158EFFA00000000000004EE
+t1364783098
+s1262
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/item_cancel@2x.png
+c000000005158EFFA00000000000005C4
+t1364783098
+s1476
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/item_cancel_selected@2x.png
+c000000005158EFFA000000000000062A
+t1364783098
+s1578
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/item_ok@2x.png
+c000000005158EFFA00000000000005A4
+t1364783098
+s1444
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/item_ok_selected@2x.png
+c000000005158EFFA000000000000064E
+t1364783098
+s1614
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/messages_left_bubble@2x.png
+c00000000515BC39200000000000004B1
+t1364968338
+s1201
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/messages_right_bubble@2x.png
+c00000000515BC39200000000000004BB
+t1364968338
+s1211
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/messages_tableview_background.png
+c00000000515952460000000000000B3F
+t1364808262
+s2879
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/messages_tableview_background@2x.png
+c00000000515951BE0000000000000407
+t1364808126
+s1031
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/messages_toolbar_background.png
+c000000004F7ECDE200000000000000B6
+t1333710306
+s182
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/messages_toolbar_background@2x.png
+c000000004F7ECDE200000000000000BB
+t1333710306
+s187
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/nav_bar_bg@2x.png
+c000000005077AF7E00000000000003B6
+t1350020990
+s950
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/nav_bg.png
+c00000000516CC53E0000000000000077
+t1366082878
+s119
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/nav_btn_bg.png
+c00000000516CC9F40000000000000BD2
+t1366084084
+s3026
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/nav_btn_bg@2x.png
+c000000005158EFFA000000000000040C
+t1364783098
+s1036
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/nav_btn_bg_lighted@2x.png
+c000000005158EFFA0000000000000419
+t1364783098
+s1049
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/send@2x.png
+c000000005158EFFA0000000000000412
+t1364783098
+s1042
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/send_selected@2x.png
+c000000005158EFFA0000000000000423
+t1364783098
+s1059
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/Images/umeng_logo.png
+c00000000516E62540000000000001AC4
+t1366188628
+s6852
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMContactViewController.m
+c000000005170F88C0000000000000AFC
+t1366358156
+s2812
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMContactViewController.xib
+c00000000516CF3F60000000000002173
+t1366094838
+s8563
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMFeedbackTableViewCellLeft.m
+c00000000524011B00000000000000D09
+t1379930544
+s3337
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMFeedbackTableViewCellRight.m
+c00000000524011780000000000000E4E
+t1379930488
+s3662
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMFeedbackViewController.m
+c00000000524010080000000000004573
+t1379930120
+s17779
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMFeedbackViewController.xib
+c00000000516FB4B60000000000003D2E
+t1366275254
+s15662
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/libUMFeedback.a
+c0000000052D4FC3000000000000DD4CC
+t1389689904
+s906444
+
+N/Users/huangfulei/Desktop/Candy Wearables/CandyShine/umFeedback.bundle
+c0000000052DD1A7B00000000000000EE
+t1390221947
+s238
+
+N/var/folders/7y/r2zcy98d5b37p2ny8_p635m40000gn/C/com.apple.DeveloperTools/5.1-5B130a/Xcode/SharedPrecompiledHeaders/CandyShine-Prefix-blexccyvgertyregpujfjjjbzvnf/CandyShine-Prefix.pch.pch
+t2
+s0
+
+N/var/folders/7y/r2zcy98d5b37p2ny8_p635m40000gn/C/com.apple.DeveloperTools/5.1-5B130a/Xcode/SharedPrecompiledHeaders/CandyShine-Prefix-hckimjlvuedznfecucptpzywwgzm/CandyShine-Prefix.pch.pch
+t2
+s0
+
+CCheck dependencies
+r0
+lSLF06#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciese1243523a1dcb841^309d6e23a1dcb841^---0#1#1#--18"Check dependencies36"FD386EAB-B55D-46F4-8849-0F530A30C082-
+
+CCompileAssetCatalog /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/Images.xcassets
+s417112355.775454
+e417112355.775787
+r1
+xCompileAssetCatalog
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/Images.xcassets
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AddFriendCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/AddFriendCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.461661
+e417112355.462598
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AddFriendCell.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/AddFriendCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AddFriendViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/AddFriendViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.691790
+e417112355.693117
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AddFriendViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/AddFriendViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AppDelegate.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.574509
+e417112355.575378
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/AppDelegate.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/AppDelegate.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/BaseNavigationController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/BaseNavigationController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.531087
+e417112355.532103
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/BaseNavigationController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/BaseNavigationController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/BaseViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/BaseViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.683762
+e417112355.685125
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/BaseViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/BaseViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/Ble4Util.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/Ble4Util.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.722533
+e417112355.723571
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/Ble4Util.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/Ble4Util.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSDataManager.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CSDataManager.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.596678
+e417112355.597757
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSDataManager.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CSDataManager.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSFreiend.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CSFreiend.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.501717
+e417112355.502736
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSFreiend.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CSFreiend.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSIndicatorView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CSIndicatorView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.663993
+e417112355.665344
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CSIndicatorView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CSIndicatorView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CWScrollNumView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CWScrollNumView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.727550
+e417112355.728537
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CWScrollNumView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CWScrollNumView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CandyShineAPIKit.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CandyShineAPIKit.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.578462
+e417112355.579387
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CandyShineAPIKit.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CandyShineAPIKit.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CircleImageView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CircleImageView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.461266
+e417112355.461904
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CircleImageView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CircleImageView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CirclePathView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CirclePathView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.573098
+e417112355.574155
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CirclePathView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CirclePathView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CircleTableViewCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CircleTableViewCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.502236
+e417112355.503514
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/CircleTableViewCell.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CircleTableViewCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/ConnectDeviceViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/ConnectDeviceViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.460905
+e417112355.461438
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/ConnectDeviceViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/ConnectDeviceViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DateHelper.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/DateHelper.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.544580
+e417112355.546094
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DateHelper.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/DateHelper.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DetailTextView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/DetailTextView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.718743
+e417112355.720190
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DetailTextView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/DetailTextView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DragView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/DragView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.715385
+e417112355.716576
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/DragView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/DragView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/EditWarmTimeViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/EditWarmTimeViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.574586
+e417112355.575538
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/EditWarmTimeViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/EditWarmTimeViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FBEncryptorAES.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/FBEncrypt/FBEncryptorAES.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.507961
+e417112355.509164
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FBEncryptorAES.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/FBEncrypt/FBEncryptorAES.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FriendCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/FriendCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.637328
+e417112355.638326
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FriendCell.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/FriendCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FriendListViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/FriendListViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.530535
+e417112355.531730
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/FriendListViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/FriendListViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/GridPathView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/GridPathView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.527556
+e417112355.528690
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/GridPathView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/GridPathView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/IndexPathCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/IndexPathCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.660594
+e417112355.662412
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/IndexPathCell.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/IndexPathCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/IntroduceViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/IntroduceViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.503757
+e417112355.504712
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/IntroduceViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/IntroduceViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/LogInViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/LogInViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.646400
+e417112355.647298
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/LogInViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/LogInViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MBProgressHUDManager.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MBProgressHUDManager.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.460517
+e417112355.461098
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MBProgressHUDManager.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MBProgressHUDManager.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MHTextField.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/MHTextField.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.543583
+e417112355.544800
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MHTextField.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/MHTextField.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MeSetViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MeSetViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.697901
+e417112355.698875
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MeSetViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MeSetViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MeViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MeViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.587570
+e417112355.588655
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MeViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MeViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MenuView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MenuView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.528651
+e417112355.529824
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MenuView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MenuView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/ModifyCodeViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/ModifyCodeViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.701165
+e417112355.702409
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/ModifyCodeViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/ModifyCodeViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MoveCircleView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MoveCircleView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.594381
+e417112355.595567
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/MoveCircleView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MoveCircleView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NSData+Base64.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/FBEncrypt/NSData+Base64.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.544129
+e417112355.545304
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NSData+Base64.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/FBEncrypt/NSData+Base64.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NSString+MD5Addition.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/NSString+MD5Addition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.743681
+e417112355.744972
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NSString+MD5Addition.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/NSString+MD5Addition.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/News.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/News.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.462780
+e417112355.463901
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/News.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/News.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NewsCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/NewsCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.709727
+e417112355.710836
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NewsCell.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/NewsCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NewsViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/NewsViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.551739
+e417112355.552929
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/NewsViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/NewsViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/OLImage.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/OLImage.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.668656
+e417112355.669814
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/OLImage.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/OLImage.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/OLImageView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/OLImageView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.739438
+e417112355.740662
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/OLImageView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/OLImageView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/PathTableViewCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/PathTableViewCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.715413
+e417112355.716523
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/PathTableViewCell.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/PathTableViewCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/PickerView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/PickerView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.537679
+e417112355.539064
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/PickerView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/PickerView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/RegistMHTextField.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/RegistMHTextField.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.672370
+e417112355.674013
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/RegistMHTextField.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/RegistMHTextField.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SelectedCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SelectedCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.630205
+e417112355.631340
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SelectedCell.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SelectedCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.600566
+e417112355.601808
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepCell.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepPathView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepPathView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.600173
+e417112355.601427
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepPathView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepPathView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.514974
+e417112355.515948
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SleepViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/Sport.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/Sport.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.668300
+e417112355.669687
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/Sport.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/Sport.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SportSetViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SportSetViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.487736
+e417112355.488718
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SportSetViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SportSetViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SportViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SportViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.643488
+e417112355.644639
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/SportViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SportViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/TabBarView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/TabBarView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.462081
+e417112355.462695
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/TabBarView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/TabBarView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIBezierPath+Smoothing.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIBezierPath+Smoothing.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.725611
+e417112355.726680
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIBezierPath+Smoothing.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIBezierPath+Smoothing.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIButton+SetEdge.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIButton+SetEdge.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.506036
+e417112355.507358
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIButton+SetEdge.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIButton+SetEdge.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIColor+Addition.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIColor+Addition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.470227
+e417112355.471518
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIColor+Addition.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIColor+Addition.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIDevice+DeviceInfo.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIDevice+DeviceInfo.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.503884
+e417112355.504981
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIDevice+DeviceInfo.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIDevice+DeviceInfo.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIDevice+IdentifierAddition.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIDevice+IdentifierAddition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.667949
+e417112355.669695
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIDevice+IdentifierAddition.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIDevice+IdentifierAddition.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UINavigationItem+CustomeItem.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UINavigationItem+CustomeItem.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.622845
+e417112355.624004
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UINavigationItem+CustomeItem.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UINavigationItem+CustomeItem.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIView+FrameAdjust.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UIView+FrameAdjust.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.484423
+e417112355.485989
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIView+FrameAdjust.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UIView+FrameAdjust.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIXib.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/UIXib.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.700574
+e417112355.701505
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UIXib.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/UIXib.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMContactViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMContactViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.634604
+e417112355.636038
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMContactViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMContactViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMEGORefreshTableHeaderView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/EGO_Refresh/UMEGORefreshTableHeaderView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.463647
+e417112355.464642
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMEGORefreshTableHeaderView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/EGO_Refresh/UMEGORefreshTableHeaderView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackTableViewCellLeft.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMFeedbackTableViewCellLeft.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.487589
+e417112355.488561
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackTableViewCellLeft.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMFeedbackTableViewCellLeft.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackTableViewCellRight.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMFeedbackTableViewCellRight.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.715445
+e417112355.716529
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackTableViewCellRight.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMFeedbackTableViewCellRight.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMFeedbackViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.592917
+e417112355.594075
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/UMFeedbackViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMFeedbackViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/VerticalLabel.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/VerticalLabel.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.586842
+e417112355.588006
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/VerticalLabel.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/VerticalLabel.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterAnimationView.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterAnimationView.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.570280
+e417112355.571551
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterAnimationView.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterAnimationView.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmManager.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmManager.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.743792
+e417112355.744930
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmManager.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmManager.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmSetViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmSetViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.630948
+e417112355.632026
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmSetViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmSetViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmViewController.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.629260
+e417112355.630630
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WaterWarmViewController.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmViewController.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WeekTableViewCell.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WeekTableViewCell.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.705873
+e417112355.706851
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/WeekTableViewCell.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WeekTableViewCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileC build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/main.o /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.637526
+e417112355.638661
+r1
+xCompileC
+xbuild/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Objects-normal/i386/main.o
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/AddFriendViewController.xib
+s417112355.773918
+e417112355.774327
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/AddFriendViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/ConnectDeviceViewController.xib
+s417112355.773462
+e417112355.773871
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/ConnectDeviceViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/EditWarmTimeViewController.xib
+s417112355.772013
+e417112355.772389
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/EditWarmTimeViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/FriendListViewController.xib
+s417112355.764561
+e417112355.765211
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/FriendListViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/IntroduceViewController.xib
+s417112355.764681
+e417112355.765164
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/IntroduceViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/LogInViewController.xib
+s417112355.767341
+e417112355.767825
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/LogInViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MeSetViewController.xib
+s417112355.767865
+e417112355.768332
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MeSetViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/MeViewController.xib
+s417112355.772864
+e417112355.773274
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/MeViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/ModifyCodeViewController.xib
+s417112355.770625
+e417112355.771037
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/ModifyCodeViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/NewsCell.xib
+s417112355.762507
+e417112355.763079
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/NewsCell.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/NewsViewController.xib
+s417112355.768115
+e417112355.768495
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/NewsViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SexView.xib
+s417112355.769125
+e417112355.769535
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SexView.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepCell.xib
+s417112355.770286
+e417112355.770705
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepCell.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SleepViewController.xib
+s417112355.762163
+e417112355.762464
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SleepViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SportSetViewController.xib
+s417112355.772209
+e417112355.772648
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SportSetViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/SportViewController.xib
+s417112355.773754
+e417112355.774318
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/SportViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/TabBarView.xib
+s417112355.764374
+e417112355.764791
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/TabBarView.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmSetViewController.xib
+s417112355.770845
+e417112355.771374
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmSetViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/WaterWarmViewController.xib
+s417112355.767667
+e417112355.768120
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/WaterWarmViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentDetailController.xib
+s417112355.769744
+e417112355.770216
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentDetailController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentInputController.xib
+s417112355.765507
+e417112355.765910
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentInputController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentInputControlleriPad.xib
+s417112355.773122
+e417112355.773429
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSCommentInputControlleriPad.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSLoginViewController.xib
+s417112355.761440
+e417112355.761794
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSLoginViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSShareListController.xib
+s417112355.771843
+e417112355.772239
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSShareListController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMShareEditViewController.xib
+s417112355.769999
+e417112355.770400
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMShareEditViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMShareEditViewControlleriPad.xib
+s417112355.767107
+e417112355.767533
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMShareEditViewControlleriPad.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSnsAccountViewController.xib
+s417112355.766727
+e417112355.767268
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/UMSocial_Sdk_3.3.5/SocialSDKXib/UMSnsAccountViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMContactViewController.xib
+s417112355.763780
+e417112355.764272
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMContactViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCompileXIB /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/chat/UMFeedbackViewController.xib
+s417112355.765902
+e417112355.766225
+r1
+xCompileXIB
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/chat/UMFeedbackViewController.xib
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCopyStringsFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/en.lproj/InfoPlist.strings CandyShine/en.lproj/InfoPlist.strings
+s417112355.768963
+e417112355.769965
+r1
+xCopyStringsFile
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/en.lproj/InfoPlist.strings
+xCandyShine/en.lproj/InfoPlist.strings
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCopyStringsFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/en.lproj/UMSocialLocalizable.strings UMSocial_Sdk_3.3.5/en.lproj/UMSocialLocalizable.strings
+s417112355.771192
+e417112355.771630
+r1
+xCopyStringsFile
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/en.lproj/UMSocialLocalizable.strings
+xUMSocial_Sdk_3.3.5/en.lproj/UMSocialLocalizable.strings
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCopyStringsFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/zh-Hans.lproj/UMSocialLocalizable.strings UMSocial_Sdk_3.3.5/zh-Hans.lproj/UMSocialLocalizable.strings
+s417112355.771351
+e417112355.771891
+r1
+xCopyStringsFile
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/zh-Hans.lproj/UMSocialLocalizable.strings
+xUMSocial_Sdk_3.3.5/zh-Hans.lproj/UMSocialLocalizable.strings
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource CandyShine/IMG_0005.JPG build/Debug-iphonesimulator/CandyShine.app/IMG_0005.JPG
+s417112355.762039
+e417112355.763266
+r1
+xCpResource
+xCandyShine/IMG_0005.JPG
+xbuild/Debug-iphonesimulator/CandyShine.app/IMG_0005.JPG
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource CandyShine/state1.png build/Debug-iphonesimulator/CandyShine.app/state1.png
+s417112355.768772
+e417112355.769161
+r1
+xCpResource
+xCandyShine/state1.png
+xbuild/Debug-iphonesimulator/CandyShine.app/state1.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource CandyShine/warm1.gif build/Debug-iphonesimulator/CandyShine.app/warm1.gif
+s417112355.772644
+e417112355.773125
+r1
+xCpResource
+xCandyShine/warm1.gif
+xbuild/Debug-iphonesimulator/CandyShine.app/warm1.gif
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource CandyShine/warm2.gif build/Debug-iphonesimulator/CandyShine.app/warm2.gif
+s417112355.762790
+e417112355.763529
+r1
+xCpResource
+xCandyShine/warm2.gif
+xbuild/Debug-iphonesimulator/CandyShine.app/warm2.gif
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource CandyShine/warm3.gif build/Debug-iphonesimulator/CandyShine.app/warm3.gif
+s417112355.766899
+e417112355.767358
+r1
+xCpResource
+xCandyShine/warm3.gif
+xbuild/Debug-iphonesimulator/CandyShine.app/warm3.gif
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource UMSocial_Sdk_3.3.5/UMSocialSDKResourcesNew.bundle build/Debug-iphonesimulator/CandyShine.app/UMSocialSDKResourcesNew.bundle
+s417112355.762373
+e417112355.763223
+r1
+xCpResource
+xUMSocial_Sdk_3.3.5/UMSocialSDKResourcesNew.bundle
+xbuild/Debug-iphonesimulator/CandyShine.app/UMSocialSDKResourcesNew.bundle
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle build/Debug-iphonesimulator/CandyShine.app/TencentOpenApi_IOS_Bundle.bundle
+s417112355.773685
+e417112355.774315
+r1
+xCpResource
+xUMSocial_Sdk_Extra_Frameworks/TencentOpenAPI/TencentOpenApi_IOS_Bundle.bundle
+xbuild/Debug-iphonesimulator/CandyShine.app/TencentOpenApi_IOS_Bundle.bundle
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/background@2x.png build/Debug-iphonesimulator/CandyShine.app/background@2x.png
+s417112355.765737
+e417112355.766270
+r1
+xCpResource
+xchat/Images/background@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/background@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/blueArrow.png build/Debug-iphonesimulator/CandyShine.app/blueArrow.png
+s417112355.773327
+e417112355.773854
+r1
+xCpResource
+xchat/Images/blueArrow.png
+xbuild/Debug-iphonesimulator/CandyShine.app/blueArrow.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/blueArrow@2x.png build/Debug-iphonesimulator/CandyShine.app/blueArrow@2x.png
+s417112355.766067
+e417112355.766600
+r1
+xCpResource
+xchat/Images/blueArrow@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/blueArrow@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/icon_rightArrow@2x.png build/Debug-iphonesimulator/CandyShine.app/icon_rightArrow@2x.png
+s417112355.763156
+e417112355.763811
+r1
+xCpResource
+xchat/Images/icon_rightArrow@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/icon_rightArrow@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/icon_rightArrow_selected@2x.png build/Debug-iphonesimulator/CandyShine.app/icon_rightArrow_selected@2x.png
+s417112355.765333
+e417112355.765827
+r1
+xCpResource
+xchat/Images/icon_rightArrow_selected@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/icon_rightArrow_selected@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/item_cancel@2x.png build/Debug-iphonesimulator/CandyShine.app/item_cancel@2x.png
+s417112355.769573
+e417112355.770060
+r1
+xCpResource
+xchat/Images/item_cancel@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/item_cancel@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/item_cancel_selected@2x.png build/Debug-iphonesimulator/CandyShine.app/item_cancel_selected@2x.png
+s417112355.762655
+e417112355.763397
+r1
+xCpResource
+xchat/Images/item_cancel_selected@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/item_cancel_selected@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/item_ok@2x.png build/Debug-iphonesimulator/CandyShine.app/item_ok@2x.png
+s417112355.764832
+e417112355.765361
+r1
+xCpResource
+xchat/Images/item_ok@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/item_ok@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/item_ok_selected@2x.png build/Debug-iphonesimulator/CandyShine.app/item_ok_selected@2x.png
+s417112355.770449
+e417112355.770854
+r1
+xCpResource
+xchat/Images/item_ok_selected@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/item_ok_selected@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/messages_left_bubble@2x.png build/Debug-iphonesimulator/CandyShine.app/messages_left_bubble@2x.png
+s417112355.772403
+e417112355.772781
+r1
+xCpResource
+xchat/Images/messages_left_bubble@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/messages_left_bubble@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/messages_right_bubble@2x.png build/Debug-iphonesimulator/CandyShine.app/messages_right_bubble@2x.png
+s417112355.761765
+e417112355.763334
+r1
+xCpResource
+xchat/Images/messages_right_bubble@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/messages_right_bubble@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/messages_tableview_background.png build/Debug-iphonesimulator/CandyShine.app/messages_tableview_background.png
+s417112355.771053
+e417112355.771571
+r1
+xCpResource
+xchat/Images/messages_tableview_background.png
+xbuild/Debug-iphonesimulator/CandyShine.app/messages_tableview_background.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/messages_tableview_background@2x.png build/Debug-iphonesimulator/CandyShine.app/messages_tableview_background@2x.png
+s417112355.766515
+e417112355.766974
+r1
+xCpResource
+xchat/Images/messages_tableview_background@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/messages_tableview_background@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/messages_toolbar_background.png build/Debug-iphonesimulator/CandyShine.app/messages_toolbar_background.png
+s417112355.765101
+e417112355.765687
+r1
+xCpResource
+xchat/Images/messages_toolbar_background.png
+xbuild/Debug-iphonesimulator/CandyShine.app/messages_toolbar_background.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/messages_toolbar_background@2x.png build/Debug-iphonesimulator/CandyShine.app/messages_toolbar_background@2x.png
+s417112355.766282
+e417112355.766850
+r1
+xCpResource
+xchat/Images/messages_toolbar_background@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/messages_toolbar_background@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/nav_bar_bg@2x.png build/Debug-iphonesimulator/CandyShine.app/nav_bar_bg@2x.png
+s417112355.764201
+e417112355.764898
+r1
+xCpResource
+xchat/Images/nav_bar_bg@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/nav_bar_bg@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/nav_bg.png build/Debug-iphonesimulator/CandyShine.app/nav_bg.png
+s417112355.763958
+e417112355.764314
+r1
+xCpResource
+xchat/Images/nav_bg.png
+xbuild/Debug-iphonesimulator/CandyShine.app/nav_bg.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/nav_btn_bg.png build/Debug-iphonesimulator/CandyShine.app/nav_btn_bg.png
+s417112355.769344
+e417112355.770065
+r1
+xCpResource
+xchat/Images/nav_btn_bg.png
+xbuild/Debug-iphonesimulator/CandyShine.app/nav_btn_bg.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/nav_btn_bg@2x.png build/Debug-iphonesimulator/CandyShine.app/nav_btn_bg@2x.png
+s417112355.771672
+e417112355.772158
+r1
+xCpResource
+xchat/Images/nav_btn_bg@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/nav_btn_bg@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/nav_btn_bg_lighted@2x.png build/Debug-iphonesimulator/CandyShine.app/nav_btn_bg_lighted@2x.png
+s417112355.767524
+e417112355.768101
+r1
+xCpResource
+xchat/Images/nav_btn_bg_lighted@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/nav_btn_bg_lighted@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/send@2x.png build/Debug-iphonesimulator/CandyShine.app/send@2x.png
+s417112355.763523
+e417112355.764014
+r1
+xCpResource
+xchat/Images/send@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/send@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/send_selected@2x.png build/Debug-iphonesimulator/CandyShine.app/send_selected@2x.png
+s417112355.761553
+e417112355.763042
+r1
+xCpResource
+xchat/Images/send_selected@2x.png
+xbuild/Debug-iphonesimulator/CandyShine.app/send_selected@2x.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource chat/Images/umeng_logo.png build/Debug-iphonesimulator/CandyShine.app/umeng_logo.png
+s417112355.768594
+e417112355.769185
+r1
+xCpResource
+xchat/Images/umeng_logo.png
+xbuild/Debug-iphonesimulator/CandyShine.app/umeng_logo.png
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CCpResource umFeedback.bundle build/Debug-iphonesimulator/CandyShine.app/umFeedback.bundle
+s417112355.768386
+e417112355.768798
+r1
+xCpResource
+xumFeedback.bundle
+xbuild/Debug-iphonesimulator/CandyShine.app/umFeedback.bundle
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CDataModelVersionCompile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CoreData.momd /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CoreData.xcdatamodeld
+s417112355.436386
+e417112355.436993
+r1
+xDataModelVersionCompile
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CoreData.momd
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CoreData.xcdatamodeld
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CGenerateDSYMFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app.dSYM /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CandyShine
+s417112355.777058
+e417112355.777389
+r1
+xGenerateDSYMFile
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app.dSYM
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CandyShine
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CLd /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CandyShine normal i386
+s417112355.760583
+e417112355.760973
+r1
+xLd
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/CandyShine
+xnormal
+xi386
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CPhaseScriptExecution Check\ Pods\ Manifest.lock /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Script-E4942BCC36C1428389DC7AD2.sh
+s417112355.434725
+e417112355.435958
+r1
+xPhaseScriptExecution
+xCheck Pods Manifest.lock
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Script-E4942BCC36C1428389DC7AD2.sh
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CPhaseScriptExecution Copy\ Pods\ Resources /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Script-313E141221F147BDABE9D6F9.sh
+s417112355.778415
+e417112355.779511
+r1
+xPhaseScriptExecution
+xCopy Pods Resources
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/CandyShine.build/Debug-iphonesimulator/CandyShine.build/Script-313E141221F147BDABE9D6F9.sh
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CProcessInfoPlistFile /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/Info.plist /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/CandyShine/CandyShine-Info.plist
+s417112355.776169
+e417112355.776641
+r1
+xProcessInfoPlistFile
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app/Info.plist
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/CandyShine/CandyShine-Info.plist
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CProcessPCH /var/folders/7y/r2zcy98d5b37p2ny8_p635m40000gn/C/com.apple.DeveloperTools/5.1-5B130a/Xcode/SharedPrecompiledHeaders/CandyShine-Prefix-blexccyvgertyregpujfjjjbzvnf/CandyShine-Prefix.pch.pch CandyShine/CandyShine-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.437105
+e417112355.437671
+r1
+xProcessPCH
+x/var/folders/7y/r2zcy98d5b37p2ny8_p635m40000gn/C/com.apple.DeveloperTools/5.1-5B130a/Xcode/SharedPrecompiledHeaders/CandyShine-Prefix-blexccyvgertyregpujfjjjbzvnf/CandyShine-Prefix.pch.pch
+xCandyShine/CandyShine-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CProcessPCH /var/folders/7y/r2zcy98d5b37p2ny8_p635m40000gn/C/com.apple.DeveloperTools/5.1-5B130a/Xcode/SharedPrecompiledHeaders/CandyShine-Prefix-hckimjlvuedznfecucptpzywwgzm/CandyShine-Prefix.pch.pch CandyShine/CandyShine-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
+s417112355.437585
+e417112355.438364
+r1
+xProcessPCH
+x/var/folders/7y/r2zcy98d5b37p2ny8_p635m40000gn/C/com.apple.DeveloperTools/5.1-5B130a/Xcode/SharedPrecompiledHeaders/CandyShine-Prefix-hckimjlvuedznfecucptpzywwgzm/CandyShine-Prefix.pch.pch
+xCandyShine/CandyShine-Prefix.pch
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.llvm.clang.1_0.compiler
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+
+CTouch /Users/huangfulei/Desktop/Candy\ Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app
+s417112355.781632
+e417112355.781899
+r1
+xTouch
+x/Users/huangfulei/Desktop/Candy Wearables/CandyShine/build/Debug-iphonesimulator/CandyShine.app
+b207415A4-E8CD-4CAA-8CA4-3B9F44C84381
+

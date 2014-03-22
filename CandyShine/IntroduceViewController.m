@@ -52,9 +52,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.currentPage = 0;
-    
-    
-    [Ble4Util shareBleUtilWithTarget:nil];
 }
 
 - (CGFloat)offsetY {

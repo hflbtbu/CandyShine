@@ -32,4 +32,6 @@
 
 + (NSString *)getYearWithIndex:(NSInteger)index;
 
++ (NSInteger)getDayWithDate:(NSDate *)date;
+
 @end

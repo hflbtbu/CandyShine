@@ -122,29 +122,44 @@
 }
 
 - (void)receiveTapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
-    if (_isSyn) {
-        _isSyn = NO;
-        _runNumberLB.hidden = YES;
-        _calorieLB.hidden = YES;
-        _gogalLB.text = @"同步";
+//    if (_isSyn) {
+//        _isSyn = NO;
+//        _runNumberLB.hidden = YES;
+//        _calorieLB.hidden = YES;
+//        _gogalLB.text = @"同步";
+//    } else {
+//        _isSyn = YES;
+//        _runNumberLB.hidden = NO;
+//        _calorieLB.hidden = NO;
+//        _gogalLB.text = @"目标 : 9900卡路里";
+//        
+//    }
+    if ([CSDataManager sharedInstace].isConneting) {
+        [self synchronizationDeviceData];
     } else {
-        _isSyn = YES;
-        _runNumberLB.hidden = NO;
-        _calorieLB.hidden = NO;
-        _gogalLB.text = @"目标 : 9900卡路里";
-        
+        [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
+            if (state == CSConnectfound) {
+                [self synchronizationDeviceData];
+            }
+        }];
     }
 }
 
+- (void)synchronizationDeviceData {
+    //UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    [MBProgressHUDManager showIndicatorWithTitle:@"正在同步" inView:self];
+    [[CSDataManager sharedInstace] synchronizationDeviceDataWithBlock:^{
+        [MBProgressHUDManager hideMBProgressInView:self];
+    }];
+}
 
 - (void)refrsh {
-    
-    
     if (_currentPattern == DataPatternDay) {
         _runNumberLB.text = [NSString stringWithFormat:@"%d",_runNumbers];
         //[self updateWithProgress:_runNumbers/1200.0];
-        self.progress = _runNumbers/9900.0;
-        _gogalLB.text = [NSString stringWithFormat:@"目标 : 9900卡路里"];
+        NSInteger gogal = [CSDataManager sharedInstace].userGogal;
+        self.progress = _runNumbers/(gogal*1.0);
+        _gogalLB.text = [NSString stringWithFormat:@"目标 : %d卡路里",gogal];
         _calorieLB.text = [NSString stringWithFormat:@"700卡路里"];
     } else {
         

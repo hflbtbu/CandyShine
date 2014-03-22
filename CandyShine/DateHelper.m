@@ -106,4 +106,11 @@
     return mothString;
 }
 
++ (NSInteger)getDayWithDate:(NSDate *)date {
+    NSDate *dateBegain = [DateHelper getDayBegainWith:0];
+    NSTimeInterval timerInterval = [dateBegain timeIntervalSinceDate:date];
+    NSInteger days = timerInterval/(24*60*60) + 1;
+    return days;
+}
+
 @end

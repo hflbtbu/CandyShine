@@ -68,12 +68,18 @@
         _tabBarController.selectedIndex = 3;
     }
     
-    _introVC = [[IntroduceViewController alloc] initWithNibName:@"IntroduceViewController" bundle:nil];
-    _introVC.delegate = self;
    // _introVC.view.frame = CGRectMake(0, 0, _tabBarController.view.width, _tabBarController.view.height);
     //[_tabBarController.view addSubview:_introVC.view];
-    
-    self.window.rootViewController = _introVC;
+    BOOL isfirstLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:kIsFirstLaunch];
+    if (isfirstLaunch) {
+        _introVC = [[IntroduceViewController alloc] initWithNibName:@"IntroduceViewController" bundle:nil];
+        _introVC.delegate = self;
+        self.window.rootViewController = _introVC;
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kIsFirstLaunch];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        self.window.rootViewController = _tabBarController;
+    }
     
     [self initAppearece];
     
@@ -111,7 +117,8 @@
     //打开新浪微博的SSO开关
     [UMSocialConfig setSupportSinaSSO:YES];
     //设置微信AppId，url地址传nil，将默认使用友盟的网址
-    [UMSocialWechatHandler setWXAppId:@"wxd9a39c7122aa6516" url:nil];}
+    [UMSocialWechatHandler setWXAppId:@"wxd9a39c7122aa6516" url:nil];
+}
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
     return [UMSocialSnsService handleOpenURL:url wxApiDelegate:nil];

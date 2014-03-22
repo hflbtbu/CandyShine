@@ -17,7 +17,8 @@
 #import "News.h"
 #import "Ble4Util.h"
 
-typedef void(^ConnectStateBlock)(CSConnectState);
+typedef void(^ConnectStateBlock)(CSConnectState state);
+typedef void(^ReadDataBlock)();
 
 @interface CSDataManager : NSObject <Ble4UtilDelegate,Ble4PeripheralDelegate>
 
@@ -28,8 +29,11 @@ typedef void(^ConnectStateBlock)(CSConnectState);
 @property (nonatomic, assign) CSLoginType loginType;
 @property (nonatomic, assign) NSInteger totalDays;
 @property (nonatomic, assign) BOOL isReachable;
+@property (nonatomic, assign) NSInteger userGogal;
+
 
 @property (nonatomic, retain) Ble4Util *ble4Util;
+@property (nonatomic, assign) BOOL isConneting;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -41,6 +45,8 @@ typedef void(^ConnectStateBlock)(CSConnectState);
 - (Sport *)insertSportItemWithBlock:(void (^)(Sport *))settingBlock;
 
 - (NSArray *)fetchSportItemsByDay:(NSInteger)day;
+
+- (NSArray *)fetchSportItemsByWeek:(NSInteger)week;
 
 - (News *)insertNewsWithBlock:(void (^)(News *))settingBlock;
 
@@ -54,6 +60,10 @@ typedef void(^ConnectStateBlock)(CSConnectState);
 
 - (NSData *)readPortrait;
 
-- (void)scanDeviceWithBlock:(void (^) (CSConnectState))state;
+- (void)scanDevice;
+
+- (void)connectDeviceWithBlock:(ConnectStateBlock)block;
+
+- (void)synchronizationDeviceDataWithBlock:(ReadDataBlock)block;
 
 @end
