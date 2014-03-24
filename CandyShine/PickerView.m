@@ -94,8 +94,8 @@
         }
         
     }
-    [_delegate pickerViewDidSelectedWithVlaue:dic];
     [self hide];
+    [_delegate pickerViewDidSelectedWithVlaue:dic];
 }
 
 // returns the number of 'columns' to display.

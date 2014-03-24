@@ -406,6 +406,10 @@ typedef NS_ENUM(NSInteger, BleSportsDataReadState)
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
     _centralState=central.state;
+    if(_delegate && [_delegate respondsToSelector:@selector(ble4Util:didUpdateState:)])
+    {
+        [_delegate ble4Util:self didUpdateState:_centralState];
+    }
 }
 - (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
 {

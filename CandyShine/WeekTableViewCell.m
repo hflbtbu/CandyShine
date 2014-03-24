@@ -49,6 +49,18 @@
     _right.hidden = YES;
     [self.contentView addSubview:_right];
     
+    _gogalLine = [CAShapeLayer layer];
+    _gogalLine.frame = CGRectMake(16.5, 49, 320 - kWeekCellCap, 0.5);
+    _gogalLine.lineWidth = 0.5;
+    _gogalLine.lineDashPattern =  @[[NSNumber numberWithFloat:4.0],[NSNumber numberWithFloat:4.0]];
+    _gogalLine.lineCap = kCALineCapButt;
+    _gogalLine.strokeColor = [[UIColor convertHexColorToUIColor:0xe6e1da] CGColor];
+    UIBezierPath *line = [UIBezierPath bezierPath];
+    [line moveToPoint:_gogalLine.frame.origin];
+    [line addLineToPoint:CGPointMake(_gogalLine.frame.size.width - kWeekCellCap, _gogalLine.frame.origin.y)];
+    _gogalLine.path = line.CGPath;
+    [self.contentView.layer addSublayer:_gogalLine];
+    
     if (_weekViewArray == nil) {
         _weekViewArray = [NSMutableArray arrayWithCapacity:0];
     }
@@ -79,18 +91,6 @@
     _friendTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 225, 320, 200) style:UITableViewStylePlain];
     _friendTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.contentView addSubview:_friendTableView];
-    
-    _gogalLine = [CAShapeLayer layer];
-    _gogalLine.frame = CGRectMake(16.5, 49, 320 - kWeekCellCap, 0.5);
-    _gogalLine.lineWidth = 0.5;
-    _gogalLine.lineDashPattern =  @[[NSNumber numberWithFloat:4.0],[NSNumber numberWithFloat:4.0]];
-    _gogalLine.lineCap = kCALineCapButt;
-    _gogalLine.strokeColor = [[UIColor convertHexColorToUIColor:0xe6e1da] CGColor];
-    UIBezierPath *line = [UIBezierPath bezierPath];
-    [line moveToPoint:_gogalLine.frame.origin];
-    [line addLineToPoint:CGPointMake(_gogalLine.frame.size.width - kWeekCellCap, _gogalLine.frame.origin.y)];
-    _gogalLine.path = line.CGPath;
-    [self.contentView.layer addSublayer:_gogalLine];
 }
 
 - (void)setCurrentPage:(CellPosition)currentPage {

@@ -387,6 +387,12 @@
     [_ble4Util cmdSetSleepTimeWithHour:hour andMin:min andUDID:_udid];
 }
 
+-(void)setSetSportsPlanWithType:(BleSportsPlanType)type andGogal:(NSInteger)gogal block:(CallBackBlock)block {
+    _callBackBlock = block;
+    [_ble4Util cmdSetSportsPlanWithType:type andTarget:gogal andUDID:_udid];
+}
+
+
 - (void)ble4Peripheral:(id)ble4Peripheral callBackWithMark:(Ble4CallBackMark)mark
 {
     switch (mark) {
@@ -401,6 +407,7 @@
             break;
         case Ble4CallBackMarkSetSportsPlan:
             //_lblResponse.text=@"设置运动计划成功!";
+            _callBackBlock();
             break;
         case Ble4CallBackMarkPairLovers:
             //_lblResponse.text=@"情侣配对提示!";
@@ -423,6 +430,12 @@
 
 - (void)ble4UtilDidDisconnect:(id)ble4Util withUDID:(NSString *)udid {
     _isConneting = NO;
+}
+
+- (void)ble4Util:(id)ble4Util didUpdateState:(CBCentralManagerState)state {
+    if (state == CBCentralManagerStatePoweredOff) {
+        _isConneting = NO;
+    }
 }
 
 - (void)connectDeviceWithBlock:(ConnectStateBlock)block {

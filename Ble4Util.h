@@ -238,6 +238,12 @@ typedef NS_ENUM(NSInteger, BleWriteValueError)
 -(void)ble4UtilDidConnect:(id)ble4Util withUDID:(NSString *)udid;
 /** 失去连接 */
 -(void)ble4UtilDidDisconnect:(id)ble4Util withUDID:(NSString *)udid;
+/** 
+ 手机蓝牙状态更改事件
+ 只有当state为CBCentralManagerStatePoweredOn时，手机蓝牙才能正常连接;
+ state为CBCentralManagerStatePoweredOff时，表示手机蓝牙已经被关闭;
+ */
+-(void)ble4Util:(id)ble4Util didUpdateState:(CBCentralManagerState)state;
 
 @end
 

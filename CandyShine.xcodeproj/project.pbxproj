@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		310A130018DFF92800A151C6 /* SleepShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 310A12FF18DFF92800A151C6 /* SleepShow.m */; };
+		310A130318E010D800A151C6 /* Ble4Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 310A130218E010D800A151C6 /* Ble4Util.m */; };
 		310C0D6C18B735A900826FE6 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 310C0D6B18B735A900826FE6 /* Social.framework */; };
 		31146226188FEBA200702F29 /* CirclePathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 31146225188FEBA200702F29 /* CirclePathView.m */; };
 		31146229189001AE00702F29 /* CircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31146228189001AE00702F29 /* CircleTableViewCell.m */; };
@@ -76,7 +77,6 @@
 		31B2D8EA18A5CBD100F3A1F5 /* AddFriendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B2D8E818A5CBD100F3A1F5 /* AddFriendViewController.m */; };
 		31B2D8EB18A5CBD100F3A1F5 /* AddFriendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B2D8E918A5CBD100F3A1F5 /* AddFriendViewController.xib */; };
 		31B2D8EE18A5E21C00F3A1F5 /* AddFriendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B2D8ED18A5E21C00F3A1F5 /* AddFriendCell.m */; };
-		31B44E3418DC3ACE00153A6B /* Ble4Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B44E3318DC3ACE00153A6B /* Ble4Util.m */; };
 		31B48BAB18B30B3200980F69 /* ModifyCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B48BA918B30B3200980F69 /* ModifyCodeViewController.m */; };
 		31B48BAC18B30B3200980F69 /* ModifyCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31B48BAA18B30B3200980F69 /* ModifyCodeViewController.xib */; };
 		31B48BB118B3181E00980F69 /* libUMFeedback.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B48BAE18B3181E00980F69 /* libUMFeedback.a */; };
@@ -182,6 +182,8 @@
 /* Begin PBXFileReference section */
 		310A12FE18DFF92800A151C6 /* SleepShow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepShow.h; sourceTree = "<group>"; };
 		310A12FF18DFF92800A151C6 /* SleepShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepShow.m; sourceTree = "<group>"; };
+		310A130118E010D800A151C6 /* Ble4Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ble4Util.h; sourceTree = "<group>"; };
+		310A130218E010D800A151C6 /* Ble4Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ble4Util.m; sourceTree = "<group>"; };
 		310C0D6B18B735A900826FE6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		31146223188FEB2200702F29 /* EnumDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnumDefine.h; sourceTree = "<group>"; };
 		31146224188FEBA200702F29 /* CirclePathView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CirclePathView.h; sourceTree = "<group>"; };
@@ -302,8 +304,6 @@
 		31B2D8E918A5CBD100F3A1F5 /* AddFriendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddFriendViewController.xib; sourceTree = "<group>"; };
 		31B2D8EC18A5E21C00F3A1F5 /* AddFriendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFriendCell.h; sourceTree = "<group>"; };
 		31B2D8ED18A5E21C00F3A1F5 /* AddFriendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFriendCell.m; sourceTree = "<group>"; };
-		31B44E3218DC3ACE00153A6B /* Ble4Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ble4Util.h; sourceTree = "<group>"; };
-		31B44E3318DC3ACE00153A6B /* Ble4Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ble4Util.m; sourceTree = "<group>"; };
 		31B48BA818B30B3200980F69 /* ModifyCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifyCodeViewController.h; sourceTree = "<group>"; };
 		31B48BA918B30B3200980F69 /* ModifyCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifyCodeViewController.m; sourceTree = "<group>"; };
 		31B48BAA18B30B3200980F69 /* ModifyCodeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModifyCodeViewController.xib; sourceTree = "<group>"; };
@@ -731,8 +731,8 @@
 		31BBE16718DA9521000EC4AE /* Bluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				31B44E3218DC3ACE00153A6B /* Ble4Util.h */,
-				31B44E3318DC3ACE00153A6B /* Ble4Util.m */,
+				310A130118E010D800A151C6 /* Ble4Util.h */,
+				310A130218E010D800A151C6 /* Ble4Util.m */,
 			);
 			name = Bluetooth;
 			sourceTree = "<group>";
@@ -1185,6 +1185,7 @@
 			files = (
 				31F2A2DE18BA49F600899A07 /* MBProgressHUDManager.m in Sources */,
 				312B64DB18D9770B003EEF56 /* ConnectDeviceViewController.m in Sources */,
+				310A130318E010D800A151C6 /* Ble4Util.m in Sources */,
 				3150454318B64001004DF58F /* CircleImageView.m in Sources */,
 				31B2D8EE18A5E21C00F3A1F5 /* AddFriendCell.m in Sources */,
 				31FCA23D188D0954005494AE /* TabBarView.m in Sources */,
@@ -1251,7 +1252,6 @@
 				3114622C189006AC00702F29 /* PathTableViewCell.m in Sources */,
 				31B48BFB18B3396000980F69 /* UMFeedbackTableViewCellRight.m in Sources */,
 				312C440718A3D0C9006CE7D1 /* DetailTextView.m in Sources */,
-				31B44E3418DC3ACE00153A6B /* Ble4Util.m in Sources */,
 				316C8C18188EA5B800D31252 /* UIBezierPath+Smoothing.m in Sources */,
 				3172999218B8D89A00DF4C9D /* CWScrollNumView.m in Sources */,
 				31B511A018B4826500FEA3E3 /* OLImageView.m in Sources */,

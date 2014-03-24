@@ -76,15 +76,39 @@
 }
 
 - (void)saveUserGogalData {
-    [[NSUserDefaults standardUserDefaults] setInteger:_scrollNumView.number forKey:kUserGogal];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [CSDataManager sharedInstace].userGogal = _scrollNumView.number;
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSetGogalFinishNotification object:nil];
+    if ([CSDataManager sharedInstace].isConneting) {
+        [self setSportPlan];
+    } else {
+        [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
+            if (state == CSConnectfound) {
+                [self setSportPlan];
+            } else {
+                [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
+            }
+        }];
+    }
+}
+
+- (void)setSportPlan {
+    [[CSDataManager sharedInstace] setSetSportsPlanWithType:BleSportsPlanTypeSteps andGogal:_scrollNumView.number block:^{
+        [[NSUserDefaults standardUserDefaults] setInteger:_scrollNumView.number forKey:kUserGogal];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [CSDataManager sharedInstace].userGogal = _scrollNumView.number;
+        [MBProgressHUDManager showTextWithTitle:@"设置运动计划成功" inView:[[UIApplication sharedApplication] keyWindow]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kSetGogalFinishNotification object:nil];
+    }];
+}
+
+- (void)initNavigationItem {
+    [super initNavigationItem];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleBordered target:self action:@selector(saveUserGogalData)];
+    
+    self.navigationItem.title = @"运动计划";
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self saveUserGogalData];
+    //[self saveUserGogalData];
 }
 
 - (void)didReceiveMemoryWarning

@@ -178,6 +178,11 @@
     [_addFriendSearchbar becomeFirstResponder];
 }
 
+- (void)initNavigationItem {
+    [super initNavigationItem];
+    self.navigationItem.title = @"添加好友";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

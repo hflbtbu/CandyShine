@@ -370,4 +370,9 @@
     return  [NSString stringWithFormat:@"%02d:%02d",hour,minute];
 }
 
+- (void)initNavigationItem {
+    [super initNavigationItem];
+    self.navigationItem.title = @"喝水设置";
+}
+
 @end
