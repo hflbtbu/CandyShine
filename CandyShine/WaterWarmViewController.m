@@ -14,6 +14,7 @@
 @interface WaterWarmViewController ()
 {
     WaterWarmManager *_waterWarmManager;
+    IBOutlet UIScrollView *_scrollView;
 }
 @end
 
@@ -48,7 +49,7 @@
 }
 
 - (void)refresh {
-    for (UIView *view in [self.view subviews]) {
+    for (UIView *view in [_scrollView subviews]) {
         if (view.tag >= kAnimationViewTag) {
             [view removeFromSuperview];
         }
@@ -60,6 +61,15 @@
         
         self.navigationItem.title = [NSString stringWithFormat:@"%d杯水",number];
         
+        WaterAnimationView *lastView;
+        int add;
+        if (number%3 == 0) {
+            add = 0;
+        } else {
+            add = 1;
+        }
+        
+        _scrollView.contentSize = CGSizeMake(self.view.width, 15 + 118*(number/3 + add));
         int count = 0;
         for (int i = 0; i <number/3 + 1; i++) {
             for (int j = 0; j < 3; j++) {
@@ -67,7 +77,8 @@
                     WaterAnimationView *animation = [[WaterAnimationView alloc] initWithFrame:CGRectMake(16 + j*100, 15 + i*118, 88, 108)];
                     animation.tag = count + kAnimationViewTag;
                     [animation setWarmTime:[[times objectAtIndex:count] integerValue] WarmState:[[states objectAtIndex:count] integerValue]];
-                    [self.view addSubview:animation];
+                    [_scrollView addSubview:animation];
+                    lastView = animation;
                     count++;
                 } else {
                     break;

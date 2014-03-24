@@ -16,6 +16,8 @@
     UITableView *_tableView;
     NSInteger _currentPage;
     UILabel *_titleLB;
+    
+    NSArray *_friendArray;
 }
 @end
 
@@ -65,7 +67,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if (_tableView == tableView) {
+        return 5;
+    } else {
+        return _friendArray.count + 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,6 +102,24 @@
         
         return cell;
     } else {
+        
+        if (indexPath.row == _friendArray.count) {
+            UITableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:friendCellIdentifer];
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentifer];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                UIButton *addFriendButton = [[UIButton alloc] initWithFrame:CGRectMake((cell.width - 304)/2, (kTableViewRowHeith - 44)/2, 304, 44)];
+                UIImage *image = [[UIImage imageNamed:@"button_bg_login"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 4.5, 0, 4.5)];
+                [addFriendButton setBackgroundImage:image forState:UIControlStateNormal];
+                [addFriendButton setTitle:@"添加好友" forState:UIControlStateNormal];
+                [addFriendButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+                [addFriendButton addTarget:self action:@selector(go) forControlEvents:UIControlEventTouchUpInside];
+                [cell.contentView addSubview:addFriendButton];
+                cell.selectionStyle = UITableViewCellEditingStyleNone;
+            }
+            return cell;
+        }
+        
         FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentifer];
         if (cell == nil) {
             cell = [[FriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentifer] ;

@@ -194,7 +194,11 @@
                 cell.detailTextLabel.text = [NSString stringWithFormat:@"%dkg",weitht];
             } else {
                 cell.textLabel.text = @"出生日期";
-                cell.detailTextLabel.text = @"1990年8月";
+                NSString *birthDay = [[NSUserDefaults standardUserDefaults] stringForKey:kUserBirthDay];
+                if (birthDay == nil) {
+                    birthDay = @"1990年8月";
+                }
+                cell.detailTextLabel.text = birthDay;
             }
         }
     }
@@ -303,7 +307,9 @@
         [[NSUserDefaults standardUserDefaults] setInteger:[[dic objectForKey:kPickerWeight] floatValue] forKey:kUserWeight];
     } else {
         str = [NSString stringWithFormat:@"%d年%d月%d日",[[dic objectForKey:kPickerYear] integerValue],[[dic objectForKey:kPickerMonth] integerValue],[[dic objectForKey:kPickerDay] integerValue]];
+        [[NSUserDefaults standardUserDefaults] setObject:str forKey:kUserBirthDay];
     }
+    [[NSUserDefaults standardUserDefaults] synchronize];
     _selectedCell.detailTextLabel.text = str;
 }
 

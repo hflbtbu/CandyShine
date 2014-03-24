@@ -36,6 +36,7 @@
 #define kUserHeight         @"UserHeight"
 #define kUserWeight         @"UserWeight"
 #define kUserGogal          @"UserGogal"
+#define kUserBirthDay       @"UserBirthDay"
 
 #define kReadDateDate       @"ReadDateDate"
 
