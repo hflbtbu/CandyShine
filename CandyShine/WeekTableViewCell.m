@@ -124,7 +124,13 @@
                 view.backgroundColor = kContentNormalShallowColorA;
                 
             } else {
-                sizeHeight = (totalValue -gogal)/1000.0f*(kWeekCellMaxHeight - (195 - 98)) + 195 - 98;
+                CGFloat index;
+                if (totalValue - gogal > 9900) {
+                    index = 1.0;
+                } else {
+                    index = (totalValue - gogal)/9900.0f;
+                }
+                sizeHeight = index*(kWeekCellMaxHeight - (195 - 98)) + 195 - 98;
                 view.backgroundColor = kContentHighlightColor;
             }
             view.frame = CGRectMake(view.x, 195 - sizeHeight, view.width, sizeHeight);

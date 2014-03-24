@@ -36,11 +36,11 @@ typedef void(^CallBackBlock)();
 @property (nonatomic, assign) NSInteger userGogal;
 
 @property (nonatomic, retain) Ble4Util *ble4Util;
+@property (nonatomic, retain) NSString *udid;
 @property (nonatomic, assign) BOOL isConneting;
 @property (nonatomic, assign) BOOL isReading;
 @property (nonatomic, assign) BOOL isDongingConnect;
 @property (nonatomic, retain) NSDate *readDataDate;
-
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

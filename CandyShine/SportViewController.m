@@ -58,6 +58,8 @@
     UIImageView *shouMenuImage;
     
     CSDataManager *_dataManager;
+    
+    BOOL _viewIsShow;
 }
 
 @end
@@ -110,7 +112,9 @@
     _freshTimeLB.backgroundColor = [UIColor clearColor];
     _freshTimeLB.font = [UIFont systemFontOfSize:12];
     _freshTimeLB.textAlignment = NSTextAlignmentCenter;
-    _freshTimeLB.text = [DateHelper getDateStringWithDate:_dataManager.readDataDate];
+    NSString *str;
+    str = _dataManager.readDataDate == nil ? @"还未同步过数据" : [DateHelper getDateStringWithDate:_dataManager.readDataDate];
+    _freshTimeLB.text = str;
     _freshTimeLB.textColor = [UIColor convertHexColorToUIColor:0xccc8c2];
     CGSize size = [_freshTimeLB.text sizeWithFont:_freshTimeLB.font];
     _freshTimeLB.frame = CGRectMake(0, 15, self.view.width, size.height);
@@ -232,11 +236,12 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    CGPoint offset = CGPointMake(0, _circleTableView.contentSize.height - self.view.frame.size.width);
-    _circleTableView.contentOffset = offset;
-    
-
+    [super viewDidAppear:animated];
+    if (!_viewIsShow) {
+        _viewIsShow = YES;
+        CGPoint offset = CGPointMake(0, _circleTableView.contentSize.height - self.view.frame.size.width);
+        _circleTableView.contentOffset = offset;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -565,5 +570,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kLoginFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReadDeviceDataFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kSetGogalFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kLogoutFinishNotification object:nil];
 }
 @end

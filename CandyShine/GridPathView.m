@@ -121,7 +121,13 @@
             if (value <= gogal) {
                 [path addLineToPoint:CGPointMake(i*step,height - (value/(gogal*1.0))*(height - 30))];
             } else {
-                [path addLineToPoint:CGPointMake(i*step,height - ((height - 30) + (value - gogal)/1000.0f*30))];
+                CGFloat index;
+                if (value - gogal > 9900) {
+                    index = 1.0;
+                } else {
+                    index = (value - gogal)/9900.0f;
+                }
+                [path addLineToPoint:CGPointMake(i*step,height - ((height - 30) + index*30))];
             }
         }
 //        UIBezierPath *smoothing = [path smoothedPathWithGranularity:1 minY:self.height - TextSpaceY - 2*PathBorderBap - 110 maxY:self.height - TextSpaceY - 2*PathBorderBap - 0];

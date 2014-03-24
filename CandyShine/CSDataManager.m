@@ -16,8 +16,6 @@
     ConnectStateBlock _connectStateBlock;
     ReadDataBlock _readDataBlock;
     CallBackBlock _callBackBlock;
-    
-    NSString *_udid;
 }
 @end
 
@@ -436,7 +434,7 @@
     if (state == CBCentralManagerStatePoweredOff) {
         _isConneting = NO;
     } else if (state == CBCentralManagerStatePoweredOn) {
-        [self autoSyncData];
+        //[self autoSyncData];
     }
 }
 

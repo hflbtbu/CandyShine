@@ -100,12 +100,14 @@
     if (news == nil) {
         [self requestNewsWithDateIndex:indexPath.row];
     } else {
+        
         [cell.pictureImageView setImageWithURL:[NSURL URLWithString:news.image] placeholderImage:[UIImage imageNamed:@"news_placeholderImage"]];
         cell.contentLB.text = news.content;
         cell.dayLB.text = [DateHelper getDayWithIndex:indexPath.row];
         cell.motheLB.text = [DateHelper getMothWithIndex:indexPath.row];
         cell.authorLB.text = news.author;
     }
+    cell.pageLB.text = [NSString stringWithFormat:@"VOL.%d",indexPath.row];
     return cell;
 }
 

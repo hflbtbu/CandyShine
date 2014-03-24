@@ -45,6 +45,13 @@
             _pickerView.dataSource = self;
             _pickerView.delegate = self;
             [self addSubview:_pickerView];
+            
+            _heightFloat = 0;
+            _heightInt = 0;
+            
+            _weightFloat = 0;
+            _weightInt = 40;
+            
         } else {
             _datePicker =[[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, self.width, 216)];
             _datePicker.timeZone = [NSTimeZone defaultTimeZone];

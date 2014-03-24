@@ -77,7 +77,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
     if (section == 1) {
-        return 60;
+        return 120;
     }
     return 0;
 }
@@ -93,9 +93,45 @@
         [logoutButton setBackgroundImage:bgImage forState:UIControlStateNormal];
         [logoutButton addTarget:self action:@selector(logoutButtonClickerHander) forControlEvents:UIControlEventTouchUpInside];
         [bgView addSubview:logoutButton];
+        
+        UIButton *removeBindButton = [[UIButton alloc] initWithFrame:CGRectMake(8, 8 +logoutButton.y + logoutButton.height, 304, 44)];
+        [removeBindButton setTitle: @"解除绑定" forState:UIControlStateNormal];
+        [removeBindButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        bgImage = [[UIImage imageNamed:@"button_bg_logout"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 3, 0, 4)];
+        [removeBindButton setBackgroundImage:bgImage forState:UIControlStateNormal];
+        [removeBindButton addTarget:self action:@selector(removeBindButtonClickerHander) forControlEvents:UIControlEventTouchUpInside];
+        [bgView addSubview:removeBindButton];
+        
         return bgView;
     }
     return nil;
+}
+
+- (void)removeBindButtonClickerHander {
+    if (_dataManager.udid == nil) {
+        [MBProgressHUDManager showTextWithTitle:@"还未绑定过设备" inView:self.view];
+        return;
+    }
+    UIActionSheet *as = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"解除绑定后可以绑定新设备", @"")
+                                                    delegate:nil
+                                           cancelButtonTitle:NSLocalizedString(@"取消", @"")
+                                      destructiveButtonTitle:NSLocalizedString(@"解除绑定", @"")
+                                           otherButtonTitles:nil];
+    as.actionSheetStyle = UIActionSheetStyleBlackOpaque;
+    as.tapBlock = ^(UIActionSheet *actionSheet, NSInteger buttonIndex){
+        if (buttonIndex == 0) {
+            if (_dataManager.isConneting) {
+                [_dataManager.ble4Util stopConnectionWithUDID:_dataManager.udid];
+                _dataManager.isConneting = NO;
+                _dataManager.isReading = NO;
+                _dataManager.isDongingConnect = NO;
+            }
+            _dataManager.udid = nil;
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:kUserDeviceID];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
+    };
+    [as showInView:[UIApplication sharedApplication].keyWindow];
 }
 
 - (void)logoutButtonClickerHander {
@@ -148,11 +184,12 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:thumberCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             NSInteger originX = IsIOS7 ? 226:212;
-            _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(originX, 11, 60, 60) image:@"portrait_holder"];
-            if (_dataManager.isLogin && _dataManager.portrait.length != 0) {
-                [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:_dataManager.portrait]];
-            }
+            _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(originX, 11, 60, 60) image:nil];
             [cell.contentView addSubview:_thumberImage];
+        }
+        _thumberImage.imageView.image = [UIImage imageNamed:@"portrait_holder"];
+        if (_dataManager.isLogin && _dataManager.portrait.length != 0) {
+            [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:_dataManager.portrait]];
         }
         cell.textLabel.text = @"头像";
     } else if (indexPath.section == 1 && indexPath.row == 0) {
@@ -263,8 +300,12 @@
                     }
                 }];
         } else {
-            ModifyCodeViewController *modifyCode = [[ModifyCodeViewController alloc] initWithNibName:@"ModifyCodeViewController" bundle:nil];
-            [self.navigationController pushViewController:modifyCode animated:YES];
+            if (_dataManager.loginType == CSLoginDefault) {
+                ModifyCodeViewController *modifyCode = [[ModifyCodeViewController alloc] initWithNibName:@"ModifyCodeViewController" bundle:nil];
+                [self.navigationController pushViewController:modifyCode animated:YES];
+            } else {
+                [MBProgressHUDManager showTextWithTitle:@"第三方账号不支持修改密码" inView:self.view];
+            }
         }
     } else if (indexPath.section == 1) {
         if (indexPath.row == 1) {
@@ -352,10 +393,30 @@
     self.navigationItem.title = @"我的信息";
 }
 
+- (void)addNotification {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginDidFinishHandler) name:kLoginFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutDidFinishHandler) name:kLogoutFinishNotification object:nil];
+}
+
+- (void)loginDidFinishHandler {
+    [_tableView reloadData];
+}
+
+- (void)logoutDidFinishHandler {
+    [_tableView reloadData];
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kLogoutFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kLoginFinishNotification object:nil];
+}
+
 
 @end

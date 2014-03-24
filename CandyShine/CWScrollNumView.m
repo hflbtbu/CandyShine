@@ -47,7 +47,7 @@
 }
 
 - (void)add {
-    [UIView animateWithDuration:0.04 animations:^{
+    [UIView animateWithDuration:0.03 animations:^{
         _numberLB.y += _oneNumberHeightl;
     } completion:^(BOOL finished) {
         if (_count < 10) {
@@ -62,7 +62,7 @@
 }
 
 - (void)plus {
-    [UIView animateWithDuration:0.04 animations:^{
+    [UIView animateWithDuration:0.03 animations:^{
         _numberLB.y -= _oneNumberHeightl;
     } completion:^(BOOL finished) {
         if (_count < 10) {
@@ -164,14 +164,14 @@
 }
 
 - (void)add {
-    if (_number < 9800) {
+    if (_number < 9900) {
         _isAdd = YES;
         [_digitView0 add];
     }
 }
 
 - (void)plus {
-    if (_number > 200) {
+    if (_number > 100) {
         _isAdd =NO;
         [_digitView0 plus];
     }
