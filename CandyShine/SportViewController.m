@@ -450,6 +450,11 @@
 - (void)menuViewDidSelectedDataPattern:(DataPattern)dataPattern {
     _menuView.hidden = YES;
     _currentPattern = dataPattern;
+    if (_currentPattern == DataPatternDay) {
+        _freshTimeLB.hidden = NO;
+    } else {
+        _freshTimeLB.hidden = YES;
+    }
     
     _currentPage = 0;
     

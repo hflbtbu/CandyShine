@@ -19,6 +19,8 @@
     CAShapeLayer *_gogalLine;
     UITableView *_friendTableView;
     
+    DetailTextView *_totalValueLB;
+    
     UIImageView *_left;
     UIImageView *_right;
 }
@@ -39,6 +41,10 @@
 }
 
 - (void) addWeekView {
+    
+    _totalValueLB = [[DetailTextView alloc] init];
+    [self.contentView addSubview:_totalValueLB];
+    
     _left = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page_left"]];
     _left.center = CGPointMake(16, 195/2);
     _left.hidden = YES;
@@ -80,13 +86,14 @@
         dayLabel.center = CGPointMake(kWeekCellCap + kWeekCellWidth/2 + i*(kWeekCellWidth + space), 195 + 16);
         dayLabel.textAlignment = NSTextAlignmentCenter;
         dayLabel.textColor = kContentNormalShallowColorA;
+        dayLabel.textColor = kContentNormalShallowColorA;
         dayLabel.backgroundColor = [UIColor clearColor];
         dayLabel.text = (NSString *)weekStrings[i];
         [self.contentView addSubview:dayLabel];
     }
     
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kWeekCellCap, 194, 318 - 2*kWeekCellCap, 1)];
-    lineView.backgroundColor = kContentHighlightColor;
+    lineView.backgroundColor = kContentNormalShallowColorA;
     [self.contentView addSubview:lineView];
     
     _friendTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 225, 320, 200) style:UITableViewStylePlain];
@@ -110,6 +117,7 @@
 
 - (void)refresh {
     if (_weekDataArray.count == 7) {
+        NSInteger total = 0;
          NSInteger gogal = [CSDataManager sharedInstace].userGogal;
         for (int i = 0; i<7; i++) {
             UIView *view =[_weekViewArray objectAtIndex:i];
@@ -118,6 +126,7 @@
             for (Sport *item in array) {
                 totalValue += [item.value integerValue];
             }
+            total += totalValue;
             CGFloat sizeHeight;
             if (totalValue <= gogal) {
                 sizeHeight = totalValue/(gogal*1.0)*(195 - 98);
@@ -135,6 +144,11 @@
             }
             view.frame = CGRectMake(view.x, 195 - sizeHeight, view.width, sizeHeight);
         }
+        NSString *totalString = [NSString stringWithFormat:@"本周消耗：%d 卡路里",total];
+        CGSize size = [totalString sizeWithFont:kContentFont1];
+        _totalValueLB.frame = CGRectMake((320 - size.width)/2, 10, size.width, size.height);
+        [_totalValueLB setText:totalString WithFont:kContentFont1 AndColor:kContentNormalShallowColorA];
+        [_totalValueLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",total]] WithFont:kContentFont1 AndColor:kContentHighlightColor];
     }
 }
 
