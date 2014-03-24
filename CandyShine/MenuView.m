@@ -65,6 +65,8 @@
             } completion:^(BOOL finished) {
                 [_delegate menuViewDidSelectedDataPattern:DataPatternDay];
             }];
+        } else {
+            self.hidden = YES;
         }
     } else {
         if (_currentPattern != DataPatternWeek) {
@@ -74,6 +76,8 @@
             } completion:^(BOOL finished) {
                 [_delegate menuViewDidSelectedDataPattern:DataPatternWeek];
             }];
+        } else {
+            self.hidden = YES;
         }
     }
 }

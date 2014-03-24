@@ -97,10 +97,12 @@
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], UITextAttributeTextColor, nil] forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor orangeColor], UITextAttributeTextColor, nil] forState:UIControlStateSelected];
     [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont systemFontOfSize:20], UITextAttributeFont, [UIColor convertHexColorToUIColor:0x403c36], UITextAttributeTextColor, nil]];
+    [[UINavigationBar appearance] setShadowImage:[UIImage imageNamed:@"line_normal"]];
     if (IsIOS7) {
         [[UINavigationBar appearance] setTintColor:[UIColor convertHexColorToUIColor:0xa69b8d]];
     } else {
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@""] forBarMetrics:UIBarMetricsDefault];
+        [[UINavigationBar appearance] setTintColor:[UIColor convertHexColorToUIColor:0xa39e99]];
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navagation_bg_ios6"] forBarMetrics:UIBarMetricsDefault];
     }
 }
 

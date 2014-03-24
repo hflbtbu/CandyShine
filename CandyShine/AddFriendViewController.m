@@ -89,7 +89,7 @@
     if (indexPath.row < _frendArray.count) {
         item = [_frendArray objectAtIndex:indexPath.row];
     }
-    cell.frinendThumberImage.imageView.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+    cell.frinendThumberImage.imageView.image = [UIImage imageNamed:@"portrait_holder"];
     if (item.portrait.length != 0) {
         [cell.frinendThumberImage.imageView setImageWithURL:[NSURL URLWithString:item.portrait]];
         cell.nameLB.text = item.name;

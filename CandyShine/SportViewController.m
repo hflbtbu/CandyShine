@@ -363,7 +363,7 @@
         if (indexPath.row < _friendArray.count) {
             item = [_friendArray objectAtIndex:indexPath.row];
         }
-        cell.frinendThumberImage.imageView.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+        cell.frinendThumberImage.imageView.image = [UIImage imageNamed:@"portrait_holder"];
         if (item.portrait.length != 0) {
             [cell.frinendThumberImage.imageView setImageWithURL:[NSURL URLWithString:item.portrait]];
         }
@@ -401,7 +401,7 @@
     _currentPage = 3 - scrollView.contentOffset.y/self.view.width - 1;
     NSString *str = _currentPattern ==DataPatternWeek ? [DateHelper getWeekStringWith:_currentPage] : [DateHelper getDayStringWith:_currentPage];
     [_titleButton setTitle:str forState:UIControlStateNormal];
-    [_titleButton setEdgeCenterWithSpace:0];
+    [_titleButton setEdgeCenterWithSpace:5];
     if (_moveType == PageMoveUp) {
         [self requestFriendData];
     }
@@ -428,12 +428,12 @@
 - (void)initNavigationItem {
     _titleButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 280, 44)];
     [_titleButton setTitle:[DateHelper getDayStringWith:0] forState:UIControlStateNormal];
-    [_titleButton setImage:[UIImage imageNamed:@"intro_arrow_down"] forState:UIControlStateNormal];
-    [_titleButton setImage:[UIImage imageNamed:@"intro_arrow_down"] forState:UIControlStateSelected];
-    [_titleButton setImage:[UIImage imageNamed:@"intro_arrow_down"] forState:UIControlStateHighlighted];
+    [_titleButton setImage:[UIImage imageNamed:@"navagation_menu"] forState:UIControlStateNormal];
+    [_titleButton setImage:[UIImage imageNamed:@"navagation_menu"] forState:UIControlStateSelected];
+    [_titleButton setImage:[UIImage imageNamed:@"navagation_menu"] forState:UIControlStateHighlighted];
     _titleButton.titleLabel.font = [UIFont systemFontOfSize:20];
     [_titleButton setTitleColor:[UIColor convertHexColorToUIColor:0x403c36] forState:UIControlStateNormal];
-    [_titleButton setEdgeCenterWithSpace:0];
+    [_titleButton setEdgeCenterWithSpace:5];
     [_titleButton addTarget:self action:@selector(showMenuView) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = _titleButton;
 }
@@ -450,7 +450,7 @@
     
     NSString *str = _currentPattern ==DataPatternWeek ? [DateHelper getWeekStringWith:_currentPage] : [DateHelper getDayStringWith:_currentPage];
     [_titleButton setTitle:str forState:UIControlStateNormal];
-    [_titleButton setEdgeCenterWithSpace:0];
+    [_titleButton setEdgeCenterWithSpace:5];
     
     _pathTableView.hidden = dataPattern == DataPatternWeek ? YES : NO;
     [_pathTableView reloadData];

@@ -148,7 +148,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:thumberCellIdentifer];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             NSInteger originX = IsIOS7 ? 226:212;
-            _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(originX, 11, 60, 60) image:@"IMG_0005.JPG"];
+            _thumberImage =[[CircleImageView alloc] initWithFrame:CGRectMake(originX, 11, 60, 60) image:@"portrait_holder"];
             if (_dataManager.isLogin && _dataManager.portrait.length != 0) {
                 [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:_dataManager.portrait]];
             }
@@ -294,12 +294,13 @@
 }
 
 - (void)pickerViewDidSelectedWithVlaue:(NSDictionary *)dic {
-    NSLog(@"%@",_selectedCell.detailTextLabel.text);
     NSString *str;
     if (_pickerType == PickerViewHeight) {
         str = [NSString stringWithFormat:@"%.2fm",[[dic objectForKey:kPickerHeight] floatValue]];
+        [[NSUserDefaults standardUserDefaults] setFloat:[[dic objectForKey:kPickerHeight] floatValue] forKey:kUserHeight];
     } else if (_pickerType == PickerViewWeight) {
-        str = [NSString stringWithFormat:@"%.1fkg",[[dic objectForKey:kPickerWeight] floatValue]];
+        str = [NSString stringWithFormat:@"%dkg",[[dic objectForKey:kPickerWeight] integerValue]];
+        [[NSUserDefaults standardUserDefaults] setInteger:[[dic objectForKey:kPickerWeight] floatValue] forKey:kUserWeight];
     } else {
         str = [NSString stringWithFormat:@"%d年%d月%d日",[[dic objectForKey:kPickerYear] integerValue],[[dic objectForKey:kPickerMonth] integerValue],[[dic objectForKey:kPickerDay] integerValue]];
     }

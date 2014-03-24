@@ -34,7 +34,7 @@
         _bottomLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
         [self.contentView addSubview:_bottomLine];
         
-        _frinendThumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 0, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth) image:@"IMG_0005.JPG"];
+        _frinendThumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 0, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth) image:@"portrait_holder"];
         [self.contentView addSubview:_frinendThumberImage];
         
         _friendRunLB = [[DetailTextView alloc] initWithFrame:CGRectMake(10 + _frinendThumberImage.x + _frinendThumberImage.width, 20, self.width - _frinendThumberImage.x - _frinendThumberImage.width, 40)];

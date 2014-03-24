@@ -104,7 +104,7 @@
             _thumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 11, 60, 60) image:nil];
             [cell.contentView addSubview:_thumberImage];
         }
-        _thumberImage.imageView.image = [UIImage imageNamed:@"IMG_0005.JPG"];
+        _thumberImage.imageView.image = [UIImage imageNamed:@"portrait_holder"];
         if (_dataManager.isLogin && _dataManager.portrait.length != 0) {
             [_thumberImage.imageView setImageWithURL:[NSURL URLWithString:_dataManager.portrait]];
         }

@@ -34,7 +34,7 @@
         _bottomLine = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
         [self.contentView addSubview:_bottomLine];
         
-        _frinendThumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 0, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth) image:@"IMG_0005.JPG"];
+        _frinendThumberImage = [[CircleImageView alloc] initWithFrame:CGRectMake(15, 0, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth, kCircleImageViewLineCap + kCircleImageViewLineWidth + kCircleImageViewWidth) image:@"portrait_holder"];
         [self.contentView addSubview:_frinendThumberImage];
         
         _nameLB = [[UILabel alloc] initWithFrame:CGRectMake(_frinendThumberImage.x + _frinendThumberImage.width + 20, 0, 150, 20)];

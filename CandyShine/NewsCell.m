@@ -26,10 +26,10 @@
         
         UIView *view = [self viewWithTag:9999];
         
-        UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"news_line"]];
         line.y = _pageLB.y - 5;
         [view addSubview:line];
-        line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
+        line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"news_line"]];
         line.y = _pageLB.y + _pageLB.height + 5;
         [view addSubview:line];
     

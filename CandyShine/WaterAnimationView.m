@@ -33,6 +33,7 @@
         _timeLB.textAlignment = NSTextAlignmentCenter;
         _timeLB.font =  [UIFont systemFontOfSize:15];
         _timeLB.textColor = kContentNormalColor;
+        _timeLB.backgroundColor = [UIColor clearColor];
         [self addSubview:_timeLB];
         
         _animationImage = [[OLImageView alloc] initWithFrame:CGRectMake(0, 0, self.width, self.height - 20)];

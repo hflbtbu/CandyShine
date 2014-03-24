@@ -78,7 +78,7 @@
 - (void)pickerSelectedHander {
     NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithCapacity:0];
     if (_pickerViewType == PickerViewWeight) {
-        [dic setObject:[NSNumber numberWithFloat:_weightInt*1.0 + _weightFloat*0.1] forKey:kPickerWeight];
+        [dic setObject:[NSNumber numberWithInteger:_weightInt] forKey:kPickerWeight];
     } else if (_pickerViewType == PickerViewHeight) {
         [dic setObject:[NSNumber numberWithFloat:_heightInt + _heightFloat*0.01] forKey:kPickerHeight];
     } else {
@@ -100,9 +100,9 @@
 
 // returns the number of 'columns' to display.
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    if (_pickerViewType == PickerViewTime) {
+    if (_pickerViewType == PickerViewTime || _pickerViewType == PickerViewWeight) {
         return 2;
-    } else if (_pickerViewType == PickerViewHeight || _pickerViewType == PickerViewWeight) {
+    } else if (_pickerViewType == PickerViewHeight) {
         return 3;
     }
     return 0;
@@ -126,7 +126,7 @@
         if (component == 0) {
             return 161;
         } else if (component == 1) {
-            return 10;
+            return 1;
         }
         return 1;
     }
@@ -152,7 +152,7 @@
         if (component == 0) {
             return [NSString stringWithFormat:@"%d",row + 40];
         } else if (component == 1) {
-            return [NSString stringWithFormat:@".%d",row];
+            return @"公斤";
         } else {
             return @"公斤";
         }

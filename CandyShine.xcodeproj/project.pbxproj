@@ -147,7 +147,6 @@
 		31F642DE18B1017200D8A6EF /* MeSetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F642DC18B1017200D8A6EF /* MeSetViewController.m */; };
 		31F642DF18B1017200D8A6EF /* MeSetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F642DD18B1017200D8A6EF /* MeSetViewController.xib */; };
 		31F642E118B1115000D8A6EF /* SexView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31F642E018B1115000D8A6EF /* SexView.xib */; };
-		31F642E318B1180B00D8A6EF /* IMG_0005.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 31F642E218B1180B00D8A6EF /* IMG_0005.JPG */; };
 		31FCA207188CFD17005494AE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA206188CFD17005494AE /* Foundation.framework */; };
 		31FCA209188CFD17005494AE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA208188CFD17005494AE /* CoreGraphics.framework */; };
 		31FCA20B188CFD17005494AE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FCA20A188CFD17005494AE /* UIKit.framework */; };
@@ -403,7 +402,6 @@
 		31F642DC18B1017200D8A6EF /* MeSetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeSetViewController.m; sourceTree = "<group>"; };
 		31F642DD18B1017200D8A6EF /* MeSetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeSetViewController.xib; sourceTree = "<group>"; };
 		31F642E018B1115000D8A6EF /* SexView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SexView.xib; sourceTree = "<group>"; };
-		31F642E218B1180B00D8A6EF /* IMG_0005.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0005.JPG; sourceTree = "<group>"; };
 		31FCA203188CFD17005494AE /* CandyShine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CandyShine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31FCA206188CFD17005494AE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31FCA208188CFD17005494AE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -576,7 +574,6 @@
 				317874DA18D15A6900D08AFC /* warm1.gif */,
 				317874DB18D15A6900D08AFC /* warm2.gif */,
 				31BBE16B18DAB8A8000EC4AE /* warm3.gif */,
-				31F642E218B1180B00D8A6EF /* IMG_0005.JPG */,
 			);
 			name = image;
 			sourceTree = "<group>";
@@ -1072,7 +1069,6 @@
 				3158C59518CDBAC2006BD5E3 /* UMSLoginViewController.xib in Resources */,
 				31B48BF618B3396000980F69 /* send_selected@2x.png in Resources */,
 				31B48BEB18B3396000980F69 /* messages_right_bubble@2x.png in Resources */,
-				31F642E318B1180B00D8A6EF /* IMG_0005.JPG in Resources */,
 				3124666618AC618C00315A06 /* SleepViewController.xib in Resources */,
 				3158C59818CDBAC2006BD5E3 /* UMSocialSDKResourcesNew.bundle in Resources */,
 				31B48C0218B3470100980F69 /* NewsCell.xib in Resources */,

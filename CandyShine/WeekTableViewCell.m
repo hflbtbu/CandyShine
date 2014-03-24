@@ -80,6 +80,7 @@
         dayLabel.center = CGPointMake(kWeekCellCap + kWeekCellWidth/2 + i*(kWeekCellWidth + space), 195 + 16);
         dayLabel.textAlignment = NSTextAlignmentCenter;
         dayLabel.textColor = kContentNormalShallowColorA;
+        dayLabel.backgroundColor = [UIColor clearColor];
         dayLabel.text = (NSString *)weekStrings[i];
         [self.contentView addSubview:dayLabel];
     }
@@ -91,6 +92,7 @@
     _friendTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 225, 320, 200) style:UITableViewStylePlain];
     _friendTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.contentView addSubview:_friendTableView];
+    self.contentView.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)setCurrentPage:(CellPosition)currentPage {
