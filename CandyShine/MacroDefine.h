@@ -41,4 +41,6 @@
 
 #define kUserDeviceID       @"UserDeviceID"
 
+#define kAutoSync       @"kAutoSync"
+
 #endif

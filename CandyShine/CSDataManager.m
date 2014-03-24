@@ -435,6 +435,8 @@
 - (void)ble4Util:(id)ble4Util didUpdateState:(CBCentralManagerState)state {
     if (state == CBCentralManagerStatePoweredOff) {
         _isConneting = NO;
+    } else if (state == CBCentralManagerStatePoweredOn) {
+        [self autoSyncData];
     }
 }
 
@@ -498,11 +500,40 @@
         }
         [self saveCoreData];
     }
-    _readDataBlock();
     _isReading = NO;
+    _readDataBlock();
     if (hasData) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kReadDeviceDataFinishNotification object:endDate];
     }
+}
+
+- (void)autoSyncData {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        if (_ble4Util.cbCentralManagerState == CBCentralManagerStatePoweredOn) {
+            BOOL hasSynt = [[NSUserDefaults standardUserDefaults] boolForKey:[DateHelper getYYMMDDString:0]];
+            if (!hasSynt) {
+                if ([[NSDate date] timeIntervalSinceDate:[DateHelper getDayBegainWith:0]] >= 10*60*60) {
+                    if (!_isReading) {
+                        if (_isConneting) {
+                            [self synchronizationDeviceDataWithBlock:^{
+                                [[NSUserDefaults standardUserDefaults] removeObjectForKey:[DateHelper getYYMMDDString:1]];
+                                [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[DateHelper getYYMMDDString:0]];
+                            }];
+                        } else {
+                            [self connectDeviceWithBlock:^(CSConnectState state) {
+                                if (state == CSConnectfound) {
+                                    [self synchronizationDeviceDataWithBlock:^{
+                                        [[NSUserDefaults standardUserDefaults] removeObjectForKey:[DateHelper getYYMMDDString:1]];
+                                        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:[DateHelper getYYMMDDString:0]];
+                                    }];
+                                }
+                            }];
+                        }
+                    }
+                }
+            }
+        }
+    });
 }
 
 @end

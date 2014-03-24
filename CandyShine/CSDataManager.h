@@ -71,6 +71,8 @@ typedef void(^CallBackBlock)();
 
 - (void)savePortrait:(NSData *)data;
 
+- (void)autoSyncData;
+
 - (NSData *)readPortrait;
 
 - (void)scanDevice;
@@ -82,5 +84,7 @@ typedef void(^CallBackBlock)();
 -(void)setSleepTimeWithHour:(NSInteger)hour andMin:(NSInteger)min block:(CallBackBlock)block;
 
 -(void)setSetSportsPlanWithType:(BleSportsPlanType)type andGogal:(NSInteger)gogal block:(CallBackBlock)block;
+
+
 
 @end

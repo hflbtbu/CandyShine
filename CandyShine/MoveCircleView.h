@@ -13,6 +13,7 @@
 @property (nonatomic, assign)CGFloat progress;
 @property (nonatomic, assign) DataPattern currentPattern;
 @property (nonatomic, assign) int runNumbers;
+@property (nonatomic, assign) BOOL isToday;
 
 - (void)updateWithProgress:(CGFloat)progress;
 

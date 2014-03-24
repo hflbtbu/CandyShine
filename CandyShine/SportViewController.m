@@ -421,10 +421,8 @@
 }
 
 - (NSArray *)sportItemsArrayWith:(NSIndexPath *)indexPath {
-    if (![indexPath isEqual:_currentIndexPath]) {
-        _currentIndexPath = indexPath;
-        _sportItemsArray = [[CSDataManager sharedInstace] fetchSportItemsByDay:2-indexPath.row];
-    }
+    _currentIndexPath = indexPath;
+    _sportItemsArray = [[CSDataManager sharedInstace] fetchSportItemsByDay:2-indexPath.row];
     return _sportItemsArray;
 }
 

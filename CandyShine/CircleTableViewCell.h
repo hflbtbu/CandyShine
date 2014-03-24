@@ -16,6 +16,7 @@
 @property (nonatomic, assign) DataPattern currentPattern;
 @property (nonatomic, assign) NSInteger runNumbers;
 @property (nonatomic, assign) CellPosition currentPage;
+@property (nonatomic, assign) BOOL isToday;
 
 
 - (void)refresh;

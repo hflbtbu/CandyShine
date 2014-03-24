@@ -61,6 +61,7 @@
 }
 
 - (void)refresh {
+    _circlePathView.isToday = _isToday;
     _circlePathView.runNumbers = _runNumbers;
     [_circlePathView refrsh];
 }

@@ -39,6 +39,7 @@
         // Initialization code
         _isSyn = NO;
         _isAdd = YES;
+        _isToday = NO;
         _currentPattern = DataPatternDay;
         
         self.backgroundColor = [UIColor clearColor];
@@ -162,8 +163,8 @@
 - (void)refrsh {
     if (_currentPattern == DataPatternDay) {
         _runNumberLB.text = [NSString stringWithFormat:@"%d",_runNumbers];
-        //[self updateWithProgress:_runNumbers/1200.0];
         NSInteger gogal = [CSDataManager sharedInstace].userGogal;
+        //[self updateWithProgress:_runNumbers/(gogal*1.0)];
         self.progress = _runNumbers/(gogal*1.0);
         _gogalLB.text = [NSString stringWithFormat:@"目标 : %d卡路里",gogal];
         _calorieLB.text = [NSString stringWithFormat:@"700卡路里"];
