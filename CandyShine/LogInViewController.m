@@ -281,6 +281,7 @@
 
 - (void)initNavigationItem {
     [self.navigationItem  setCustomeLeftBarButtonItem:@"navagation_back" target:self action:@selector(dismiss)];
+    self.navigationItem.title = @"登陆";
 }
 
 - (void)didReceiveMemoryWarning

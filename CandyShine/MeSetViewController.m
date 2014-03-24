@@ -341,6 +341,11 @@
     return newImage;
 }
 
+- (void) initNavigationItem {
+    [super initNavigationItem];
+    self.navigationItem.title = @"我的信息";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
