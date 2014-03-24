@@ -14,6 +14,7 @@
 @property (nonatomic, strong) UITableView *friensTableView;
 @property (nonatomic, assign) PageMoveType moveType;
 @property (nonatomic, assign) CellPosition cellPosition;
+@property (nonatomic, assign) BOOL isToday;
 
 - (void)refresh;
 

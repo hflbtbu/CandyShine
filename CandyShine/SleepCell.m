@@ -7,6 +7,9 @@
 //
 
 #import "SleepCell.h"
+#import "SleepPathView.h"
+#import "WaterWarmManager.h"
+#import "SleepShow.h"
 
 @interface SleepCell ()
 {
@@ -40,7 +43,6 @@
         _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_tableView];
-        
         
         _left = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"page_left"]];
         _left.center = CGPointMake(7, _sleepPathView.height/2 + 20);
@@ -80,6 +82,43 @@
     }
 }
 
+- (void)refresh {
+    [self analayzesleepData];
+    [_sleepPathView refresh];
+}
+
+- (void)analayzesleepData {
+    if (_sleepDataArray.count >= 4) {
+        Sleep *firstItem = [_sleepDataArray objectAtIndex:0];
+        Sleep *lastItem = [_sleepDataArray lastObject];
+        _sleepLB.text = [NSString stringWithFormat:@"入睡:%@",[DateHelper getTimeStringWithDate:firstItem.date]];
+        _getUpLB.text = [NSString stringWithFormat:@"起床:%@",[DateHelper getTimeStringWithDate:lastItem.date]];
+        _sleepTimeLB.text = [NSString stringWithFormat:@"睡眠时间:%@",[DateHelper getTimeStringWithFromDate:firstItem.date to:lastItem.date]];
+        
+        NSDate *fromeDate = [NSDate dateWithTimeInterval:[WaterWarmManager shared].sleepTime sinceDate:[DateHelper getDayBegainWith:_day + 1]];
+        NSDate *toDate = [NSDate dateWithTimeInterval:[WaterWarmManager shared].sleepTime sinceDate:firstItem.date];
+        NSArray *soprtArray = [[CSDataManager sharedInstace] fetchSportItemsFromeDate:fromeDate  toDate:toDate];
+        NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
+        int i;
+        for (i = 0; i< soprtArray.count; i++) {
+            Sport *sport = [soprtArray objectAtIndex:i];
+            SleepShow *sleep = [[SleepShow alloc] init];
+            sleep.value = sport.value;
+            [array addObject:sleep];
+        }
+        [array addObjectsFromArray:_sleepDataArray];
+        _sleepPathView.sleepDataArray = soprtArray;
+        _sleepPathView.sleepPosition = i;
+    } else {
+        _sleepPathView.sleepDataArray = _sleepDataArray;
+        _sleepLB.text = @"入睡：XX";
+        _getUpLB.text = @"起床：XX";
+        _sleepTimeLB.text = @"睡眠时间：XX";
+        _sleepEffectLB.text = @"睡眠质量：XX";
+        _depthSleepLB.text = @"深度睡眠：XX";
+        _lightSleepTimeLB.text = @"浅度睡眠：XX";
+    }
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {

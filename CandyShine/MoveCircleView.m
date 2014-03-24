@@ -134,14 +134,21 @@
 //        _gogalLB.text = @"目标 : 9900卡路里";
 //        
 //    }
-    if ([CSDataManager sharedInstace].isConneting) {
-        [self synchronizationDeviceData];
-    } else {
-        [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
-            if (state == CSConnectfound) {
-                [self synchronizationDeviceData];
+    if (![CSDataManager sharedInstace].isReading) {
+        if ([CSDataManager sharedInstace].isConneting) {
+            [self synchronizationDeviceData];
+        } else {
+            if (![CSDataManager sharedInstace].isDongingConnect) {
+                [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
+                    if (state == CSConnectfound) {
+                        [self synchronizationDeviceData];
+                    } else {
+                        [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
+                    }
+                }];
             }
-        }];
+        }
+
     }
 }
 

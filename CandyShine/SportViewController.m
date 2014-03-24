@@ -106,13 +106,14 @@
     _circleTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_circleTableView];
     
-    _freshTimeLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, 0, 0)];
+    _freshTimeLB = [[UILabel alloc] initWithFrame:CGRectMake(0, 15, self.view.width, 0)];
     _freshTimeLB.backgroundColor = [UIColor clearColor];
     _freshTimeLB.font = [UIFont systemFontOfSize:12];
-    _freshTimeLB.text = @"2014.01.02 11:47";
+    _freshTimeLB.textAlignment = NSTextAlignmentCenter;
+    _freshTimeLB.text = [DateHelper getDateStringWithDate:_dataManager.readDataDate];
     _freshTimeLB.textColor = [UIColor convertHexColorToUIColor:0xccc8c2];
     CGSize size = [_freshTimeLB.text sizeWithFont:_freshTimeLB.font];
-    _freshTimeLB.frame = CGRectMake((self.view.width - size.width)/2, 15, size.width, size.height);
+    _freshTimeLB.frame = CGRectMake(0, 15, self.view.width, size.height);
     [self.view addSubview:_freshTimeLB];
     
     _pathTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,self.view.height, self.view.width) style:UITableViewStylePlain];
@@ -235,6 +236,7 @@
     [super viewWillAppear:animated];
     CGPoint offset = CGPointMake(0, _circleTableView.contentSize.height - self.view.frame.size.width);
     _circleTableView.contentOffset = offset;
+    
 
 }
 
@@ -294,15 +296,15 @@
             if (cell == nil) {
                 cell = [[WeekTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:circleCellIdentiferWeek];
             }
-//            CellPosition cellPosition;
-//            if (indexPath.row == 2) {
-//                cellPosition = CellPositionTop;
-//            } else if (indexPath.row == 1) {
-//                cellPosition = CellPositionMiddle;
-//            } else {
-//                cellPosition = CellPositionBottom;
-//            }
-//            cell.currentPage = cellPosition;
+            CellPosition cellPosition;
+            if (indexPath.row == 2) {
+                cellPosition = CellPositionTop;
+            } else if (indexPath.row == 1) {
+                cellPosition = CellPositionMiddle;
+            } else {
+                cellPosition = CellPositionBottom;
+            }
+            cell.currentPage = cellPosition;
             cell.weekDataArray = [_dataManager fetchSportItemsByWeek:2 - indexPath.row];
             [cell refresh];
             
@@ -318,10 +320,13 @@
         }
         CellPosition cellPosition;
         if (indexPath.row == 2) {
+            cell.isToday = YES;
             cellPosition = CellPositionTop;
         } else if (indexPath.row == 1) {
+            cell.isToday = NO;
             cellPosition = CellPositionMiddle;
         } else {
+            cell.isToday = NO;
             cellPosition = CellPositionBottom;
         }
         cell.moveType = _moveType;
@@ -443,6 +448,9 @@
 - (void)menuViewDidSelectedDataPattern:(DataPattern)dataPattern {
     _menuView.hidden = YES;
     _currentPattern = dataPattern;
+    
+    _currentPage = 0;
+    
     NSString *str = _currentPattern ==DataPatternWeek ? [DateHelper getWeekStringWith:_currentPage] : [DateHelper getDayStringWith:_currentPage];
     [_titleButton setTitle:str forState:UIControlStateNormal];
     [_titleButton setEdgeCenterWithSpace:0];
@@ -450,6 +458,9 @@
     _pathTableView.hidden = dataPattern == DataPatternWeek ? YES : NO;
     [_pathTableView reloadData];
    [_circleTableView reloadData];
+    
+    CGPoint offset = CGPointMake(0, _circleTableView.contentSize.height - self.view.frame.size.width);
+    _circleTableView.contentOffset = offset;
 }
 
 - (void)receiveTapGestureRecognizer:(UIPanGestureRecognizer *)recognizer {
@@ -504,6 +515,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendDidFinishHandler) name:kAddFriendFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginDidFinishHandler) name:kLoginFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutDidFinishHandler) name:kLogoutFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(readDeviceDataFinishHandler:) name:kReadDeviceDataFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setGoalFinishHandler) name:kSetGogalFinishNotification object:nil];
 }
 
 - (void)addFriendDidFinishHandler {
@@ -526,6 +539,23 @@
     [self reloadFeiendData];
 }
 
+- (void)readDeviceDataFinishHandler:(NSNotification *)notification {
+    NSDate *date = [notification object];
+    _freshTimeLB.text = [DateHelper getDateStringWithDate:date];
+    _dataManager.readDataDate = date;
+    CGPoint offset = CGPointMake(0, _circleTableView.contentSize.height - self.view.frame.size.width);
+    _circleTableView.contentOffset = offset;
+    [_circleTableView reloadData];
+    [_pathTableView reloadData];
+}
+
+- (void)setGoalFinishHandler {
+    if (_currentPattern == DataPatternDay) {
+        [_circleTableView reloadData];
+        [_pathTableView reloadData];
+    }
+}
+
 - (void)reloadFeiendData {
     if (_moveType == PageMoveUp) {
         PathTableViewCell *pathCell = (PathTableViewCell *)[_pathTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:_pathTableView.contentOffset.y/self.view.width inSection:0]];
@@ -536,5 +566,7 @@
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kAddFriendFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kLoginFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReadDeviceDataFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kSetGogalFinishNotification object:nil];
 }
 @end

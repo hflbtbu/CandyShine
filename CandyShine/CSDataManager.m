@@ -8,12 +8,15 @@
 //
 
 #import "CSDataManager.h"
+#import "WaterWarmManager.h"
 
 @interface CSDataManager ()
 {
     NSTimer *_timer;
     ConnectStateBlock _connectStateBlock;
     ReadDataBlock _readDataBlock;
+    CallBackBlock _callBackBlock;
+    
     NSString *_udid;
 }
 @end
@@ -40,7 +43,11 @@
         _ble4Util = [Ble4Util shareBleUtilWithTarget:self];
         _udid = [[NSUserDefaults standardUserDefaults] stringForKey:kUserDeviceID];
         _isConneting = NO;
+        _isDongingConnect = NO;
+        _isReading = NO;
         _isLogin = [[NSUserDefaults standardUserDefaults] boolForKey:kUserIsLogin];
+        
+        _readDataDate = [[NSUserDefaults standardUserDefaults] objectForKey:kReadDateDate];
         
         _userGogal = [[NSUserDefaults standardUserDefaults] integerForKey:kUserGogal];
         if (_userGogal  == 0) {
@@ -54,7 +61,7 @@
             _portrait = [[NSUserDefaults standardUserDefaults] stringForKey:kUserPortrait];
         }
         _totalDays = [DateHelper getDaysBetween:[[NSUserDefaults standardUserDefaults] objectForKey:kFirstLaunchDate] and:[NSDate date]];
-        
+        _totalWeeks = [DateHelper getWeeksBetween:[[NSUserDefaults standardUserDefaults] objectForKey:kFirstLaunchDate] and:[NSDate date]];
         
         AFHTTPRequestOperationManager *requestOperationManager = [CandyShineAPIKit sharedAPIKit].requestOperationManager;
         NSOperationQueue *operationQueue = requestOperationManager.operationQueue;
@@ -96,13 +103,22 @@
     NSError *error;
     NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequset error:&error];
     
-    //if (day == 0) {
-        for (Sport *item in results) {
-            //[self.managedObjectContext deleteObject:item];
-            NSLog(@"%@===%d",item.date ,[item.value integerValue]);
-        }
-    //}
+    if (error == nil) {
+        return results;
+    } else {
+        NSLog(@"FetchSportItemsByDay Failed");
+        return nil;
+    }
+}
 
+- (NSArray *)fetchSportItemsFromeDate:(NSDate *)fromDate toDate:(NSDate *)toDate {
+    NSFetchRequest *fetchRequset = [[NSFetchRequest alloc] initWithEntityName:@"Sport"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"date between {%@, %@}",fromDate,toDate];
+    fetchRequset.sortDescriptors = @[sortDescriptor];
+    fetchRequset.predicate = predicate;
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequset error:&error];
     
     if (error == nil) {
         return results;
@@ -134,6 +150,32 @@
     }
 }
 
+- (Sleep *)insertSleepItemWithBlock:(void (^)(Sleep *))settingBlock {
+    Sleep *data = [NSEntityDescription insertNewObjectForEntityForName:@"Sleep" inManagedObjectContext:self.managedObjectContext];
+    settingBlock(data);
+    return data;
+}
+
+- (NSArray *)fetchSleepItemsByDay:(NSInteger)day {
+    NSFetchRequest *fetchRequset = [[NSFetchRequest alloc] initWithEntityName:@"Sleep"];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
+    NSDate *begain = [NSDate dateWithTimeInterval:[WaterWarmManager shared].sleepTime sinceDate:[DateHelper getDayBegainWith:day + 1]];
+    NSDate *end = [NSDate dateWithTimeInterval:[WaterWarmManager shared].sleepTime sinceDate:[DateHelper getDayBegainWith:day]];
+    NSPredicate *predicate =[NSPredicate predicateWithFormat:@"date between {%@, %@}",begain,end];
+    fetchRequset.sortDescriptors = @[sortDescriptor];
+    fetchRequset.predicate = predicate;
+    NSError *error;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchRequset error:&error];
+    
+    if (error == nil) {
+        return results;
+    } else {
+        NSLog(@"FetchSportItemsByDay Failed");
+        return nil;
+    }
+
+}
+
 - (void)saveUserData {
     [[NSUserDefaults standardUserDefaults] setBool:_isLogin forKey:kUserIsLogin];
     if (_isLogin) {
@@ -141,6 +183,7 @@
         [[NSUserDefaults standardUserDefaults] setObject:_userId forKey:kUserId];
         [[NSUserDefaults standardUserDefaults] setObject:_portrait forKey:kUserPortrait];
     }
+    [[NSUserDefaults standardUserDefaults] setObject:_readDataDate forKey:kReadDateDate];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
@@ -265,10 +308,10 @@
     return [path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/%@",directory,fileName]];
 }
 
-
 - (void)scanDevice {
     if([self startConnectionHead])
     {
+        _isDongingConnect = YES;
         _timer =  [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scanDeviceTimeoutHandler:) userInfo:nil repeats:NO];
         
         [_ble4Util stopScanBle];
@@ -281,6 +324,7 @@
     [_timer invalidate];
     _timer = nil;
     [_ble4Util stopScanBle];
+    _isDongingConnect = NO;
     _connectStateBlock(CSConnectUnfound);
 }
 
@@ -319,9 +363,7 @@
     }
 }
 
-
 -(void)ble4UtilDidConnect:(id)ble4Util withUDID:(NSString *)udid {
-    _isConneting = YES;
 }
 
 - (void)ble4PeripheralDidDiscoverCharacteristics:(id)ble4Peripheral {
@@ -334,10 +376,16 @@
         [_ble4Util cmdUpdateTimeWithUDID:_udid];
 
     } else {
+        _isConneting = YES;
+        _isDongingConnect = NO;
         _connectStateBlock(CSConnectfound);
     }
 }
 
+- (void)setSleepTimeWithHour:(NSInteger)hour andMin:(NSInteger)min block:(CallBackBlock)block {
+    _callBackBlock = block;
+    [_ble4Util cmdSetSleepTimeWithHour:hour andMin:min andUDID:_udid];
+}
 
 - (void)ble4Peripheral:(id)ble4Peripheral callBackWithMark:(Ble4CallBackMark)mark
 {
@@ -347,6 +395,8 @@
             break;
         case Ble4CallBackMarkUpdateTime:
             //_lblResponse.text=@"更新设备时间成功!";
+            _isConneting = YES;
+            _isDongingConnect = NO;
             _connectStateBlock(CSConnectfound);
             break;
         case Ble4CallBackMarkSetSportsPlan:
@@ -360,6 +410,7 @@
             break;
         case Ble4CallBackMarkSetSleepTime:
             //_lblResponse.text=@"设置睡眠模式时间成功!";
+            _callBackBlock();
             break;
         case Ble4CallBackMarkSetDrinkWaterInterval:
             //_lblResponse.text=@"设置喝水提示间隔时间成功!";
@@ -382,6 +433,7 @@
 - (void)synchronizationDeviceDataWithBlock:(ReadDataBlock)block {
     if (_udid != nil || _udid.length > 0) {
         _readDataBlock = block;
+        _isReading = YES;
         [_ble4Util cmdReadDataWithUDID:_udid];
     }
 }
@@ -389,15 +441,20 @@
 /** 读取数据回调 */
 - (void)ble4Peripheral:(id)ble4Peripheral callBackWithSportsData:(NSArray *)data
 {
+    NSDate *endDate;
+    BOOL hasData = NO;
     if(data && data.count>0)
     {
+        hasData = YES;
         for(int i=0;i<data.count;i++)
         {
             BleSportsDataList *dataList=[data objectAtIndex:i];
             if(dataList.listData.count == 0)continue;
-            
             BleSportsDataType sportsDataType=dataList.dataType;
             NSDate *startDate = dataList.startTime;
+            endDate = dataList.endTime;
+            NSInteger count = [endDate timeIntervalSinceDate:startDate]/300;
+            count = count < dataList.listData.count ? count :dataList.listData.count;
             for(int j=0;j<dataList.listData.count;j++)
             {
                 if(sportsDataType==BleSportsDataTypeSports)
@@ -407,12 +464,21 @@
                         item.date =  [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
                         item.value = [NSNumber numberWithInteger:sportsData.calories];
                     }];
+//                    [self insertSleepItemWithBlock:^(Sleep *item) {
+//                        item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
+//                        item.value = [NSNumber numberWithInteger:sportsData.calories];
+//                    }];
                 }
                 else if(sportsDataType==BleSportsDataTypeSleep)
                 {
+                    NSLog(@"====sleep data==== \n%d",[[dataList.listData objectAtIndex:j] integerValue]);
                     [self insertSportItemWithBlock:^(Sport *item) {
-                        item.date = [NSDate dateWithTimeInterval:300 sinceDate:startDate];
-                        item.value = 0;
+                        item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
+                        item.value = [NSNumber numberWithInteger:0];
+                    }];
+                    [self insertSleepItemWithBlock:^(Sleep *item) {
+                        item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
+                        item.value = [dataList.listData objectAtIndex:j];
                     }];
                 }
             }
@@ -420,6 +486,10 @@
         [self saveCoreData];
     }
     _readDataBlock();
+    _isReading = NO;
+    if (hasData) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kReadDeviceDataFinishNotification object:endDate];
+    }
 }
 
 @end

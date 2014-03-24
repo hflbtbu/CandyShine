@@ -79,6 +79,7 @@
     [[NSUserDefaults standardUserDefaults] setInteger:_scrollNumView.number forKey:kUserGogal];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [CSDataManager sharedInstace].userGogal = _scrollNumView.number;
+    [[NSNotificationCenter defaultCenter] postNotificationName:kSetGogalFinishNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

@@ -9,6 +9,7 @@
 #import "SleepViewController.h"
 #import "SleepCell.h"
 #import "FriendCell.h"
+#import "Sleep.h"
 
 @interface SleepViewController () <UITableViewDelegate,UITableViewDataSource>
 {
@@ -56,6 +57,7 @@
     _tableView.backgroundColor = [UIColor blackColor];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_tableView];
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -77,7 +79,7 @@
             cell.tableView.dataSource = self;
         }
         
-        if (indexPath.row == 9) {
+        if (indexPath.row == 4) {
             [cell setCellPosition:CellPositionTop];
         } else if (indexPath.row == 0) {
             [cell setCellPosition:CellPositionBottom];
@@ -88,13 +90,16 @@
         [cell.friendSleepPkLabel setText:[NSString stringWithFormat:@"今天超过的80%%的用户"] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x787878]];
         [cell.friendSleepPkLabel setKeyWordTextArray:@[[NSString stringWithFormat:@"80%%"]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xffaa33]];
         
+        //cell.sleepDataArray = [[CSDataManager sharedInstace] fetchSleepItemsByDay: 4 - indexPath.row];
+        cell.day =  4 - indexPath.row;
+        [cell refresh];
+        
         return cell;
     } else {
         FriendCell *cell = [tableView dequeueReusableCellWithIdentifier:friendCellIdentifer];
         if (cell == nil) {
             cell = [[FriendCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:friendCellIdentifer] ;
         }
-        
         NSString *str = @"范冰冰今天睡眠质量80%";
         CGSize size =[str sizeWithFont:kTitleFont1];
         cell.friendRunLB.frame = CGRectMake(cell.friendRunLB.x, cell.friendRunLB.y, cell.width, size.height);
@@ -124,8 +129,10 @@
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    _currentPage = 10 - scrollView.contentOffset.y/self.view.width - 1;
-    self.navigationItem.title = [DateHelper getDayStringWith:_currentPage];
+    if (_tableView == scrollView) {
+        _currentPage = 5 - scrollView.contentOffset.y/self.view.width - 1;
+        self.navigationItem.title = [DateHelper getDayStringWith:_currentPage];
+    }
 }
 
 - (void)viewWillLayoutSubviews {

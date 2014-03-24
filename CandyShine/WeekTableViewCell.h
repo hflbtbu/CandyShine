@@ -11,6 +11,7 @@
 @interface WeekTableViewCell : UITableViewCell
 
 @property (nonatomic, retain) NSArray *weekDataArray;
+@property (nonatomic, assign) CellPosition currentPage;
 
 - (void)refresh;
 

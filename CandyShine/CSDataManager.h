@@ -12,13 +12,16 @@
 #define kUserPortrait       @"UserPortrait"
 
 
+
 #import <Foundation/Foundation.h>
 #import "Sport.h"
 #import "News.h"
+#import "Sleep.h"
 #import "Ble4Util.h"
 
 typedef void(^ConnectStateBlock)(CSConnectState state);
 typedef void(^ReadDataBlock)();
+typedef void(^CallBackBlock)();
 
 @interface CSDataManager : NSObject <Ble4UtilDelegate,Ble4PeripheralDelegate>
 
@@ -28,12 +31,16 @@ typedef void(^ReadDataBlock)();
 @property (nonatomic, retain) NSString *portrait;
 @property (nonatomic, assign) CSLoginType loginType;
 @property (nonatomic, assign) NSInteger totalDays;
+@property (nonatomic,assign) NSInteger totalWeeks;
 @property (nonatomic, assign) BOOL isReachable;
 @property (nonatomic, assign) NSInteger userGogal;
 
-
 @property (nonatomic, retain) Ble4Util *ble4Util;
 @property (nonatomic, assign) BOOL isConneting;
+@property (nonatomic, assign) BOOL isReading;
+@property (nonatomic, assign) BOOL isDongingConnect;
+@property (nonatomic, retain) NSDate *readDataDate;
+
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
@@ -44,9 +51,15 @@ typedef void(^ReadDataBlock)();
 
 - (Sport *)insertSportItemWithBlock:(void (^)(Sport *))settingBlock;
 
+- (Sleep *)insertSleepItemWithBlock:(void (^)(Sleep *))settingBlock;
+
 - (NSArray *)fetchSportItemsByDay:(NSInteger)day;
 
 - (NSArray *)fetchSportItemsByWeek:(NSInteger)week;
+
+- (NSArray *)fetchSportItemsFromeDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
+
+- (NSArray *)fetchSleepItemsByDay:(NSInteger)day;
 
 - (News *)insertNewsWithBlock:(void (^)(News *))settingBlock;
 
@@ -65,5 +78,7 @@ typedef void(^ReadDataBlock)();
 - (void)connectDeviceWithBlock:(ConnectStateBlock)block;
 
 - (void)synchronizationDeviceDataWithBlock:(ReadDataBlock)block;
+
+-(void)setSleepTimeWithHour:(NSInteger)hour andMin:(NSInteger)min block:(CallBackBlock)block;
 
 @end

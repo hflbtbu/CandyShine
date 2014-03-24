@@ -25,15 +25,19 @@
 #define kFirstLaunchDate    @"FirstLaunchDate"
 #define kUserInfoAndState   @"UserInfoAndState"
 
-#define kAddFriendFinishNotification    @"AddFriendFinifishNotification"
-#define kLoginFinishNotification        @"LoginFinishNotification"
-#define kLogoutFinishNotification       @"LogoutFinishNotification"
+#define kAddFriendFinishNotification        @"AddFriendFinifishNotification"
+#define kLoginFinishNotification            @"LoginFinishNotification"
+#define kLogoutFinishNotification           @"LogoutFinishNotification"
+#define kReadDeviceDataFinishNotification   @"ReadDeviceDataFinishNotification"
+#define kSetGogalFinishNotification         @"SetGogalFinishNotification"
 
 
 #define kUserIsMale         @"UserSex"
 #define kUserHeight         @"UserHeight"
 #define kUserWeight         @"UserWeight"
 #define kUserGogal          @"UserGogal"
+
+#define kReadDateDate       @"ReadDateDate"
 
 #define kUserDeviceID       @"UserDeviceID"
 

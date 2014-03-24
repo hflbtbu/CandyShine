@@ -21,9 +21,10 @@
 @property (nonatomic, retain) IBOutlet UILabel *depthSleepLB;
 @property (nonatomic, retain) IBOutlet UILabel *lightSleepTimeLB;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-
-
-
-
 @property (nonatomic, assign) CellPosition cellPosition;
+@property (nonatomic, retain) NSArray *sleepDataArray;
+@property (nonatomic, assign) NSInteger day;
+
+- (void)refresh;
+
 @end

@@ -95,6 +95,7 @@
 
 - (void)refresh {
     _gridPathView.valueArray = _valueArray;
+    _gridPathView.isToday = _isToday;
     [_gridPathView refresh];
     [_friensTableView reloadData];
 }

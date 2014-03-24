@@ -76,8 +76,15 @@
 
 + (NSInteger)getDaysBetween:(NSDate *)startDate and:(NSDate *)endDate {
     unsigned int unitFlags = NSMonthCalendarUnit | NSDayCalendarUnit;
-    NSDateComponents *comps = [[NSCalendar currentCalendar] components:unitFlags fromDate:endDate  toDate:[DateHelper getDayBegainWith:-3]  options:0];
-    return [comps day];
+    NSDateComponents *comps = [[NSCalendar currentCalendar] components:unitFlags fromDate:startDate  toDate:endDate  options:0];
+    return [comps day] + 1;
+}
+
++ (NSInteger)getWeeksBetween:(NSDate *)startDate and:(NSDate *)endDate {
+    unsigned int unitFlags = NSCalendarUnitWeekOfYear;
+    NSDateComponents *components1 = [[NSCalendar currentCalendar] components:unitFlags fromDate:startDate];
+    NSDateComponents *components2 = [[NSCalendar currentCalendar] components:unitFlags fromDate:endDate];
+    return  components2.weekOfYear - components1.weekOfYear + 1;
 }
 
 + (NSString *)getDayWithIndex:(NSInteger)index {
@@ -111,6 +118,31 @@
     NSTimeInterval timerInterval = [dateBegain timeIntervalSinceDate:date];
     NSInteger days = timerInterval/(24*60*60) + 1;
     return days;
+}
+
++ (NSInteger)getTimeIntervalWithDate:(NSDate *)date {
+    unsigned int flags =  NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:date];
+    return components.hour*3600+ components.minute*60 + components.second;
+}
+
++ (NSString *)getDateStringWithDate:(NSDate *)date {
+    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:date];
+    return [NSString stringWithFormat:@"%d.%02d.%02d %02d:%02d",components.year,components.month,components.day,components.hour,components.minute];
+}
+
++ (NSString *)getTimeStringWithDate:(NSDate *)date {
+    unsigned int flags = NSHourCalendarUnit | NSMinuteCalendarUnit;
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:date];
+    return [NSString stringWithFormat:@"%02d:%02d",components.hour,components.minute];
+}
+
++ (NSString *)getTimeStringWithFromDate:(NSDate *)fromeDate to:(NSDate *)toDate {
+    NSTimeInterval timeInterval = [toDate timeIntervalSinceDate:fromeDate];
+    NSInteger hour = timeInterval/3600;
+    NSInteger minute = (timeInterval - hour*3600)/60;
+    return [NSString stringWithFormat:@"%d小时%d分钟",hour,minute];
 }
 
 @end

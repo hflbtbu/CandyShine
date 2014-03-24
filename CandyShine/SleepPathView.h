@@ -10,4 +10,10 @@
 
 @interface SleepPathView : UIView
 
+@property (nonatomic, retain) NSArray *sleepDataArray;
+
+@property (nonatomic, assign) NSInteger sleepPosition;
+
+- (void)refresh;
+
 @end

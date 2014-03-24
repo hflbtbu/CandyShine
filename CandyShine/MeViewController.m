@@ -207,10 +207,13 @@
 - (void)pickerViewDidSelectedWithVlaue:(NSDictionary *)dic {
     NSInteger hour = [[dic objectForKey:@"kPickerHuor"] integerValue];
     NSInteger minute = [[dic objectForKey:@"kPickerMinute"] integerValue];
-    NSInteger timeInterval = hour*3600 + minute*60;
-    _waterWarmManager.sleepTime = timeInterval;
-    UITableViewCell *cell = [_tableView cellForRowAtIndexPath:_selectedIndexPath];
-    cell.detailTextLabel.text = [self getTimeStringWith:timeInterval];
+    [_dataManager setSleepTimeWithHour:hour andMin:minute block:^{
+        NSInteger timeInterval = hour*3600 + minute*60;
+         _waterWarmManager.sleepTime = timeInterval;
+        UITableViewCell *cell = [_tableView cellForRowAtIndexPath:_selectedIndexPath];
+        cell.detailTextLabel.text = [self getTimeStringWith:timeInterval];
+        [MBProgressHUDManager showTextWithTitle:@"设置睡眠时间成功" inView:self.view];
+    }];
 }
 
 - (NSString *)getTimeStringWith:(NSInteger)timeInterval {

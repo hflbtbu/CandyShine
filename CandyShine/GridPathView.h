@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSArray *valueArray;
 @property (nonatomic, assign) DataPattern currentPattern;
+@property (nonatomic, assign) BOOL isToday;
 
 - (void)refresh;
 

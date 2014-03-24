@@ -32,7 +32,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self commenInit];
     [self initialShareSDK];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -68,14 +67,14 @@
         _tabBarController.selectedIndex = 3;
     }
     
-   // _introVC.view.frame = CGRectMake(0, 0, _tabBarController.view.width, _tabBarController.view.height);
-    //[_tabBarController.view addSubview:_introVC.view];
+    
     BOOL isfirstLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:kIsFirstLaunch];
-    if (isfirstLaunch) {
+    if (!isfirstLaunch) {
         _introVC = [[IntroduceViewController alloc] initWithNibName:@"IntroduceViewController" bundle:nil];
         _introVC.delegate = self;
         self.window.rootViewController = _introVC;
-        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:kIsFirstLaunch];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kIsFirstLaunch];
+        [[NSUserDefaults standardUserDefaults] setObject:[DateHelper getDayBegainWith:0] forKey:kFirstLaunchDate];
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         self.window.rootViewController = _tabBarController;
@@ -85,18 +84,12 @@
     
     //tabBarVC.tabBar.selectionIndicatorImage = ;
 
-
-    
+    [self commenInit];
     [self.window makeKeyAndVisible];
     return YES;
 }
 
 - (void)commenInit {
-    BOOL isFirstLaunch = [[NSUserDefaults standardUserDefaults] boolForKey:kIsFirstLaunch];
-    if (!isFirstLaunch) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kIsFirstLaunch];
-        [[NSUserDefaults standardUserDefaults] setObject:[DateHelper getDayBegainWith:0] forKey:kFirstLaunchDate];
-    }
     [CSDataManager sharedInstace];
 }
 

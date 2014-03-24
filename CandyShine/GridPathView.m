@@ -61,7 +61,7 @@
         [self.layer addSublayer:_path];
         
         _gogalLine = [CAShapeLayer layer];
-        _gogalLine.frame = CGRectMake(0, 20, self.width, 0.5);
+        _gogalLine.frame = CGRectMake(0, (PathBorderBap + TextSpaceY + size.height + 30)/2, self.width, 0.5);
         _gogalLine.lineWidth = 0.5;
         _gogalLine.lineDashPattern =  @[[NSNumber numberWithFloat:4.0],[NSNumber numberWithFloat:4.0]];
         _gogalLine.lineCap = kCALineCapButt;
@@ -113,9 +113,16 @@
         CGFloat width = _path.frame.size.width;
         NSInteger gogal = [CSDataManager sharedInstace].userGogal;
         [path moveToPoint:CGPointMake(0,height - minValue)];
+        NSInteger time = [DateHelper getTimeIntervalWithDate:[CSDataManager sharedInstace].readDataDate];
+        CGFloat hasDataWidth = _isToday ? (time/(24*60*60*1.0))*width : width;
+        CGFloat step = hasDataWidth/(array.count*1.0);
         for (int i = 1; i < [array count]; i++) {
             NSInteger value = [[array objectAtIndex:i] integerValue];
-            [path addLineToPoint:CGPointMake(i*(width/295),height - (value/(gogal*1.0))*(height - 20))];
+            if (value <= gogal) {
+                [path addLineToPoint:CGPointMake(i*step,height - (value/(gogal*1.0))*(height - 30))];
+            } else {
+                [path addLineToPoint:CGPointMake(i*step,height - ((height - 30) + (value - gogal)/1000.0f*30))];
+            }
         }
 //        UIBezierPath *smoothing = [path smoothedPathWithGranularity:1 minY:self.height - TextSpaceY - 2*PathBorderBap - 110 maxY:self.height - TextSpaceY - 2*PathBorderBap - 0];
         
