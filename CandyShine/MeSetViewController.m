@@ -275,7 +275,7 @@
             _pickerView = [[PickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 260) :PickerViewWeight];
             _pickerView.delegate = self;
             [_pickerView show];
-        } else {
+        } else if (indexPath.row == 3)  {
             _selectedCell = [tableView cellForRowAtIndexPath:indexPath];
             _pickerType =  PickerViewBirthday;
             _pickerView = [[PickerView alloc] initWithFrame:CGRectMake(0, 0, 320, 260) :PickerViewBirthday];

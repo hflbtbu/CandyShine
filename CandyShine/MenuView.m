@@ -8,13 +8,15 @@
 
 #import "MenuView.h"
 
-#define MenuViewArrowHeight 0
+#define MenuViewArrowHeight 7
 
-#define MenuViewMoveImageGap 40
+#define MenuViewMoveImageGap 50
 
 @interface MenuView ()
 {
     UIImageView *_movedImage;
+    
+    DataPattern _currentPattern;
 }
 @end
 
@@ -25,29 +27,30 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        _currentPattern = DataPatternDay;
+        
         UIImageView *bg = [[UIImageView alloc] initWithFrame:self.bounds];
-        bg.image = [UIImage imageNamed:@"menuviewbg"];
+        bg.image = [UIImage imageNamed:@"menu_bg"];
         [self addSubview:bg];
 
         UILabel *menuLB1  = [[UILabel alloc] initWithFrame:CGRectMake(0, MenuViewArrowHeight, self.width, (self.height - MenuViewArrowHeight)/2)];
         menuLB1.textAlignment = NSTextAlignmentCenter;
         menuLB1.text = @"日视图";
-        menuLB1.backgroundColor = [UIColor orangeColor];
+        menuLB1.backgroundColor = [UIColor clearColor];
         [self addSubview:menuLB1];
         
-        UILabel *menuLB2  = [[UILabel alloc] initWithFrame:CGRectMake(0, MenuViewArrowHeight + (self.height - MenuViewArrowHeight)/2, self.width, (self.height - MenuViewArrowHeight)/2)];
+        UILabel *menuLB2  = [[UILabel alloc] initWithFrame:CGRectMake(0, MenuViewArrowHeight + (self.height - MenuViewArrowHeight)/2 - 6, self.width, (self.height - MenuViewArrowHeight)/2)];
         menuLB2.textAlignment = NSTextAlignmentCenter;
         [self addSubview:menuLB2];
         menuLB2.text = @"周视图";
-        menuLB2.backgroundColor = [UIColor grayColor];
+        menuLB2.backgroundColor = [UIColor clearColor];
         
-        _movedImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@""]];
-        _movedImage.center = CGPointMake(self.width - MenuViewMoveImageGap, MenuViewArrowHeight + (self.height - MenuViewArrowHeight)/4);
+        _movedImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu_selected"]];
+        _movedImage.center = CGPointMake(MenuViewMoveImageGap, MenuViewArrowHeight + (self.height - MenuViewArrowHeight)/4 );
+        [self addSubview:_movedImage];
         
         UITapGestureRecognizer *_tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(receiveTapGestureRecognizer:)];
         [self addGestureRecognizer:_tapGestureRecognizer];
-        
-        self.backgroundColor = [UIColor orangeColor];
     }
     return self;
 }
@@ -55,11 +58,23 @@
 - (void)receiveTapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
         CGPoint touchPoint = [recognizer locationInView:self];
     if (touchPoint.y > MenuViewArrowHeight && touchPoint.y < MenuViewArrowHeight + (self.height - MenuViewArrowHeight)/2) {
-        _movedImage.center = _movedImage.center = CGPointMake(self.width - MenuViewMoveImageGap, MenuViewArrowHeight + (self.height - MenuViewArrowHeight)/4);
-        [_delegate menuViewDidSelectedDataPattern:DataPatternDay];
+        if (_currentPattern != DataPatternDay) {
+            _currentPattern = DataPatternDay;
+            [UIView animateWithDuration:0.15 animations:^{
+                _movedImage.center = _movedImage.center = CGPointMake(MenuViewMoveImageGap, MenuViewArrowHeight + (self.height - MenuViewArrowHeight)/4);
+            } completion:^(BOOL finished) {
+                [_delegate menuViewDidSelectedDataPattern:DataPatternDay];
+            }];
+        }
     } else {
-        _movedImage.center = CGPointMake(self.width - MenuViewMoveImageGap, MenuViewArrowHeight + (self.height - MenuViewArrowHeight)*1.5);
-        [_delegate menuViewDidSelectedDataPattern:DataPatternWeek];
+        if (_currentPattern != DataPatternWeek) {
+            _currentPattern = DataPatternWeek;
+            [UIView animateWithDuration:0.15 animations:^{
+                _movedImage.center =  CGPointMake(MenuViewMoveImageGap, MenuViewArrowHeight + (self.height - MenuViewArrowHeight)*0.75 - 6);
+            } completion:^(BOOL finished) {
+                [_delegate menuViewDidSelectedDataPattern:DataPatternWeek];
+            }];
+        }
     }
 }
 
