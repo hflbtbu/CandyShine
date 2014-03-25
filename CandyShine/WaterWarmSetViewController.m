@@ -30,6 +30,8 @@
     BOOL _isReloadData;
     BOOL _isAddWarm;
     NSIndexPath *_selectedIndexPath;
+    
+    NSInteger _tempTimeInterVal;
 }
 @end
 
@@ -65,6 +67,8 @@
     
     _waterWarmManager = [WaterWarmManager shared];
     
+    _tempTimeInterVal = _waterWarmManager.timeInterval;
+    
 }
 
 
@@ -82,7 +86,7 @@
     if (!_waterWarmManager.isOpenWarm) {
         return 1;
     }
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -310,6 +314,7 @@
     if (indexPath.section == 2 && indexPath.row >= 1) {
         [self showPickerView];
     } else if (indexPath.section == 1) {
+        _tempTimeInterVal = _waterWarmManager.timeInterval;
         _waterWarmManager.timeInterval = (indexPath.row + 1)*2*3600;
         [self performSelector:@selector(reloadData) withObject:nil afterDelay:0.1];
     } else if (indexPath.section == 2 && indexPath.row == 0) {
@@ -322,6 +327,37 @@
     _selectedIndexPath = indexPath;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+- (void)saveDrinkTime {
+    if ([CSDataManager sharedInstace].isConneting) {
+        [[CSDataManager sharedInstace] setDrinkWaterInterval:_waterWarmManager.timeInterval block:^{
+            [MBProgressHUDManager showTextWithTitle:@"设置喝水提醒成功" inView:[[UIApplication sharedApplication] keyWindow]];
+        }];
+    } else {
+        [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
+            if (state == CSConnectfound) {
+                [[CSDataManager sharedInstace] setDrinkWaterInterval:_waterWarmManager.timeInterval block:^{
+                    [MBProgressHUDManager showTextWithTitle:@"设置喝水提醒成功" inView:[[UIApplication sharedApplication] keyWindow]];
+                }];
+            } else if (state == CSConnectUnfound) {
+                _waterWarmManager.timeInterval = _tempTimeInterVal;
+                [_tableView reloadData];
+                [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
+            } else {
+                _waterWarmManager.timeInterval = _tempTimeInterVal;
+                [_tableView reloadData];
+            }
+        }];
+    }
+
+}
+
+- (void)setDrinkTimeWith:(NSInteger)timeInterval {
+    [[CSDataManager sharedInstace] setDrinkWaterInterval:timeInterval block:^{
+        
+    }];
+}
+
 
 - (void)reloadData {
     [_tableView reloadData];
@@ -373,6 +409,7 @@
 - (void)initNavigationItem {
     [super initNavigationItem];
     self.navigationItem.title = @"喝水设置";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStyleBordered target:self action:@selector(saveDrinkTime)];
 }
 
 @end

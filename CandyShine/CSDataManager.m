@@ -315,6 +315,8 @@
         [_ble4Util stopScanBle];
         
         [_ble4Util startScanBle];
+    } else {
+        _connectStateBlock(CSConnectPowerOff);
     }
 }
 
@@ -390,6 +392,10 @@
     [_ble4Util cmdSetSportsPlanWithType:type andTarget:gogal andUDID:_udid];
 }
 
+- (void)setDrinkWaterInterval:(NSInteger)interval block:(CallBackBlock)block {
+    _callBackBlock = block;
+    [_ble4Util cmdSetDrinkWaterInterval:interval withUDID:_udid];
+}
 
 - (void)ble4Peripheral:(id)ble4Peripheral callBackWithMark:(Ble4CallBackMark)mark
 {
@@ -419,6 +425,7 @@
             break;
         case Ble4CallBackMarkSetDrinkWaterInterval:
             //_lblResponse.text=@"设置喝水提示间隔时间成功!";
+            _callBackBlock();
             break;
         default:
             break;
@@ -485,10 +492,10 @@
                         item.date =  [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
                         item.value = [NSNumber numberWithInteger:sportsData.steps];
                     }];
-                    [self insertSleepItemWithBlock:^(Sleep *item) {
-                        item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
-                        item.value = [NSNumber numberWithInteger:sportsData.calories];
-                    }];
+//                    [self insertSleepItemWithBlock:^(Sleep *item) {
+//                        item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
+//                        item.value = [NSNumber numberWithInteger:sportsData.calories];
+//                    }];
                 }
                 else if(sportsDataType==BleSportsDataTypeSleep)
                 {

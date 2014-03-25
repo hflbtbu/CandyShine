@@ -71,6 +71,10 @@
         _weekViewArray = [NSMutableArray arrayWithCapacity:0];
     }
     
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kWeekCellCap, 194, 318 - 2*kWeekCellCap, 1)];
+    lineView.backgroundColor = kContentNormalShallowColorA;
+    [self.contentView addSubview:lineView];
+    
     NSArray *weekStrings = @[@"一",@"二",@"三",@"四",@"五",@"六",@"日"];
     
     CGFloat space = (320 - 2*kWeekCellCap - 7*kWeekCellWidth)/6;
@@ -91,10 +95,6 @@
         dayLabel.text = (NSString *)weekStrings[i];
         [self.contentView addSubview:dayLabel];
     }
-    
-    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(kWeekCellCap, 194, 318 - 2*kWeekCellCap, 1)];
-    lineView.backgroundColor = kContentNormalShallowColorA;
-    [self.contentView addSubview:lineView];
     
     _friendTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 225, 320, 200) style:UITableViewStylePlain];
     _friendTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -144,11 +144,11 @@
             }
             view.frame = CGRectMake(view.x, 195 - sizeHeight, view.width, sizeHeight);
         }
-        NSString *totalString = [NSString stringWithFormat:@"本周消耗：%d 卡路里",total];
+        NSString *totalString = [NSString stringWithFormat:@"本周消耗：%d 卡路里",total/25];
         CGSize size = [totalString sizeWithFont:kContentFont1];
         _totalValueLB.frame = CGRectMake((320 - size.width)/2, 10, size.width, size.height);
         [_totalValueLB setText:totalString WithFont:kContentFont1 AndColor:kContentNormalShallowColorA];
-        [_totalValueLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",total]] WithFont:kContentFont1 AndColor:kContentHighlightColor];
+        [_totalValueLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",total/25]] WithFont:kContentFont1 AndColor:kContentHighlightColor];
     }
 }
 

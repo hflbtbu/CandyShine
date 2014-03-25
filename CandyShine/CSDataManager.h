@@ -85,6 +85,6 @@ typedef void(^CallBackBlock)();
 
 -(void)setSetSportsPlanWithType:(BleSportsPlanType)type andGogal:(NSInteger)gogal block:(CallBackBlock)block;
 
-
+-(void)setDrinkWaterInterval:(NSInteger)interval block:(CallBackBlock)block;
 
 @end
