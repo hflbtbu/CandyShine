@@ -32,6 +32,8 @@
     NSIndexPath *_selectedIndexPath;
     
     NSInteger _tempTimeInterVal;
+    
+    BOOL _isSaved;
 }
 @end
 
@@ -56,7 +58,9 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     //[self deleteLocalNotificationWith:0];
-
+    _isSaved = NO;
+    
+    
     _tableView.allowsSelectionDuringEditing = YES;
     if (IsIOS7) {
         _tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
@@ -329,27 +333,33 @@
 }
 
 - (void)saveDrinkTime {
+    _isSaved = YES;
     if ([CSDataManager sharedInstace].isConneting) {
         [[CSDataManager sharedInstace] setDrinkWaterInterval:_waterWarmManager.timeInterval block:^{
+            _isSaved = NO;
+            _tempTimeInterVal = _waterWarmManager.timeInterval;
             [MBProgressHUDManager showTextWithTitle:@"设置喝水提醒成功" inView:[[UIApplication sharedApplication] keyWindow]];
         }];
     } else {
         [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
             if (state == CSConnectfound) {
                 [[CSDataManager sharedInstace] setDrinkWaterInterval:_waterWarmManager.timeInterval block:^{
+                    _isSaved = NO;
+                    _tempTimeInterVal = _waterWarmManager.timeInterval;
                     [MBProgressHUDManager showTextWithTitle:@"设置喝水提醒成功" inView:[[UIApplication sharedApplication] keyWindow]];
                 }];
             } else if (state == CSConnectUnfound) {
+                _isSaved = NO;
                 _waterWarmManager.timeInterval = _tempTimeInterVal;
                 [_tableView reloadData];
                 [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
             } else {
+                _isSaved = NO;
                 _waterWarmManager.timeInterval = _tempTimeInterVal;
                 [_tableView reloadData];
             }
         }];
     }
-
 }
 
 - (void)setDrinkTimeWith:(NSInteger)timeInterval {
@@ -404,6 +414,13 @@
     NSInteger minute = timeInterval/60%60;
     NSInteger hour = (timeInterval/60 - minute)/60;
     return  [NSString stringWithFormat:@"%02d:%02d",hour,minute];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear: animated];
+    if (!_isSaved) {
+        _waterWarmManager.timeInterval = _tempTimeInterVal;
+    }
 }
 
 - (void)initNavigationItem {

@@ -144,11 +144,11 @@
             }
             view.frame = CGRectMake(view.x, 195 - sizeHeight, view.width, sizeHeight);
         }
-        NSString *totalString = [NSString stringWithFormat:@"本周消耗：%d 卡路里",total/25];
+        NSString *totalString = [NSString stringWithFormat:@"本周消耗：%d 卡路里",total/30];
         CGSize size = [totalString sizeWithFont:kContentFont1];
         _totalValueLB.frame = CGRectMake((320 - size.width)/2, 10, size.width, size.height);
         [_totalValueLB setText:totalString WithFont:kContentFont1 AndColor:kContentNormalShallowColorA];
-        [_totalValueLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",total/25]] WithFont:kContentFont1 AndColor:kContentHighlightColor];
+        [_totalValueLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d",total/30]] WithFont:kContentFont1 AndColor:kContentHighlightColor];
     }
 }
 

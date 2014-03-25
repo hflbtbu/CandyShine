@@ -551,10 +551,12 @@
     _freshTimeLB.text = [DateHelper getDateStringWithDate:date];
     _dataManager.readDataDate = date;
     CGPoint offset = CGPointMake(0, _circleTableView.contentSize.height - self.view.frame.size.width);
+    [self resetTitle];
     _circleTableView.contentOffset = offset;
     [_circleTableView reloadData];
     [_pathTableView reloadData];
 }
+
 
 - (void)setGoalFinishHandler {
     if (_currentPattern == DataPatternDay) {
@@ -570,6 +572,13 @@
     }
 }
 
+- (void)resetTitle {
+    _currentPage = 0;
+    
+    NSString *str = _currentPattern ==DataPatternWeek ? [DateHelper getWeekStringWith:_currentPage] : [DateHelper getDayStringWith:_currentPage];
+    [_titleButton setTitle:str forState:UIControlStateNormal];
+    [_titleButton setEdgeCenterWithSpace:5];
+}
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kAddFriendFinishNotification object:nil];
