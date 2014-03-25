@@ -99,7 +99,7 @@
         [cell.friendSleepPkLabel setText:[NSString stringWithFormat:@"今天超过的80%%的用户"] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x787878]];
         [cell.friendSleepPkLabel setKeyWordTextArray:@[[NSString stringWithFormat:@"80%%"]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xffaa33]];
         
-        //cell.sleepDataArray = [[CSDataManager sharedInstace] fetchSleepItemsByDay: 4 - indexPath.row];
+        cell.sleepDataArray = [[CSDataManager sharedInstace] fetchSleepItemsByDay: 4 - indexPath.row];
         cell.day =  4 - indexPath.row;
         [cell refresh];
         

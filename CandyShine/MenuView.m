@@ -36,8 +36,8 @@
         UILabel *menuLB1  = [[UILabel alloc] initWithFrame:CGRectMake(0, MenuViewArrowHeight, self.width, (self.height - MenuViewArrowHeight)/2)];
         menuLB1.textAlignment = NSTextAlignmentCenter;
         menuLB1.text = @"日视图";
-        menuLB1.font = kContentFont3;
-        menuLB1.textColor = kContentNormalShallowColorA;
+        menuLB1.font = kContentFont1;
+        menuLB1.textColor = kContentNormalColor;
         menuLB1.backgroundColor = [UIColor clearColor];
         [self addSubview:menuLB1];
         
@@ -45,8 +45,8 @@
         menuLB2.textAlignment = NSTextAlignmentCenter;
         [self addSubview:menuLB2];
         menuLB2.text = @"周视图";
-        menuLB2.font = kContentFont3;
-        menuLB2.textColor = kContentNormalShallowColorA;
+        menuLB2.font = kContentFont1;
+        menuLB2.textColor = kContentNormalColor;
         menuLB2.backgroundColor = [UIColor clearColor];
         
         _movedImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu_selected"]];

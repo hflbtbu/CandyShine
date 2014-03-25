@@ -428,11 +428,19 @@
 
 - (void)ble4UtilDidDisconnect:(id)ble4Util withUDID:(NSString *)udid {
     _isConneting = NO;
+    if (_isReading) {
+        _isReading = NO;
+        _readDataBlock();
+    }
 }
 
 - (void)ble4Util:(id)ble4Util didUpdateState:(CBCentralManagerState)state {
     if (state == CBCentralManagerStatePoweredOff) {
         _isConneting = NO;
+        if (_isReading) {
+            _isReading = NO;
+            _readDataBlock();
+        }
     } else if (state == CBCentralManagerStatePoweredOn) {
         //[self autoSyncData];
     }
@@ -475,12 +483,12 @@
                     BleSportsData *sportsData=[dataList.listData objectAtIndex:j];
                     [self insertSportItemWithBlock:^(Sport *item) {
                         item.date =  [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
+                        item.value = [NSNumber numberWithInteger:sportsData.steps];
+                    }];
+                    [self insertSleepItemWithBlock:^(Sleep *item) {
+                        item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
                         item.value = [NSNumber numberWithInteger:sportsData.calories];
                     }];
-//                    [self insertSleepItemWithBlock:^(Sleep *item) {
-//                        item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
-//                        item.value = [NSNumber numberWithInteger:sportsData.calories];
-//                    }];
                 }
                 else if(sportsDataType==BleSportsDataTypeSleep)
                 {

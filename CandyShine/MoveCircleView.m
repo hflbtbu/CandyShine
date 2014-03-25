@@ -69,7 +69,7 @@
     _runNumberLB.textAlignment = NSTextAlignmentCenter;
     _runNumberLB.backgroundColor = [UIColor clearColor];
     _runNumberLB.text = @"12";
-    _runNumberLB.font = [UIFont systemFontOfSize:45];
+    _runNumberLB.font = [UIFont systemFontOfSize:38];
     _runNumberLB.textColor = [UIColor convertHexColorToUIColor:0xfeaa00];
     size = [_runNumberLB.text sizeWithFont:_runNumberLB.font];
     _runNumberLB.frame = CGRectMake(0, _gogalLB.y  - size.height, self.width, size.height);
@@ -162,12 +162,24 @@
 
 - (void)refrsh {
     if (_currentPattern == DataPatternDay) {
-        _runNumberLB.text = [NSString stringWithFormat:@"%d",_runNumbers];
         NSInteger gogal = [CSDataManager sharedInstace].userGogal;
+        NSString *finishPersent;
+        CGFloat percent = _runNumbers/(gogal*1.0)*100;
+        if (percent >= 100) {
+            finishPersent = @"100%";
+        } else if (percent == 0) {
+            finishPersent = @"0%";
+        } else {
+            finishPersent = [NSString stringWithFormat:@"%.1f%%",percent];
+        }
+        _runNumberLB.text = finishPersent;
         //[self updateWithProgress:_runNumbers/(gogal*1.0)];
         self.progress = _runNumbers/(gogal*1.0);
-        _gogalLB.text = [NSString stringWithFormat:@"目标 : %d卡路里",gogal];
-        _calorieLB.text = [NSString stringWithFormat:@"700卡路里"];
+        _gogalLB.text = [NSString stringWithFormat:@"目标 : %d步",gogal];
+        [_calorieLB setText:[NSString stringWithFormat:@"已消耗 %d克 脂肪",_runNumbers/25] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x333333]];
+        [_calorieLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d克",_runNumbers/25]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xff7f00]];
+        CGSize size = [[NSString stringWithFormat:@"已消耗 %d克 脂肪",_runNumbers/25] sizeWithFont:[UIFont systemFontOfSize:15]];
+        _calorieLB.frame = CGRectMake((self.width - size.width)/2, self.height/2 + 10, self.width, size.height);
     } else {
         
     }
