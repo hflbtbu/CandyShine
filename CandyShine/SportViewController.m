@@ -570,6 +570,7 @@
     }
 }
 
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kAddFriendFinishNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kLoginFinishNotification object:nil];

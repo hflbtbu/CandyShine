@@ -18,6 +18,8 @@
     UILabel *_titleLB;
     
     NSArray *_friendArray;
+    
+    BOOL _isViewShow;
 }
 @end
 
@@ -46,6 +48,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    _isViewShow = NO;
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.height, self.view.frame.size.width) style:UITableViewStylePlain];
     _tableView.center = CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2);
     [_tableView.layer setAnchorPoint:CGPointMake(0.5, 0.5)];
@@ -141,10 +144,12 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    CGPoint offset = CGPointMake(0, _tableView.contentSize.height - self.view.frame.size.width);
-    _tableView.contentOffset = offset;
-    
+    [super viewDidAppear:animated];
+    if (!_isViewShow) {
+        _isViewShow = YES;
+        CGPoint offset = CGPointMake(0, _tableView.contentSize.height - self.view.frame.size.width);
+        _tableView.contentOffset = offset;
+    }
 }
 
 - (void)initNavigationItem {
