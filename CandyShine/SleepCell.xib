@@ -51,21 +51,21 @@
                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5eG-8x-cJv">
+                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5eG-8x-cJv">
                             <rect key="frame" x="180" y="238" width="23" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VAv-Ba-gpF">
+                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VAv-Ba-gpF">
                             <rect key="frame" x="133" y="238" width="23" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DwU-Lp-hZV">
+                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22h" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DwU-Lp-hZV">
                             <rect key="frame" x="83" y="238" width="23" height="16"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -85,11 +85,11 @@
                         <outlet property="_sleepStateLB1" destination="rEs-yD-nTW" id="Fvv-m6-l8D"/>
                         <outlet property="_sleepStateLB2" destination="VbR-HF-Xmf" id="xaR-Zh-ARO"/>
                         <outlet property="_sleepStateLB3" destination="7wC-9q-LIM" id="g2a-1Q-8BV"/>
-                        <outlet property="_timeLB1" destination="DwU-Lp-hZV" id="inF-MT-5PO"/>
-                        <outlet property="_timeLB2" destination="VAv-Ba-gpF" id="DSa-Ve-bNa"/>
-                        <outlet property="_timeLB3" destination="5eG-8x-cJv" id="MBU-W8-upa"/>
-                        <outlet property="_timeLB4" destination="PHy-a7-ZIq" id="42S-iI-GdL"/>
-                        <outlet property="_timeLB5" destination="Lrf-tQ-y6b" id="EGM-V6-5q3"/>
+                        <outlet property="timeLB1" destination="Lrf-tQ-y6b" id="D3j-K0-Xwh"/>
+                        <outlet property="timeLB2" destination="5eG-8x-cJv" id="uOu-lO-rqY"/>
+                        <outlet property="timeLB3" destination="VAv-Ba-gpF" id="zMG-Ge-7hh"/>
+                        <outlet property="timeLB4" destination="DwU-Lp-hZV" id="gKd-JV-WVJ"/>
+                        <outlet property="timeLB5" destination="PHy-a7-ZIq" id="WjC-22-yUw"/>
                     </connections>
                 </view>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入睡: 11:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MTP-MB-Bco">

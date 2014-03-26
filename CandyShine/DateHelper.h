@@ -44,4 +44,10 @@
 
 + (NSString *)getTimeStringWithFromDate:(NSDate *)fromeDate to:(NSDate *)toDate;
 
++ (NSDate *)getDateBeforDate:(NSDate *)date hour:(NSInteger)hour;
+
++ (NSDate *)getDateAfterDate:(NSDate *)date hour:(NSInteger)hour;
+
++ (NSInteger)getHourWithDate:(NSDate *)date;
+
 @end

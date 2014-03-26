@@ -28,7 +28,7 @@
                 _warmTimeDic = [NSMutableDictionary dictionaryWithCapacity:0];
                 _isCustome = NO;
                 _isOpenWarm = YES;
-                _getupTime = 9*60*60;
+                _getupTime = 6*60*60;
                 _sleepTime = 22*60*60;
                 _timeInterval = 2*60*60;
                 _timeInterva = _timeInterval;
@@ -77,7 +77,7 @@
 }
 
 - (NSInteger)warmTimeCount {
-    NSInteger count = (24*60*60 - _getupTime)/(_timeInterval == 0 ? 7200 : _timeInterval) + 1;
+    NSInteger count = (22*60*60 - _getupTime)/(_timeInterval == 0 ? 7200 : _timeInterval) + 1;
     return count;
 }
 
@@ -214,7 +214,7 @@
 }
 
 - (void)setGetupTime:(NSInteger)getupTime {
-    _getupTime = getupTime;
+    //_getupTime = getupTime;
     [_warmTimeArray removeAllObjects];
     if (!_isCustome) {
         [[UIApplication sharedApplication] cancelAllLocalNotifications];

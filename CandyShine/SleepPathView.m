@@ -22,11 +22,6 @@
     IBOutlet UILabel *_sleepStateLB2;
     IBOutlet UILabel *_sleepStateLB3;
     
-    IBOutlet UILabel *_timeLB1;
-    IBOutlet UILabel *_timeLB2;
-    IBOutlet UILabel *_timeLB3;
-    IBOutlet UILabel *_timeLB4;
-    IBOutlet UILabel *_timeLB5;
 }
 @end
 
@@ -203,10 +198,11 @@
         CGContextAddArc(context, _sleepPosition*step + SleepPathViewLeftCap, self.height -SleepPathViewBottomCap - offset-[item.value integerValue]*maxIndex, 3.5, 0, M_2_PI, YES);
         CGContextSetFillColorWithColor(context, [[UIColor orangeColor] CGColor]);
         CGContextEOFillPath(context);
-        //
-        //    CGContextAddArc(context, point2.x, point2.y, 3.5, 0, M_2_PI, YES);
-        //    CGContextSetFillColorWithColor(context, [[UIColor orangeColor] CGColor]);
-        //    CGContextEOFillPath(context);
+        
+        item = [_sleepDataArray objectAtIndex:_sleepEndPosition];
+        CGContextAddArc(context, _sleepEndPosition*step + SleepPathViewLeftCap, self.height -SleepPathViewBottomCap - offset-[item.value integerValue]*maxIndex, 3.5, 0, M_2_PI, YES);
+        CGContextSetFillColorWithColor(context, [[UIColor orangeColor] CGColor]);
+        CGContextEOFillPath(context);
         
         
         
@@ -233,6 +229,21 @@
 
 - (void)refresh {
     //Sleep *item = [_sleepDataArray objectAtIndex:0];
+//    if (_fromeDate == nil) {
+//        _timeLB1.hidden = YES;
+//        _timeLB2.hidden = YES;
+//        _timeLB3.hidden = YES;
+//        _timeLB4.hidden = YES;
+//        _timeLB5.hidden = YES;
+//    } else {
+//        _timeLB1.hidden = YES;
+//        NSInteger fromeHour = [DateHelper getHourWithDate:_fromeDate];
+//        NSInteger toHour = [DateHelper getHourWithDate:_toDate];
+//        _timeLB1.text = [NSString stringWithFormat:@"%02dh",fromeHour];
+//        
+//    }
+    
+    
     [self setNeedsDisplay];
 }
 

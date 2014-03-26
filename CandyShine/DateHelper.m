@@ -145,4 +145,32 @@
     return [NSString stringWithFormat:@"%d小时%d分钟",hour,minute];
 }
 
++ (NSDate *)getDateBeforDate:(NSDate *)date hour:(NSInteger)hour {
+    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:date];
+    if (components.minute != 0) {
+        [components setHour:components.hour + 1];
+    }
+    [components setMinute:0];
+    [components setSecond:0];
+    NSDate *datea = [[NSCalendar currentCalendar] dateFromComponents:components];
+    return [NSDate dateWithTimeInterval:-hour*3600 sinceDate:datea];
+}
+
++ (NSDate *)getDateAfterDate:(NSDate *)date hour:(NSInteger)hour {
+    unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit;
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:date];
+    [components setMinute:0];
+    [components setSecond:0];
+    NSDate *datea = [[NSCalendar currentCalendar] dateFromComponents:components];
+    return [NSDate dateWithTimeInterval:hour*3600 sinceDate:datea];
+}
+
++ (NSInteger)getHourWithDate:(NSDate *)date {
+    unsigned int flags = NSHourCalendarUnit;
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:date];
+    return components.hour;
+}
+
+
 @end

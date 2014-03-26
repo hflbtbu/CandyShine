@@ -97,7 +97,7 @@
 {
     // Return the number of rows in the section.
     if (section == 0) {
-        return _waterWarmManager.isOpenWarm ? 2 :1;
+        return _waterWarmManager.isOpenWarm ? 1 :1;
     } else if (section == 1) {
         return 3;
     } else {

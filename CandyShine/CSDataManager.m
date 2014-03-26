@@ -49,7 +49,8 @@
         
         _userGogal = [[NSUserDefaults standardUserDefaults] integerForKey:kUserGogal];
         if (_userGogal  == 0) {
-            [[NSUserDefaults standardUserDefaults] setInteger:2000 forKey:kUserGogal];
+            _userGogal = 5000;
+            [[NSUserDefaults standardUserDefaults] setInteger:5000 forKey:kUserGogal];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
         

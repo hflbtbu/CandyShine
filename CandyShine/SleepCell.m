@@ -11,6 +11,8 @@
 #import "WaterWarmManager.h"
 #import "SleepShow.h"
 
+#define kSleepStep 3
+
 @interface SleepCell ()
 {
     UIImageView *_left;
@@ -95,13 +97,14 @@
         _getUpLB.text = [NSString stringWithFormat:@"起床:%@",[DateHelper getTimeStringWithDate:lastItem.date]];
         _sleepTimeLB.text = [NSString stringWithFormat:@"睡眠时间:%@",[DateHelper getTimeStringWithFromDate:firstItem.date to:lastItem.date]];
         
-        NSDate *fromeDate = [NSDate dateWithTimeInterval:[WaterWarmManager shared].sleepTime sinceDate:[DateHelper getDayBegainWith:_day + 1]];
-        NSDate *toDate = [NSDate dateWithTimeInterval:[WaterWarmManager shared].sleepTime sinceDate:firstItem.date];
-        NSArray *soprtArray = [[CSDataManager sharedInstace] fetchSportItemsFromeDate:fromeDate  toDate:toDate];
+        NSDate *fromeDate = [DateHelper getDateBeforDate:firstItem.date hour:2];
+        NSDate *toDate = [DateHelper getDateAfterDate:lastItem.date hour:2];
+        NSArray *soprtBeforeArray = [[CSDataManager sharedInstace] fetchSportItemsFromeDate:fromeDate  toDate:firstItem.date];
+        NSArray *soprtAfterArray = [[CSDataManager sharedInstace] fetchSportItemsFromeDate:lastItem.date  toDate:toDate];
         NSMutableArray *array = [NSMutableArray arrayWithCapacity:0];
         int i;
-        for (i = 0; i< soprtArray.count; i++) {
-            Sport *sport = [soprtArray objectAtIndex:i];
+        for (i = 0; i< soprtBeforeArray.count; i++) {
+            Sport *sport = [soprtBeforeArray objectAtIndex:i];
             SleepShow *sleep = [[SleepShow alloc] init];
             sleep.value = sport.value;
             [array addObject:sleep];
@@ -124,6 +127,45 @@
             }
         }
         
+        int j;
+        for (j = 0; i< soprtAfterArray.count; i++) {
+            Sport *sport = [soprtAfterArray objectAtIndex:j];
+            SleepShow *sleep = [[SleepShow alloc] init];
+            sleep.value = sport.value;
+            [array addObject:sleep];
+        }
+        
+        NSDate *lastDate;
+        if (soprtAfterArray.count == 0) {
+            Sleep *sleep = [_sleepDataArray lastObject];
+            lastDate = sleep.date;
+        } else {
+            Sport *sport = [soprtAfterArray lastObject];
+            lastDate = sport.date;
+        }
+        
+        CGFloat widthIndex;
+        if ([toDate timeIntervalSinceDate:lastDate] <= 0) {
+            widthIndex = 1.0;
+        } else {
+            widthIndex = [lastDate timeIntervalSinceDate:fromeDate]/[toDate timeIntervalSinceDate:fromeDate];
+        }
+        
+        NSMutableArray *newArray = [NSMutableArray arrayWithCapacity:0];
+        for (int i = 0; i < array.count - kSleepStep + 1; i++) {
+            SleepShow *sleep = [[SleepShow alloc] init];
+            NSInteger toalValue = 0;
+            for (int j = 0; j< kSleepStep; j++) {
+                SleepShow *item = [array objectAtIndex:i + j];
+                toalValue += [item.value integerValue];
+            }
+            sleep.value = [NSNumber numberWithInteger:toalValue];
+            [newArray addObject:sleep];
+        }
+        
+        
+        
+        //
         NSTimeInterval timeInterVal = [lastItem.date timeIntervalSinceDate:firstItem.date];
         
         NSInteger deepTime = deepSleep/(deepSleep + awake +lightSleep)*timeInterVal;
@@ -138,10 +180,25 @@
         hour = lightTime/3600;
         minute = (lightTime - hour*3600)/60;
         _lightSleepTimeLB.text = [NSString stringWithFormat:@"浅度睡眠:%d小时%d分钟",hour,minute];;
+        //
         
-        _sleepPathView.sleepDataArray = array;
-        _sleepPathView.sleepPosition = i;
+        _sleepPathView.sleepDataArray = newArray;
+        _sleepPathView.sleepPosition = soprtBeforeArray.count/(CGFloat)(soprtBeforeArray.count + _sleepDataArray.count + soprtAfterArray.count) * newArray.count;
+        
+        NSInteger sleepEndPosition =  (soprtBeforeArray.count + _sleepDataArray.count)/(CGFloat)(soprtBeforeArray.count + _sleepDataArray.count + soprtAfterArray.count) * newArray.count;
+        if (sleepEndPosition >= newArray.count) {
+            sleepEndPosition = newArray.count - 1;
+        }
+        _sleepPathView.sleepEndPosition = sleepEndPosition;
+        
+        _sleepPathView.timeLB1.hidden = NO;
+        _sleepPathView.timeLB5.hidden = NO;
+        _sleepPathView.timeLB1.text = [NSString stringWithFormat:@"%02dh",[DateHelper getHourWithDate:fromeDate]];
+        _sleepPathView.timeLB5.text = [NSString stringWithFormat:@"%02dh",[DateHelper getHourWithDate:lastDate]];
+        
     } else {
+        _sleepPathView.timeLB1.hidden = YES;
+        _sleepPathView.timeLB5.hidden = YES;
         _sleepPathView.sleepDataArray = _sleepDataArray;
         _sleepLB.text = @"入睡:XX";
         _getUpLB.text = @"起床:XX";
