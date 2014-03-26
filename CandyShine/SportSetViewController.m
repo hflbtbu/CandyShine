@@ -95,7 +95,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         [CSDataManager sharedInstace].userGogal = _scrollNumView.number;
         [MBProgressHUDManager showTextWithTitle:@"设置运动计划成功" inView:[[UIApplication sharedApplication] keyWindow]];
-        _goalLB.text = [NSString stringWithFormat:@"当前状况: %dbu/天",_scrollNumView.number];
+        _goalLB.text = [NSString stringWithFormat:@"当前状况: %d步/天",_scrollNumView.number];
         [[NSNotificationCenter defaultCenter] postNotificationName:kSetGogalFinishNotification object:nil];
     }];
 }

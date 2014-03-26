@@ -143,7 +143,7 @@
         return 1;
     } else if (_pickerViewType == PickerViewWeight) {
         if (component == 0) {
-            return 161;
+            return 191;
         } else if (component == 1) {
             return 1;
         }

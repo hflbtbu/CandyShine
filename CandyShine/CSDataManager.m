@@ -493,10 +493,10 @@
                         item.date =  [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
                         item.value = [NSNumber numberWithInteger:sportsData.steps];
                     }];
-//                    [self insertSleepItemWithBlock:^(Sleep *item) {
-//                        item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
-//                        item.value = [NSNumber numberWithInteger:sportsData.calories];
-//                    }];
+                    [self insertSleepItemWithBlock:^(Sleep *item) {
+                        item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
+                        item.value = [NSNumber numberWithInteger:sportsData.calories];
+                    }];
                 }
                 else if(sportsDataType==BleSportsDataTypeSleep)
                 {
