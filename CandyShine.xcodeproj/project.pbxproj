@@ -443,6 +443,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31B55E0D18C0251700BC5400 /* MessageUI.framework in Frameworks */,
 				3158C5AE18CDBC1B006BD5E3 /* libz.dylib in Frameworks */,
 				3158C5AC18CDBC0D006BD5E3 /* libstdc++.dylib in Frameworks */,
 				3158C5AA18CDBBF2006BD5E3 /* CoreTelephony.framework in Frameworks */,
@@ -451,7 +452,6 @@
 				3158C5A618CDBBAE006BD5E3 /* libiconv.dylib in Frameworks */,
 				3158C5A418CDBB94006BD5E3 /* Security.framework in Frameworks */,
 				31BF6ED918C824FF00D100B8 /* CoreData.framework in Frameworks */,
-				31B55E0D18C0251700BC5400 /* MessageUI.framework in Frameworks */,
 				310C0D6C18B735A900826FE6 /* Social.framework in Frameworks */,
 				31FCA209188CFD17005494AE /* CoreGraphics.framework in Frameworks */,
 				31FCA20B188CFD17005494AE /* UIKit.framework in Frameworks */,

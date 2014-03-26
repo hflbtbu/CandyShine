@@ -171,12 +171,13 @@
         _sleepPathView.sleepDataArray = addStepArray;
         
         NSTimeInterval totalTime = [lastItem.date timeIntervalSinceDate:firstItem.date];
-        NSInteger deepTime = deepCount/(CGFloat)(addStepArray.count - 4)*totalTime;
+        NSTimeInterval deepTime = deepCount/(CGFloat)(addStepArray.count - 4)*totalTime;
         hour = deepTime/3600;
         NSInteger minure = (deepTime - hour*3600)/60;
         _depthSleepLB.text = [NSString stringWithFormat:@"深度睡眠:%d小时%d分钟",hour,minure];
+        
         hour = (totalTime - deepTime)/3600;
-        minure = ((totalTime - deepTime) - hour*3600)/60;
+        minure = (totalTime - deepTime - hour*3600)/60;
         _lightSleepTimeLB.text = [NSString stringWithFormat:@"深度睡眠:%d小时%d分钟",hour,minure];
         
         NSInteger effect = deepCount/(CGFloat)(addStepArray.count - 4)*100;
