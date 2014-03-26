@@ -31,7 +31,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="tAB-tD-18f">
-                    <rect key="frame" x="142" y="44" width="27" height="13"/>
+                    <rect key="frame" x="120" y="36" width="80" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" backgroundImage="intro_arrow_up">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,7 +41,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="qeA-hc-AKf">
-                    <rect key="frame" x="142" y="179" width="27" height="13"/>
+                    <rect key="frame" x="120" y="167" width="80" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal" backgroundImage="intro_arrow_down">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,7 +130,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" id="LTV-BT-vun" customClass="CWScrollNumView">
-                    <rect key="frame" x="20" y="78" width="280" height="81"/>
+                    <rect key="frame" x="20" y="87" width="280" height="81"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                 </view>
@@ -141,8 +141,8 @@
         </view>
     </objects>
     <resources>
-        <image name="intro_arrow_down" width="27" height="13"/>
-        <image name="intro_arrow_up" width="27" height="13"/>
+        <image name="intro_arrow_down" width="86" height="62"/>
+        <image name="intro_arrow_up" width="80" height="58"/>
         <image name="intro_run" width="69" height="68"/>
         <image name="intro_swim" width="68" height="68"/>
         <image name="intro_wark" width="69" height="68"/>
