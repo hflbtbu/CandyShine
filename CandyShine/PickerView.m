@@ -46,11 +46,23 @@
             _pickerView.delegate = self;
             [self addSubview:_pickerView];
             
-            _heightFloat = 0;
-            _heightInt = 0;
+            
+            NSInteger height = [[NSUserDefaults standardUserDefaults] integerForKey:kUserHeight];
+            _heightInt = height/100;
+            _heightFloat = height - _heightInt*100;
+            if (_pickerViewType == PickerViewHeight) {
+                [_pickerView selectRow:_heightInt inComponent:0 animated:NO];
+                [_pickerView selectRow:_heightFloat inComponent:1 animated:NO];
+            }
             
             _weightFloat = 0;
-            _weightInt = 40;
+            _weightInt = [[NSUserDefaults standardUserDefaults] integerForKey:kUserWeight];
+            if (_pickerViewType == PickerViewWeight) {
+                [_pickerView selectRow:_weightInt - 30 inComponent:0 animated:NO];
+            }
+            
+            
+            
             
         } else {
             _datePicker =[[UIDatePicker alloc] initWithFrame:CGRectMake(0, 44, self.width, 216)];
@@ -87,7 +99,7 @@
     if (_pickerViewType == PickerViewWeight) {
         [dic setObject:[NSNumber numberWithInteger:_weightInt] forKey:kPickerWeight];
     } else if (_pickerViewType == PickerViewHeight) {
-        [dic setObject:[NSNumber numberWithFloat:_heightInt + _heightFloat*0.01] forKey:kPickerHeight];
+        [dic setObject:[NSNumber numberWithInteger:_heightInt*100 + _heightFloat] forKey:kPickerHeight];
     } else {
         unsigned int flags = NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit | NSHourCalendarUnit | NSMinuteCalendarUnit;
         NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:[_datePicker date]];
@@ -145,7 +157,7 @@
         if (component == 0) {
             return [NSString stringWithFormat:@"%d",row];
         } else if (component == 1) {
-            return [NSString stringWithFormat:@".%d",row];
+            return [NSString stringWithFormat:@".%02d",row];
         } else {
             return @"米";
         }
@@ -157,7 +169,7 @@
         }
     } else if (_pickerViewType == PickerViewWeight) {
         if (component == 0) {
-            return [NSString stringWithFormat:@"%d",row + 40];
+            return [NSString stringWithFormat:@"%d",row + 30];
         } else if (component == 1) {
             return @"公斤";
         } else {
@@ -178,7 +190,7 @@
         }
     } else if (_pickerViewType == PickerViewWeight) {
         if (component == 0) {
-            _weightInt = row + 40;
+            _weightInt = row + 30;
         } else {
             _weightFloat = row;
         }

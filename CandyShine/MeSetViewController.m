@@ -223,8 +223,8 @@
         } else {
             if (indexPath.row == 1) {
                 cell.textLabel.text = @"身高";
-                CGFloat heitht = [[NSUserDefaults standardUserDefaults] floatForKey:kUserHeight];
-                cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2fm",heitht];
+                NSInteger height = [[NSUserDefaults standardUserDefaults] integerForKey:kUserHeight];
+                cell.detailTextLabel.text = [NSString stringWithFormat:@"%.2fm",height*0.01];
             } else if (indexPath.row == 2) {
                 cell.textLabel.text = @"体重";
                 NSInteger weitht = [[NSUserDefaults standardUserDefaults] integerForKey:kUserWeight];
@@ -341,8 +341,8 @@
 - (void)pickerViewDidSelectedWithVlaue:(NSDictionary *)dic {
     NSString *str;
     if (_pickerType == PickerViewHeight) {
-        str = [NSString stringWithFormat:@"%.2fm",[[dic objectForKey:kPickerHeight] floatValue]];
-        [[NSUserDefaults standardUserDefaults] setFloat:[[dic objectForKey:kPickerHeight] floatValue] forKey:kUserHeight];
+        str = [NSString stringWithFormat:@"%.2fm",0.01*[[dic objectForKey:kPickerHeight] integerValue]];
+        [[NSUserDefaults standardUserDefaults] setInteger:[[dic objectForKey:kPickerHeight] integerValue] forKey:kUserHeight];
     } else if (_pickerType == PickerViewWeight) {
         str = [NSString stringWithFormat:@"%dkg",[[dic objectForKey:kPickerWeight] integerValue]];
         [[NSUserDefaults standardUserDefaults] setInteger:[[dic objectForKey:kPickerWeight] floatValue] forKey:kUserWeight];

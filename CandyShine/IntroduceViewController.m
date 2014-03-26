@@ -207,11 +207,12 @@
     _heightScrollView.alpha = 0.0;
     [self.view addSubview:_heightScrollView];
     
-    CGFloat height = [[NSUserDefaults standardUserDefaults] floatForKey:kUserHeight];
+    NSInteger height = [[NSUserDefaults standardUserDefaults] integerForKey:kUserHeight];
     if (height == 0) {
-        height = 1.70;
+        height = 170;
+        [[NSUserDefaults standardUserDefaults] setInteger:height forKey:kUserHeight];
     }
-    CGFloat offsetY = (2.30 - height)*800;
+    CGFloat offsetY = (2.30 - height*0.01)*800;
     CGPoint offset = CGPointMake(0, offsetY);
     _heightScrollView.contentOffset = offset;
     
@@ -224,7 +225,7 @@
     
     _heightLB = [[DetailTextView alloc] initWithFrame:CGRectMake((self.view.width - 100)/2, 350 + self.offsetY , 100, 40)]
     ;
-    NSString *str = [NSString stringWithFormat:@"%.2fm",height];
+    NSString *str = [NSString stringWithFormat:@"%.2fm",height*0.01];
     [_heightLB setText:str WithFont:[UIFont systemFontOfSize:30] AndColor:kContentHighlightColor];
     [_heightLB setKeyWordTextArray:@[@"m"] WithFont:[UIFont systemFontOfSize:17] AndColor:kContentNormalColor];
     _heightLB.textAlignment = NSTextAlignmentCenter;
@@ -258,6 +259,7 @@
     NSInteger weight = [[NSUserDefaults standardUserDefaults] integerForKey:kUserWeight];
     if (weight == 0) {
         weight = 60;
+        [[NSUserDefaults standardUserDefaults] setInteger:weight forKey:kUserWeight];
     }
     CGFloat offsetX = (weight - 30)*8;
     CGPoint offset = CGPointMake(offsetX, 0);
@@ -319,7 +321,7 @@
         [[NSUserDefaults standardUserDefaults] setInteger:weight forKey:kUserWeight];
     } else {
         CGFloat height = (2.30 - (scrollView.contentOffset.y)/80 * 0.1);
-        [[NSUserDefaults standardUserDefaults] setFloat:height forKey:kUserHeight];
+        [[NSUserDefaults standardUserDefaults] setInteger:(NSInteger)height*100 forKey:kUserHeight];
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
@@ -331,7 +333,7 @@
             [[NSUserDefaults standardUserDefaults] setInteger:weight forKey:kUserWeight];
         } else {
             CGFloat height = (2.30 - (scrollView.contentOffset.y)/80 * 0.1);
-            [[NSUserDefaults standardUserDefaults] setFloat:height forKey:kUserHeight];
+            [[NSUserDefaults standardUserDefaults] setInteger:height*100 forKey:kUserHeight];
         }
         [[NSUserDefaults standardUserDefaults] synchronize];
     }

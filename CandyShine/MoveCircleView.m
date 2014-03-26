@@ -165,7 +165,7 @@
         NSInteger gogal = [CSDataManager sharedInstace].userGogal;
         NSString *finishPersent;
         CGFloat percent = _runNumbers/(gogal*1.0)*100;
-        finishPersent = [NSString stringWithFormat:@"%.1f%%",percent];
+        finishPersent = [NSString stringWithFormat:@"%d",_runNumbers];
         _runNumberLB.text = finishPersent;
         //[self updateWithProgress:_runNumbers/(gogal*1.0)];
         self.progress = _runNumbers/(gogal*1.0);
