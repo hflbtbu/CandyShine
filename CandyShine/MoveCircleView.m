@@ -140,7 +140,9 @@
             [self synchronizationDeviceData];
         } else {
             if (![CSDataManager sharedInstace].isDongingConnect) {
+                [MBProgressHUDManager showIndicatorWithTitle:@"正在连接设备" inView:self];
                 [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
+                    [MBProgressHUDManager hideMBProgressInView:self];
                     if (state == CSConnectfound) {
                         [self synchronizationDeviceData];
                     } else {
