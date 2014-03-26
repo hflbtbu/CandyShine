@@ -145,7 +145,7 @@
                     [MBProgressHUDManager hideMBProgressInView:self];
                     if (state == CSConnectfound) {
                         [self synchronizationDeviceData];
-                    } else {
+                    } else if (state == CSConnectUnfound) {
                         [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
                     }
                 }];

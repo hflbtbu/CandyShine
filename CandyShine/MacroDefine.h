@@ -42,6 +42,16 @@
 
 #define kUserDeviceID       @"UserDeviceID"
 
-#define kAutoSync       @"kAutoSync"
+#define kAutoSync           @"kAutoSync"
+
+
+#define kSleepDeepValue     10
+#define kSleepMaxValue      50
+#define kSleep
+
+#define kSleepAwakeLineHeight       20
+#define kSLeepDeepLineHeight        120
+#define kSleepAwakeLineHeightCap    10
+#define kSLeepDeepLineHeight        30
 
 #endif

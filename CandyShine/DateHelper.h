@@ -48,6 +48,6 @@
 
 + (NSDate *)getDateAfterDate:(NSDate *)date hour:(NSInteger)hour;
 
-+ (NSInteger)getHourWithDate:(NSDate *)date;
++ (NSInteger)getHourWithDate:(NSDate *)date isBefor:(BOOL)isBefor;
 
 @end

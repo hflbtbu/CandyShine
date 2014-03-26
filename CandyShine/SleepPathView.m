@@ -45,7 +45,7 @@
     // Drawing code
     
     [super drawRect:rect];
-    if (_sleepDataArray.count >= 4) {
+    if (_sleepDataArray.count >= 12) {
         CGContextRef context = UIGraphicsGetCurrentContext();
 
         
@@ -70,7 +70,7 @@
             NSInteger value = [item.value integerValue];
             minY = value < minY ? value : minY;
             maxY = value > maxY ? value : maxY;
-            NSLog(@"%d",value);
+            //NSLog(@"%d",value);
         }
 
         if (maxY <= 0) {
@@ -194,15 +194,15 @@
         CGContextStrokePath(context);
         
         
-        item = [_sleepDataArray objectAtIndex:_sleepPosition];
-        CGContextAddArc(context, _sleepPosition*step + SleepPathViewLeftCap, self.height -SleepPathViewBottomCap - offset-[item.value integerValue]*maxIndex, 3.5, 0, M_2_PI, YES);
-        CGContextSetFillColorWithColor(context, [[UIColor orangeColor] CGColor]);
-        CGContextEOFillPath(context);
-        
-        item = [_sleepDataArray objectAtIndex:_sleepEndPosition];
-        CGContextAddArc(context, _sleepEndPosition*step + SleepPathViewLeftCap, self.height -SleepPathViewBottomCap - offset-[item.value integerValue]*maxIndex, 3.5, 0, M_2_PI, YES);
-        CGContextSetFillColorWithColor(context, [[UIColor orangeColor] CGColor]);
-        CGContextEOFillPath(context);
+//        item = [_sleepDataArray objectAtIndex:_sleepPosition];
+//        CGContextAddArc(context, _sleepPosition*step + SleepPathViewLeftCap, self.height -SleepPathViewBottomCap - offset-[item.value integerValue]*maxIndex, 3.5, 0, M_2_PI, YES);
+//        CGContextSetFillColorWithColor(context, [[UIColor orangeColor] CGColor]);
+//        CGContextEOFillPath(context);
+//        
+//        item = [_sleepDataArray objectAtIndex:_sleepEndPosition];
+//        CGContextAddArc(context, _sleepEndPosition*step + SleepPathViewLeftCap, self.height -SleepPathViewBottomCap - offset-[item.value integerValue]*maxIndex, 3.5, 0, M_2_PI, YES);
+//        CGContextSetFillColorWithColor(context, [[UIColor orangeColor] CGColor]);
+//        CGContextEOFillPath(context);
         
         
         
@@ -212,17 +212,22 @@
         CGContextSetLineWidth(context, 0.5);
         CGContextSetStrokeColorWithColor(context, [[UIColor grayColor] CGColor]);
         
-        CGContextMoveToPoint(context, SleepPathViewLeftCap, height/4);
-        CGContextAddLineToPoint(context, self.width - SleepPathViewRightCap, height/4);
+        CGContextMoveToPoint(context, SleepPathViewLeftCap, self.height -SleepPathViewBottomCap - offset- _top*maxIndex);
+        CGContextAddLineToPoint(context, self.width - SleepPathViewRightCap, self.height -SleepPathViewBottomCap - offset- _top*maxIndex);
         CGContextStrokePath(context);
         
-        CGContextMoveToPoint(context, SleepPathViewLeftCap, height*2/4);
-        CGContextAddLineToPoint(context, self.width - SleepPathViewRightCap, height*2/4);
+//        CGContextMoveToPoint(context, SleepPathViewLeftCap, height*2/4);
+//        CGContextAddLineToPoint(context, self.width - SleepPathViewRightCap, height*2/4);
+//        CGContextStrokePath(context);
+        
+        CGContextMoveToPoint(context, SleepPathViewLeftCap, self.height -SleepPathViewBottomCap - offset- _bottom*maxIndex);
+        CGContextAddLineToPoint(context, self.width - SleepPathViewRightCap, self.height -SleepPathViewBottomCap - offset- _bottom*maxIndex);
         CGContextStrokePath(context);
         
-        CGContextMoveToPoint(context, SleepPathViewLeftCap, height*3/4);
-        CGContextAddLineToPoint(context, self.width - SleepPathViewRightCap, height*3/4);
-        CGContextStrokePath(context);
+        
+        _sleepStateLB1.center = CGPointMake(SleepPathViewLeftCap - _sleepStateLB1.width/2 - StateTextPathCap, self.height -SleepPathViewBottomCap - offset- _top*maxIndex);
+        _sleepStateLB2.center = CGPointMake(SleepPathViewLeftCap - _sleepStateLB2.width/2 - StateTextPathCap, self.height -SleepPathViewBottomCap - offset- (_top+_bottom)*0.5*maxIndex);
+        _sleepStateLB3.center = CGPointMake(SleepPathViewLeftCap - _sleepStateLB3.width/2 - StateTextPathCap, self.height -SleepPathViewBottomCap - offset- _bottom*maxIndex);
     }
 }
 

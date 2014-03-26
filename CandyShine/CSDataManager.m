@@ -311,12 +311,14 @@
     if([self startConnectionHead])
     {
         _isDongingConnect = YES;
-        _timer =  [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scanDeviceTimeoutHandler:) userInfo:nil repeats:NO];
+        _timer =  [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(scanDeviceTimeoutHandler:) userInfo:nil repeats:NO];
         
         [_ble4Util stopScanBle];
         
         [_ble4Util startScanBle];
     } else {
+        _isConneting = NO;
+        _isDongingConnect = NO;
         _connectStateBlock(CSConnectPowerOff);
     }
 }
@@ -326,6 +328,7 @@
     _timer = nil;
     [_ble4Util stopScanBle];
     _isDongingConnect = NO;
+    _isConneting = NO;
     _connectStateBlock(CSConnectUnfound);
 }
 
@@ -436,6 +439,7 @@
 
 - (void)ble4UtilDidDisconnect:(id)ble4Util withUDID:(NSString *)udid {
     _isConneting = NO;
+    _isDongingConnect = NO;
     if (_isReading) {
         _isReading = NO;
         _readDataBlock();
@@ -445,6 +449,7 @@
 - (void)ble4Util:(id)ble4Util didUpdateState:(CBCentralManagerState)state {
     if (state == CBCentralManagerStatePoweredOff) {
         _isConneting = NO;
+        _isDongingConnect = NO;
         if (_isReading) {
             _isReading = NO;
             _readDataBlock();
@@ -464,6 +469,8 @@
         _readDataBlock = block;
         _isReading = YES;
         [_ble4Util cmdReadDataWithUDID:_udid];
+    } else {
+        _isReading = NO;
     }
 }
 

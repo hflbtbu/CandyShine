@@ -27,6 +27,10 @@
 
 @property (nonatomic, retain) NSDate *toDate;
 
+@property (nonatomic, assign) CGFloat top;
+
+@property (nonatomic, assign) CGFloat bottom;
+
 - (void)refresh;
 
 @end

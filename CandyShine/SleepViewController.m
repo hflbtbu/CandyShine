@@ -11,6 +11,7 @@
 #import "FriendCell.h"
 #import "Sleep.h"
 #import "AddFriendViewController.h"
+#import "LookDataViewController.h"
 
 @interface SleepViewController () <UITableViewDelegate,UITableViewDataSource>
 {
@@ -74,7 +75,7 @@
     if (_tableView == tableView) {
         return 5;
     } else {
-        return _friendArray.count + 1;
+        return _friendArray.count;
     }
 }
 
@@ -156,6 +157,13 @@
 - (void)initNavigationItem {
     [super initNavigationItem];
     self.navigationItem.title = [DateHelper getDayStringWith:0];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"数据" style:UIBarButtonItemStyleBordered target:self action:@selector(lookData)];
+}
+
+- (void) lookData {
+    LookDataViewController *data = [[LookDataViewController alloc] initWithNibName:@"LookDataViewController" bundle:nil];
+    data.currentPage = _currentPage;
+    [self.navigationController pushViewController:data animated:YES];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {

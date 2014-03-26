@@ -166,10 +166,11 @@
     return [NSDate dateWithTimeInterval:hour*3600 sinceDate:datea];
 }
 
-+ (NSInteger)getHourWithDate:(NSDate *)date {
++ (NSInteger)getHourWithDate:(NSDate *)date isBefor:(BOOL)isBefor {
     unsigned int flags = NSHourCalendarUnit;
     NSDateComponents *components = [[NSCalendar currentCalendar] components:flags fromDate:date];
-    return components.hour;
+    NSInteger hour = isBefor ? components.hour : components.hour + 1;
+    return hour;
 }
 
 
