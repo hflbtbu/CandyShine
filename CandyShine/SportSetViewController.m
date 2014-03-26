@@ -78,14 +78,18 @@
 - (void)saveUserGogalData {
     if ([CSDataManager sharedInstace].isConneting) {
         [self setSportPlan];
-    } else {
-        [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
-            if (state == CSConnectfound) {
-                [self setSportPlan];
-            } else {
-                [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
-            }
-        }];
+    }else {
+        if (![CSDataManager sharedInstace].isDongingConnect) {
+            [MBProgressHUDManager showIndicatorWithTitle:@"正在连接设备" inView:self.view];
+            [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
+                [MBProgressHUDManager hideMBProgressInView:self.view];
+                if (state == CSConnectfound) {
+                    [self setSportPlan];
+                } else if (state == CSConnectUnfound) {
+                    [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
+                }
+            }];
+        }
     }
 }
 

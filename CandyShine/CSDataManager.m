@@ -507,7 +507,7 @@
                 }
                 else if(sportsDataType==BleSportsDataTypeSleep)
                 {
-                    NSLog(@"====sleep data==== \n%d",[[dataList.listData objectAtIndex:j] integerValue]);
+                    //NSLog(@"====sleep data==== \n%d",[[dataList.listData objectAtIndex:j] integerValue]);
                     [self insertSportItemWithBlock:^(Sport *item) {
                         item.date = [NSDate dateWithTimeInterval:j*300 sinceDate:startDate];
                         item.value = [NSNumber numberWithInteger:0];

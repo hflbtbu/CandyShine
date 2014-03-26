@@ -211,13 +211,17 @@
     if ([CSDataManager sharedInstace].isConneting) {
         [self setSleepTimeWithHour:hour minute:minute];
     } else {
-        [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
-            if (state == CSConnectfound) {
-                [self setSleepTimeWithHour:hour minute:minute];
-            } else {
-                [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
-            }
-        }];
+        if (![CSDataManager sharedInstace].isDongingConnect) {
+            [MBProgressHUDManager showIndicatorWithTitle:@"正在连接设备" inView:self.view];
+            [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
+                [MBProgressHUDManager hideMBProgressInView:self.view];
+                if (state == CSConnectfound) {
+                    [self setSleepTimeWithHour:hour minute:minute];
+                } else if (state == CSConnectUnfound) {
+                    [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
+                }
+            }];
+        }
     }
 }
 

@@ -341,24 +341,29 @@
             [MBProgressHUDManager showTextWithTitle:@"设置喝水提醒成功" inView:[[UIApplication sharedApplication] keyWindow]];
         }];
     } else {
-        [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
-            if (state == CSConnectfound) {
-                [[CSDataManager sharedInstace] setDrinkWaterInterval:_waterWarmManager.timeInterval block:^{
+        if (![CSDataManager sharedInstace].isDongingConnect) {
+            [MBProgressHUDManager showIndicatorWithTitle:@"正在连接设备" inView:self.view];
+            [[CSDataManager sharedInstace] connectDeviceWithBlock:^(CSConnectState state) {
+                [MBProgressHUDManager hideMBProgressInView:self.view];
+                if (state == CSConnectfound) {
+                    [[CSDataManager sharedInstace] setDrinkWaterInterval:_waterWarmManager.timeInterval block:^{
+                        _isSaved = NO;
+                        _tempTimeInterVal = _waterWarmManager.timeInterval;
+                        [MBProgressHUDManager showTextWithTitle:@"设置喝水提醒成功" inView:[[UIApplication sharedApplication] keyWindow]];
+                    }];
+                } else if (state == CSConnectUnfound) {
                     _isSaved = NO;
-                    _tempTimeInterVal = _waterWarmManager.timeInterval;
-                    [MBProgressHUDManager showTextWithTitle:@"设置喝水提醒成功" inView:[[UIApplication sharedApplication] keyWindow]];
-                }];
-            } else if (state == CSConnectUnfound) {
-                _isSaved = NO;
-                _waterWarmManager.timeInterval = _tempTimeInterVal;
-                [_tableView reloadData];
-                [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
-            } else {
-                _isSaved = NO;
-                _waterWarmManager.timeInterval = _tempTimeInterVal;
-                [_tableView reloadData];
-            }
-        }];
+                    _waterWarmManager.timeInterval = _tempTimeInterVal;
+                    [_tableView reloadData];
+                    [MBProgressHUDManager showTextWithTitle:@"未发现设备" inView:[[UIApplication sharedApplication] keyWindow]];
+                } else {
+                    _isSaved = NO;
+                    _waterWarmManager.timeInterval = _tempTimeInterVal;
+                    [_tableView reloadData];
+                }
+            }];
+
+        }
     }
 }
 
