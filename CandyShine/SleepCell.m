@@ -118,9 +118,9 @@
             sleepShow.value = sleep.value;
             [array addObject:sleepShow];
             
-            if ([sleep.value integerValue] < 40) {
+            if ([sleep.value integerValue] < 4) {
                 deepSleep++;
-            } else if ([sleep.value integerValue] > 80) {
+            } else if ([sleep.value integerValue] > 10) {
                 awake++;
             } else {
                 lightSleep++;

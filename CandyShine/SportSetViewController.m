@@ -51,7 +51,7 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationController.hidesBottomBarWhenPushed = YES;
     _currentSportGoal = [[NSUserDefaults standardUserDefaults] integerForKey:kUserGogal];
-    _goalLB.text = [NSString stringWithFormat:@"当前状况: %d/天",_currentSportGoal];
+    _goalLB.text = [NSString stringWithFormat:@"当前状况: %d步/天",_currentSportGoal];
     [_scrollNumView setNumber:_currentSportGoal];
     UIImage *image  = [[UIImage imageNamed:@"intro_bg"] resizableImageWithCapInsets:UIEdgeInsetsMake(5, 0, 0, 0)];
     _bgImageView.image = image;
@@ -95,7 +95,7 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         [CSDataManager sharedInstace].userGogal = _scrollNumView.number;
         [MBProgressHUDManager showTextWithTitle:@"设置运动计划成功" inView:[[UIApplication sharedApplication] keyWindow]];
-        _goalLB.text = [NSString stringWithFormat:@"当前状况: %d/天",_scrollNumView.number];
+        _goalLB.text = [NSString stringWithFormat:@"当前状况: %dbu/天",_scrollNumView.number];
         [[NSNotificationCenter defaultCenter] postNotificationName:kSetGogalFinishNotification object:nil];
     }];
 }

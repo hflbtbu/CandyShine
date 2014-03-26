@@ -90,6 +90,7 @@
     CWScrollDigitView *_digitView1;
     CWScrollDigitView *_digitView2;
     CWScrollDigitView *_digitView3;
+    CWScrollDigitView *_digitView4;
     
     BOOL _isAdd;
 }
@@ -108,8 +109,8 @@
 
 
 - (void)awakeFromNib {
-    CGFloat width = (self.width - 3*kSpaceBetweenDigitView)/4;
-    CGRect frame = CGRectMake(3*(width + kSpaceBetweenDigitView), 0, width, self.height);
+    CGFloat width = (self.width - 3*kSpaceBetweenDigitView)/5;
+    CGRect frame = CGRectMake(4*(width + kSpaceBetweenDigitView), 0, width, self.height);
     UIImageView *image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_bg_number"]];
     image.frame = frame;
     [self addSubview:image];
@@ -117,26 +118,33 @@
     _digitView0.delegate = self;
     [self addSubview:_digitView0];
     
-    frame =CGRectMake(2*(width + kSpaceBetweenDigitView), 0, width, self.height);
+    frame =CGRectMake(3*(width + kSpaceBetweenDigitView), 0, width, self.height);
     image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_bg_number"]];
     image.frame = frame;
     [self addSubview:image];
     _digitView1 = [[CWScrollDigitView alloc] initWithFrame:frame :NO];
     [self addSubview:_digitView1];
     
-    frame =CGRectMake(width + kSpaceBetweenDigitView, 0, width, self.height);
+    frame =CGRectMake(2*(width + kSpaceBetweenDigitView), 0, width, self.height);
     image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_bg_number"]];
     image.frame = frame;
     [self addSubview:image];
     _digitView2 = [[CWScrollDigitView alloc] initWithFrame:frame :NO];
     [self addSubview:_digitView2];
     
-    frame =CGRectMake(0, 0, width, self.height);
+    frame =CGRectMake((width + kSpaceBetweenDigitView), 0, width, self.height);
     image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_bg_number"]];
     image.frame = frame;
     [self addSubview:image];
     _digitView3 = [[CWScrollDigitView alloc] initWithFrame:frame :NO];
     [self addSubview:_digitView3];
+    
+    frame =CGRectMake(0, 0, width, self.height);
+    image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"intro_bg_number"]];
+    image.frame = frame;
+    [self addSubview:image];
+    _digitView4 = [[CWScrollDigitView alloc] initWithFrame:frame :NO];
+    [self addSubview:_digitView4];
     
 }
 
@@ -144,7 +152,7 @@
 - (void)scrollDigitViewCurrentNumber:(NSInteger)number {
     if (number >= 9 ) {
         [_digitView1 setNumber:0];
-        _number += _isAdd ? 100 : -100;
+        //_number += _isAdd ? 100 : -100;
         [self refreshNumbrLB];
     } else {
         [_digitView1 setNumber:number+1];
@@ -152,10 +160,12 @@
 }
 
 - (void)refreshNumbrLB {
-    NSInteger number3 = _number/1000;
-    NSInteger number2 = (_number - number3*1000)/100;
+    NSInteger number4= _number/10000;
+    NSInteger number3 = (_number - number4*10000)/1000;
+    NSInteger number2 = (_number - number4*10000 - number3*1000)/100;
     [_digitView2 setNumber:number2];
     [_digitView3 setNumber:number3];
+    [_digitView4 setNumber:number4];
 }
 
 - (void)setNumber:(NSInteger)number {
@@ -164,8 +174,9 @@
 }
 
 - (void)add {
-    if (_number < 9900) {
+    if (_number < 99900) {
         _isAdd = YES;
+        _number += _isAdd ? 100 : -100;
         [_digitView0 add];
     }
 }
@@ -173,6 +184,7 @@
 - (void)plus {
     if (_number > 100) {
         _isAdd =NO;
+        _number += _isAdd ? 100 : -100;
         [_digitView0 plus];
     }
 }
