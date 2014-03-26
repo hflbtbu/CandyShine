@@ -10,6 +10,7 @@
 #import "SleepCell.h"
 #import "FriendCell.h"
 #import "Sleep.h"
+#import "AddFriendViewController.h"
 
 @interface SleepViewController () <UITableViewDelegate,UITableViewDataSource>
 {
@@ -172,6 +173,17 @@
     _tableView.center = CGPointMake(self.view.width/2, self.view.height/2);
     
 }
+
+- (void)go {
+    if ([CSDataManager sharedInstace].isLogin) {
+        AddFriendViewController *vc = [[AddFriendViewController alloc] initWithNibName:@"AddFriendViewController" bundle:nil];
+        vc.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        [MBProgressHUDManager showTextWithTitle:@"请先登录" inView:self.view];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {
