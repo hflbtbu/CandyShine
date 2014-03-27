@@ -415,6 +415,7 @@
             break;
         case Ble4CallBackMarkSetSportsPlan:
             //_lblResponse.text=@"设置运动计划成功!";
+            [_ble4Util stopConnectionWithUDID:_udid];
             _callBackBlock();
             break;
         case Ble4CallBackMarkPairLovers:
@@ -425,10 +426,12 @@
             break;
         case Ble4CallBackMarkSetSleepTime:
             //_lblResponse.text=@"设置睡眠模式时间成功!";
+            [_ble4Util stopConnectionWithUDID:_udid];
             _callBackBlock();
             break;
         case Ble4CallBackMarkSetDrinkWaterInterval:
             //_lblResponse.text=@"设置喝水提示间隔时间成功!";
+            [_ble4Util stopConnectionWithUDID:_udid];
             _callBackBlock();
             break;
         default:
@@ -521,6 +524,7 @@
         }
         [self saveCoreData];
     }
+    [_ble4Util stopConnectionWithUDID:_udid];
     _isReading = NO;
     _readDataBlock();
     if (hasData) {
