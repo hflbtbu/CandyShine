@@ -166,16 +166,16 @@
     if (_currentPattern == DataPatternDay) {
         NSInteger gogal = [CSDataManager sharedInstace].userGogal;
         NSString *finishPersent;
-        CGFloat percent = _runNumbers/(gogal*1.0)*100;
+        //CGFloat percent = _runNumbers/(gogal*1.0)*100;
         finishPersent = [NSString stringWithFormat:@"%d",_runNumbers];
         _runNumberLB.text = finishPersent;
         //[self updateWithProgress:_runNumbers/(gogal*1.0)];
         self.progress = _runNumbers/(gogal*1.0);
         _gogalLB.text = [NSString stringWithFormat:@"目标 : %d步",gogal];
-        NSInteger calory = _runNumbers/30000.0 * 130;
-        [_calorieLB setText:[NSString stringWithFormat:@"已消耗 %d克 脂肪",calory] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x333333]];
-        [_calorieLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%d克",calory]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xff7f00]];
-        CGSize size = [[NSString stringWithFormat:@"已消耗 %d克 脂肪",calory] sizeWithFont:[UIFont systemFontOfSize:15]];
+        CGFloat calory = _runNumbers/30000.0;
+        [_calorieLB setText:[NSString stringWithFormat:@"已消耗 %.2f 大卡",calory] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0x333333]];
+        [_calorieLB setKeyWordTextArray:@[[NSString stringWithFormat:@"%.2f",calory]] WithFont:[UIFont systemFontOfSize:15] AndColor:[UIColor convertHexColorToUIColor:0xff7f00]];
+        CGSize size = [[NSString stringWithFormat:@"已消耗 %.2f 大卡",calory] sizeWithFont:[UIFont systemFontOfSize:15]];
         _calorieLB.frame = CGRectMake((self.width - size.width)/2, self.height/2 + 10, self.width, size.height);
     } else {
         

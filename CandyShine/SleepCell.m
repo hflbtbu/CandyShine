@@ -99,7 +99,7 @@
         
         NSMutableArray *addStepArray = [NSMutableArray arrayWithCapacity:0];
         NSInteger hour = [lastItem.date timeIntervalSinceDate:firstItem.date]/3600;
-        NSInteger addStep = 3;//[self getAddStepWith:hour];
+        NSInteger addStep = [self getAddStepWith:hour];
         NSInteger count = _sleepDataArray.count%addStep == 0 ? _sleepDataArray.count/addStep : _sleepDataArray.count/addStep + 1;
         for (int i = 0; i < count; i++) {
             NSInteger totalValue = 0;
@@ -318,6 +318,9 @@
             addStep = 4;
             break;
         case 9:
+            addStep = 5;
+            break;
+        case 10:
             addStep = 5;
             break;
         default:
