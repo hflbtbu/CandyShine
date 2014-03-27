@@ -158,8 +158,8 @@
 - (NSArray *)fetchSleepItemsByDay:(NSInteger)day {
     NSFetchRequest *fetchRequset = [[NSFetchRequest alloc] initWithEntityName:@"Sleep"];
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:YES];
-    NSDate *begain = [NSDate dateWithTimeInterval:[WaterWarmManager shared].sleepTime sinceDate:[DateHelper getDayBegainWith:day + 1]];
-    NSDate *end = [NSDate dateWithTimeInterval:[WaterWarmManager shared].sleepTime sinceDate:[DateHelper getDayBegainWith:day]];
+    NSDate *begain = [NSDate dateWithTimeInterval:-10*3600 sinceDate:[DateHelper getDayBegainWith:day]];
+    NSDate *end = [NSDate dateWithTimeInterval:14*3600 sinceDate:[DateHelper getDayBegainWith:day]];
     NSPredicate *predicate =[NSPredicate predicateWithFormat:@"date between {%@, %@}",begain,end];
     fetchRequset.sortDescriptors = @[sortDescriptor];
     fetchRequset.predicate = predicate;

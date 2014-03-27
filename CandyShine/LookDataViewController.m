@@ -81,11 +81,9 @@
 }
 
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
-    if (result == MFMailComposeResultSent) {
-        [self dismissViewControllerAnimated:YES completion:^{
+    [self dismissViewControllerAnimated:YES completion:^{
             [self back];
         }];
-    }
 }
 
 - (void)didReceiveMemoryWarning
