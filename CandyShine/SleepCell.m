@@ -99,13 +99,15 @@
         
         NSMutableArray *addStepArray = [NSMutableArray arrayWithCapacity:0];
         NSInteger hour = [lastItem.date timeIntervalSinceDate:firstItem.date]/3600;
-        NSInteger addStep = [self getAddStepWith:hour];
+        NSInteger addStep = 3;//[self getAddStepWith:hour];
         NSInteger count = _sleepDataArray.count%addStep == 0 ? _sleepDataArray.count/addStep : _sleepDataArray.count/addStep + 1;
-        for (int i = 0; i < count - 1; i++) {
+        for (int i = 0; i < count; i++) {
             NSInteger totalValue = 0;
             for (int j = 0; j < addStep; j++) {
-                Sleep *sleep = [_sleepDataArray objectAtIndex:i*addStep + j];
-                totalValue += [sleep.value integerValue];
+                if (i*addStep + j < _sleepDataArray.count) {
+                    Sleep *sleep = [_sleepDataArray objectAtIndex:i*addStep + j];
+                    totalValue += [sleep.value integerValue];
+                }
             }
             SleepShow *sleepShow = [[SleepShow alloc] init];
             sleepShow.value = [NSNumber numberWithInteger:totalValue];
@@ -123,11 +125,11 @@
         CGFloat lightValue1 = lightValue0 + (height - 3*top -bottom)/3;
         CGFloat lightValue2 = lightValue0 + (height - 3*top -bottom)*2/3;
         CGFloat lightValue3 = lightValue0 + (height - 3*top -bottom);
-    
+// 修改档位
         CGFloat deepY0 = 1;
-        CGFloat deepY1 = 6;
-        CGFloat lightY0 = 5;
-        CGFloat lightY1 = 10;
+        CGFloat deepY1 = 3;
+        CGFloat lightY0 = 4;
+        CGFloat lightY1 = 5;
         CGFloat lightY2 = 20;
         
         for (int i = 0; i < addStepArray.count; i++) {
@@ -178,7 +180,7 @@
         
         hour = (totalTime - deepTime)/3600;
         minure = (totalTime - deepTime - hour*3600)/60;
-        _lightSleepTimeLB.text = [NSString stringWithFormat:@"深度睡眠:%d小时%d分钟",hour,minure];
+        _lightSleepTimeLB.text = [NSString stringWithFormat:@"浅度睡眠:%d小时%d分钟",hour,minure];
         
         NSInteger effect = deepCount/(CGFloat)(addStepArray.count - 4)*100;
         _sleepEffectLB.text = [NSString stringWithFormat:@"睡眠质量:%d%%",effect];
