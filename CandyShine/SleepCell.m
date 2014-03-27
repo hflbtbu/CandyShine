@@ -90,7 +90,7 @@
 }
 
 - (void)analayzesleepData {
-    if (_sleepDataArray.count >= 12) {
+    if ([self verifyData]){
         Sleep *firstItem = [_sleepDataArray objectAtIndex:0];
         Sleep *lastItem = [_sleepDataArray lastObject];
         _sleepLB.text = [NSString stringWithFormat:@"入睡:%@",[DateHelper getTimeStringWithDate:firstItem.date]];
@@ -287,7 +287,7 @@
     } else {
         _sleepPathView.timeLB1.hidden = YES;
         _sleepPathView.timeLB5.hidden = YES;
-        _sleepPathView.sleepDataArray = _sleepDataArray;
+        _sleepPathView.sleepDataArray = nil;
         _sleepLB.text = @"入睡:XX";
         _getUpLB.text = @"起床:XX";
         _sleepTimeLB.text = @"睡眠时间:XX";
@@ -295,6 +295,22 @@
         _depthSleepLB.text = @"深度睡眠:XX";
         _lightSleepTimeLB.text = @"浅度睡眠:XX";
     }
+}
+
+- (BOOL) verifyData {
+    if (_sleepDataArray.count < 12) {
+        return NO;
+    } else {
+        NSInteger totalValue = 0;
+        for (int i = 0; i < _sleepDataArray.count - 10; i++) {
+            Sleep *sleep = [_sleepDataArray objectAtIndex:i];
+            totalValue += [sleep.value integerValue];
+        }
+        if (totalValue <= 2) {
+            return NO;
+        }
+    }
+    return YES;
 }
 
 - (NSInteger)getAddStepWith:(NSInteger)hour {
