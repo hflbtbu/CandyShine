@@ -60,7 +60,7 @@
                 _customeWarmTimeArray = [NSMutableArray arrayWithArray:[_warmTimeDic objectForKey:kCustomeWaterWarmTime]];
                 _timeInterval = [[_warmTimeDic objectForKey:kWarmInterval] integerValue];
                 _timeInterva = [[_warmTimeDic objectForKey:kWarmInterva] integerValue];
-                _getupTime = [[_warmTimeDic objectForKey:kGetupTime] integerValue];
+                _getupTime = 6*60*60;
                 _sleepTime = [[_warmTimeDic objectForKey:kSleepTime] integerValue];
                 
                 _warmTimeStateArray = [_warmTimeDic objectForKey:[DateHelper getDayStringWith:0]];
@@ -257,16 +257,16 @@
     _isOpenWarm = isOpenWarm;
     [[UIApplication sharedApplication] cancelAllLocalNotifications];
     if (_isOpenWarm) {
-//        if (!_isCustome) {
-//            for (int i = 0; i < [self warmTimeCount]; i++) {
-//                [self addLocalNotificationWith:_getupTime + i*_timeInterval];
-//            }
-//        } else {
-            for (NSInteger i = 0; i < [_customeWarmTimeArray count]; i++) {
-                NSInteger timeInterval =  [[[_customeWarmTimeArray objectAtIndex:i] objectForKey:kWarmTimeValue] integerValue];
-                [self addLocalNotificationWith:timeInterval];
+        //if (!_isCustome) {
+            for (int i = 0; i < [self warmTimeCount]; i++) {
+                [self addLocalNotificationWith:_getupTime + i*_timeInterval];
             }
-        //}
+//        } else {
+//            for (NSInteger i = 0; i < [_customeWarmTimeArray count]; i++) {
+//                NSInteger timeInterval =  [[[_customeWarmTimeArray objectAtIndex:i] objectForKey:kWarmTimeValue] integerValue];
+//                [self addLocalNotificationWith:timeInterval];
+//            }
+//        }
     }
 }
 
