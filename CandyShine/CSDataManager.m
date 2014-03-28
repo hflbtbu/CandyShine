@@ -353,15 +353,14 @@
 }
 
 -(void)ble4Util:(id)ble4Util didDiscoverPeripheralWithName:(NSString *)name andUDID:(NSString *)udid {
-    [_timer invalidate];
-    _timer = nil;
-    
     if (_udid == nil || _udid.length == 0) {
         _udid = udid;
         [[NSUserDefaults standardUserDefaults] setObject:_udid forKey:kUserDeviceID];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     if ([_udid isEqualToString:udid]) {
+    [_timer invalidate];
+    _timer = nil;
      [_ble4Util stopScanBle];
      [_ble4Util connectPeripheralWithUDID:_udid];
     }
@@ -442,7 +441,10 @@
 
 - (void)ble4UtilDidDisconnect:(id)ble4Util withUDID:(NSString *)udid {
     _isConneting = NO;
-    _isDongingConnect = NO;
+    if (_isDongingConnect) {
+        _isDongingConnect = NO;
+        _connectStateBlock(CSConnectUnfound);
+    }
     if (_isReading) {
         _isReading = NO;
         _readDataBlock();

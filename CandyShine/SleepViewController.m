@@ -192,6 +192,27 @@
     }
 }
 
+- (void)addNotification {
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addFriendDidFinishHandler) name:kAddFriendFinishNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginDidFinishHandler) name:kLoginFinishNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logoutDidFinishHandler) name:kLogoutFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(readDeviceDataFinishHandler:) name:kReadDeviceDataFinishNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setGoalFinishHandler) name:kSetGogalFinishNotification object:nil];
+}
+
+- (void)readDeviceDataFinishHandler:(NSNotification *)notification {
+    CGPoint offset = CGPointMake(0, _tableView.contentSize.height - self.view.frame.size.width);
+    _tableView.contentOffset = offset;
+    [_tableView reloadData];
+}
+
+- (void)dealloc {
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:kAddFriendFinishNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:kLoginFinishNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:kReadDeviceDataFinishNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:kSetGogalFinishNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self name:kLogoutFinishNotification object:nil];
+}
 
 - (void)didReceiveMemoryWarning
 {
