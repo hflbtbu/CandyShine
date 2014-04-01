@@ -45,4 +45,14 @@
 }
 */
 
+- (void)layoutSubviews {
+//    [super layoutSubviews];
+//    UIImage *image = _imageView.image;
+//    if (image.size.width < _imageView.width) {
+//        _imageView.frame = CGRectMake((self.width - image.size.width)/2, (self.height - image.size.height)/2, image.size.width, image.size.height);
+//        _imageView.layer.cornerRadius = image.size.width/2;
+//    }
+
+}
+
 @end

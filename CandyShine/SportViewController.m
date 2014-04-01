@@ -144,7 +144,7 @@
     _rightImage.hidden = YES;
     [self.view addSubview:_rightImage];
     
-    _menuView = [[MenuView alloc] initWithFrame:CGRectMake((self.view.width - 169.5)/2, 0, 169.5, 100.5)];
+    _menuView = [[MenuView alloc] initWithFrame:CGRectMake((self.view.width - 119.5)/2, 0, 119.5, 100.5)];
     _menuView.delegate = self;
     _menuView.hidden = YES;
     [self.view addSubview:_menuView];

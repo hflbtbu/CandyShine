@@ -97,16 +97,17 @@
     cell.scrollView.contentOffset = CGPointMake(0, 0);
     NSString *date = [DateHelper getYYMMDDString:indexPath.row];
     News *news = [_dataManager fetchNewsByDate:date];
-    if (news == nil) {
-        [self requestNewsWithDateIndex:indexPath.row];
-    } else {
-        
-        [cell.pictureImageView setImageWithURL:[NSURL URLWithString:news.image] placeholderImage:[UIImage imageNamed:@"news_placeholderImage"]];
-        cell.contentLB.text = news.content;
+//    if (news == nil) {
+//        [self requestNewsWithDateIndex:indexPath.row];
+//    } else {
+    
+        //[cell.pictureImageView setImageWithURL:[NSURL URLWithString:news.image] placeholderImage:[UIImage imageNamed:@"news_placeholderImage"]];
+        cell.pictureImageView.image = [UIImage imageNamed:@"news_placeholderImage"];
+        cell.contentLB.text = _contents[indexPath.row];
         cell.dayLB.text = [DateHelper getDayWithIndex:indexPath.row];
         cell.motheLB.text = [DateHelper getMothWithIndex:indexPath.row];
-        cell.authorLB.text = news.author;
-    }
+        cell.authorLB.text = @"CandyWearables";
+    //}
     cell.pageLB.text = [NSString stringWithFormat:@"VOL.%d",indexPath.row];
     return cell;
 }

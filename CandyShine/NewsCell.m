@@ -26,11 +26,14 @@
         
         UIView *view = [self viewWithTag:9999];
         
-        UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"news_line"]];
-        line.y = _pageLB.y - 5;
+        UIImage *image = [UIImage imageNamed:@"news_line"];
+        UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(15.5, _pageLB.y - 3, 287, 0.5)];
+        line.image = image;
         [view addSubview:line];
-        line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"news_line"]];
-        line.y = _pageLB.y + _pageLB.height + 5;
+        
+        image = [UIImage imageNamed:@"news_line"];
+        line = [[UIImageView alloc] initWithFrame:CGRectMake(15.5, _pageLB.y + _pageLB.height + 3, 287, 0.5)];
+        line.y = _pageLB.y + _pageLB.height + 3;
         [view addSubview:line];
     
         _contentLB.numberOfLines = 0;
@@ -48,11 +51,14 @@
     
     UIView *view = [self viewWithTag:9999];
     
-    UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
-    line.y = _pageLB.y - 5;
+    UIImage *image = [UIImage imageNamed:@"news_line"];
+    UIImageView *line = [[UIImageView alloc] initWithFrame:CGRectMake(15.5, _pageLB.y - 3, 287, 0.5)];
+    line.image = image;
     [view addSubview:line];
-    line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
-    line.y = _pageLB.y + _pageLB.height + 5;
+    
+    image = [UIImage imageNamed:@"news_line"];
+    line = [[UIImageView alloc] initWithFrame:CGRectMake(15.5, _pageLB.y + _pageLB.height + 3, 287, 0.5)];
+    line.image = image;
     [view addSubview:line];
 
     if (IsIOS7) {

@@ -136,9 +136,9 @@
 
 - (void)addchoiceSexView {
     UILabel *label = [[UILabel alloc] init];
-    label.font = [UIFont systemFontOfSize:18];
-    label.textColor = kContentNormalColor;
-    label.text = @"个人资料";
+    label.font = [UIFont systemFontOfSize:20];
+    label.textColor = [UIColor convertHexColorToUIColor:0x403c36];
+    label.text = @"请选择性别";
     CGSize size = [label.text sizeWithFont:label.font];
     label.frame = CGRectMake((self.view.width - size.width)/2, 15 + self.offsetY, size.width, size.height);
     label.tag = IntorViewTag;
@@ -153,7 +153,7 @@
     label.frame = CGRectMake((self.view.width - size.width)/2, 41 + self.offsetY, size.width, size.height);
     label.tag = IntorViewTag;
     label.alpha = 0.0;
-    [self.view addSubview:label];
+    //[self.view addSubview:label];
     
     UIButton *maleButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *bgImage = [UIImage imageNamed:@"intro_sex_male"];
@@ -187,8 +187,18 @@
 }
 
 - (void)addHeightView {
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont systemFontOfSize:20];
+    label.textColor = [UIColor convertHexColorToUIColor:0x403c36];
+    label.text = @"请选择身高";
+    CGSize size = [label.text sizeWithFont:label.font];
+    label.frame = CGRectMake((self.view.width - size.width)/2, 15 + self.offsetY, size.width, size.height);
+    label.tag = IntorViewTag;
+    label.alpha = 0.0;
+    [self.view addSubview:label];
+    
     UIImage *image = [UIImage imageNamed:_isMale ? @"intro_male" : @"intro_female"];
-    UIImageView *peopleImagView = [[UIImageView alloc] initWithFrame:CGRectMake(50, 31 + self.offsetY, image.size.width, image.size.height)];
+    UIImageView *peopleImagView = [[UIImageView alloc] initWithFrame:CGRectMake(50, 50 + self.offsetY, image.size.width, image.size.height)];
     peopleImagView.image = image;
     peopleImagView.alpha = 0.0;
     peopleImagView.tag = IntorViewTag;
@@ -197,7 +207,7 @@
     image  = [UIImage imageNamed:@"intro_height"];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, image.size.width, image.size.height)];
     imageView.image = image;
-    _heightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.view.width - image.size.width - 10, 31 + self.offsetY, image.size.width,300)];
+    _heightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(self.view.width - image.size.width - 10, 50 + self.offsetY, image.size.width,300)];
     _heightScrollView.contentSize = CGSizeMake(image.size.width, image.size.height + 160);
     _heightScrollView.showsHorizontalScrollIndicator = NO;
     _heightScrollView.showsVerticalScrollIndicator = NO;
@@ -223,7 +233,7 @@
     imageView.alpha = 0.0;
     [self.view addSubview:imageView];
     
-    _heightLB = [[DetailTextView alloc] initWithFrame:CGRectMake((self.view.width - 100)/2, 350 + self.offsetY , 100, 40)]
+    _heightLB = [[DetailTextView alloc] initWithFrame:CGRectMake((self.view.width - 100)/2, 370 + self.offsetY , 100, 40)]
     ;
     NSString *str = [NSString stringWithFormat:@"%.2fm",height*0.01];
     [_heightLB setText:str WithFont:[UIFont systemFontOfSize:30] AndColor:kContentHighlightColor];
@@ -236,8 +246,18 @@
 }
 
 - (void)addWeightView {
+    UILabel *label = [[UILabel alloc] init];
+    label.font = [UIFont systemFontOfSize:20];
+    label.textColor = [UIColor convertHexColorToUIColor:0x403c36];
+    label.text = @"请选体重";
+    CGSize size = [label.text sizeWithFont:label.font];
+    label.frame = CGRectMake((self.view.width - size.width)/2, 15 + self.offsetY, size.width, size.height);
+    label.tag = IntorViewTag;
+    label.alpha = 0.0;
+    [self.view addSubview:label];
+    
     UIImage *image = [UIImage imageNamed:_isMale ? @"intro_male_small" : @"intro_female_small"];
-    UIImageView *peopleImagView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.width - image.size.width)/2, 3 + self.offsetY, image.size.width, image.size.height)];
+    UIImageView *peopleImagView = [[UIImageView alloc] initWithFrame:CGRectMake((self.view.width - image.size.width)/2, 53 + self.offsetY, image.size.width, image.size.height)];
     peopleImagView.image = image;
     peopleImagView.alpha = 0.0;
     peopleImagView.tag = IntorViewTag;
@@ -246,7 +266,7 @@
     image  = [UIImage imageNamed:@"intro_weight"];
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(150 - 70, 0, image.size.width, image.size.height)];
     imageView.image = image;
-    _weightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.width - 300)/2,340 + self.offsetY, 300,image.size.height)];
+    _weightScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake((self.view.width - 300)/2,370 + self.offsetY, 300,image.size.height)];
     _weightScrollView.contentSize = CGSizeMake(image.size.width + 80 + 79, image.size.height);
     _weightScrollView.showsHorizontalScrollIndicator = NO;
     _weightScrollView.showsVerticalScrollIndicator = NO;
@@ -265,7 +285,7 @@
     CGPoint offset = CGPointMake(offsetX, 0);
     _weightScrollView.contentOffset = offset;
 
-    _weightLB = [[DetailTextView alloc] initWithFrame:CGRectMake((self.view.width - 70)/2, 279 + self.offsetY, 70, 40)]
+    _weightLB = [[DetailTextView alloc] initWithFrame:CGRectMake((self.view.width - 70)/2, 320 + self.offsetY, 70, 40)]
     ;
     NSString *str = [NSString stringWithFormat:@"%dkg",weight];
     [_weightLB setText:str WithFont:[UIFont systemFontOfSize:30] AndColor:kContentHighlightColor];

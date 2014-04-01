@@ -33,10 +33,10 @@
         [self commenInit];
         
         UIImageView *line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
-        line.y = _sleepLB.y - 5;
+        line.y = _sleepLB.y - 10;
         [self.contentView addSubview:line];
         line = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"line_normal"]];
-        line.y = _depthSleepLB.y + _depthSleepLB.height + 5;
+        line.y = _depthSleepLB.y + _depthSleepLB.height + 10;
         [self.contentView addSubview:line];
 
         

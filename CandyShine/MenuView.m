@@ -10,7 +10,7 @@
 
 #define MenuViewArrowHeight 7
 
-#define MenuViewMoveImageGap 50
+#define MenuViewMoveImageGap 32
 
 @interface MenuView ()
 {
